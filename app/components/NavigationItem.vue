@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="to" class="flex items-center gap-2 text-sm font-medium rounded-lg px-3 py-2 transition-colors" :class="isActive ? activeClass : baseClass">
+  <NuxtLink :to="to" @click="sidebar.closeMobile()" class="flex items-center gap-2 text-sm font-medium rounded-lg px-3 py-2 transition-colors" :class="isActive ? activeClass : baseClass">
     <!-- Icon -->
     <span class="shrink-0">
       <slot name="icon" />
@@ -18,6 +18,7 @@ const props = defineProps<{
   exact?: boolean
 }>()
 
+const sidebar = useSidebar()
 const route = useRoute()
 
 /* =========================
