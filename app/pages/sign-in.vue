@@ -8,7 +8,7 @@
     :hint="$t('auth.confirm_email.spam_hint')"
   >
     <template #icon>
-       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
     </template>
   </BaseAlert>
 
@@ -25,8 +25,8 @@
       <div>
         <BaseInput v-model="email" :label="$t('auth.common.email')" type="email" placeholder="you@example.com" :error="emailError" />
 
-        <p v-if="emailDirty && !isEmailValid" class="text-sm text-red-500 dark:text-red-400 mt-2">
-          {{ $t('auth.errors.email_invalid') }}
+        <p v-if="emailError" class="text-sm text-red-500 dark:text-red-400 mt-2">
+          {{ emailRequiredError || $t('auth.errors.email_invalid') }}
         </p>
       </div>
 
@@ -35,7 +35,7 @@
         {{ $t('auth.sign_in.button') }}
       </BaseButton>
 
-      <!-- Error message -->
+      <!-- System error -->
       <p v-if="errorMsg" class="text-red-500 dark:text-red-400 text-sm text-center">
         {{ errorMsg }}
       </p>
@@ -62,26 +62,28 @@ const supabase = useSupabaseClient()
 
 const loading = ref(false)
 const errorMsg = ref('')
+const emailRequiredError = ref('')
 const showEmailAlert = ref(false)
 
 const emailDirty = computed(() =>
   email.value.length > 0
 )
 
-const emailError = computed(() =>
-  emailDirty.value && !isEmailValid.value
-)
-
 const isEmailValid = computed(() =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)
 )
 
+const emailError = computed(() =>
+  !!emailRequiredError.value || (emailDirty.value && !isEmailValid.value)
+)
+
 const signIn = async () => {
   errorMsg.value = ''
+  emailRequiredError.value = ''
 
   // REQUIRED VALIDATION
   if (!email.value) {
-    errorMsg.value = t('auth.errors.email_required')
+    emailRequiredError.value = t('auth.errors.email_required')
     return
   }
 
