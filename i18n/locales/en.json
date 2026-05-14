@@ -23,8 +23,12 @@
   "dashboard": {
     "title": "Dashboard"
   },
+  "contacts": {
+    "title": "Contacts"
+  },
   "nav": {
     "dashboard": "Dashboard",
+    "contacts": "Contacts",
     "settings": "Settings"
   },
   "settings": {

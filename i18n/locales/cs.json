@@ -23,8 +23,12 @@
   "dashboard": {
     "title": "Přehled"
   },
+  "contacts": {
+    "title": "Kontakty"
+  },
   "nav": {
     "dashboard": "Přehled",
+    "contacts": "Kontakty",
     "settings": "Nastavení"
   },
   "settings": {
