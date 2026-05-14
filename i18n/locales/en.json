@@ -1,15 +1,10 @@
 {
   "auth": {
     "common": {
-      "email": "Email",
       "back_home": "Back home",
       "logout": "Log out",
-      "waiting_for_login": "Signing you in…"
-    },
-    "confirm_email": {
-      "title": "Check your email",
-      "message": "We sent you a  link. Click it to complete your registration.",
-      "spam_hint": "If you don’t see the email, check your spam folder."
+      "waiting_for_login": "Přihlašujeme Vás...",
+      "loading": "Loading.."
     },
     "sign_in": {
       "title": "Sign in",
