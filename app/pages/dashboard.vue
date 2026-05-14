@@ -1,6 +1,7 @@
 <template>
   <div>
-    <ConnectGmailModal :open="true" />
+    <button type="button" @click="showConnectGmailModal = true">Show connect Gmail modal</button>
+    <ConnectGmailModal v-if="showConnectGmailModal" @close="showConnectGmailModal = false" />
   </div>
 </template>
 
@@ -14,6 +15,8 @@ useHead({
 definePageMeta({
   layout: 'dashboard',
 })
+
+const showConnectGmailModal = ref(false)
 </script>
 
 <style>

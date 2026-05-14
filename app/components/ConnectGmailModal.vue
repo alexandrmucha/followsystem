@@ -35,10 +35,6 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps<{
-  open: boolean
-}>()
-
 const emit = defineEmits<{
   (e: "close"): void
 }>()
@@ -50,4 +46,12 @@ const handleConnect = () => {
 const close = () => {
   emit("close")
 }
+
+onMounted(() => {
+  document.body.style.overflow = "hidden"
+})
+
+onUnmounted(() => {
+  document.body.style.overflow = ""
+})
 </script>
