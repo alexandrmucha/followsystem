@@ -23,10 +23,10 @@
 
       <!-- Email -->
       <div>
-        <BaseInput v-model="email" :label="$t('auth.common.email')" type="email" placeholder="you@example.com" :error="emailError" />
+        <BaseInput v-model="email" :label="$t('auth.common.email')" type="email" placeholder="you@example.com" :error="!!emailError" />
 
-        <p v-if="emailError" class="text-sm text-red-500 dark:text-red-400 mt-2">
-          {{ emailRequiredError || $t('auth.errors.email_invalid') }}
+        <p v-if="!!emailError" class="text-sm text-red-500 dark:text-red-400 mt-2">
+          {{ emailError }}
         </p>
       </div>
 
@@ -62,32 +62,33 @@ const supabase = useSupabaseClient()
 
 const loading = ref(false)
 const errorMsg = ref('')
-const emailRequiredError = ref('')
+const emailError = ref('')
 const showEmailAlert = ref(false)
-
-const emailDirty = computed(() =>
-  email.value.length > 0
-)
 
 const isEmailValid = computed(() =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)
 )
 
-const emailError = computed(() =>
-  !!emailRequiredError.value || (emailDirty.value && !isEmailValid.value)
-)
+watch(email, () => {
+  if (emailError.value) {
+    emailError.value = ''
+  }
+})
 
 const signIn = async () => {
   errorMsg.value = ''
-  emailRequiredError.value = ''
+  emailError.value = ''
 
-  // REQUIRED VALIDATION
+  // VALIDATION
   if (!email.value) {
-    emailRequiredError.value = t('auth.errors.email_required')
+    emailError.value = t('auth.errors.email_required')
     return
   }
 
-  if (!isEmailValid.value) return
+  if (!isEmailValid.value)  {
+    emailError.value = t('auth.errors.email_invalid')
+    return
+  }
 
   loading.value = true
 
