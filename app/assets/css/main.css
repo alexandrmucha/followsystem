@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+@import '@fontsource-variable/inter/wght.css';
+@import '@fontsource-variable/baloo-2/wght.css';
+
+body {
+  font-family: 'Inter Variable', sans-serif;
+}
+
+.font-baloo2 {
+  font-family: 'Baloo 2 Variable', system-ui;
+}

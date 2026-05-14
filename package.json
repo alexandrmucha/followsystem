@@ -1,0 +1,24 @@
+{
+  "name": "qrkviz2",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@fontsource-variable/baloo-2": "^5.2.7",
+    "@fontsource-variable/inter": "^5.2.8",
+    "@nuxtjs/color-mode": "^4.0.0",
+    "@nuxtjs/i18n": "^10.3.0",
+    "@nuxtjs/supabase": "^2.0.7",
+    "@tailwindcss/vite": "^4.3.0",
+    "nuxt": "^4.4.5",
+    "tailwindcss": "^4.3.0",
+    "vue": "^3.5.34",
+    "vue-router": "^5.0.6"
+  }
+}
