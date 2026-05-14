@@ -2,64 +2,22 @@
   "auth": {
     "common": {
       "email": "Email",
-      "password": "Password",
-      "confirm_password": "Confirm password",
       "back_home": "Back home",
-      "back_to_login": "Back to sign in",
-      "back_to_settings": "Back to settings",
       "logout": "Log out",
       "waiting_for_login": "Signing you in…"
     },
     "confirm_email": {
       "title": "Check your email",
-      "message": "We sent you a confirmation link. Click it to complete your registration.",
+      "message": "We sent you a  link. Click it to complete your registration.",
       "spam_hint": "If you don’t see the email, check your spam folder."
     },
     "login": {
       "title": "Sign in",
-      "no_account": "Don't have an account?",
-      "button": "Sign in",
-      "forgot_password": "Forgot password?",
-      "invalid_credentials": "Invalid login credentials",
-      "email_not_confirmed": "Email is not confirmed. Please check your inbox and confirm your registration."
-    },
-    "register": {
-      "title": "Sign up",
-      "already_have_account": "Already have an account?",
-      "button": "Sign up"
-    },
-    "password_rules": {
-      "min_length": "At least 8 characters",
-      "letters": "At least one uppercase and one lowercase letter",
-      "number": "At least one number"
+      "button": "Continue"
     },
     "errors": {
       "email_required": "Please enter your email",
-      "password_required": "Please enter your password",
-      "confirm_password_required": "Please confirm your password",
-      "email_invalid": "Invalid email address",
-      "passwords_not_match": "Passwords do not match"
-    },
-    "reset_password": {
-      "title": "Reset your password",
-      "description": "Enter your email address and we’ll send you a link to reset your password.",
-      "button": "Send reset link",
-      "success": {
-        "title": "Check your email",
-        "message": "We’ve sent you a link to reset your password. After clicking it, you’ll be able to set a new password.",
-        "spam_hint": "If you don’t see the email, check your spam folder."
-      }
-    },
-    "update_password": {
-      "title": "Update password",
-      "button": "Update password",
-      "success": {
-        "title": "Password changed",
-        "message": "Your password has been successfully changed."
-      },
-      "errors": {
-        "same_as_old": "New password should be different from the old password."
-      }
+      "email_invalid": "Invalid email address"
     }
   },
   "dashboard": {
@@ -71,7 +29,6 @@
   },
   "settings": {
     "title": "Settings",
-    "description": "Manage your account, security, and other settings.",
     "account": {
       "title": "Account",
       "email": "Email"
@@ -85,10 +42,6 @@
         "light": "Light",
         "dark": "Dark"
       }
-    },
-    "security": {
-      "title": "Security",
-      "change_password": "Change password"
     }
   },
   "sidebar": {

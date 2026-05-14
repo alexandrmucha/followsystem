@@ -2,64 +2,22 @@
   "auth": {
     "common": {
       "email": "E-mail",
-      "password": "Heslo",
-      "confirm_password": "Potvrzení hesla",
       "back_home": "Zpět na úvod",
       "logout": "Odhlásit se",
-      "back_to_login": "Zpět na přihlášení",
-      "back_to_settings": "Zpět do nastavení",
       "waiting_for_login": "Přihlašujeme Vás..."
     },
     "confirm_email": {
-      "title": "Zkontrolujte e-mail",
-      "message": "Odeslali jsme Vám potvrzovací odkaz. Klikněte na něj pro dokončení registrace.",
-      "spam_hint": "Pokud e-mail nevidíte, zkontrolujte složku spam."
+      "title": "Check your email",
+      "message": "We’ve sent you a sign-in link. Click it to complete your sign-in.",
+      "spam_hint": "If you don’t see the email, check your spam folder."
     },
-    "login": {
+    "sign_in": {
       "title": "Přihlášení",
-      "no_account": "Nemáte účet?",
-      "button": "Přihlásit se",
-      "forgot_password": "Zapomněli jste heslo?",
-      "invalid_credentials": "Neplatné přihlašovací údaje",
-      "email_not_confirmed": "E-mail není potvrzen. Zkontrolujte svou e-mailovou schránku a potvrďte registraci."
-    },
-    "register": {
-      "title": "Registrace",
-      "already_have_account": "Už máte účet?",
-      "button": "Registrovat se"
-    },
-    "password_rules": {
-      "min_length": "Alespoň 8 znaků",
-      "letters": "Alespoň jedno velké a jedno malé písmeno",
-      "number": "Alespoň jedno číslo"
+      "button": "Pokračovat"
     },
     "errors": {
       "email_required": "Zadejte e-mail",
-      "password_required": "Zadejte heslo",
-      "confirm_password_required": "Potvrďte heslo",
-      "email_invalid": "Neplatná e-mailová adresa",
-      "passwords_not_match": "Hesla se neshodují"
-    },
-    "reset_password": {
-      "title": "Obnovení hesla",
-      "description": "Zadejte svůj e-mail, na který Vám pošleme odkaz pro obnovení hesla.",
-      "button": "Odeslat odkaz pro obnovení",
-      "success": {
-        "title": "Zkontrolujte e-mail",
-        "message": "Odeslali jsme Vám odkaz pro obnovení hesla. Po kliknutí si nastavíte nové heslo.",
-        "spam_hint": "Pokud e-mail nevidíte, zkontrolujte složku spam."
-      }
-    },
-    "update_password": {
-      "title": "Nastavení nového hesla",
-      "button": "Nastavit heslo",
-      "success": {
-        "title": "Heslo bylo změněno",
-        "message": "Vaše heslo bylo úspěšně změněno."
-      },
-      "errors": {
-        "same_as_old": "Nové heslo musí být odlišné od starého hesla."
-      }
+      "email_invalid": "Neplatná e-mailová adresa"
     }
   },
   "dashboard": {
@@ -71,7 +29,6 @@
   },
   "settings": {
     "title": "Nastavení",
-    "description": "Správa účtu, zabezpečení a dalších nastavení.",
     "account": {
       "title": "Účet",
       "email": "E-mail"
@@ -85,10 +42,6 @@
         "light": "Světlé",
         "dark": "Tmavé"
       }
-    },
-    "security": {
-      "title": "Bezpečnost",
-      "change_password": "Změnit heslo"
     }
   },
   "sidebar": {

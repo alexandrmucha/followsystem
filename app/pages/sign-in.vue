@@ -15,11 +15,11 @@
   <AuthCard v-else>
     <!-- Title -->
     <h1 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-6">
-      {{ $t('auth.register.title') }}
+      {{ $t('auth.sign_in.title') }}
     </h1>
 
     <!-- Form -->
-    <form @submit.prevent="register" class="space-y-4">
+    <form @submit.prevent="signIn" class="space-y-4">
 
       <!-- Email -->
       <div>
@@ -30,35 +30,14 @@
         </p>
       </div>
 
-      <!-- Password -->
-      <PasswordValidationInput v-model="password" :label="$t('auth.common.password')" @validity="isPasswordValid = $event" />
-
-      <!-- Confirm password -->
-      <div>
-        <BaseInput v-model="confirmPassword" :label="$t('auth.common.confirm_password')" type="password" placeholder="••••••••" :error="confirmPasswordError" />
-
-        <p v-if="confirmPasswordError" class="text-sm text-red-500 dark:text-red-400 mt-2">
-          {{ $t('auth.errors.passwords_not_match') }}
-        </p>
-      </div>
-
       <!-- Button -->
       <BaseButton type="submit" :disabled="loading">
-        {{ $t('auth.register.button') }}
+        {{ $t('auth.sign_in.button') }}
       </BaseButton>
 
       <!-- Error message -->
       <p v-if="errorMsg" class="text-red-500 dark:text-red-400 text-sm text-center">
         {{ errorMsg }}
-      </p>
-
-      <!-- Auth switch link -->
-      <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-4 flex flex-col sm:flex-row items-center justify-center gap-2">
-        <span>{{ $t('auth.register.already_have_account') }}</span>
-
-        <NuxtLink to="/login" class="text-neutral-900 dark:text-neutral-100 font-medium hover:underline">
-          {{ $t('auth.login.button') }}
-        </NuxtLink>
       </p>
 
     </form>
@@ -69,7 +48,7 @@
 const { t } = useI18n()
 
 useHead({
-  title: t('auth.register.title')
+  title: t('auth.sign_in.title')
 })
 
 definePageMeta({
@@ -78,34 +57,12 @@ definePageMeta({
 })
 
 const email = ref('')
-const password = ref('')
-const confirmPassword = ref('')
-
-const isPasswordValid = ref(false)
 
 const supabase = useSupabaseClient()
 
 const loading = ref(false)
 const errorMsg = ref('')
 const showEmailAlert = ref(false)
-
-/* =========================
-   UI STATE
-========================= */
-
-const passwordDirty = computed(() =>
-  password.value.length > 0
-)
-
-const confirmPasswordDirty = computed(() =>
-  confirmPassword.value.length > 0
-)
-
-const confirmPasswordError = computed(() =>
-  confirmPasswordDirty.value &&
-  passwordDirty.value &&
-  !passwordsMatch.value
-)
 
 const emailDirty = computed(() =>
   email.value.length > 0
@@ -115,23 +72,11 @@ const emailError = computed(() =>
   emailDirty.value && !isEmailValid.value
 )
 
-/* =========================
-   PASSWORD VALIDATION
-========================= */
-
-const passwordsMatch = computed(() =>
-  confirmPassword.value === password.value
-)
-
 const isEmailValid = computed(() =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)
 )
 
-/* =========================
-   REGISTER
-========================= */
-
-const register = async () => {
+const signIn = async () => {
   errorMsg.value = ''
 
   // REQUIRED VALIDATION
@@ -140,25 +85,12 @@ const register = async () => {
     return
   }
 
-  if (!password.value) {
-    errorMsg.value = t('auth.errors.password_required')
-    return
-  }
-
-  if (!confirmPassword.value) {
-    errorMsg.value = t('auth.errors.confirm_password_required')
-    return
-  }
-
   if (!isEmailValid.value) return
-  if (!isPasswordValid.value) return
-  if (!passwordsMatch.value) return
 
   loading.value = true
 
-  const { error } = await supabase.auth.signUp({
+  const { error } = await supabase.auth.signInWithOtp({
     email: email.value,
-    password: password.value,
     options: {
       emailRedirectTo: 'http://localhost:3000/confirm',
     }
@@ -172,12 +104,6 @@ const register = async () => {
   }
 
   showEmailAlert.value = true
-
   email.value = ''
-  password.value = ''
-  confirmPassword.value = ''
 }
 </script>
-
-<style>
-</style>

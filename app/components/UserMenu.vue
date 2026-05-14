@@ -43,7 +43,7 @@ const buttonRef = ref<HTMLElement | null>(null)
 const logout = async () => {
   openDropdown.value = false
   await supabase.auth.signOut()
-  await navigateTo('/login')
+  await navigateTo('/sign-in')
 }
 
 /* =========================

@@ -1,26 +1,9 @@
 <template>
   <div class="max-w-2xl space-y-6">
     <!-- Title -->
-    <div>
-      <h1 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
-        {{ t('settings.title') }}
-      </h1>
-      <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">
-        {{ t('settings.description') }}
-      </p>
-    </div>
-
-    <!-- Password changed alert -->
-    <BaseAlert
-      v-if="showPasswordChanged"
-      type="success"
-      :title="$t('auth.update_password.success.title')"
-      :message="$t('auth.update_password.success.message')"
-    >
-      <template #icon>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key-round-icon lucide-key-round"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></svg>
-      </template>
-    </BaseAlert>
+    <h1 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+      {{ t('settings.title') }}
+    </h1>
 
     <!-- Account info -->
     <BaseCard>
@@ -62,17 +45,6 @@
       </div>
     </div>
   </BaseCard>
-
-  <!-- Security -->
-  <BaseCard>
-    <h2 class="text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-4">
-      {{ t('settings.security.title') }}
-    </h2>
-
-    <NuxtLink to="/update-password" class="inline-flex items-center text-sm text-neutral-900 dark:text-neutral-100 font-medium hover:underline cursor-pointer">
-      {{ t('settings.security.change_password') }}
-    </NuxtLink>
-  </BaseCard>
     
   </div>
 </template>
@@ -88,7 +60,6 @@ definePageMeta({
   layout: 'dashboard',
 })
 
-const supabase = useSupabaseClient()
 const user = useSupabaseUser()
 
 const { locale: currentLocale, setLocale, locales, } = useI18n()
@@ -98,19 +69,4 @@ const handleLocaleSwitch = (event: Event) => {
   // @ts-ignore
   setLocale(selectedLocale);
 };
-
-const route = useRoute()
-
-const showPasswordChanged = ref(false)
-
-onMounted(() => {
-  if (route.query.password_changed === 'true') {
-    showPasswordChanged.value = true
-
-    navigateTo('/settings', { replace: true })
-  }
-})
 </script>
-
-<style>
-</style>
