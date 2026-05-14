@@ -2,7 +2,7 @@
   <div>
     <!-- User button -->
     <button ref="buttonRef" @click="openDropdown = !openDropdown" type="button" class="flex space-x-2 items-center text-sm text-neutral-500 dark:text-neutral-400 cursor-pointer hover:text-neutral-700 dark:hover:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors px-3 py-2 rounded-lg">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-icon lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+     <img v-if="avatarUrl" :src="avatarUrl" class="w-6 h-6 rounded-full" alt="avatar" />
       <span>{{ user?.email }}</span>
     </button>
 
@@ -24,7 +24,11 @@
 <script lang="ts" setup>
 const supabase = useSupabaseClient()
 
-const { data: { user } } = await supabase.auth.getUser()
+const user = useSupabaseUser()
+
+const avatarUrl = computed(() =>
+  user.value?.user_metadata?.avatar_url || null
+)
 
 /* =========================
    STATE
@@ -72,7 +76,3 @@ onBeforeUnmount(() => {
   document.removeEventListener('click', handleClickOutside)
 })
 </script>
-
-<style>
-
-</style>
