@@ -11,7 +11,7 @@
       "message": "We sent you a  link. Click it to complete your registration.",
       "spam_hint": "If you don’t see the email, check your spam folder."
     },
-    "login": {
+    "sign_in": {
       "title": "Sign in",
       "button": "Continue"
     },
