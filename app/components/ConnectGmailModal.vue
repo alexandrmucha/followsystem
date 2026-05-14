@@ -39,8 +39,28 @@ const emit = defineEmits<{
   (e: "close"): void
 }>()
 
-const handleConnect = () => {
+const supabase = useSupabaseClient()
 
+const loading = ref(false)
+
+const handleConnect = async () => {
+  if (loading.value) return
+
+  loading.value = true
+
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      scopes: "https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.send https://www.googleapis.com/auth/gmail.modify",
+      redirectTo: `http://localhost:3000/confirm`,
+    },
+  })
+
+  if (error) {
+    console.error("OAuth error:", error)
+    loading.value = false
+    return
+  }
 }
 
 const close = () => {
