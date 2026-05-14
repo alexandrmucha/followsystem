@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <ConnectGmailModal :open="true" />
   </div>
 </template>
 

@@ -46,5 +46,15 @@
   "sidebar": {
     "open": "Open navigation",
     "close": "Close navigation"
+  },
+  "connect_gmail": {
+    "title": "Connect Gmail",
+    "description": "By connecting Gmail, we help you identify who to follow up with and the right time to do it, so you never miss opportunities.",
+    "bullet_1": "📩 See who hasn’t replied yet",
+    "bullet_2": "⏰ Know exactly when to follow up",
+    "bullet_3": "🎯 Focus only on the right contacts",
+    "button": "Continue with Google",
+    "not_now": "Not now",
+    "disclaimer": "🔒 We only access your emails to detect replies and track follow-ups. We never send emails on your behalf."
   }
 }

@@ -14,7 +14,7 @@
         </span>
 
         <span v-else>
-          Continue with Google
+          {{ $t('auth.sign_in.button') }}
         </span>
       </BaseButton>
 

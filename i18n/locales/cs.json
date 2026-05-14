@@ -3,12 +3,12 @@
     "common": {
       "back_home": "Zpět na úvod",
       "logout": "Odhlásit se",
-      "waiting_for_login": "Přihlašujeme Vás...",
+      "waiting_for_login": "Signing you in…",
       "loading": "Načítání..."
     },
     "sign_in": {
       "title": "Přihlášení",
-      "button": "Pokračovat"
+      "button": "Pokračovat s Googlem"
     },
     "errors": {
       "email_required": "Zadejte e-mail",
@@ -46,5 +46,15 @@
   "sidebar": {
     "close": "Zavřít navigaci",
     "open": "Otevřít navigaci"
+  },
+  "connect_gmail": {
+    "title": "Připojení Gmailu",
+    "description": "Díky připojení Gmailu vám ukážeme, komu a kdy poslat follow-up, abyste neztráceli příležitosti.",
+    "bullet_1": "📩 Uvidíte, kdo vám neodpověděl",
+    "bullet_2": "⏰ Přesně víte, kdy napsat follow-up",
+    "bullet_3": "🎯 Soustředíte se jen na správné kontakty",
+    "button": "Pokračovat s Googlem",
+    "not_now": "Teď ne",
+    "disclaimer": "🔒 Přistupujeme k vašim e-mailům, abychom detekovali odpovědi a sledovali follow-upy. E-maily odesíláme jen pokud si to přejete."
   }
 }
