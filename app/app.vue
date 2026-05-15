@@ -11,7 +11,7 @@
 <script setup lang="ts">
 useHead({
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} - Logo` : 'Logo'
+    return titleChunk ? `${titleChunk} - Fulply` : 'Fulply'
   },
 })
 </script>

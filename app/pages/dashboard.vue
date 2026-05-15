@@ -5,6 +5,7 @@
     </h1>
 
     <BaseCard>
+      {{ data }}
     </BaseCard>
 
 
@@ -25,8 +26,16 @@ definePageMeta({
 })
 
 const showConnectGmailModal = ref(false)
+
+const supabase = useSupabaseClient()
+
+const { data, error } = await useLazyAsyncData("swift", async () => {
+  const res = await supabase.functions.invoke("swift-action");
+
+  return {
+    data: res.data ?? null,
+    error: res.error ?? null,
+  };
+});
+
 </script>
-
-<style>
-
-</style>
