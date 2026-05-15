@@ -39,6 +39,7 @@ const emit = defineEmits<{
   (e: "close"): void
 }>()
 
+const config = useRuntimeConfig()
 const supabase = useSupabaseClient()
 
 const loading = ref(false)
@@ -48,6 +49,37 @@ const handleConnect = async () => {
 
   loading.value = true
 
+  const GOOGLE_CLIENT_ID = config.public.googleClientId
+
+  if (!GOOGLE_CLIENT_ID) {
+    console.error("Missing Google Client ID")
+    loading.value = false
+    return
+  }
+
+  const redirectUri = `http://localhost:3000/gmail/callback`
+
+  const scope = [
+    "openid",
+    "email",
+    "profile",
+    "https://www.googleapis.com/auth/gmail.readonly",
+    "https://www.googleapis.com/auth/gmail.modify",
+    "https://www.googleapis.com/auth/gmail.send"
+  ].join(" ")
+
+  const params = new URLSearchParams({
+    client_id: GOOGLE_CLIENT_ID,
+    redirect_uri: redirectUri,
+    response_type: "code",
+    scope,
+    access_type: "offline",
+    prompt: "consent"
+  })
+
+  // redirect to Google OAuth
+  window.location.href =
+    "https://accounts.google.com/o/oauth2/v2/auth?" + params.toString()
 }
 
 const close = () => {

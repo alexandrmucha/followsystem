@@ -55,6 +55,7 @@
     "bullet_3": "🎯 Focus only on the right contacts",
     "button": "Continue with Google",
     "not_now": "Not now",
-    "disclaimer": "🔒 We access your emails to detect replies and track follow-ups. We only send emails when you explicitly instruct us to."
+    "disclaimer": "🔒 We access your emails to detect replies and track follow-ups. We only send emails when you explicitly instruct us to.",
+    "connecting": "Connecting your Gmail account..."
   }
 }
