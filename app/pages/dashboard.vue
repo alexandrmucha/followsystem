@@ -29,8 +29,8 @@ const showConnectGmailModal = ref(false)
 
 const supabase = useSupabaseClient()
 
-const { data, error } = await useLazyAsyncData("swift", async () => {
-  const res = await supabase.functions.invoke("swift-action");
+const { data, error } = await useLazyAsyncData("gmail-list-messages", async () => {
+  const res = await supabase.functions.invoke("gmail-list-messages");
 
   return {
     data: res.data ?? null,

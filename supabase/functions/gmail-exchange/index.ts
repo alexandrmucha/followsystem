@@ -3,15 +3,7 @@ import { corsHeaders } from 'npm:@supabase/supabase-js/cors'
 import { encrypt } from "../_shared/crypto.ts";
 import { adminClient } from "../_shared/adminClient.ts";
 import { userClient } from "../_shared/userClient.ts";
-
-function logError(stage: string, error: unknown, meta?: any) {
-  console.error(JSON.stringify({
-    stage,
-    error,
-    meta,
-    time: new Date().toISOString(),
-  }))
-}
+import { logError } from "../_shared/logError.ts";
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
