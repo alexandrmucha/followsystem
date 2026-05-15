@@ -1,5 +1,6 @@
 import { decrypt } from "./crypto.ts";
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { adminClient } from "../_shared/adminClient.ts";
 
 export async function refreshGoogleToken(refreshToken: string) {
   const res = await fetch("https://oauth2.googleapis.com/token", {
@@ -28,13 +29,7 @@ export async function refreshGoogleToken(refreshToken: string) {
 }
 
 export async function getValidAccessToken(userId: string) {
-  const SUPABASE_SECRET_KEYS = JSON.parse(Deno.env.get('SUPABASE_SECRET_KEYS')!)
-  const SUPABASE_PUBLISHABLE_KEYS = JSON.parse(Deno.env.get('SUPABASE_PUBLISHABLE_KEYS')!)
-
-  const supabase = createClient(
-    Deno.env.get('SUPABASE_URL')!,
-    SUPABASE_SECRET_KEYS['default']
-  )
+  const supabase = adminClient
 
   const { data, error } = await supabase
     .from("gmail_connections")

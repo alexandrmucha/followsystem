@@ -1,6 +1,8 @@
 import { createClient } from 'npm:@supabase/supabase-js@2'
 import { corsHeaders } from 'npm:@supabase/supabase-js/cors'
 import { encrypt } from "../_shared/crypto.ts";
+import { adminClient } from "../_shared/adminClient.ts";
+import { userClient } from "../_shared/userClient.ts";
 
 function logError(stage: string, error: unknown, meta?: any) {
   console.error(JSON.stringify({
@@ -15,24 +17,6 @@ Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
   }
-
-  const SUPABASE_SECRET_KEYS = JSON.parse(Deno.env.get('SUPABASE_SECRET_KEYS')!)
-  const SUPABASE_PUBLISHABLE_KEYS = JSON.parse(Deno.env.get('SUPABASE_PUBLISHABLE_KEYS')!)
-
-  const adminClient = createClient(
-    Deno.env.get('SUPABASE_URL')!,
-    SUPABASE_SECRET_KEYS['default']
-  )
-
-  const userClient = createClient(
-    Deno.env.get('SUPABASE_URL')!,
-    SUPABASE_PUBLISHABLE_KEYS['default'],
-    {
-      global: {
-        headers: { Authorization: req.headers.get('Authorization')! }
-      }
-    }
-  )
 
   // --- AUTH USER ---
   const { data: userData, error: userError } = await userClient.auth.getUser()
