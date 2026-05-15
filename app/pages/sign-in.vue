@@ -55,10 +55,9 @@ const signInWithGoogle = async () => {
     }
   })
 
-  loading.value = false
-
   if (error) {
     errorMsg.value = error.message
+    loading.value = false
     return
   }
 }

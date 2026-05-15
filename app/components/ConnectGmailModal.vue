@@ -17,11 +17,11 @@
       </ul>
 
       <div class="space-y-3">
-        <BaseButton type="button" @click="handleConnect">
+        <BaseButton type="button" :disabled="loading" @click="handleConnect">
           {{ $t('connect_gmail.button') }}
         </BaseButton>
 
-        <BaseButton type="button" variant="secondary" @click="close">
+        <BaseButton type="button" :disabled="loading" variant="secondary" @click="close">
           {{ $t('connect_gmail.not_now') }}
         </BaseButton>
       </div>
@@ -48,19 +48,6 @@ const handleConnect = async () => {
 
   loading.value = true
 
-  const { error } = await supabase.auth.signInWithOAuth({
-    provider: "google",
-    options: {
-      scopes: "https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.send https://www.googleapis.com/auth/gmail.modify",
-      redirectTo: `http://localhost:3000/confirm`,
-    },
-  })
-
-  if (error) {
-    console.error("OAuth error:", error)
-    loading.value = false
-    return
-  }
 }
 
 const close = () => {
