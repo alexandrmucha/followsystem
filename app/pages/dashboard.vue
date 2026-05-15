@@ -29,13 +29,6 @@ const showConnectGmailModal = ref(false)
 
 const supabase = useSupabaseClient()
 
-const { data, error } = await useLazyAsyncData("gmail-list-messages", async () => {
-  const res = await supabase.functions.invoke("gmail-list-messages");
-
-  return {
-    data: res.data ?? null,
-    error: res.error ?? null,
-  };
-});
+const { data } = await supabase.functions.invoke("gmail-list-messages");
 
 </script>

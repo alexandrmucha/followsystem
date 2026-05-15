@@ -1,14 +1,15 @@
-import { createClient } from 'npm:@supabase/supabase-js@2'
 import { corsHeaders } from 'npm:@supabase/supabase-js/cors'
 import { encrypt } from "../_shared/crypto.ts";
 import { adminClient } from "../_shared/adminClient.ts";
-import { userClient } from "../_shared/userClient.ts";
+import { createUserClient } from "../_shared/userClient.ts";
 import { logError } from "../_shared/logError.ts";
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
   }
+
+  const userClient = createUserClient(req);
 
   // --- AUTH USER ---
   const { data: userData, error: userError } = await userClient.auth.getUser()
@@ -122,7 +123,7 @@ Deno.serve(async (req) => {
         refresh_token_enc: refresh_token_enc,
         refresh_token_iv: refresh_token_iv,
 
-        expires_at: new Date(Date.now() + tokens.expires_in * 1000),
+        expires_at: new Date(Date.now() + tokens.expires_in * 1000).toISOString(),
 
         scopes: tokens.scope?.split(' ') ?? [],
 

@@ -1,13 +1,15 @@
-import { createClient } from 'npm:@supabase/supabase-js@2'
 import { corsHeaders } from 'npm:@supabase/supabase-js/cors'
 import { adminClient } from "../_shared/adminClient.ts";
-import { userClient } from "../_shared/userClient.ts";
+import { createUserClient } from "../_shared/userClient.ts";
 import { getValidAccessToken } from "../_shared/googleAuth.ts";
+import { logError } from "../_shared/logError.ts";
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
   }
+
+  const userClient = createUserClient(req);
 
   // --- AUTH USER ---
   const { data: userData, error: userError } = await userClient.auth.getUser()
@@ -25,7 +27,7 @@ Deno.serve(async (req) => {
     })
   }
 
-  const accessToken = getValidAccessToken(userData.id)
+  const accessToken = await getValidAccessToken(userData.user.id)
 
   const listRes = await fetch(
     "https://gmail.googleapis.com/gmail/v1/users/me/messages?labelIds=INBOX&maxResults=10",
