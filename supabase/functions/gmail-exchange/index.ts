@@ -27,12 +27,14 @@ Deno.serve(async (req) => {
     })
   }
 
+  const userId = userData.user.id
+
   // --- GET CODE ---
   const { code } = await req.json()
 
   if (!code) {
     logError('missing_oauth_code', null, {
-      user_id: userData.user.id,
+      user_id: userId,
     })
 
     return new Response(JSON.stringify({
@@ -62,7 +64,7 @@ Deno.serve(async (req) => {
 
   if (!tokenRes.ok) {
     logError('google_token_exchange_failed', tokens, {
-      user_id: userData.user.id,
+      user_id: userId,
     })
 
     return new Response(JSON.stringify({
@@ -87,13 +89,36 @@ Deno.serve(async (req) => {
 
   if (!googleUserRes.ok) {
     logError('google_userinfo_failed', googleUser, {
-      user_id: userData.user.id,
+      user_id: userId,
     })
 
     return new Response(JSON.stringify({
       error: 'Failed to fetch Google user info'
     }), {
       status: 400,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    })
+  }
+
+  // --- CHECK EXISTING CONNECTION (IMPORTANT FIX) ---
+  const { data: existing } = await adminClient
+    .from('gmail_connections')
+    .select('google_id')
+    .eq('user_id', userId)
+    .maybeSingle()
+
+  // 🔥 BLOCK different Google account on reconnect
+  if (existing?.google_id && existing.google_id !== googleUser.id) {
+    logError('different_google_account_attempt', null, {
+      user_id: userId,
+      existing_google_id: existing.google_id,
+      new_google_id: googleUser.id,
+    })
+
+    return new Response(JSON.stringify({
+      error: 'DIFFERENT_GOOGLE_ACCOUNT'
+    }), {
+      status: 409,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     })
   }
@@ -113,7 +138,7 @@ Deno.serve(async (req) => {
     .from('gmail_connections')
     .upsert(
       {
-        user_id: userData.user.id,
+        user_id: userId,
 
         google_id: googleUser.id,
         email: googleUser.email,
@@ -140,7 +165,7 @@ Deno.serve(async (req) => {
   if (insertError) {
     if (insertError.code === '23505') {
       logError('gmail_already_connected', insertError, {
-        user_id: userData.user.id,
+        user_id: userId,
         google_id: googleUser.id,
       })
 
@@ -153,7 +178,7 @@ Deno.serve(async (req) => {
     }
 
     logError('db_upsert_failed', insertError, {
-      user_id: userData.user.id,
+      user_id: userId,
     })
 
     return new Response(JSON.stringify({
