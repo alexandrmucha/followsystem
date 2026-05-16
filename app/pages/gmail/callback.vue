@@ -4,6 +4,8 @@
 </template>
 
 <script setup lang="ts">
+import { FunctionsHttpError } from '@supabase/supabase-js'
+
 const route = useRoute()
 const supabase = useSupabaseClient()
 
@@ -13,7 +15,7 @@ onMounted(async () => {
   if (!code) return
 
   try {
-    const { data, error } = await supabase.functions.invoke("gmail-exchange", {
+    const { error } = await supabase.functions.invoke("gmail-exchange", {
       body: { code }
     })
 
@@ -21,17 +23,15 @@ onMounted(async () => {
       throw error
     }
 
-    // ✔ success
     navigateTo("/dashboard")
 
   } catch (err: any) {
-    console.error("Gmail connect failed:", err)
+    let backendError: string | null = null
 
-    // 🔥 extract backend error code (Supabase wraps it differently)
-    const backendError =
-      err?.context?.error ||
-      err?.data?.error ||
-      err?.error
+    if (err instanceof FunctionsHttpError) {
+      const body = await err.context.json()
+      backendError = body.error
+    }
 
     if (backendError === 'GMAIL_ALREADY_CONNECTED') {
       navigateTo("/settings?error=gmail_already_connected")
