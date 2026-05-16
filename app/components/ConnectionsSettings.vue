@@ -28,7 +28,7 @@
         <button v-if="connection && connection?.status === 'revoked'" type="button" class="text-neutral-900 dark:text-neutral-100 hover:underline cursor-pointer" @click="showConnectGmailModal = true">{{ $t('settings.connections.reconnect_gmail') }}</button>
         
         <button v-if="!connection" type="button" class="text-neutral-900 dark:text-neutral-100 hover:underline cursor-pointer" @click="showConnectGmailModal = true">{{ $t('settings.connections.connect_gmail') }}</button>
-        <button v-else type="button" class="text-neutral-900 dark:text-neutral-100 hover:underline cursor-pointer" @click="showDisconnectGmailModal = true">{{ $t('settings.connections.disconnect_gmail') }}</button>
+        <button v-else type="button" class="text-red-500 hover:underline cursor-pointer" @click="showDisconnectGmailModal = true">{{ $t('settings.connections.disconnect_gmail') }}</button>
       </div>
 
     </div>
