@@ -13,16 +13,32 @@ onMounted(async () => {
   if (!code) return
 
   try {
-    const { error } = await supabase.functions.invoke("gmail-exchange", {
+    const { data, error } = await supabase.functions.invoke("gmail-exchange", {
       body: { code }
     })
 
-    if (error) throw error
+    if (error) {
+      throw error
+    }
 
+    // ✔ success
     navigateTo("/dashboard")
-  } catch (err) {
+
+  } catch (err: any) {
     console.error("Gmail connect failed:", err)
-    navigateTo("/settings?error=gmail")
+
+    // 🔥 extract backend error code (Supabase wraps it differently)
+    const backendError =
+      err?.context?.error ||
+      err?.data?.error ||
+      err?.error
+
+    if (backendError === 'GMAIL_ALREADY_CONNECTED') {
+      navigateTo("/settings?error=gmail_already_connected")
+      return
+    }
+
+    navigateTo("/settings?error=gmail_general")
   }
 })
 </script>

@@ -27,7 +27,7 @@ Deno.serve(async (req) => {
     })
   }
 
-  // --- GET CODE FROM URL ---
+  // --- GET CODE ---
   const { code } = await req.json()
 
   if (!code) {
@@ -121,13 +121,13 @@ Deno.serve(async (req) => {
         access_token: tokens.access_token,
         expires_at: new Date(Date.now() + tokens.expires_in * 1000).toISOString(),
 
-        refresh_token_enc: refresh_token_enc,
-        refresh_token_iv: refresh_token_iv,
+        refresh_token_enc,
+        refresh_token_iv,
 
         scopes: tokens.scope?.split(' ') ?? [],
 
         status: 'active',
-        
+
         connected_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       },
@@ -136,7 +136,22 @@ Deno.serve(async (req) => {
       }
     )
 
+  // --- ERROR HANDLING ---
   if (insertError) {
+    if (insertError.code === '23505') {
+      logError('gmail_already_connected', insertError, {
+        user_id: userData.user.id,
+        google_id: googleUser.id,
+      })
+
+      return new Response(JSON.stringify({
+        error: 'GMAIL_ALREADY_CONNECTED'
+      }), {
+        status: 409,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      })
+    }
+
     logError('db_upsert_failed', insertError, {
       user_id: userData.user.id,
     })

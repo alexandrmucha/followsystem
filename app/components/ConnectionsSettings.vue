@@ -15,7 +15,8 @@
       </div>
 
       <div class="mt-4">
-        <button type="button" class="text-neutral-900 dark:text-neutral-100 hover:underline cursor-pointer" @click="showConnectGmailModal = true">{{ $t('settings.connections.connect_gmail') }}</button>
+        <button v-if="!connection" type="button" class="text-neutral-900 dark:text-neutral-100 hover:underline cursor-pointer" @click="showConnectGmailModal = true">{{ $t('settings.connections.connect_gmail') }}</button>
+        <button v-else type="button" class="text-neutral-900 dark:text-neutral-100 hover:underline cursor-pointer" @click="showDisconnectGmailModal = true">{{ $t('settings.connections.disconnect_gmail') }}</button>
       </div>
     </div>
   </BaseCard>
@@ -29,6 +30,7 @@ const supabase = useSupabaseClient()
 const { t } = useI18n()
 
 const showConnectGmailModal = ref(false)
+const showDisconnectGmailModal = ref(false)
 
 type GmailConnection = {
   email: string | null
