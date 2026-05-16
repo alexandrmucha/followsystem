@@ -30,7 +30,8 @@ Deno.serve(async (req) => {
   const userId = userData.user.id
 
   // --- GET CODE ---
-  const { code } = await req.json()
+  const body = await req.json().catch(() => null)
+  const code = body?.code
 
   if (!code) {
     logError('missing_oauth_code', null, {
@@ -60,9 +61,9 @@ Deno.serve(async (req) => {
     }),
   })
 
-  const tokens = await tokenRes.json()
+  const tokens = await tokenRes.json().catch(() => null)
 
-  if (!tokenRes.ok) {
+  if (!tokenRes.ok || !tokens) {
     logError('google_token_exchange_failed', tokens, {
       user_id: userId,
     })
@@ -71,6 +72,20 @@ Deno.serve(async (req) => {
       error: 'OAuth exchange failed'
     }), {
       status: 400,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    })
+  }
+
+  // --- SANITY CHECK TOKENS ---
+  if (!tokens.access_token || !tokens.expires_in) {
+    logError('invalid_google_token_response', tokens, {
+      user_id: userId,
+    })
+
+    return new Response(JSON.stringify({
+      error: 'Invalid OAuth token response'
+    }), {
+      status: 500,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     })
   }
@@ -85,15 +100,29 @@ Deno.serve(async (req) => {
     }
   )
 
-  const googleUser = await googleUserRes.json()
+  const googleUser = await googleUserRes.json().catch(() => null)
 
-  if (!googleUserRes.ok) {
+  if (!googleUserRes.ok || !googleUser) {
     logError('google_userinfo_failed', googleUser, {
       user_id: userId,
     })
 
     return new Response(JSON.stringify({
       error: 'Failed to fetch Google user info'
+    }), {
+      status: 400,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    })
+  }
+
+  // --- SANITY CHECK GOOGLE USER ---
+  if (!googleUser.id || !googleUser.email) {
+    logError('invalid_google_userinfo', googleUser, {
+      user_id: userId,
+    })
+
+    return new Response(JSON.stringify({
+      error: 'Invalid Google user info'
     }), {
       status: 400,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
@@ -144,6 +173,17 @@ Deno.serve(async (req) => {
     const enc = await encrypt(tokens.refresh_token)
     refresh_token_enc = enc.data
     refresh_token_iv = enc.iv
+  } else {
+    logError('missing_refresh_token_from_google', tokens, {
+      user_id: userId,
+    })
+
+    return new Response(JSON.stringify({
+      error: 'Missing refresh token'
+    }), {
+      status: 400,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    })
   }
 
   // --- UPSERT CONNECTION ---
