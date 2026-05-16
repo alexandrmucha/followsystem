@@ -1,5 +1,6 @@
 import { decrypt } from "./crypto.ts";
 import { adminClient } from "../_shared/adminClient.ts";
+import { logError } from "../_shared/logError.ts";
 
 /**
  * 1. CENTRALIZOVANÁ DB FUNKCE
@@ -123,7 +124,7 @@ export async function getValidAccessToken(userId: string) {
     connection.refresh_token_iv
   );
 
-  const refreshed = await refreshGoogleToken(refreshToken);
+  const refreshed = await refreshGoogleToken(userId, refreshToken);
 
   const newExpiresAt = new Date(Date.now() + refreshed.expires_in * 1000);
 
