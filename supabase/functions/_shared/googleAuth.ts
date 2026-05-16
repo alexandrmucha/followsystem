@@ -31,7 +31,10 @@ export async function getGmailConnection(userId: string) {
 /**
  * 2. REFRESH GOOGLE TOKEN
  */
-export async function refreshGoogleToken(refreshToken: string) {
+export async function refreshGoogleToken(
+  userId: string,
+  refreshToken: string
+) {
   const res = await fetch("https://oauth2.googleapis.com/token", {
     method: "POST",
     headers: {
@@ -47,18 +50,42 @@ export async function refreshGoogleToken(refreshToken: string) {
 
   const data = await res.json().catch(() => null);
 
-  // 1. HTTP / Google API error
+  // 🔴 REVOKE / INVALID GRANT
   if (!res.ok) {
+    const error = data?.error;
+
+    const isRevoked = error === "invalid_grant"
+
+    if (isRevoked) {
+      logError("google_refresh_token_revoked", data, {
+        userId,
+      });
+
+      // 💥 HERE: update DB status immediately
+      await adminClient
+        .from("gmail_connections")
+        .update({
+          status: "revoked",
+          updated_at: new Date().toISOString(),
+        })
+        .eq("user_id", userId);
+
+      throw new Error("GOOGLE_REFRESH_REVOKED");
+    }
+
     logError("google_refresh_token_failed", data, {
       status: res.status,
+      userId,
     });
 
     throw new Error("Google token refresh failed");
   }
 
-  // 2. sanity check (Google někdy vrátí partial/invalid response)
+  // sanity check
   if (!data?.access_token || !data?.expires_in) {
-    logError("google_refresh_token_invalid_response", data);
+    logError("google_refresh_token_invalid_response", data, {
+      userId,
+    });
 
     throw new Error("Invalid Google token response");
   }
