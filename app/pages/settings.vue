@@ -45,6 +45,20 @@
       </div>
     </div>
   </BaseCard>
+
+  <!-- Connections -->
+  <BaseCard>
+    <h2 class="text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-4">
+      {{ t('settings.connections.title') }}
+    </h2>
+
+    <div class="space-y-3 text-sm text-neutral-700 dark:text-neutral-300">
+      <div class="flex justify-between">
+        <span>{{ t('settings.connections.gmail') }}</span>
+        <span class="text-neutral-900 dark:text-neutral-100">{{ user?.email }}</span>
+      </div>
+    </div>
+  </BaseCard>
     
   </div>
 </template>

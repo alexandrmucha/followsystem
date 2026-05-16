@@ -41,6 +41,10 @@
         "light": "Světlé",
         "dark": "Tmavé"
       }
+    },
+    "connections": {
+      "title": "Propojení",
+      "gmail": "Gmail"
     }
   },
   "sidebar": {

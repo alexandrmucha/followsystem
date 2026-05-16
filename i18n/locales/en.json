@@ -41,6 +41,10 @@
         "light": "Light",
         "dark": "Dark"
       }
+    },
+    "connections": {
+      "title": "Connections",
+      "gmail": "Gmail"
     }
   },
   "sidebar": {
