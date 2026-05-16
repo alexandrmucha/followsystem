@@ -50,6 +50,12 @@
       "disconnect_gmail": "Disconnect Gmail",
       "needs_recconnect": "Needs reconnect",
       "reconnect_gmail": "Reconnect Gmail"
+    },
+    "errors" : {
+      "title": "Error",
+      "gmail_already_connected": "This Gmail account is already connected to another account.",
+      "different_google_account": "You cannot connect a different Google account than the one already linked.",
+      "gmail_general": "An error occurred while connecting Gmail. Please try again."
     }
   },
   "sidebar": {

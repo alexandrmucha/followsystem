@@ -50,6 +50,12 @@
       "disconnect_gmail": "Odpojit Gmail",
       "needs_reconnect": "Vyžaduje opětovné připojení",
       "reconnect_gmail": "Znovu připojit Gmail"
+    },
+    "errors" : {
+      "title": "Chyba",
+      "gmail_already_connected": "Tento Gmail je již připojený k jinému účtu.",
+      "different_google_account": "Nelze připojit jiný Google účet, než který je již propojený.",
+      "gmail_general": "Při připojování Gmailu došlo k chybě. Zkuste to prosím znovu."
     }
   },
   "sidebar": {

@@ -1,5 +1,16 @@
 <template>
   <div class="max-w-2xl space-y-6">
+    <BaseAlert
+      v-if="error"
+      type="error"
+      :title="$t('settings.errors.title')"
+      :message="error"
+    >
+      <template #icon>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert-icon lucide-triangle-alert"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      </template>
+    </BaseAlert>
+
     <!-- Title -->
     <h1 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
       {{ t('settings.title') }}
@@ -54,6 +65,8 @@
 
 <script lang="ts" setup>
 const { t } = useI18n()
+const route = useRoute()
+const router = useRouter()
 
 useHead({
   title: t('settings.title')
@@ -72,4 +85,16 @@ const handleLocaleSwitch = (event: Event) => {
   // @ts-ignore
   setLocale(selectedLocale)
 }
+
+const errorMap: Record<string, string> = {
+  gmail_already_connected: t('settings.errors.gmail_already_connected'),
+  different_google_account: t('settings.errors.different_google_account'),
+  gmail_general: t('settings.errors.gmail_general'),
+}
+
+const error = computed(() => {
+  const key = route.query.error as string | undefined
+  if (!key) return null
+  return errorMap[key]
+})
 </script>
