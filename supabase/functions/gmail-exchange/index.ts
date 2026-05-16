@@ -119,16 +119,17 @@ Deno.serve(async (req) => {
         email: googleUser.email,
 
         access_token: tokens.access_token,
+        expires_at: new Date(Date.now() + tokens.expires_in * 1000).toISOString(),
 
         refresh_token_enc: refresh_token_enc,
         refresh_token_iv: refresh_token_iv,
 
-        expires_at: new Date(Date.now() + tokens.expires_in * 1000).toISOString(),
-
         scopes: tokens.scope?.split(' ') ?? [],
 
         status: 'active',
+        
         connected_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
       },
       {
         onConflict: 'user_id',

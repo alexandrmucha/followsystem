@@ -106,6 +106,7 @@ export async function getValidAccessToken(userId: string) {
     .update({
       access_token: refreshed.access_token,
       expires_at: newExpiresAt.toISOString(),
+      updated_at: new Date().toISOString(),
     })
     .eq("user_id", userId);
 
