@@ -10,8 +10,7 @@ export async function getGmailConnection(userId: string) {
     .from("gmail_connections")
     .select("*")
     .eq("user_id", userId)
-    .single();
-
+    .maybeSingle();
 
   if (error) {
     logError("gmail_connection_query_failed", error, {
@@ -21,7 +20,6 @@ export async function getGmailConnection(userId: string) {
     throw new Error("Database error while fetching Gmail connection");
   }
 
-  // 2. Business stav (uživatel nemá propojený Gmail)
   if (!data) {
     throw new Error("No Gmail connection found");
   }

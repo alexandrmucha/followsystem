@@ -101,11 +101,24 @@ Deno.serve(async (req) => {
   }
 
   // --- CHECK EXISTING CONNECTION (IMPORTANT FIX) ---
-  const { data: existing } = await adminClient
+  const { data: existing, error: existingError } = await adminClient
     .from('gmail_connections')
     .select('google_id')
     .eq('user_id', userId)
     .maybeSingle()
+
+  if (existingError) {
+    logError('db_existing_connection_fetch_failed', existingError, {
+      user_id: userId,
+    })
+
+    return new Response(JSON.stringify({
+      error: 'Database error'
+    }), {
+      status: 500,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    })
+  }
 
   // 🔥 BLOCK different Google account on reconnect
   if (existing?.google_id && existing.google_id !== googleUser.id) {
