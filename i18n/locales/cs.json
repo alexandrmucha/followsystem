@@ -47,7 +47,9 @@
       "gmail": "Gmail",
       "not_connected": "Nepřipojen",
       "connect_gmail": "Připojit Gmail",
-      "disconnect_gmail": "Odpojit Gmail"
+      "disconnect_gmail": "Odpojit Gmail",
+      "needs_reconnect": "Vyžaduje opětovné připojení",
+      "reconnect_gmail": "Znovu připojit Gmail"
     }
   },
   "sidebar": {

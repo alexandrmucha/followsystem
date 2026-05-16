@@ -47,7 +47,9 @@
       "gmail": "Gmail",
       "not_connected": "Not connected",
       "connect_gmail": "Connect Gmail",
-      "disconnect_gmail": "Disconnect Gmail"
+      "disconnect_gmail": "Disconnect Gmail",
+      "needs_recconnect": "Needs reconnect",
+      "reconnect_gmail": "Reconnect Gmail"
     }
   },
   "sidebar": {
