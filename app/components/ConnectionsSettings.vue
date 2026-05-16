@@ -8,16 +8,27 @@
       <div class="flex justify-between">
         <span>{{ t('settings.connections.gmail') }}</span>
         <span v-if="connection" class="text-neutral-900 dark:text-neutral-100">{{ connection.email }}</span>
-        <span v-else class="text-neutral-900 dark:text-neutral-100">{{ $t('settings.connections.not_connected') }}</span>
+        <div v-else class="text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+          <div class="w-1.5 h-1.5 bg-red-500 dark:bg-red-600 rounded-full"></div>
+          {{ $t('settings.connections.not_connected') }}
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <button type="button" class="text-neutral-900 dark:text-neutral-100 hover:underline cursor-pointer" @click="showConnectGmailModal = true">{{ $t('settings.connections.connect_gmail') }}</button>
       </div>
     </div>
   </BaseCard>
+
+  <ConnectGmailModal v-if="showConnectGmailModal" @close="showConnectGmailModal = false" />
 </template>
 
 <script lang="ts" setup>
 const user = useSupabaseUser()
 const supabase = useSupabaseClient()
 const { t } = useI18n()
+
+const showConnectGmailModal = ref(false)
 
 type GmailConnection = {
   email: string | null

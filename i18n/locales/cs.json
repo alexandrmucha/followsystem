@@ -45,7 +45,8 @@
     "connections": {
       "title": "Propojení",
       "gmail": "Gmail",
-      "not_connected": "Nepřipojen"
+      "not_connected": "Nepřipojen",
+      "connect_gmail": "Připojit Gmail"
     }
   },
   "sidebar": {

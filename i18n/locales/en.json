@@ -45,7 +45,8 @@
     "connections": {
       "title": "Connections",
       "gmail": "Gmail",
-      "not_connected": "Not connected"
+      "not_connected": "Not connected",
+      "connect_gmail": "Connect Gmail"
     }
   },
   "sidebar": {
