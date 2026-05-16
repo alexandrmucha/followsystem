@@ -76,10 +76,13 @@ Deno.serve(async (req) => {
     })
   }
 
-  // --- SANITY CHECK TOKENS ---
-  if (!tokens.access_token || !tokens.expires_in) {
+  // --- SANITY CHECK TOKENS (OAUTH CONTRACT) ---
+  if (!tokens.access_token || !tokens.expires_in || !tokens.scope) {
     logError('invalid_google_token_response', tokens, {
       user_id: userId,
+      has_access_token: !!tokens.access_token,
+      has_expires_in: !!tokens.expires_in,
+      has_scope: !!tokens.scope,
     })
 
     return new Response(JSON.stringify({
@@ -129,7 +132,7 @@ Deno.serve(async (req) => {
     })
   }
 
-  // --- CHECK EXISTING CONNECTION (IMPORTANT FIX) ---
+  // --- CHECK EXISTING CONNECTION ---
   const { data: existing, error: existingError } = await adminClient
     .from('gmail_connections')
     .select('google_id')
@@ -165,17 +168,12 @@ Deno.serve(async (req) => {
     })
   }
 
-  // --- ENCRYPT REFRESH TOKEN ---
-  let refresh_token_enc = null
-  let refresh_token_iv = null
-
-  if (tokens.refresh_token) {
-    const enc = await encrypt(tokens.refresh_token)
-    refresh_token_enc = enc.data
-    refresh_token_iv = enc.iv
-  } else {
+  // --- ENCRYPT REFRESH TOKEN (BUSINESS CONTRACT) ---
+  if (!tokens.refresh_token) {
     logError('missing_refresh_token_from_google', tokens, {
       user_id: userId,
+      has_access_token: !!tokens.access_token,
+      scope: tokens.scope,
     })
 
     return new Response(JSON.stringify({
@@ -185,6 +183,11 @@ Deno.serve(async (req) => {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     })
   }
+
+  const enc = await encrypt(tokens.refresh_token)
+
+  const refresh_token_enc = enc.data
+  const refresh_token_iv = enc.iv
 
   // --- UPSERT CONNECTION ---
   const { error: insertError } = await adminClient
@@ -202,7 +205,7 @@ Deno.serve(async (req) => {
         refresh_token_enc,
         refresh_token_iv,
 
-        scopes: tokens.scope?.split(' ') ?? [],
+        scopes: tokens.scope?.trim().split(' ').filter(Boolean) ?? [],
 
         status: 'active',
 
@@ -229,7 +232,7 @@ Deno.serve(async (req) => {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       })
     }
-
+    
     logError('db_upsert_failed', insertError, {
       user_id: userId,
     })
