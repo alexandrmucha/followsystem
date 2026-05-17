@@ -49,6 +49,11 @@
       "needs_reconnect": "Vyžaduje opětovné připojení",
       "reconnect_gmail": "Znovu připojit Gmail"
     },
+    "security": {
+      "title": "Bezpečnost",
+      "active_devices": "Přihlášená zařízení",
+      "logout_all": "Odhlásit vše"
+    },
     "errors" : {
       "title": "Chyba",
       "gmail_already_connected": "Tento Gmail je již připojený k jinému účtu.",

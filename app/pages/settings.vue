@@ -59,6 +59,9 @@
 
   <!-- Connections -->
   <!-- <ConnectionsSettings /> -->
+
+  <!-- Security -->
+  <SecuritySettings />
     
   </div>
 </template>

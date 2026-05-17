@@ -11,18 +11,8 @@ export const useAuthStore = defineStore('auth', () => {
 
   async function fetchUser() {
     try {
-      const headers: Record<string, string> = {};
-
-      if (import.meta.server) {
-        const event = useRequestEvent();
-        const cookieHeader = event?.node.req.headers.cookie;
-        if (cookieHeader) {
-          headers.cookie = cookieHeader;
-        }
-      }
-
       const { $api } = useNuxtApp();
-      user.value = await $api('/auth/profile', { headers });
+      user.value = await $api('/auth/profile');
     } catch {
       user.value = null;
     }

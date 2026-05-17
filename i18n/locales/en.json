@@ -49,6 +49,11 @@
       "needs_recconnect": "Needs reconnect",
       "reconnect_gmail": "Reconnect Gmail"
     },
+    "security": {
+      "title": "Security",
+      "active_devices": "Active devices",
+      "logout_all": "Sign out all"
+    },
     "errors" : {
       "title": "Error",
       "gmail_already_connected": "This Gmail account is already connected to another account.",
