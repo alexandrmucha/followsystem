@@ -2,7 +2,7 @@ import { appendResponseHeader } from 'h3'
 
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
-  const authStore = useAuthStore() // ✅ Naprosto správné umístění
+  const authStore = useAuthStore()
 
   let isRefreshingPromise: Promise<any> | null = null
 
@@ -16,15 +16,14 @@ export default defineNuxtPlugin(() => {
     },
   })
 
-  const apiCustomFetch = async (url: string, options: any = {}) => {
+  const apiCustomFetch = async <T>(url: string, options: any = {}): Promise<T> => {
     try {
-      return await baseFetch(url, options)
+      return await baseFetch<T>(url, options)
     } catch (error: any) {
       if (error.statusCode !== 401 || url.includes('/auth/refresh')) {
         throw error
       }
 
-      // 💻 A. ŘEŠENÍ PRO KLIENTA
       if (import.meta.client) {
         if (!isRefreshingPromise) {
           isRefreshingPromise = $fetch(`${config.public.apiBaseUrl}/auth/refresh`, {
@@ -43,19 +42,17 @@ export default defineNuxtPlugin(() => {
 
         try {
           await isRefreshingPromise
-          return await baseFetch(url, options)
+          return await baseFetch<T>(url, options)
         } catch (failedRefresh) {
           throw failedRefresh
         }
       }
 
-      // 🖥️ B. ŘEŠENÍ PRO SERVER (SSR)
-      return await handleSSRRefresh(url, options)
+      return await handleSSRRefresh<T>(url, options)
     }
   }
 
-  async function handleSSRRefresh(url: string, options: any) {
-    // Zachycení hlaviček hned na začátku SSR funkce
+  async function handleSSRRefresh<T>(url: string, options: any): Promise<T> {
     const initialHeaders = useRequestHeaders(['cookie'])
 
     try {
@@ -86,10 +83,10 @@ export default defineNuxtPlugin(() => {
         }
       }
 
-      return await baseFetch(url, options)
+      return await baseFetch<T>(url, options)
     } catch (refreshError) {
       authStore.user = null
-      throw navigateTo('/sign-in') // ✨ Sjednoceno na /sign-in
+      throw navigateTo('/sign-in')
     }
   }
 
