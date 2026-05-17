@@ -107,26 +107,19 @@ const errorMap: Record<string, string> = {
   different_google_account: t('settings.errors.different_google_account'),
   gmail_general: t('settings.errors.gmail_general'),
 }
-watch(
-  () => route.query.error,
-  (key) => {
-    const errorKey = Array.isArray(key) ? key[0] : key
 
-    if (!errorKey) {
-      error.value = null
-      return
-    }
-
-    error.value =
-      errorMap[errorKey] ?? errorMap.gmail_general ?? null
+watchEffect(() => {
+  if (route.query.error) {
+    const key = route.query.error as string | undefined
+    if (!key) return null
+    error.value = errorMap[key] ?? null
 
     const query = { ...route.query }
     delete query.error
 
     router.replace({ query })
-  },
-  { immediate: true }
-)
+  }
+})
 
 const handleSuccess = (message: string) => {
   success.value = message
