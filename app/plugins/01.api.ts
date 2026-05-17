@@ -1,77 +1,46 @@
-import { appendResponseHeader } from 'h3';
-
-export default defineNuxtPlugin((nuxtApp) => {
-  const apiFetch = $fetch.create({
+export default defineNuxtPlugin(() => {
+  const api = $fetch.create({
     baseURL: 'http://localhost:3001',
     credentials: 'include',
+  })
 
-    onRequest({ options }) {
-      if (import.meta.server) {
-        const event = useRequestEvent();
-        const cookieHeader = event?.node.req.headers.cookie;
-        if (cookieHeader) {
-          options.headers = new Headers(options.headers as HeadersInit);
-          options.headers.set('cookie', cookieHeader);
-        }
+  let isRefreshing = false
+
+  const apiWithAuth = async (url: any, options: any = {}) => {
+    try {
+      return await api(url, options)
+    } catch (err: any) {
+      if (err?.status !== 401) {
+        throw err
       }
-    },
 
-    async onResponseError({ response, request, options }) {
-      if (response.status === 401) {
-        if (import.meta.server) {
-          try {
-            const event = useRequestEvent();
-            const cookieHeader = event?.node.req.headers.cookie;
-
-            const refreshResponse = await $fetch.raw('/auth/refresh', {
-              baseURL: 'http://localhost:3001',
-              method: 'POST',
-              headers: { cookie: cookieHeader ?? '' },
-            });
-
-            const setCookies = refreshResponse.headers.getSetCookie();
-            if (setCookies.length) {
-              setCookies.forEach(cookie => {
-                appendResponseHeader(event!, 'set-cookie', cookie);
-              });
-            }
-
-            const newCookies = refreshResponse.headers.get('set-cookie') ?? cookieHeader ?? '';
-            return $fetch(request, {
-              ...options,
-              headers: { cookie: newCookies },
-              method: options.method as any,
-            });
-          } catch {
-            return;
-          }
-        }
-
-        // Klient
-        try {
-          await $fetch('/auth/refresh', {
-            baseURL: 'http://localhost:3001',
-            method: 'POST',
-            credentials: 'include',
-          });
-
-          return $fetch(request, {
-            ...options,
-            credentials: 'include',
-            method: options.method as any,
-          });
-        } catch {
-          const auth = useAuthStore();
-          auth.user = null;
-          await navigateTo('/sign-in');
-        }
+      // ❗ zabrání loopu
+      if (url === '/auth/refresh') {
+        throw err
       }
-    },
-  });
+
+      // ❗ pokud už refresh běží, nevolat znovu
+      if (isRefreshing) {
+        throw err
+      }
+
+      try {
+        isRefreshing = true
+
+        await api('/auth/refresh', {
+          method: 'POST',
+        })
+
+        return await api(url, options)
+      } finally {
+        isRefreshing = false
+      }
+    }
+  }
 
   return {
     provide: {
-      api: apiFetch,
+      api: apiWithAuth,
     },
-  };
-});
+  }
+})
