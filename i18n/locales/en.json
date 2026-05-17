@@ -59,6 +59,9 @@
       "gmail_already_connected": "This Gmail account is already connected to another account.",
       "different_google_account": "You cannot connect a different Google account than the one already linked.",
       "gmail_general": "An error occurred while connecting Gmail. Please try again."
+    },
+    "success": {
+      "logout_all": "All other sessions have been signed out."
     }
   },
   "sidebar": {

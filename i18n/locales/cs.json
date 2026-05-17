@@ -59,6 +59,9 @@
       "gmail_already_connected": "Tento Gmail je již připojený k jinému účtu.",
       "different_google_account": "Nelze připojit jiný Google účet, než který je již propojený.",
       "gmail_general": "Při připojování Gmailu došlo k chybě. Zkuste to prosím znovu."
+    },
+    "success": {
+      "logout_all": "Všechny ostatní relace byly ukončeny."
     }
   },
   "sidebar": {

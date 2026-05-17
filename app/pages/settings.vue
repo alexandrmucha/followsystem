@@ -7,7 +7,17 @@
       :message="error"
     >
       <template #icon>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert-icon lucide-triangle-alert"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x-icon lucide-circle-x"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+      </template>
+    </BaseAlert>
+
+    <BaseAlert
+      v-if="success"
+      type="success"
+      :message="success"
+    >
+      <template #icon>
+       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-icon lucide-circle-check"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
       </template>
     </BaseAlert>
 
@@ -61,7 +71,7 @@
   <!-- <ConnectionsSettings /> -->
 
   <!-- Security -->
-  <SecuritySettings />
+  <SecuritySettings @success="success = $t('settings.success.logout_all')" />
     
   </div>
 </template>
@@ -70,6 +80,8 @@
 const { t } = useI18n()
 const route = useRoute()
 const authStore = useAuthStore()
+
+const success = ref<string | null>(null)
 
 useHead({
   title: t('settings.title')

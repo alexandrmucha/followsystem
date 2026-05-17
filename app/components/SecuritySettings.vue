@@ -24,6 +24,10 @@
 const { t } = useI18n()
 const { $api } = useNuxtApp()
 
+const emit = defineEmits<{
+  (e: 'success'): void
+}>()
+
 const loading = ref(false)
 
 const isDisabled = computed(() =>
@@ -42,6 +46,8 @@ const logoutAll = async () => {
   try {
     await $api('/auth/logout-all', { method: 'POST' })
     await refresh()
+
+    emit('success')
   } catch (err) {
     console.error(err)
   } finally {
