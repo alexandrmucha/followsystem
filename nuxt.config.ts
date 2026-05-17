@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     ],
   },
 
-  modules: ['@nuxtjs/i18n', '@nuxtjs/supabase', '@nuxtjs/color-mode'],
+  modules: ['@nuxtjs/i18n', '@nuxtjs/color-mode'],
   i18n: {
     strategy: 'no_prefix',
     defaultLocale: 'en',
@@ -20,17 +20,5 @@ export default defineNuxtConfig({
       { code: 'en', language: "en-US", name: 'English', file: 'en.json' },
       { code: 'cs', language: "cs-CZ", name: 'Čeština', file: 'cs.json' }
     ],
-  },
-  supabase: {
-    redirectOptions: {
-      login: '/sign-in',
-      callback: '/confirm',
-      exclude: ['/']
-    }
-  },
-  runtimeConfig: {
-    public: {
-      googleClientId: '',
-    },
   },
 })
