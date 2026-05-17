@@ -79,10 +79,11 @@
 <script lang="ts" setup>
 const { t } = useI18n()
 const route = useRoute()
+const router = useRouter()
 const authStore = useAuthStore()
 
 const success = ref<string | null>(null)
-const localError = ref<string | null>(null)
+const error = ref<string | null>(null)
 
 useHead({
   title: t('settings.title')
@@ -107,27 +108,26 @@ const errorMap: Record<string, string> = {
   gmail_general: t('settings.errors.gmail_general'),
 }
 
-const routeError = computed(() => {
-  const key = route.query.error as string | undefined
-  if (!key) return null
-  return errorMap[key]
-})
+watchEffect(() => {
+  if (route.query.error) {
+    const key = route.query.error as string | undefined
+    if (!key) return null
+    error.value = errorMap[key] ?? null
 
-/**
- * FINAL ERROR (route + local)
- */
+    const query = { ...route.query }
+    delete query.error
 
-const error = computed(() => {
-  return localError.value || routeError.value
+    router.replace({ query })
+  }
 })
 
 const handleSuccess = (message: string) => {
   success.value = message
-  localError.value = null
+  error.value = null
 }
 
 const handleError = (message: string) => {
-  localError.value = message
+  error.value = message
   success.value = null
 }
 </script>
