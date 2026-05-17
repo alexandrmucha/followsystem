@@ -122,13 +122,24 @@ watchEffect(() => {
   }
 })
 
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
+
 const handleSuccess = (message: string) => {
   success.value = message
   error.value = null
+
+  scrollToTop()
 }
 
 const handleError = (message: string) => {
   error.value = message
   success.value = null
+
+  scrollToTop()
 }
 </script>
