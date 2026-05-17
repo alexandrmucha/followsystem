@@ -1,12 +1,12 @@
 <template>
-  <div :class="wrapperClass">
+  <div v-if="visible" :class="wrapperClass">
     <!-- Icon -->
     <div class="mt-0.5" :class="iconClass">
       <slot name="icon" />
     </div>
 
     <!-- Content -->
-    <div>
+    <div class="flex-1">
       <h3 v-if="title" :class="titleClass">
         {{ title }}
       </h3>
@@ -21,10 +21,17 @@
 
       <slot />
     </div>
+
+    <!-- Close button -->
+    <button v-if="dismissible" type="button" class="ml-4 text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 cursor-pointer" @click="visible = false" :title="$t('close')" :aria-label="$t('close')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from 'vue'
+
 const props = defineProps({
   type: {
     type: String,
@@ -34,8 +41,14 @@ const props = defineProps({
   },
   title: String,
   message: String,
-  hint: String
+  hint: String,
+  dismissible: {
+    type: Boolean,
+    default: false
+  }
 })
+
+const visible = ref(true)
 
 /* =========================
    STYLE SYSTEM (light + dark)
@@ -80,10 +93,7 @@ const wrapperClass = computed(
 )
 
 const iconClass = computed(() => config.value.icon)
-
 const titleClass = computed(() => `font-semibold ${config.value.title}`)
-
 const messageClass = computed(() => `text-sm mt-1 ${config.value.message}`)
-
 const hintClass = computed(() => `text-xs mt-2 ${config.value.hint}`)
 </script>

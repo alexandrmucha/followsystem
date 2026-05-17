@@ -1,4 +1,7 @@
 {
+  "common": {
+    "close": "Zavřít"
+  },
   "auth": {
     "common": {
       "back_home": "Zpět na úvod",

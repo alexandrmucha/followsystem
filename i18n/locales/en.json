@@ -1,4 +1,7 @@
 {
+  "common": {
+    "close": "Close"
+  },
   "auth": {
     "common": {
       "back_home": "Back home",
