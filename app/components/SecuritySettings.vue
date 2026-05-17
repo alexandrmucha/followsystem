@@ -13,7 +13,7 @@
       </div>
 
       <div class="mt-6">
-        <button type="button" @click="logoutAll" class="text-red-500 hover:underline cursor-pointer" :class="{ 'opacity-50': loading }" :disabled="loading" >{{ $t('settings.security.logout_all') }}</button>
+        <button type="button" @click="logoutAll" class="text-red-500 hover:underline cursor-pointer" :class="{ 'opacity-50': isDisabled }" :disabled="isDisabled" >{{ $t('settings.security.logout_all') }}</button>
       </div>
 
     </div>
@@ -35,7 +35,7 @@ const { data: sessionsCount, refresh } = await useAsyncData('sessions-count', ()
 )
 
 const logoutAll = async () => {
-  if (loading.value) return
+  if (isDisabled.value) return
 
   loading.value = true
 
