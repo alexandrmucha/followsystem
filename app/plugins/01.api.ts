@@ -1,77 +1,101 @@
-import { appendResponseHeader } from 'h3';
+import { appendResponseHeader } from 'h3'
 
-export default defineNuxtPlugin((nuxtApp) => {
-  const apiFetch = $fetch.create({
-    baseURL: 'http://localhost:3001',
+export default defineNuxtPlugin(() => {
+  const config = useRuntimeConfig()
+  const authStore = useAuthStore() // ✅ Naprosto správné umístění
+
+  let isRefreshingPromise: Promise<any> | null = null
+
+  const baseFetch = $fetch.create({
+    baseURL: config.public.apiBaseUrl,
     credentials: 'include',
-
     onRequest({ options }) {
       if (import.meta.server) {
-        const event = useRequestEvent();
-        const cookieHeader = event?.node.req.headers.cookie;
-        if (cookieHeader) {
-          options.headers = new Headers(options.headers as HeadersInit);
-          options.headers.set('cookie', cookieHeader);
-        }
+        options.headers = { ...options.headers, ...useRequestHeaders(['cookie']) }
       }
     },
+  })
 
-    async onResponseError({ response, request, options }) {
-      if (response.status === 401) {
-        if (import.meta.server) {
-          try {
-            const event = useRequestEvent();
-            const cookieHeader = event?.node.req.headers.cookie;
+  const apiCustomFetch = async (url: string, options: any = {}) => {
+    try {
+      return await baseFetch(url, options)
+    } catch (error: any) {
+      if (error.statusCode !== 401 || url.includes('/auth/refresh')) {
+        throw error
+      }
 
-            const refreshResponse = await $fetch.raw('/auth/refresh', {
-              baseURL: 'http://localhost:3001',
-              method: 'POST',
-              headers: { cookie: cookieHeader ?? '' },
-            });
-
-            const setCookies = refreshResponse.headers.getSetCookie();
-            if (setCookies.length) {
-              setCookies.forEach(cookie => {
-                appendResponseHeader(event!, 'set-cookie', cookie);
-              });
-            }
-
-            const newCookies = refreshResponse.headers.get('set-cookie') ?? cookieHeader ?? '';
-            return $fetch(request, {
-              ...options,
-              headers: { cookie: newCookies },
-              method: options.method as any,
-            });
-          } catch {
-            return;
-          }
-        }
-
-        // Klient
-        try {
-          await $fetch('/auth/refresh', {
-            baseURL: 'http://localhost:3001',
+      // 💻 A. ŘEŠENÍ PRO KLIENTA
+      if (import.meta.client) {
+        if (!isRefreshingPromise) {
+          isRefreshingPromise = $fetch(`${config.public.apiBaseUrl}/auth/refresh`, {
             method: 'POST',
-            credentials: 'include',
-          });
+            credentials: 'include'
+          })
+          .catch(async (refreshError) => {
+            authStore.user = null
+            await navigateTo('/sign-in')
+            throw refreshError
+          })
+          .finally(() => {
+            isRefreshingPromise = null
+          })
+        }
 
-          return $fetch(request, {
-            ...options,
-            credentials: 'include',
-            method: options.method as any,
-          });
-        } catch {
-          const auth = useAuthStore();
-          auth.user = null;
-          await navigateTo('/sign-in');
+        try {
+          await isRefreshingPromise
+          return await baseFetch(url, options)
+        } catch (failedRefresh) {
+          throw failedRefresh
         }
       }
-    },
-  });
+
+      // 🖥️ B. ŘEŠENÍ PRO SERVER (SSR)
+      return await handleSSRRefresh(url, options)
+    }
+  }
+
+  async function handleSSRRefresh(url: string, options: any) {
+    // Zachycení hlaviček hned na začátku SSR funkce
+    const initialHeaders = useRequestHeaders(['cookie'])
+
+    try {
+      const refreshResponse = await $fetch.raw(`${config.public.apiBaseUrl}/auth/refresh`, {
+        method: 'POST',
+        headers: initialHeaders,
+        credentials: 'include'
+      })
+
+      const cookies = refreshResponse.headers.getSetCookie()
+
+      if (import.meta.server) {
+        const event = useRequestEvent()
+        
+        if (event && cookies.length > 0) {
+          cookies.forEach(cookie => {
+            appendResponseHeader(event, 'set-cookie', cookie)
+          })
+        }
+        
+        const currentHeaders = options.headers instanceof Headers 
+          ? Object.fromEntries(options.headers.entries()) 
+          : (options.headers || {})
+
+        options.headers = {
+          ...currentHeaders,
+          cookie: cookies.map(c => c.split(';')[0]).join('; ')
+        }
+      }
+
+      return await baseFetch(url, options)
+    } catch (refreshError) {
+      authStore.user = null
+      throw navigateTo('/sign-in') // ✨ Sjednoceno na /sign-in
+    }
+  }
 
   return {
     provide: {
-      api: apiFetch,
+      api: apiCustomFetch,
     },
-  };
-});
+  }
+})
