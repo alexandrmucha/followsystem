@@ -2,9 +2,7 @@
   "auth": {
     "common": {
       "back_home": "Back home",
-      "logout": "Log out",
-      "waiting_for_login": "Přihlašujeme Vás...",
-      "loading": "Loading.."
+      "logout": "Log out"
     },
     "sign_in": {
       "title": "Sign in",

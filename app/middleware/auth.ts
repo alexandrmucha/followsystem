@@ -1,7 +1,7 @@
 export default defineNuxtRouteMiddleware(() => {
   const auth = useAuthStore();
 
-  if (auth.loggedIn) {
-    return navigateTo('/dashboard');
+  if (!auth.loggedIn) {
+    return navigateTo('/sign-in');
   }
 });

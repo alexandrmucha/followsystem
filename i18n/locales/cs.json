@@ -2,9 +2,7 @@
   "auth": {
     "common": {
       "back_home": "Zpět na úvod",
-      "logout": "Odhlásit se",
-      "waiting_for_login": "Signing you in…",
-      "loading": "Načítání..."
+      "logout": "Odhlásit se"
     },
     "sign_in": {
       "title": "Přihlášení",

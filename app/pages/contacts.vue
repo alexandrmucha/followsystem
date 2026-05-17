@@ -5,8 +5,6 @@
       {{ t('contacts.title') }}
     </h1>
 
-
-    
   </div>
 </template>
 
@@ -18,6 +16,7 @@ useHead({
 })
 
 definePageMeta({
+  middleware: 'auth',
   layout: 'dashboard',
 })
 

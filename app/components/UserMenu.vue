@@ -2,8 +2,8 @@
   <div>
     <!-- User button -->
     <button ref="buttonRef" @click="openDropdown = !openDropdown" type="button" class="flex space-x-2 items-center text-sm text-neutral-500 dark:text-neutral-400 cursor-pointer hover:text-neutral-700 dark:hover:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors px-3 py-2 rounded-lg">
-      <img v-if="avatarUrl" :src="avatarUrl" class="w-6 h-6 rounded-full" alt="avatar" />
-      <span class="hidden sm:inline">{{ user?.email }}</span>
+      <img v-if="authStore.user?.avatar" :src="authStore.user?.avatar" class="w-6 h-6 rounded-full" alt="avatar" />
+      <span class="hidden sm:inline">{{ authStore.user?.email }}</span>
     </button>
 
     <!-- Dropdown -->
@@ -22,13 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-const supabase = useSupabaseClient()
-
-const user = useSupabaseUser()
-
-const avatarUrl = computed(() =>
-  user.value?.user_metadata?.avatar_url || null
-)
+const authStore = useAuthStore()
 
 /* =========================
    STATE
@@ -46,7 +40,7 @@ const buttonRef = ref<HTMLElement | null>(null)
 
 const logout = async () => {
   openDropdown.value = false
-  await supabase.auth.signOut()
+  await authStore.logout()
   await navigateTo('/sign-in')
 }
 

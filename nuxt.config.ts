@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     ],
   },
 
-  modules: ['@nuxtjs/i18n', '@nuxtjs/color-mode'],
+  modules: ['@nuxtjs/i18n', '@nuxtjs/color-mode', '@pinia/nuxt'],
   i18n: {
     strategy: 'no_prefix',
     defaultLocale: 'en',

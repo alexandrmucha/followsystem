@@ -8,20 +8,11 @@
     <!-- Google login -->
     <div class="space-y-4">
 
-      <BaseButton type="button" :disabled="loading" @click="signInWithGoogle">
-        <span v-if="loading">
-          {{ $t('auth.common.loading') }}
-        </span>
-
-        <span v-else>
+      <BaseButton type="button" @click="signInWithGoogle">
+        <span>
           {{ $t('auth.sign_in.button') }}
         </span>
       </BaseButton>
-
-      <!-- Error -->
-      <p v-if="errorMsg" class="text-red-500 dark:text-red-400 text-sm text-center">
-        {{ errorMsg }}
-      </p>
 
     </div>
   </AuthCard>
@@ -39,26 +30,7 @@ definePageMeta({
   middleware: ['guest']
 })
 
-const supabase = useSupabaseClient()
-
-const loading = ref(false)
-const errorMsg = ref('')
-
-const signInWithGoogle = async () => {
-  errorMsg.value = ''
-  loading.value = true
-
-  const { error } = await supabase.auth.signInWithOAuth({
-    provider: 'google',
-    options: {
-      redirectTo: 'http://localhost:3000/confirm'
-    }
-  })
-
-  if (error) {
-    errorMsg.value = error.message
-    loading.value = false
-    return
-  }
+const signInWithGoogle = () => {
+  window.location.href = 'http://localhost:3001/auth/google'
 }
 </script>

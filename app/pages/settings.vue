@@ -25,7 +25,7 @@
       <div class="space-y-3 text-sm text-neutral-700 dark:text-neutral-300">
         <div class="flex justify-between">
           <span>{{ t('settings.account.email') }}</span>
-          <span class="text-neutral-900 dark:text-neutral-100">{{ user?.email }}</span>
+          <span class="text-neutral-900 dark:text-neutral-100">{{ authStore.user?.email }}</span>
         </div>
       </div>
     </BaseCard>
@@ -58,7 +58,7 @@
   </BaseCard>
 
   <!-- Connections -->
-  <ConnectionsSettings />
+  <!-- <ConnectionsSettings /> -->
     
   </div>
 </template>
@@ -66,17 +66,16 @@
 <script lang="ts" setup>
 const { t } = useI18n()
 const route = useRoute()
-const router = useRouter()
+const authStore = useAuthStore()
 
 useHead({
   title: t('settings.title')
 })
 
 definePageMeta({
+  middleware: 'auth',
   layout: 'dashboard',
 })
-
-const user = useSupabaseUser()
 
 const { locale: currentLocale, setLocale, locales } = useI18n()
 
