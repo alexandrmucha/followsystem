@@ -12,6 +12,10 @@
         <span class="text-neutral-900 dark:text-neutral-100">{{ sessionsCount }}</span>
       </div>
 
+      <div class="mt-6">
+        <button type="button" class="text-red-500 hover:underline cursor-pointer" @click="logoutAll">{{ $t('settings.security.logout_all') }}</button>
+      </div>
+
     </div>
   </BaseCard>
 </template>
@@ -20,7 +24,19 @@
 const { t } = useI18n()
 const { $api } = useNuxtApp()
 
-const { data: sessionsCount } = await useAsyncData('sessions-count', () =>
+const { data: sessionsCount, refresh } = await useAsyncData('sessions-count', () =>
   $api<number>('/auth/sessions/count')
 )
+
+const logoutAll = async () => {
+  try {
+    await $api('/auth/logout-all', {
+      method: 'POST',
+    })
+
+    await refresh
+  } catch (err) {
+    console.error('Logout all failed:', err)
+  }
+}
 </script>
