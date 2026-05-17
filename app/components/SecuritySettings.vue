@@ -13,7 +13,7 @@
       </div>
 
       <div class="mt-6">
-        <button type="button" class="text-red-500 hover:underline cursor-pointer" @click="logoutAll">{{ $t('settings.security.logout_all') }}</button>
+        <button type="button" @click="logoutAll" class="text-red-500 hover:underline" :class="loading ? 'opacity-50' : 'cursor-pointer'" :disabled="loading" >{{ $t('settings.security.logout_all') }}</button>
       </div>
 
     </div>
@@ -24,19 +24,24 @@
 const { t } = useI18n()
 const { $api } = useNuxtApp()
 
+const loading = ref(false)
+
 const { data: sessionsCount, refresh } = await useAsyncData('sessions-count', () =>
   $api<number>('/auth/sessions/count')
 )
 
 const logoutAll = async () => {
-  try {
-    await $api('/auth/logout-all', {
-      method: 'POST',
-    })
+  if (loading.value) return
 
-    await refresh
+  loading.value = true
+
+  try {
+    await $api('/auth/logout-all', { method: 'POST' })
+    await refresh()
   } catch (err) {
-    console.error('Logout all failed:', err)
+    console.error(err)
+  } finally {
+    loading.value = false
   }
 }
 </script>
