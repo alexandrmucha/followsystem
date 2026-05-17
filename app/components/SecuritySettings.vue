@@ -26,6 +26,10 @@ const { $api } = useNuxtApp()
 
 const loading = ref(false)
 
+const isDisabled = computed(() =>
+  loading.value || (sessionsCount.value ?? 0) <= 1
+)
+
 const { data: sessionsCount, refresh } = await useAsyncData('sessions-count', () =>
   $api<number>('/auth/sessions/count')
 )
