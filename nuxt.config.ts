@@ -21,10 +21,6 @@ export default defineNuxtConfig({
       { code: 'cs', language: "cs-CZ", name: 'Čeština', file: 'cs.json' }
     ],
   },
-  ssr: false,
-   experimental: {
-    viteEnvironmentApi: true,
-  },
   runtimeConfig: {
     public: {
       apiBaseUrl: 'http://localhost:3001'
