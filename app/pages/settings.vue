@@ -104,12 +104,13 @@ const handleLocaleSwitch = (event: Event) => {
 const errorMap: Record<string, string> = {
   gmail_already_connected: t('settings.errors.gmail_already_connected'),
   different_google_account: t('settings.errors.different_google_account'),
+  gmail_general: t('settings.errors.gmail_general'),
 }
 
 const routeError = computed(() => {
   const key = route.query.error as string | undefined
   if (!key) return null
-  return errorMap[key] ?? t('settings.errors.gmail_general')
+  return errorMap[key]
 })
 
 /**
