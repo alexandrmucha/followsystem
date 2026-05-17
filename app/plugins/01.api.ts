@@ -3,15 +3,18 @@ import { appendResponseHeader } from 'h3'
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
   const authStore = useAuthStore()
+  const event = useRequestEvent()
 
   let isRefreshingPromise: Promise<any> | null = null
+
+  const initialHeaders = useRequestHeaders(['cookie'])
 
   const baseFetch = $fetch.create({
     baseURL: config.public.apiBaseUrl,
     credentials: 'include',
     onRequest({ options }) {
       if (import.meta.server) {
-        options.headers = { ...options.headers, ...useRequestHeaders(['cookie']) }
+        options.headers = { ...options.headers, ...initialHeaders }
       }
     },
   })
@@ -53,7 +56,6 @@ export default defineNuxtPlugin(() => {
   }
 
   async function handleSSRRefresh<T>(url: string, options: any): Promise<T> {
-    const initialHeaders = useRequestHeaders(['cookie'])
 
     try {
       const refreshResponse = await $fetch.raw(`${config.public.apiBaseUrl}/auth/refresh`, {
@@ -65,7 +67,7 @@ export default defineNuxtPlugin(() => {
       const cookies = refreshResponse.headers.getSetCookie()
 
       if (import.meta.server) {
-        const event = useRequestEvent()
+        
         
         if (event && cookies.length > 0) {
           cookies.forEach(cookie => {
