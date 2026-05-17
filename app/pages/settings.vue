@@ -115,8 +115,9 @@ const routeError = computed(() => {
 /**
  * FINAL ERROR (route + local)
  */
+
 const error = computed(() => {
-  return routeError.value || localError.value
+  return localError.value || routeError.value
 })
 
 const handleSuccess = (message: string) => {
