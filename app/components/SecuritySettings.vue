@@ -13,7 +13,7 @@
       </div>
 
       <div class="mt-6">
-        <button type="button" @click="logoutAll" class="text-red-500" :class="isDisabled ? 'opacity-50' : 'hover:underline'" :disabled="isDisabled" >{{ $t('settings.security.logout_all') }}</button>
+        <button type="button" @click="logoutAll" class="text-red-500" :class="isDisabled ? 'opacity-50' : 'hover:underline cursor-pointer'" :disabled="isDisabled" >{{ $t('settings.security.logout_all') }}</button>
       </div>
 
     </div>
@@ -25,7 +25,8 @@ const { t } = useI18n()
 const { $api } = useNuxtApp()
 
 const emit = defineEmits<{
-  (e: 'success'): void
+  (e: 'success', message: string): void
+  (e: 'error', message: string): void
 }>()
 
 const loading = ref(false)
@@ -47,9 +48,11 @@ const logoutAll = async () => {
     await $api('/auth/logout-all', { method: 'POST' })
     await refresh()
 
-    emit('success')
+    emit('success', t('settings.success.logout_all'))
   } catch (err) {
     console.error(err)
+
+    emit('error', t('settings.errors.logout_all'))
   } finally {
     loading.value = false
   }

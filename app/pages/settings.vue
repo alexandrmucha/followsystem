@@ -71,7 +71,7 @@
   <!-- <ConnectionsSettings /> -->
 
   <!-- Security -->
-  <SecuritySettings @success="success = $t('settings.success.logout_all')" />
+  <SecuritySettings @success="handleSuccess" @error="handleError" />
     
   </div>
 </template>
@@ -82,6 +82,7 @@ const route = useRoute()
 const authStore = useAuthStore()
 
 const success = ref<string | null>(null)
+const localError = ref<string | null>(null)
 
 useHead({
   title: t('settings.title')
@@ -103,12 +104,28 @@ const handleLocaleSwitch = (event: Event) => {
 const errorMap: Record<string, string> = {
   gmail_already_connected: t('settings.errors.gmail_already_connected'),
   different_google_account: t('settings.errors.different_google_account'),
-  gmail_general: t('settings.errors.gmail_general'),
 }
 
-const error = computed(() => {
+const routeError = computed(() => {
   const key = route.query.error as string | undefined
   if (!key) return null
-  return errorMap[key]
+  return errorMap[key] ?? t('settings.errors.gmail_general')
 })
+
+/**
+ * FINAL ERROR (route + local)
+ */
+const error = computed(() => {
+  return routeError.value || localError.value
+})
+
+const handleSuccess = (message: string) => {
+  success.value = message
+  localError.value = null
+}
+
+const handleError = (message: string) => {
+  localError.value = message
+  success.value = null
+}
 </script>
