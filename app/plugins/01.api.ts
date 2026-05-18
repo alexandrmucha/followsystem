@@ -45,12 +45,12 @@ export default defineNuxtPlugin(() => {
   // =========================================================
 
   function getCookieHeader(): string {
-    // SSR → shared mutable cookies
+    // SSR: use shared mutable cookie store
     if (import.meta.server && event?.context.authCookies) {
       return event.context.authCookies
     }
 
-    // CLIENT → browser handles cookies automatically
+    // CLIENT: browser handles cookies automatically
     return ''
   }
 
@@ -67,16 +67,11 @@ export default defineNuxtPlugin(() => {
         const cookieHeader = getCookieHeader()
 
         if (cookieHeader) {
-          // Vytvoříme standardní instanci Headers z jakéhokoliv formátu, který v options.headers je
           const headers = new Headers(options.headers)
 
-          // Nativně smažeme staré varianty hlavičky (Headers ignorují velikost písmen)
           headers.delete('cookie')
-
-          // Nativně nastavíme novou hodnotu cookies
           headers.set('cookie', cookieHeader)
 
-          // Přiřadíme objekt zpět. TypeScript je spokojený, protože typ přesně odpovídá
           options.headers = headers
         }
       }
@@ -94,7 +89,7 @@ export default defineNuxtPlugin(() => {
     try {
       return await baseFetch<T>(url, options)
     } catch (error: any) {
-      // Ignore non-401
+      // Ignore non-401 errors
       if (error?.statusCode !== 401) {
         throw error
       }
@@ -105,7 +100,7 @@ export default defineNuxtPlugin(() => {
       }
 
       // =====================================================
-      // CLIENT REFRESH
+      // CLIENT REFRESH FLOW
       // =====================================================
 
       if (import.meta.client) {
@@ -113,7 +108,7 @@ export default defineNuxtPlugin(() => {
       }
 
       // =====================================================
-      // SSR REFRESH
+      // SSR REFRESH FLOW
       // =====================================================
 
       return await handleSSRRefresh<T>(url, options)
@@ -165,7 +160,7 @@ export default defineNuxtPlugin(() => {
   ): Promise<T> {
     try {
       if (!event) {
-        throw new Error('SSR event missing')
+        throw new Error('SSR event is missing')
       }
 
       // =====================================================
@@ -179,20 +174,20 @@ export default defineNuxtPlugin(() => {
             {
               method: 'POST',
               credentials: 'include',
-              headers: event.context.authCookies 
-                ? { cookie: event.context.authCookies } 
+              headers: event.context.authCookies
+                ? { cookie: event.context.authCookies }
                 : {}
             }
           )
 
           // =================================================
-          // GET NEW COOKIES
+          // EXTRACT SET-COOKIE HEADERS
           // =================================================
 
           const setCookies = refreshResponse.headers.getSetCookie()
 
           // =================================================
-          // FORWARD COOKIES TO BROWSER
+          // FORWARD COOKIES TO CLIENT
           // =================================================
 
           setCookies.forEach((cookie) => {
@@ -200,7 +195,7 @@ export default defineNuxtPlugin(() => {
           })
 
           // =================================================
-          // BUILD NEW COOKIE HEADER
+          // BUILD COOKIE STRING
           // =================================================
 
           const newCookies = setCookies
@@ -217,14 +212,13 @@ export default defineNuxtPlugin(() => {
 
           const mergedCookies = {
             ...existingCookies,
-            ...incomingCookies // <- nové přepíšou staré
+            ...incomingCookies
           }
 
           event.context.authCookies = serializeCookieHeader(mergedCookies)
-        })()
-          .finally(() => {
-            event.context.refreshPromise = null
-          })
+        })().finally(() => {
+          event.context.refreshPromise = null
+        })
       }
 
       // =====================================================
@@ -234,21 +228,17 @@ export default defineNuxtPlugin(() => {
       await event.context.refreshPromise
 
       // =====================================================
-      // RETRY ORIGINAL REQUEST (Pomocí čistého $fetch)
+      // RETRY ORIGINAL REQUEST
       // =====================================================
 
-      // 1. Vytvoříme standardní instanci Headers z původních options.headers
       const finalHeaders = new Headers(options.headers)
 
-      // 2. Třída Headers automaticky vymaže staré cookies bez ohledu na velikost písmen
       finalHeaders.delete('cookie')
 
-      // 3. Nastavíme nejaktuálnější cookies z event.context
       if (event.context.authCookies) {
         finalHeaders.set('cookie', event.context.authCookies)
       }
 
-      // 4. Použijeme globální $fetch, abychom neprocházeli interceptorem podruhé
       return await $fetch<T>(url, {
         baseURL: config.public.apiBaseUrl,
         credentials: 'include',
@@ -259,7 +249,6 @@ export default defineNuxtPlugin(() => {
       console.error('SSR refresh failed:', error)
       authStore.user = null
 
-      // Na serveru je u navigateTo vyžadován await
       return await navigateTo('/sign-in') as never
     }
   }
