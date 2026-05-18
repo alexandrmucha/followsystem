@@ -6,10 +6,10 @@ export const useCsrfStore = defineStore('csrf', () => {
   async function fetchToken() {
     try {
       const { $api } = useNuxtApp()
-      const response = await $api<{ csrfToken: string }>('/csrf/csrf-token')
+      const response = await $api<{ csrfToken: string }>('/auth/csrf-token')
       token.value = response.csrfToken
     } catch (error) {
-      console.error('Nepodařilo se načíst CSRF token:', error)
+      console.error('Failed to fetch CSRF token:', error);
       token.value = null
     }
   }
