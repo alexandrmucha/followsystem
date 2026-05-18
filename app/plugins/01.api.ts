@@ -231,7 +231,6 @@ export default defineNuxtPlugin(() => {
         headers: finalHeaders
       })
     } catch (error) {
-      console.error('SSR refresh failed:', error)
       authStore.user = null
 
       return await navigateTo('/sign-in') as never
