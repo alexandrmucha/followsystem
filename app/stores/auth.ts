@@ -1,3 +1,5 @@
+import { defineStore } from 'pinia';
+
 interface User {
   id: string;
   email: string;
@@ -8,6 +10,7 @@ interface User {
 export const useAuthStore = defineStore('auth', () => {
   const user = ref<User | null>(null);
   const loggedIn = computed(() => !!user.value);
+  const csrfStore = useCsrfStore();
 
   async function fetchUser() {
     try {
@@ -20,10 +23,15 @@ export const useAuthStore = defineStore('auth', () => {
 
   async function logout() {
     const { $api } = useNuxtApp();
+    
     await $api('/auth/logout', {
       method: 'POST',
     });
+    
     user.value = null;
+
+    await csrfStore.fetchToken();
+
     await navigateTo('/sign-in');
   }
 

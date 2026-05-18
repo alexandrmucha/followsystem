@@ -4,6 +4,7 @@ import { parse } from 'cookie-es'
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
   const authStore = useAuthStore()
+  const csrfStore = useCsrfStore()
   const event = useRequestEvent()
 
   // =========================================================
@@ -48,18 +49,22 @@ export default defineNuxtPlugin(() => {
     credentials: 'include',
 
     onRequest({ options }) {
+      const headers = new Headers(options.headers)
+
       if (import.meta.server) {
         const cookieHeader = getCookieHeader()
 
         if (cookieHeader) {
-          const headers = new Headers(options.headers)
-
           headers.delete('cookie')
           headers.set('cookie', cookieHeader)
-
-          options.headers = headers
         }
       }
+
+      if (csrfStore.token) {
+        headers.set('x-csrf-token', csrfStore.token)
+      }
+
+      options.headers = headers
     }
   })
 
@@ -76,6 +81,10 @@ export default defineNuxtPlugin(() => {
     } catch (error: any) {
       // Ignore non-401 errors
       if (error?.statusCode !== 401) {
+        throw error
+      }
+
+      if (url.includes('/csrf/csrf-token')) {
         throw error
       }
 
@@ -114,7 +123,8 @@ export default defineNuxtPlugin(() => {
           `${config.public.apiBaseUrl}/auth/refresh`,
           {
             method: 'POST',
-            credentials: 'include'
+            credentials: 'include',
+            headers: csrfStore.token ? { 'x-csrf-token': csrfStore.token } : {}
           }
         )
           .catch(async (refreshError) => {
@@ -154,14 +164,22 @@ export default defineNuxtPlugin(() => {
 
       if (!event.context.refreshPromise) {
         event.context.refreshPromise = (async () => {
+
+          const refreshHeaders: Record<string, string> = {}
+          if (event.context.authCookies) {
+            refreshHeaders['cookie'] = event.context.authCookies
+          }
+
+          if (csrfStore.token) {
+            refreshHeaders['x-csrf-token'] = csrfStore.token
+          }
+
           const refreshResponse = await $fetch.raw(
             `${config.public.apiBaseUrl}/auth/refresh`,
             {
               method: 'POST',
               credentials: 'include',
-              headers: event.context.authCookies
-                ? { cookie: event.context.authCookies }
-                : {}
+              headers: refreshHeaders
             }
           )
 
@@ -216,20 +234,7 @@ export default defineNuxtPlugin(() => {
       // RETRY ORIGINAL REQUEST
       // =====================================================
 
-      const finalHeaders = new Headers(options.headers)
-
-      finalHeaders.delete('cookie')
-
-      if (event.context.authCookies) {
-        finalHeaders.set('cookie', event.context.authCookies)
-      }
-
-      return await $fetch<T>(url, {
-        baseURL: config.public.apiBaseUrl,
-        credentials: 'include',
-        ...options,
-        headers: finalHeaders
-      })
+      return await baseFetch<T>(url, options)
     } catch (error) {
       authStore.user = null
 
