@@ -1,29 +1,10 @@
 import { appendResponseHeader } from 'h3'
+import { parse } from 'cookie-es'
 
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
   const authStore = useAuthStore()
   const event = useRequestEvent()
-
-  function parseCookieHeader(cookieHeader: string = ''): Record<string, string> {
-    return cookieHeader
-      .split(';')
-      .map(v => v.trim())
-      .filter(Boolean)
-      .reduce((acc, cookie) => {
-        const [key, ...rest] = cookie.split('=')
-        if (!key) return acc
-        acc[key] = rest.join('=')
-        return acc
-      }, {} as Record<string, string>)
-  }
-
-  function serializeCookieHeader(cookies: Record<string, string>): string {
-    return Object.entries(cookies)
-      .filter(([, v]) => v != null)
-      .map(([k, v]) => `${k}=${v}`)
-      .join('; ')
-  }
 
   // =========================================================
   // CLIENT REFRESH LOCK
@@ -45,13 +26,17 @@ export default defineNuxtPlugin(() => {
   // =========================================================
 
   function getCookieHeader(): string {
-    // SSR: use shared mutable cookie store
     if (import.meta.server && event?.context.authCookies) {
       return event.context.authCookies
     }
-
-    // CLIENT: browser handles cookies automatically
     return ''
+  }
+
+  function serializeCookieHeader(cookies: Record<string, string>) {
+    return Object.entries(cookies)
+      .filter(([, v]) => v != null)
+      .map(([k, v]) => `${k}=${v}`)
+      .join('; ')
   }
 
   // =========================================================
@@ -198,7 +183,7 @@ export default defineNuxtPlugin(() => {
           // BUILD COOKIE STRING
           // =================================================
 
-          const newCookies = setCookies
+          const newCookieString = setCookies
             .map((cookie) => cookie.split(';')[0]?.trim())
             .filter(Boolean)
             .join('; ')
@@ -207,8 +192,8 @@ export default defineNuxtPlugin(() => {
           // MERGE WITH EXISTING COOKIES
           // =================================================
 
-          const existingCookies = parseCookieHeader(event.context.authCookies || '')
-          const incomingCookies = parseCookieHeader(newCookies)
+          const existingCookies = parse(event.context.authCookies || '')
+          const incomingCookies = parse(newCookieString)
 
           const mergedCookies = {
             ...existingCookies,
