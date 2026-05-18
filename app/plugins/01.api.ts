@@ -63,26 +63,23 @@ export default defineNuxtPlugin(() => {
       if (import.meta.server) {
         const cookieHeader = getCookieHeader()
 
-        const headers =
-          options.headers instanceof Headers
-            ? Object.fromEntries(options.headers.entries())
-            : (options.headers || {})
-
-        // Přidáme cookies pouze pokud nejsou prázdné
         if (cookieHeader) {
-          // Vyčištění případných starých klíčů pro jistotu
-          delete headers['cookie']
-          delete headers['Cookie']
-          delete headers['COOKIE']
+          // 1. Vytvoříme standardní instanci Headers z jakéhokoliv formátu, který v options.headers je
+          const headers = new Headers(options.headers)
 
-          options.headers = {
-            ...headers,
-            cookie: cookieHeader
-          }
+          // 2. Nativně smažeme staré varianty hlavičky (Headers ignorují velikost písmen)
+          headers.delete('cookie')
+
+          // 3. Nativně nastavíme novou hodnotu cookies
+          headers.set('cookie', cookieHeader)
+
+          // 4. Přiřadíme objekt zpět. TypeScript bude spokojený, protože typ přesně odpovídá
+          options.headers = headers
         }
       }
     }
   })
+
 
   // =========================================================
   // MAIN API FETCH
@@ -207,33 +204,30 @@ export default defineNuxtPlugin(() => {
       // =====================================================
 
       await event.context.refreshPromise
-
+      
       // =====================================================
-      // RETRY ORIGINAL REQUEST
+      // RETRY ORIGINAL REQUEST (Pomocí čistého $fetch)
       // =====================================================
 
-      const currentHeaders =
-        options.headers instanceof Headers
-          ? Object.fromEntries(options.headers.entries())
-          : (options.headers || {})
+      // 1. Vytvoříme standardní instanci Headers z původních options.headers
+      const finalHeaders = new Headers(options.headers)
 
-      const finalHeaders = { ...currentHeaders }
+      // 2. Třída Headers automaticky vymaže staré cookies bez ohledu na velikost písmen
+      finalHeaders.delete('cookie')
 
-      // OPRAVA 2: Smazání starých variant klíče kvůli case-sensitivity
-      delete finalHeaders['cookie']
-      delete finalHeaders['Cookie']
-      delete finalHeaders['COOKIE']
-
+      // 3. Nastavíme nejaktuálnější cookies z event.context
       if (event.context.authCookies) {
-        finalHeaders.cookie = event.context.authCookies
+        finalHeaders.set('cookie', event.context.authCookies)
       }
 
+      // 4. Použijeme globální $fetch, který neprochází interceptory baseFetch
       return await $fetch<T>(url, {
         baseURL: config.public.apiBaseUrl,
         credentials: 'include',
         ...options,
-        headers: finalHeaders
+        headers: finalHeaders // TypeScript bude 100% spokojený
       })
+
     } catch (error) {
       console.error('SSR refresh failed:', error)
       authStore.user = null
