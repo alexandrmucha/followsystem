@@ -20,6 +20,7 @@
 
 <script lang="ts" setup>
 const { t } = useI18n()
+const config = useRuntimeConfig()
 
 useHead({
   title: t('auth.sign_in.title')
@@ -31,6 +32,6 @@ definePageMeta({
 })
 
 const signInWithGoogle = () => {
-  window.location.href = 'http://localhost:3001/auth/google'
+  window.location.href = `${config.public.apiBaseUrl}/auth/google`
 }
 </script>
