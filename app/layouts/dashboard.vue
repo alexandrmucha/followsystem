@@ -3,7 +3,10 @@
     <Sidebar />
 
     <div class="flex flex-col grow transition-all duration-300" :class="sidebarOpen.desktop ? 'md:ml-64' : 'ml-0'">
-      <AppHeader />
+      <div>
+        <Announcement />
+        <AppHeader />
+      </div>
       
       <div class="py-6 px-4 sm:px-6 md:px-8">
         <div v-if="alertStore.alert" class="mb-6 max-w-2xl">
