@@ -24,7 +24,7 @@ export const useAuthStore = defineStore('auth', () => {
   async function logout() {
     const { $api } = useNuxtApp()
     const alerts = useAlertStore()
-    const { t } = useI18n()
+    const { $i18n } = useNuxtApp()
 
     try {
       await $api('/auth/logout', {
@@ -37,7 +37,7 @@ export const useAuthStore = defineStore('auth', () => {
 
       await navigateTo('/sign-in')
     } catch (err) {
-      alerts.error(t('auth.errors.logout'))
+      alerts.error($i18n.t('auth.errors.logout'))
     }
   }
 

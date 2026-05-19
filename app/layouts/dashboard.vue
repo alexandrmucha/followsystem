@@ -9,7 +9,7 @@
         <div v-if="alertStore.alert" class="mb-6 max-w-2xl">
           <BaseAlert
             :type="alertStore.alert.type"
-            :title="alertStore.alert.type === 'error' ? $t('error') : undefined"
+            :title="alertStore.alert.type === 'error' ? $t('common.error') : undefined"
             :message="alertStore.alert.message"
             :dismissible="alertStore.alert.dismissible"
           >
