@@ -15,7 +15,7 @@ export const useAuthStore = defineStore('auth', () => {
   async function fetchUser() {
     try {
       const { $api } = useNuxtApp();
-      user.value = await $api('/auth/profile');
+      user.value = await $api('/auth/me');
     } catch {
       user.value = null;
     }
