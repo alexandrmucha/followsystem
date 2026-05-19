@@ -22,7 +22,8 @@
     "errors": {
       "email_required": "Zadejte e-mail",
       "email_invalid": "Neplatná e-mailová adresa",
-      "logout": "Nepodařilo se vás odhlásit. Zkuste to prosím znovu."
+      "logout": "Nepodařilo se vás odhlásit. Zkuste to prosím znovu.",
+      "magic_link": "Nepodařilo se vygenerovat přihlašovací odkaz. Zkuste to prosím znovu."
     }
   },
   "dashboard": {

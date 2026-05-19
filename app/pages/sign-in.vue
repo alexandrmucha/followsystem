@@ -106,6 +106,7 @@ const signIn = async () => {
       },
     })
   } catch (err) {
+    errorMsg.value = $t('auth.errors.magic_link')
     return
   } finally {
     loading.value = false

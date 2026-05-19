@@ -22,7 +22,8 @@
     "errors": {
       "email_required": "Please enter your email",
       "email_invalid": "Invalid email address",
-      "logout": "Failed to log out. Please try again."
+      "logout": "Failed to log out. Please try again.",
+      "magic_link": "Failed to generate sign-in link. Please try again."
     }
   },
   "dashboard": {
