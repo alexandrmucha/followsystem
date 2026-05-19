@@ -13,7 +13,8 @@
     },
     "errors": {
       "email_required": "Please enter your email",
-      "email_invalid": "Invalid email address"
+      "email_invalid": "Invalid email address",
+      "logout": "Failed to log out. Please try again."
     }
   },
   "dashboard": {

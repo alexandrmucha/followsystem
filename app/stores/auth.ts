@@ -22,17 +22,23 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   async function logout() {
-    const { $api } = useNuxtApp();
-    
-    await $api('/auth/logout', {
-      method: 'POST',
-    });
-    
-    user.value = null;
+    const { $api } = useNuxtApp()
+    const alerts = useAlertStore()
+    const { t } = useI18n()
 
-    await csrfStore.fetchToken();
+    try {
+      await $api('/auth/logout', {
+        method: 'POST'
+      })
 
-    await navigateTo('/sign-in');
+      user.value = null
+
+      await csrfStore.fetchToken()
+
+      await navigateTo('/sign-in')
+    } catch (err) {
+      alerts.error(t('auth.errors.logout'))
+    }
   }
 
   return { user, loggedIn, fetchUser, logout };

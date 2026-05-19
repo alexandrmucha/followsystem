@@ -13,7 +13,8 @@
     },
     "errors": {
       "email_required": "Zadejte e-mail",
-      "email_invalid": "Neplatná e-mailová adresa"
+      "email_invalid": "Neplatná e-mailová adresa",
+      "logout": "Nepodařilo se vás odhlásit. Zkuste to prosím znovu."
     }
   },
   "dashboard": {
