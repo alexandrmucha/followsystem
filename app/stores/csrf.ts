@@ -9,7 +9,6 @@ export const useCsrfStore = defineStore('csrf', () => {
       const response = await $api<{ csrfToken: string }>('/auth/csrf-token')
       token.value = response.csrfToken
     } catch (error) {
-      console.error('Failed to fetch CSRF token:', error);
       token.value = null
     }
   }

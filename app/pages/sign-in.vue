@@ -53,6 +53,7 @@
 <script lang="ts" setup>
 const { t } = useI18n()
 const config = useRuntimeConfig()
+const { $api } = useNuxtApp();
 
 useHead({
   title: t('auth.sign_in.title')
@@ -97,13 +98,17 @@ const signIn = async () => {
 
   loading.value = true
 
-  const { error } = { error: { message: '' }}
-
-  loading.value = false
-
-  if (error) {
-    errorMsg.value = error.message
+  try {
+    await $api('/auth/login-email', {
+      method: 'POST',
+      body: {
+        email: email.value,
+      },
+    })
+  } catch (err) {
     return
+  } finally {
+    loading.value = false
   }
 
   showEmailAlert.value = true

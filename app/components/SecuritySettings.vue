@@ -52,8 +52,6 @@ const logoutAll = async () => {
 
     alertFlow.success(t('settings.success.logout_all'))
   } catch (err) {
-    console.error(err)
-
     alertFlow.error(t('settings.errors.logout_all'))
   } finally {
     loading.value = false
