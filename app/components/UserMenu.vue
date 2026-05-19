@@ -41,7 +41,6 @@ const buttonRef = ref<HTMLElement | null>(null)
 const logout = async () => {
   openDropdown.value = false
   await authStore.logout()
-  await navigateTo('/sign-in')
 }
 
 /* =========================
