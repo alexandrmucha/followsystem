@@ -56,7 +56,7 @@
     },
     "security": {
       "title": "Bezpečnost",
-      "active_session": "Přihlášené relace",
+      "active_sessions": "Aktivní relace",
       "logout_all": "Odhlásit vše"
     },
     "errors" : {
