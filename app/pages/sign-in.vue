@@ -99,7 +99,7 @@ const signIn = async () => {
   loading.value = true
 
   try {
-    await $api('/auth/login-email', {
+    await $api('/auth/magic-link', {
       method: 'POST',
       body: {
         email: email.value,
