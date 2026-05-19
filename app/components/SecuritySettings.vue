@@ -7,7 +7,7 @@
     <div class="text-sm text-neutral-700 dark:text-neutral-300">
       
       <div class="flex justify-between items-center">
-        <span>{{ t('settings.security.active_devices') }}</span>
+        <span>{{ t('settings.security.active_sessions') }}</span>
 
         <span class="text-neutral-900 dark:text-neutral-100">{{ sessionsCount }}</span>
       </div>
