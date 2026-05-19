@@ -30,18 +30,20 @@
 const { $api } = useNuxtApp()
 
 const visible = ref(true)
+const lastId = ref<string | null>(null)
 
 /* =========================
    FETCH ANNOUNCEMENT
 ========================= */
 
 type Announcement = {
+  id: string
   type: 'success' | 'error' | 'warning' | 'info'
   message: string
   dismissible: boolean
 }
 
-const { data: announcement } = await useAsyncData<Announcement | null>(
+const { data: announcement, refresh } = await useAsyncData<Announcement | null>(
   'active-announcement',
   () => $api('/announcements/active')
 )
@@ -60,4 +62,23 @@ const styles: Record<string, string> = {
   info:
     'bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300'
 }
+
+watch(
+  announcement,
+  (newVal) => {
+    if (!newVal) return
+
+    if (lastId.value !== newVal.id) {
+      lastId.value = newVal.id
+      visible.value = true
+    }
+  },
+  { immediate: true }
+)
+
+const route = useRoute()
+
+watch(() => route.fullPath, () => {
+  refresh()
+})
 </script>
