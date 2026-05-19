@@ -6,9 +6,8 @@
       <AppHeader />
       
       <div class="py-6 px-4 sm:px-6 md:px-8">
-        <div class="mb-6 max-w-2xl">
+        <div v-if="alertStore.alert" class="mb-6 max-w-2xl">
           <BaseAlert
-            v-if="alertStore.alert"
             :type="alertStore.alert.type"
             :title="alertStore.alert.type === 'error' ? $t('error') : undefined"
             :message="alertStore.alert.message"
