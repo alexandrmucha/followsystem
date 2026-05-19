@@ -6,11 +6,18 @@
   "auth": {
     "common": {
       "back_home": "Back home",
-      "logout": "Log out"
+      "logout": "Log out",
+      "email": "Email"
     },
     "sign_in": {
       "title": "Sign in",
-      "button": "Continue"
+      "button": "Continue",
+      "continue_with_google": "Continue with Googlem"
+    },
+    "confirm_email": {
+      "title": "Check your email",
+      "message": "We’ve sent you a sign-in link. Click it to complete your sign-in.",
+      "spam_hint": "If you don’t see the email, check your spam folder."
     },
     "errors": {
       "email_required": "Please enter your email",

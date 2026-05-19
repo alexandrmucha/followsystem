@@ -6,11 +6,18 @@
   "auth": {
     "common": {
       "back_home": "Zpět na úvod",
-      "logout": "Odhlásit se"
+      "logout": "Odhlásit se",
+      "email": "E-mail"
     },
     "sign_in": {
       "title": "Přihlášení",
-      "button": "Pokračovat s Googlem"
+      "button": "Pokračovat",
+      "continue_with_google": "Pokračovat s Googlem"
+    },
+    "confirm_email": {
+      "title": "Zkontrolujte svůj e-mail",
+      "message": "Odeslali jsme vám odkaz pro přihlášení. Klikněte na něj pro dokončení přihlášení.",
+      "spam_hint": "Pokud e-mail nevidíte, zkontrolujte složku spam."
     },
     "errors": {
       "email_required": "Zadejte e-mail",
