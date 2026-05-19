@@ -1,27 +1,5 @@
 <template>
   <div class="max-w-2xl space-y-6">
-    <BaseAlert
-      v-if="error"
-      type="error"
-      :title="$t('settings.errors.title')"
-      :message="error"
-    >
-      <template #icon>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x-icon lucide-circle-x"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
-      </template>
-    </BaseAlert>
-
-    <BaseAlert
-      v-if="success"
-      type="success"
-      :message="success"
-      :dismissible="true"
-    >
-      <template #icon>
-       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-icon lucide-circle-check"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-      </template>
-    </BaseAlert>
-
     <!-- Title -->
     <h1 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
       {{ t('settings.title') }}
@@ -72,7 +50,7 @@
   <!-- <ConnectionsSettings /> -->
 
   <!-- Security -->
-  <SecuritySettings @success="handleSuccess" @error="handleError" />
+  <SecuritySettings />
     
   </div>
 </template>
@@ -82,9 +60,7 @@ const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
-
-const success = ref<string | null>(null)
-const error = ref<string | null>(null)
+const alertFlow = useAlertFlow()
 
 useHead({
   title: t('settings.title')
@@ -113,7 +89,11 @@ watchEffect(() => {
   if (route.query.error) {
     const key = route.query.error as string | undefined
     if (!key) return null
-    error.value = errorMap[key] ?? null
+
+    const error = errorMap[key] ?? null
+    if (!error) return null
+
+    alertFlow.error(error)
 
     const query = { ...route.query }
     delete query.error
@@ -121,25 +101,4 @@ watchEffect(() => {
     router.replace({ query })
   }
 })
-
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
-}
-
-const handleSuccess = (message: string) => {
-  success.value = message
-  error.value = null
-
-  scrollToTop()
-}
-
-const handleError = (message: string) => {
-  error.value = message
-  success.value = null
-
-  scrollToTop()
-}
 </script>

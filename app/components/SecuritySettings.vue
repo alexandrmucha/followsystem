@@ -23,6 +23,7 @@
 <script lang="ts" setup>
 const { t } = useI18n()
 const { $api } = useNuxtApp()
+const alertFlow = useAlertFlow()
 
 const emit = defineEmits<{
   (e: 'success', message: string): void
@@ -48,11 +49,11 @@ const logoutAll = async () => {
     await $api('/auth/logout-all', { method: 'POST' })
     await refresh()
 
-    emit('success', t('settings.success.logout_all'))
+    alertFlow.success(t('settings.success.logout_all'))
   } catch (err) {
     console.error(err)
 
-    emit('error', t('settings.errors.logout_all'))
+    alertFlow.error(t('settings.errors.logout_all'))
   } finally {
     loading.value = false
   }
