@@ -18,8 +18,13 @@ export const useAlertFlow = () => {
     scrollToTop()
   }
 
+  const clear = () => {
+    alerts.clear()
+  }
+
   return {
     success,
-    error
+    error,
+    clear
   }
 }

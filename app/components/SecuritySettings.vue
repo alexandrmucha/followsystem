@@ -43,6 +43,7 @@ const { data: sessionsCount, refresh } = await useAsyncData('sessions-count', ()
 const logoutAll = async () => {
   if (isDisabled.value) return
 
+  alertFlow.clear()
   loading.value = true
 
   try {
