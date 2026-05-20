@@ -30,7 +30,7 @@
 const { $api } = useNuxtApp()
 
 const visible = ref(true)
-const lastId = ref<string | null>(null)
+const lastAnnouncement = ref<Announcement | null>(null)
 
 /* =========================
    FETCH ANNOUNCEMENT
@@ -68,8 +68,15 @@ watch(
   (newVal) => {
     if (!newVal) return
 
-    if (lastId.value !== newVal.id) {
-      lastId.value = newVal.id
+    const changed =
+      !lastAnnouncement.value ||
+      newVal.id !== lastAnnouncement.value.id ||
+      newVal.type !== lastAnnouncement.value.type ||
+      newVal.message !== lastAnnouncement.value.message ||
+      newVal.dismissible !== lastAnnouncement.value.dismissible
+
+    if (changed) {
+      lastAnnouncement.value = newVal
       visible.value = true
     }
   },
