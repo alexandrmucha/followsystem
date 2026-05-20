@@ -4,6 +4,7 @@ import type { FetchError } from 'ofetch'
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
   const csrfStore = useCsrfStore()
+  const authStore = useAuthStore()
   const event = useRequestEvent()
 
   const baseFetch = $fetch.create({
@@ -30,9 +31,6 @@ export default defineNuxtPlugin(() => {
     },
   })
 
-  // =========================
-  // CSRF REFRESH LOCK (dedupe)
-  // =========================
   let csrfRefreshPromise: Promise<any> | null = null
 
   async function refreshCsrfOnce() {
@@ -49,13 +47,23 @@ export default defineNuxtPlugin(() => {
     try {
       return await baseFetch(url, options)
     } catch (err: any) {
+      const status = err?.response?.status
       const message = err?.response?._data?.message
-      const isCsrfError = message === 'invalid csrf token'
 
+      const isCsrfError = message === 'invalid csrf token'
+      const is401 = status === 401
+
+      // ---------------- CSRF RETRY ----------------
       if (isCsrfError && !_retry) {
-        console.log("refreshing")
         await refreshCsrfOnce()
         return api<T>(url, options, true)
+      }
+
+      // ---------------- AUTO LOGOUT ----------------
+      if (is401) {
+        authStore.user = null
+        await csrfStore.fetchToken()
+        await navigateTo('/sign-in')
       }
 
       throw err
