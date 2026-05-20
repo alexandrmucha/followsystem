@@ -4,7 +4,7 @@
 
     <div class="flex flex-col grow transition-all duration-300" :class="sidebarOpen.desktop ? 'md:ml-64' : 'ml-0'">
       <div>
-        <Announcement />
+        <Announcements />
         <AppHeader />
       </div>
       
