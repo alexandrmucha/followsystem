@@ -1,4 +1,5 @@
 import { useRequestHeaders } from '#app'
+import type { FetchError } from 'ofetch'
 
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
@@ -29,9 +30,41 @@ export default defineNuxtPlugin(() => {
     },
   })
 
+  // =========================
+  // CSRF REFRESH LOCK (dedupe)
+  // =========================
+  let csrfRefreshPromise: Promise<any> | null = null
+
+  async function refreshCsrfOnce() {
+    if (!csrfRefreshPromise) {
+      csrfRefreshPromise = csrfStore.fetchToken().finally(() => {
+        csrfRefreshPromise = null
+      })
+    }
+
+    return csrfRefreshPromise
+  }
+
+  async function api<T>(url: string, options: any = {}, _retry = false): Promise<T> {
+    try {
+      return await baseFetch(url, options)
+    } catch (err: any) {
+      const message = err?.response?._data?.message
+      const isCsrfError = message === 'invalid csrf token'
+
+      if (isCsrfError && !_retry) {
+        console.log("refreshing")
+        await refreshCsrfOnce()
+        return api<T>(url, options, true)
+      }
+
+      throw err
+    }
+  }
+
   return {
     provide: {
-      api: baseFetch,
+      api,
     },
   }
 })

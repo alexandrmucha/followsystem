@@ -9,7 +9,7 @@
       <div class="flex justify-between items-center">
         <span>{{ t('settings.security.active_sessions') }}</span>
 
-        <span class="text-neutral-900 dark:text-neutral-100">{{ sessionsCount }}</span>
+        <span class="text-neutral-900 dark:text-neutral-100">{{ data?.count }}</span>
       </div>
 
       <div class="mt-6">
@@ -33,11 +33,11 @@ const emit = defineEmits<{
 const loading = ref(false)
 
 const isDisabled = computed(() =>
-  loading.value || (sessionsCount.value ?? 0) <= 1
+  loading.value || (data.value?.count ?? 0) <= 1
 )
 
-const { data: sessionsCount, refresh } = await useAsyncData('sessions-count', () =>
-  $api<number>('/auth/sessions/count')
+const { data, refresh } = await useAsyncData('sessions-count', () =>
+  $api<{ count: number }>('/auth/sessions/count')
 )
 
 const logoutAll = async () => {
