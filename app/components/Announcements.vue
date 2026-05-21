@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visibleAnnouncements.length">
+  <div v-if="hydrated && visibleAnnouncements.length">
     <div
       v-for="a in visibleAnnouncements"
       :key="a.id"
@@ -43,6 +43,12 @@ type Announcement = {
 }
 
 /* =========================
+   HYDRATION GUARD
+========================= */
+
+const hydrated = ref(false)
+
+/* =========================
    FETCH
 ========================= */
 
@@ -52,24 +58,36 @@ const { data: announcements, refresh } = await useAsyncData<Announcement[]>(
 )
 
 /* =========================
-   VISIBILITY STATE PER ITEM
+   PERSISTED DISMISS STATE
 ========================= */
 
-const dismissed = ref<Set<string>>(new Set())
+const STORAGE_KEY = 'dismissed-announcements'
+const dismissed = ref<string[]>([])
+
+/* =========================
+   HELPERS
+========================= */
+
+const saveDismissed = () => {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(dismissed.value))
+}
 
 const isVisible = (id: string) => {
-  return !dismissed.value.has(id)
+  return !dismissed.value.includes(id)
 }
 
 const dismiss = (id: string) => {
-  dismissed.value.add(id)
+  if (!dismissed.value.includes(id)) {
+    dismissed.value.push(id)
+    saveDismissed()
+  }
 }
 
 /* =========================
-   FILTER BY SCOPE
+   SCOPE (dynamic)
 ========================= */
 
-const scope = computed(() => {
+const scope = computed<'global' | 'app' | 'auth'>(() => {
   if (route.path.startsWith('/sign-in')) {
     return 'auth'
   }
@@ -77,12 +95,46 @@ const scope = computed(() => {
   return 'app'
 })
 
+/* =========================
+   FILTER + CLEANUP (IMPORTANT)
+========================= */
+
 const visibleAnnouncements = computed(() => {
   const list = announcements.value ?? []
 
-  return list.filter(a =>
+  const filtered = list.filter(a =>
     a.scope === 'global' || a.scope === scope.value
   )
+
+  // cleanup stale IDs (only when API data exists)
+  if (announcements.value) {
+    const currentIds = new Set(filtered.map(a => a.id))
+
+    const cleaned = dismissed.value.filter(id => currentIds.has(id))
+
+    // only update if needed (avoid loops)
+    if (cleaned.length !== dismissed.value.length) {
+      dismissed.value = cleaned
+      saveDismissed()
+    }
+  }
+
+  return filtered
+})
+
+/* =========================
+   LOAD LOCAL STORAGE (AFTER MOUNT)
+========================= */
+
+onMounted(() => {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY)
+    dismissed.value = stored ? JSON.parse(stored) : []
+  } catch {
+    dismissed.value = []
+  }
+
+  hydrated.value = true
 })
 
 /* =========================
