@@ -3,7 +3,6 @@
     <div
       v-for="a in visibleAnnouncements"
       :key="a.id"
-      v-show="isVisible(a.id)"
       :class="[
         'py-3 text-center text-sm relative pl-4 pr-10',
         styles[a.type]
@@ -85,7 +84,7 @@ const saveDismissed = () => {
    SCOPE (ONLY RENDER LOGIC)
 ========================= */
 
-const scope = computed<'global' | 'app' | 'auth'>(() => {
+const scope = computed(() => {
   if (route.path.startsWith('/sign-in')) {
     return 'auth'
   }
@@ -101,7 +100,8 @@ const visibleAnnouncements = computed(() => {
   const list = announcements.value ?? []
 
   return list.filter(a =>
-    a.scope === 'global' || a.scope === scope.value
+    (a.scope === 'global' || a.scope === scope.value) &&
+    !dismissed.value.includes(a.id)
   )
 })
 
@@ -114,7 +114,6 @@ watch(
   (list) => {
     if (!list) return
 
-    // ONLY existence check
     const allowedIds = new Set(list.map(a => a.id))
 
     const cleaned = dismissed.value.filter(id => allowedIds.has(id))
@@ -130,10 +129,6 @@ watch(
 /* =========================
    HELPERS
 ========================= */
-
-const isVisible = (id: string) => {
-  return !dismissed.value.includes(id)
-}
 
 const dismiss = (id: string) => {
   if (!dismissed.value.includes(id)) {
