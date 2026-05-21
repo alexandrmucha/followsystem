@@ -43,7 +43,7 @@ type Announcement = {
 }
 
 /* =========================
-   HYDRATION GUARD
+   HYDRATION
 ========================= */
 
 const hydrated = ref(false)
@@ -58,19 +58,78 @@ const { data: announcements, refresh } = await useAsyncData<Announcement[]>(
 )
 
 /* =========================
-   PERSISTED DISMISS STATE
+   LOCAL STORAGE
 ========================= */
 
 const STORAGE_KEY = 'dismissed-announcements'
 const dismissed = ref<string[]>([])
 
-/* =========================
-   HELPERS
-========================= */
+/* load */
+onMounted(() => {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY)
+    dismissed.value = stored ? JSON.parse(stored) : []
+  } catch {
+    dismissed.value = []
+  }
 
+  hydrated.value = true
+})
+
+/* save */
 const saveDismissed = () => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(dismissed.value))
 }
+
+/* =========================
+   SCOPE (ONLY RENDER LOGIC)
+========================= */
+
+const scope = computed<'global' | 'app' | 'auth'>(() => {
+  if (route.path.startsWith('/sign-in')) {
+    return 'auth'
+  }
+
+  return 'app'
+})
+
+/* =========================
+   DERIVED DATA (PURE)
+========================= */
+
+const visibleAnnouncements = computed(() => {
+  const list = announcements.value ?? []
+
+  return list.filter(a =>
+    a.scope === 'global' || a.scope === scope.value
+  )
+})
+
+/* =========================
+   CLEANUP (NO SCOPE HERE)
+========================= */
+
+watch(
+  announcements,
+  (list) => {
+    if (!list) return
+
+    // ONLY existence check
+    const allowedIds = new Set(list.map(a => a.id))
+
+    const cleaned = dismissed.value.filter(id => allowedIds.has(id))
+
+    if (cleaned.length !== dismissed.value.length) {
+      dismissed.value = cleaned
+      saveDismissed()
+    }
+  },
+  { immediate: true }
+)
+
+/* =========================
+   HELPERS
+========================= */
 
 const isVisible = (id: string) => {
   return !dismissed.value.includes(id)
@@ -84,58 +143,13 @@ const dismiss = (id: string) => {
 }
 
 /* =========================
-   SCOPE (dynamic)
+   REFRESH ON ROUTE CHANGE
 ========================= */
 
-const scope = computed<'global' | 'app' | 'auth'>(() => {
-  if (route.path.startsWith('/sign-in')) {
-    return 'auth'
-  }
-
-  return 'app'
-})
-
-/* =========================
-   FILTER + CLEANUP (IMPORTANT)
-========================= */
-
-const visibleAnnouncements = computed(() => {
-  const list = announcements.value ?? []
-
-  const filtered = list.filter(a =>
-    a.scope === 'global' || a.scope === scope.value
-  )
-
-  // cleanup stale IDs (only when API data exists)
-  if (announcements.value) {
-    const currentIds = new Set(filtered.map(a => a.id))
-
-    const cleaned = dismissed.value.filter(id => currentIds.has(id))
-
-    // only update if needed (avoid loops)
-    if (cleaned.length !== dismissed.value.length) {
-      dismissed.value = cleaned
-      saveDismissed()
-    }
-  }
-
-  return filtered
-})
-
-/* =========================
-   LOAD LOCAL STORAGE (AFTER MOUNT)
-========================= */
-
-onMounted(() => {
-  try {
-    const stored = localStorage.getItem(STORAGE_KEY)
-    dismissed.value = stored ? JSON.parse(stored) : []
-  } catch {
-    dismissed.value = []
-  }
-
-  hydrated.value = true
-})
+watch(
+  () => route.fullPath,
+  () => refresh()
+)
 
 /* =========================
    STYLES
@@ -147,13 +161,4 @@ const styles: Record<string, string> = {
   warning: 'bg-yellow-50 dark:bg-yellow-950/30 text-yellow-700 dark:text-yellow-300',
   info: 'bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300'
 }
-
-/* =========================
-   REFRESH ON ROUTE CHANGE
-========================= */
-
-watch(
-  () => route.fullPath,
-  () => refresh()
-)
 </script>
