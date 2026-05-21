@@ -69,13 +69,19 @@ const dismiss = (id: string) => {
    FILTER BY SCOPE
 ========================= */
 
-const scope = 'app' // 👈 sem později napojíš layout (app/auth/global)
+const scope = computed(() => {
+  if (route.path.startsWith('/sign-in')) {
+    return 'auth'
+  }
+
+  return 'app'
+})
 
 const visibleAnnouncements = computed(() => {
   const list = announcements.value ?? []
 
   return list.filter(a =>
-    a.scope === 'global' || a.scope === scope
+    a.scope === 'global' || a.scope === scope.value
   )
 })
 
