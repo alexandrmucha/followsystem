@@ -8,6 +8,9 @@
 
 <script lang="ts" setup>
 const { t } = useI18n()
+const route = useRoute()
+const router = useRouter()
+const alertFlow = useAlertFlow()
 
 useHead({
   title: t('dashboard.title')
@@ -16,5 +19,11 @@ useHead({
 definePageMeta({
   middleware: 'auth',
   layout: 'dashboard',
+})
+
+onMounted(() => {
+  if (route.query.restored === '1') {
+    alertFlow.success(t('account_deletion.restored'))
+  }
 })
 </script>

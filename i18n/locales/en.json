@@ -67,11 +67,16 @@
       "active_sessions": "Active sessions",
       "logout_all": "Sign out all"
     },
+    "danger": {
+      "title": "Danger zone",
+      "delete_account": "Delete account"
+    },
     "errors" : {
       "gmail_already_connected": "This Gmail account is already connected to another account.",
       "different_google_account": "You cannot connect a different Google account than the one already linked.",
       "gmail_general": "An error occurred while connecting Gmail. Please try again.",
-      "logout_all": "Failed to log out all sessions. Please try again."
+      "logout_all": "Failed to log out all sessions. Please try again.",
+      "delete_account": "Failed to delete your account. Please try again."
     },
     "success": {
       "logout_all": "All other sessions have been signed out."
@@ -91,5 +96,9 @@
     "not_now": "Not now",
     "disclaimer": "🔒 We access your emails to detect replies and track follow-ups. We only send emails when you explicitly instruct us to.",
     "connecting": "Connecting your Gmail account..."
+  },
+  "account_deletion": {
+    "success": "Your account has been deleted. You can restore it by signing in within 30 days.",
+    "restored": "Your account has been restored. Welcome back."
   }
 }

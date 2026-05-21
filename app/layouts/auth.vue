@@ -13,6 +13,8 @@
       </div>
 
       <div class="flex flex-col items-center">
+        <AppAlerts />
+
         <slot />
       </div>
         

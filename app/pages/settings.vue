@@ -51,6 +51,9 @@
 
   <!-- Security -->
   <SecuritySettings />
+
+  <!-- Danger -->
+  <DangerSettings />
     
   </div>
 </template>
@@ -85,7 +88,7 @@ const errorMap: Record<string, string> = {
   gmail_general: t('settings.errors.gmail_general'),
 }
 
-watchEffect(() => {
+onMounted(() => {
   if (route.query.error) {
     const key = route.query.error as string | undefined
     if (!key) return null
@@ -94,11 +97,6 @@ watchEffect(() => {
     if (!error) return null
 
     alertFlow.error(error)
-
-    const query = { ...route.query }
-    delete query.error
-
-    router.replace({ query })
   }
 })
 </script>

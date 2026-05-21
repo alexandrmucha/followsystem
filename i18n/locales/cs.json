@@ -67,11 +67,16 @@
       "active_sessions": "Aktivní relace",
       "logout_all": "Odhlásit vše"
     },
+    "danger": {
+      "title": "Kritické akce",
+      "delete_account": "Smazat účet"
+    },
     "errors" : {
       "gmail_already_connected": "Tento Gmail je již připojený k jinému účtu.",
       "different_google_account": "Nelze připojit jiný Google účet, než který je již propojený.",
       "gmail_general": "Při připojování Gmailu došlo k chybě. Zkuste to prosím znovu.",
-      "logout_all": "Nepodařilo se odhlásit všechny relace. Zkuste to prosím znovu."
+      "logout_all": "Nepodařilo se odhlásit všechny relace. Zkuste to prosím znovu.",
+      "delete_account": "Nepodařilo se smazat váš účet. Zkuste to prosím znovu."
     },
     "success": {
       "logout_all": "Všechny ostatní relace byly ukončeny."
@@ -91,5 +96,9 @@
     "not_now": "Teď ne",
     "disclaimer": "🔒 Přistupujeme k vašim e-mailům, abychom detekovali odpovědi a sledovali follow-upy. E-maily odesíláme jen na váš pokyn.",
     "connecting": "Připojujeme váš Gmail účet..."
+  },
+  "account_deletion": {
+    "success": "Váš účet byl smazán. Do 30 dnů jej můžete obnovit přihlášením.",
+    "restored": "Váš účet byl obnoven. Vítejte zpět."
   }
 }
