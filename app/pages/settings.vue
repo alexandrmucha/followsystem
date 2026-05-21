@@ -46,9 +46,6 @@
     </div>
   </BaseCard>
 
-  <!-- Connections -->
-  <!-- <ConnectionsSettings /> -->
-
   <!-- Security -->
   <SecuritySettings />
 

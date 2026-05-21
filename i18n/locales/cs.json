@@ -53,15 +53,6 @@
         "dark": "Tmavé"
       }
     },
-    "connections": {
-      "title": "Propojení",
-      "gmail": "Gmail",
-      "not_connected": "Nepřipojen",
-      "connect_gmail": "Připojit Gmail",
-      "disconnect_gmail": "Odpojit Gmail",
-      "needs_reconnect": "Vyžaduje opětovné připojení",
-      "reconnect_gmail": "Znovu připojit Gmail"
-    },
     "security": {
       "title": "Bezpečnost",
       "active_sessions": "Aktivní relace",
@@ -86,18 +77,8 @@
     "close": "Zavřít navigaci",
     "open": "Otevřít navigaci"
   },
-  "connect_gmail": {
-    "title": "Připojení Gmailu",
-    "description": "Díky připojení Gmailu vám ukážeme, komu a kdy poslat follow-up, abyste neztráceli příležitosti.",
-    "bullet_1": "📩 Uvidíte, kdo vám neodpověděl",
-    "bullet_2": "⏰ Přesně víte, kdy napsat follow-up",
-    "bullet_3": "🎯 Soustředíte se jen na správné kontakty",
-    "button": "Pokračovat s Googlem",
-    "not_now": "Teď ne",
-    "disclaimer": "🔒 Přistupujeme k vašim e-mailům, abychom detekovali odpovědi a sledovali follow-upy. E-maily odesíláme jen na váš pokyn.",
-    "connecting": "Připojujeme váš Gmail účet..."
-  },
   "account_deletion": {
+    "title": "Smazání účtu",
     "success": "Váš účet byl smazán. Do 30 dnů jej můžete obnovit přihlášením.",
     "restored": "Váš účet byl obnoven. Vítejte zpět."
   }

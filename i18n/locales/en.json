@@ -53,15 +53,6 @@
         "dark": "Dark"
       }
     },
-    "connections": {
-      "title": "Connections",
-      "gmail": "Gmail",
-      "not_connected": "Not connected",
-      "connect_gmail": "Connect Gmail",
-      "disconnect_gmail": "Disconnect Gmail",
-      "needs_recconnect": "Needs reconnect",
-      "reconnect_gmail": "Reconnect Gmail"
-    },
     "security": {
       "title": "Security",
       "active_sessions": "Active sessions",
@@ -86,18 +77,8 @@
     "open": "Open navigation",
     "close": "Close navigation"
   },
-  "connect_gmail": {
-    "title": "Connect Gmail",
-    "description": "By connecting Gmail, we help you identify who to follow up with and the right time to do it, so you never miss opportunities.",
-    "bullet_1": "📩 See who hasn’t replied yet",
-    "bullet_2": "⏰ Know exactly when to follow up",
-    "bullet_3": "🎯 Focus only on the right contacts",
-    "button": "Continue with Google",
-    "not_now": "Not now",
-    "disclaimer": "🔒 We access your emails to detect replies and track follow-ups. We only send emails when you explicitly instruct us to.",
-    "connecting": "Connecting your Gmail account..."
-  },
   "account_deletion": {
+    "title": "Account deletion",
     "success": "Your account has been deleted. You can restore it by signing in within 30 days.",
     "restored": "Your account has been restored. Welcome back."
   }
