@@ -61,7 +61,6 @@
 <script lang="ts" setup>
 const { t } = useI18n()
 const route = useRoute()
-const router = useRouter()
 const authStore = useAuthStore()
 const alertFlow = useAlertFlow()
 

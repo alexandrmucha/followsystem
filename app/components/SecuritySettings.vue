@@ -25,11 +25,6 @@ const { t } = useI18n()
 const { $api } = useNuxtApp()
 const alertFlow = useAlertFlow()
 
-const emit = defineEmits<{
-  (e: 'success', message: string): void
-  (e: 'error', message: string): void
-}>()
-
 const loading = ref(false)
 
 const isDisabled = computed(() =>

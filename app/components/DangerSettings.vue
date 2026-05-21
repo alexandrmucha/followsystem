@@ -22,10 +22,6 @@ const alertFlow = useAlertFlow()
 const authStore = useAuthStore()
 const csrfStore = useCsrfStore()
 
-const emit = defineEmits<{
-  (e: 'error', message: string): void
-}>()
-
 const loading = ref(false)
 
 const isDisabled = computed(() =>
