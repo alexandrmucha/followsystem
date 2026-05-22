@@ -31,7 +31,7 @@
       </div>
 
       <!-- Button -->
-      <BaseButton type="submit" :disabled="loading">
+      <BaseButton type="submit" class="w-full" :disabled="loading">
         {{ $t('auth.sign_in.button') }}
       </BaseButton>
 
@@ -40,7 +40,7 @@
         {{ errorMsg }}
       </p>
 
-      <BaseButton type="button" variant="secondary" @click="signInWithGoogle">
+      <BaseButton type="button" class="w-full" variant="secondary" @click="signInWithGoogle">
         <span>
           {{ $t('auth.sign_in.continue_with_google') }}
         </span>

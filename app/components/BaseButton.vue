@@ -2,7 +2,7 @@
   <button
     :type="type"
     :disabled="disabled"
-    class="w-full rounded-lg py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-300 dark:focus:ring-neutral-700"
+    class="px-4 rounded-lg py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-300 dark:focus:ring-neutral-700"
     :class="buttonClass"
   >
     <slot />
