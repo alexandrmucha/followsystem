@@ -16,15 +16,15 @@
         :placeholder="$t('account_deletion.type_delete', { delete: $t('account_deletion.delete') })"
       />
 
-      <div class="flex gap-3 mt-4">
-        <BaseButton type="button" class="w-full" @click="close">
+      <div class="flex flex-col sm:flex-row gap-3 mt-4">
+        <BaseButton type="button" class="flex-1" @click="close">
           {{ $t('common.cancel') }}
         </BaseButton>
 
         <BaseButton
           type="button"
           variant="danger"
-          class="w-full"
+          class="flex-1"
           :disabled="!canDelete || loading"
           @click="deleteAccount"
         >
