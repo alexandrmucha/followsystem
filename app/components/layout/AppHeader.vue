@@ -2,11 +2,11 @@
   <div class="relative bg-white dark:bg-neutral-900 border-b border-gray-200 dark:border-neutral-800 w-full h-16 px-4 sm:px-6 flex justify-between items-center">
 
     <div>
-      <SidebarControls />
+      <LayoutSidebarControls />
     </div>
 
     <div>
-      <UserMenu />
+      <LayoutUserMenu />
     </div>
     
   </div>

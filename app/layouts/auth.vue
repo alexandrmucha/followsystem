@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen bg-neutral-50 dark:bg-neutral-950 flex flex-col">
-    <Announcements />
+    <LayoutAnnouncements />
 
     <div class="px-4 sm:px-6 lg:px-8 flex flex-col my-auto py-12">
       <div class="w-full max-w-md mx-auto">
@@ -13,7 +13,7 @@
       </div>
 
       <div class="flex flex-col items-center">
-        <AppAlerts />
+        <LayoutAppAlerts />
 
         <slot />
       </div>
