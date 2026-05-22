@@ -5,11 +5,11 @@
     <div class="flex flex-col grow transition-all duration-300" :class="sidebarOpen.desktop ? 'md:ml-64' : 'ml-0'">
       <div>
         <LayoutAnnouncements />
-        <LayoutAppHeader />
+        <LayoutHeader />
       </div>
       
       <div class="py-6 px-4 sm:px-6 md:px-8">
-        <LayoutAppAlerts />
+        <LayoutAlerts />
 
         <slot />
       </div>

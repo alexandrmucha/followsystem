@@ -14,7 +14,7 @@
 
   </BaseCard>
 
-  <DeleteAccountModal v-if="showDeleteAccountModal" @close="showDeleteAccountModal = false" />
+  <SettingsDeleteAccountModal v-if="showDeleteAccountModal" @close="showDeleteAccountModal = false" />
 </template>
 
 <script lang="ts" setup>

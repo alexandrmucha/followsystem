@@ -47,10 +47,10 @@
   </BaseCard>
 
   <!-- Security -->
-  <SecuritySettings />
+  <SettingsSecurity />
 
   <!-- Danger -->
-  <DangerSettings />
+  <SettingsDanger />
     
   </div>
 </template>

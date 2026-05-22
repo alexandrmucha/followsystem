@@ -13,7 +13,7 @@
       </div>
 
       <div class="flex flex-col items-center">
-        <LayoutAppAlerts />
+        <LayoutAlerts />
 
         <slot />
       </div>
