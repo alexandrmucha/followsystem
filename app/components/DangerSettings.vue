@@ -7,7 +7,7 @@
     <div class="text-sm text-neutral-700 dark:text-neutral-300">
 
       <div class="mt-6">
-        <button type="button" @click="showDeleteAccountModal = true" class="text-red-500 hover:underline cursor-pointer">{{ $t('account_deletion.delete_account') }}</button>
+        <button type="button" @click="showDeleteAccountModal = true" class="text-red-600 dark:text-red-500 hover:underline cursor-pointer">{{ $t('account_deletion.delete_account') }}</button>
       </div>
 
     </div>

@@ -36,7 +36,7 @@
       </BaseButton>
 
       <!-- System error -->
-      <p v-if="errorMsg" class="text-red-500 dark:text-red-400 text-sm text-center">
+      <p v-if="errorMsg" class="text-red-600 dark:text-red-500 text-sm text-center">
         {{ errorMsg }}
       </p>
 

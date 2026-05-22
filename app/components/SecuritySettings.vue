@@ -13,7 +13,7 @@
       </div>
 
       <div class="mt-6">
-        <button type="button" @click="logoutAll" class="text-red-500" :class="isDisabled ? 'opacity-50' : 'hover:underline cursor-pointer'" :disabled="isDisabled" >{{ $t('settings.security.logout_all') }}</button>
+        <button type="button" @click="logoutAll" class="text-red-600 dark:text-red-500" :class="isDisabled ? 'opacity-50' : 'hover:underline cursor-pointer'" :disabled="isDisabled" >{{ $t('settings.security.logout_all') }}</button>
       </div>
 
     </div>
