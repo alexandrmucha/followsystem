@@ -28,7 +28,7 @@
           :disabled="!canDelete || loading"
           @click="deleteAccount"
         >
-          {{ loading ? $t('common.loading') : $t('account_deletion.delete_account') }}
+          {{ $t('account_deletion.delete_account') }}
         </BaseButton>
       </div>
 
