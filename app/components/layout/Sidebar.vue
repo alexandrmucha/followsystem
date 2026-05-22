@@ -5,7 +5,7 @@
     </button>
 
     <div class="p-6">
-      <Logo />
+      <UiLogo />
 
       <nav class="mt-8 space-y-1">
         <LayoutNavigationItem to="/dashboard">

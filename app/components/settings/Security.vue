@@ -1,5 +1,5 @@
 <template>
-  <BaseCard>
+  <UiBaseCard>
     <h2 class="text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-4">
       {{ $t('settings.security.title') }}
     </h2>
@@ -17,7 +17,7 @@
       </div>
 
     </div>
-  </BaseCard>
+  </UiBaseCard>
 </template>
 
 <script lang="ts" setup>

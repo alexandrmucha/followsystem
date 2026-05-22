@@ -1,6 +1,6 @@
 <template>
   <!-- Success alert -->
-  <BaseAlert
+  <UiBaseAlert
     v-if="showEmailAlert"
     type="success"
     :title="$t('auth.confirm_email.title')"
@@ -10,9 +10,9 @@
     <template #icon>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
     </template>
-  </BaseAlert>
+  </UiBaseAlert>
 
-  <AuthCard v-else>
+  <UiAuthCard v-else>
     <!-- Title -->
     <h1 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-6">
       {{ $t('auth.sign_in.title') }}
@@ -23,7 +23,7 @@
 
       <!-- Email -->
       <div>
-        <BaseInput v-model="email" :label="$t('auth.common.email')" type="email" placeholder="you@example.com" :error="!!emailError" />
+        <UiBaseInput v-model="email" :label="$t('auth.common.email')" type="email" placeholder="you@example.com" :error="!!emailError" />
 
         <p v-if="!!emailError" class="text-sm text-red-500 dark:text-red-400 mt-2">
           {{ emailError }}
@@ -31,23 +31,23 @@
       </div>
 
       <!-- Button -->
-      <BaseButton type="submit" class="w-full" :disabled="loading">
+      <UiBaseButton type="submit" class="w-full" :disabled="loading">
         {{ $t('auth.sign_in.button') }}
-      </BaseButton>
+      </UiBaseButton>
 
       <!-- System error -->
       <p v-if="errorMsg" class="text-red-600 dark:text-red-500 text-sm text-center">
         {{ errorMsg }}
       </p>
 
-      <BaseButton type="button" class="w-full" variant="secondary" @click="signInWithGoogle">
+      <UiBaseButton type="button" class="w-full" variant="secondary" @click="signInWithGoogle">
         <span>
           {{ $t('auth.sign_in.continue_with_google') }}
         </span>
-      </BaseButton>
+      </UiBaseButton>
 
     </form>
-  </AuthCard>
+  </UiAuthCard>
 </template>
 
 <script lang="ts" setup>

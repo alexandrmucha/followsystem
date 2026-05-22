@@ -6,7 +6,7 @@
     </h1>
 
     <!-- Account info -->
-    <BaseCard>
+    <UiBaseCard>
       <h2 class="text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-4">
         {{ t('settings.account.title') }}
       </h2>
@@ -17,10 +17,10 @@
           <span class="text-neutral-900 dark:text-neutral-100">{{ authStore.user?.email }}</span>
         </div>
       </div>
-    </BaseCard>
+    </UiBaseCard>
 
   <!-- Preferences -->
-  <BaseCard>
+  <UiBaseCard>
     <h2 class="text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-4">
       {{ t('settings.preferences.title') }}
     </h2>
@@ -44,7 +44,7 @@
         </select>
       </div>
     </div>
-  </BaseCard>
+  </UiBaseCard>
 
   <!-- Security -->
   <SettingsSecurity />

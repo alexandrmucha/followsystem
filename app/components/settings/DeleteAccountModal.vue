@@ -1,5 +1,5 @@
 <template>
-  <BaseModal
+  <UiBaseModal
     size="lg"
     :title="$t('account_deletion.title')"
     :description="$t('account_deletion.warning')"
@@ -7,22 +7,22 @@
     :closeOnOverlay="true"
     @close="close"
   >
-    <BaseInput
+    <UiBaseInput
       v-model="confirmText"
       type="text"
       :placeholder="$t('account_deletion.type_delete', { delete: $t('account_deletion.delete') })"
     />
 
     <div class="flex flex-col sm:flex-row gap-3 mt-4">
-      <BaseButton
+      <UiBaseButton
         type="button"
         class="flex-1"
         @click="close"
       >
         {{ $t('common.cancel') }}
-      </BaseButton>
+      </UiBaseButton>
 
-      <BaseButton
+      <UiBaseButton
         type="button"
         variant="danger"
         class="flex-1"
@@ -30,9 +30,9 @@
         @click="deleteAccount"
       >
         {{ $t('account_deletion.delete_account') }}
-      </BaseButton>
+      </UiBaseButton>
     </div>
-  </BaseModal>
+  </UiBaseModal>
 </template>
 
 <script lang="ts" setup>

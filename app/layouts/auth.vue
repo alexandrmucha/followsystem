@@ -9,7 +9,7 @@
           <span>{{ $t('auth.common.back_home') }}</span>
         </NuxtLink>
 
-        <Logo />
+        <UiLogo />
       </div>
 
       <div class="flex flex-col items-center">
