@@ -13,7 +13,7 @@
 const props = defineProps<{
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
-  variant?: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary' | 'danger'
 }>()
 
 const buttonClass = computed(() => {
@@ -22,6 +22,10 @@ const buttonClass = computed(() => {
   if (props.disabled) {
     if (variant === 'secondary') {
       return 'bg-transparent border border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 opacity-50'
+    }
+
+    if (variant === 'danger') {
+      return 'bg-red-600 text-white opacity-50'
     }
 
     return 'bg-neutral-900 dark:bg-neutral-800 text-white opacity-50'
@@ -37,7 +41,15 @@ const buttonClass = computed(() => {
     `
   }
 
-  // default = primary
+  if (variant === 'danger') {
+    return `
+      bg-red-600
+      text-white
+      hover:bg-red-700
+      cursor-pointer
+    `
+  }
+
   return `
     bg-neutral-900 dark:bg-neutral-800
     text-white

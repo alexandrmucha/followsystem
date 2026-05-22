@@ -1,7 +1,8 @@
 {
   "common": {
     "close": "Close",
-    "error": "Error"
+    "error": "Error",
+    "cancel": "Cancel"
   },
   "auth": {
     "common": {
@@ -59,8 +60,7 @@
       "logout_all": "Sign out all"
     },
     "danger": {
-      "title": "Danger zone",
-      "delete_account": "Delete account"
+      "title": "Danger zone"
     },
     "errors" : {
       "gmail_already_connected": "This Gmail account is already connected to another account.",
@@ -79,6 +79,10 @@
   },
   "account_deletion": {
     "title": "Account deletion",
+    "warning": "Your account will be deleted and moved to a recovery period of 30 days. During this time, you can restore it. After 30 days, it will be permanently deleted.",
+    "type_delete": "Type \"DELETE\"",
+    "delete": "DELETE",
+    "delete_account": "Delete account",
     "success": "Your account has been deleted. You can restore it by signing in within 30 days.",
     "restored": "Your account has been restored. Welcome back."
   }

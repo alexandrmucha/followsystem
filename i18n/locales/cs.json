@@ -1,7 +1,8 @@
 {
   "common": {
     "close": "Zavřít",
-    "error": "Chyba"
+    "error": "Chyba",
+    "cancel": "Zrušit"
   },
   "auth": {
     "common": {
@@ -59,8 +60,7 @@
       "logout_all": "Odhlásit vše"
     },
     "danger": {
-      "title": "Kritické akce",
-      "delete_account": "Smazat účet"
+      "title": "Kritické akce"
     },
     "errors" : {
       "gmail_already_connected": "Tento Gmail je již připojený k jinému účtu.",
@@ -79,6 +79,10 @@
   },
   "account_deletion": {
     "title": "Smazání účtu",
+    "warning": "Váš účet bude smazán a přesunut do 30denního období pro obnovu. Během této doby jej můžete obnovit. Po uplynutí 30 dnů bude účet trvale smazán.",
+    "type_delete": "Napište „{delete}\"",
+    "delete": "SMAZAT",
+    "delete_account": "Smazat účet",
     "success": "Váš účet byl smazán. Do 30 dnů jej můžete obnovit přihlášením.",
     "restored": "Váš účet byl obnoven. Vítejte zpět."
   }
