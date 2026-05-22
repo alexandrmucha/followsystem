@@ -2,7 +2,13 @@
   <div>
     <!-- User button -->
     <button ref="buttonRef" @click="openDropdown = !openDropdown" type="button" class="flex space-x-2 items-center text-sm text-neutral-500 dark:text-neutral-400 cursor-pointer hover:text-neutral-700 dark:hover:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors px-3 py-2 rounded-lg">
+      <!-- Avatar Image -->
       <img v-if="authStore.user?.avatar" :src="authStore.user?.avatar" class="w-6 h-6 rounded-full" alt="avatar" />
+
+      <span v-else>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-icon lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </span>
+
       <span class="hidden sm:inline">{{ authStore.user?.email }}</span>
     </button>
 
