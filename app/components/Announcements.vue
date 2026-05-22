@@ -16,7 +16,7 @@
         v-if="a.dismissible"
         type="button"
         class="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 cursor-pointer"
-        @click="dismiss(a.id)"
+        @click="dismiss(a)"
         :title="$t('common.close')"
         :aria-label="$t('common.close')"
       >
@@ -39,6 +39,7 @@ type Announcement = {
   message: string
   dismissible: boolean
   scope: 'global' | 'app' | 'auth'
+  updatedAt: string
 }
 
 /* =========================
@@ -61,15 +62,15 @@ const { data: announcements, refresh } = await useAsyncData<Announcement[]>(
 ========================= */
 
 const STORAGE_KEY = 'dismissed-announcements'
-const dismissed = ref<string[]>([])
+const dismissed = ref<Record<string, string>>({})
 
 /* load */
 onMounted(() => {
   try {
     const stored = localStorage.getItem(STORAGE_KEY)
-    dismissed.value = stored ? JSON.parse(stored) : []
+    dismissed.value = stored ? JSON.parse(stored) : {}
   } catch {
-    dismissed.value = []
+    dismissed.value = {}
   }
 
   hydrated.value = true
@@ -101,7 +102,7 @@ const visibleAnnouncements = computed(() => {
 
   return list.filter(a =>
     (a.scope === 'global' || a.scope === scope.value) &&
-    !dismissed.value.includes(a.id)
+    dismissed.value[a.id] !== a.updatedAt
   )
 })
 
@@ -116,9 +117,15 @@ watch(
 
     const allowedIds = new Set(list.map(a => a.id))
 
-    const cleaned = dismissed.value.filter(id => allowedIds.has(id))
+    const cleaned: Record<string, string> = {}
 
-    if (cleaned.length !== dismissed.value.length) {
+    for (const [id, updatedAt] of Object.entries(dismissed.value)) {
+      if (allowedIds.has(id)) {
+        cleaned[id] = updatedAt
+      }
+    }
+
+    if (JSON.stringify(cleaned) !== JSON.stringify(dismissed.value)) {
       dismissed.value = cleaned
       saveDismissed()
     }
@@ -130,11 +137,9 @@ watch(
    HELPERS
 ========================= */
 
-const dismiss = (id: string) => {
-  if (!dismissed.value.includes(id)) {
-    dismissed.value.push(id)
-    saveDismissed()
-  }
+const dismiss = (a: Announcement) => {
+  dismissed.value[a.id] = a.updatedAt
+  saveDismissed()
 }
 
 /* =========================
