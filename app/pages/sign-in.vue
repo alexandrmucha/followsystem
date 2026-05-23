@@ -21,6 +21,12 @@
     <!-- Form -->
     <form @submit.prevent="signIn" class="space-y-4">
 
+      <UiBaseButton type="button" class="w-full" variant="secondary" @click="signInWithGoogle">
+        <span>
+          {{ $t('auth.sign_in.continue_with_google') }}
+        </span>
+      </UiBaseButton>
+
       <!-- Email -->
       <div>
         <UiBaseInput v-model="email" :label="$t('auth.common.email')" type="email" placeholder="you@example.com" :error="!!emailError" />
@@ -36,7 +42,7 @@
       </div>
 
       <!-- Button -->
-      <UiBaseButton type="submit" class="w-full" :disabled="loading || !turnstileToken">
+      <UiBaseButton type="submit" class="w-full" :disabled="loading">
         {{ $t('auth.sign_in.button') }}
       </UiBaseButton>
 
@@ -44,12 +50,6 @@
       <p v-if="errorMsg" class="text-red-600 dark:text-red-500 text-sm text-center">
         {{ errorMsg }}
       </p>
-
-      <UiBaseButton type="button" class="w-full" variant="secondary" @click="signInWithGoogle">
-        <span>
-          {{ $t('auth.sign_in.continue_with_google') }}
-        </span>
-      </UiBaseButton>
 
     </form>
   </UiAuthCard>
@@ -103,6 +103,8 @@ const signIn = async () => {
   }
 
   if (!turnstileToken.value) {
+    errorMsg.value = t('common.errors.security_verification_failed')
+    loading.value = false
     return
   }
 

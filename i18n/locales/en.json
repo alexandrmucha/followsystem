@@ -2,7 +2,10 @@
   "common": {
     "close": "Close",
     "error": "Error",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "errors": {
+      "security_verification_failed": "Security verification failed. Please try again."
+    }
   },
   "auth": {
     "common": {

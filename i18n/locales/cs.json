@@ -2,7 +2,10 @@
   "common": {
     "close": "Zavřít",
     "error": "Chyba",
-    "cancel": "Zrušit"
+    "cancel": "Zrušit",
+    "errors": {
+      "security_verification_failed": "Bezpečnostní ověření selhalo. Zkuste to prosím znovu."
+    }
   },
   "auth": {
     "common": {
