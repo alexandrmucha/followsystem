@@ -9,7 +9,7 @@
       {{ $t('onboarding.description') }}
     </p>
 
-    <DashboardOnboardingSteps :active-step="1" />
+    <DashboardOnboardingSteps :active-step="2" />
 
   </div>
 </template>
