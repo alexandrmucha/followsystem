@@ -9,7 +9,11 @@
       {{ $t('onboarding.description') }}
     </p>
 
-    <OnboardingSteps :active-step="2" />
+    <OnboardingSteps :active-step="1" />
+
+    <UiBaseCard class="mt-8">
+
+    </UiBaseCard>
 
   </div>
 </template>
