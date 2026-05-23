@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-    <DashboardOnboardingStep
+    <OnboardingStep
       :index="1"
       :active="activeStep === 1"
       :done="activeStep > 1"
@@ -9,7 +9,7 @@
       :description="$t('onboarding.steps.connect_email.description')"
     />
 
-    <DashboardOnboardingStep
+    <OnboardingStep
       :index="2"
       :active="activeStep === 2"
       :done="activeStep > 2"
@@ -17,7 +17,7 @@
       :description="$t('onboarding.steps.create_campaign.description')"
     />
 
-    <DashboardOnboardingStep
+    <OnboardingStep
       :index="3"
       :active="activeStep === 3"
       :done="false"
