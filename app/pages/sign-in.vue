@@ -21,7 +21,8 @@
     <!-- Form -->
     <form @submit.prevent="signIn">
 
-      <UiBaseButton type="button" class="w-full" variant="secondary" @click="signInWithGoogle">
+      <UiBaseButton type="button" class="w-full flex justify-center items-center space-x-3" variant="secondary" @click="signInWithGoogle">
+        <img src="/img/Google__G__logo.svg" class="w-6 h-6" alt="Google Logo">
         <span>
           {{ $t('auth.sign_in.continue_with_google') }}
         </span>
