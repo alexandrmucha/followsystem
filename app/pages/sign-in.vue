@@ -48,12 +48,12 @@
       </div>
 
       <!-- Cloudflare Turnstile -->
-      <div class="flex justify-center">
+      <div class="flex justify-center py-2">
         <NuxtTurnstile v-model="turnstileToken" />
       </div>
 
       <!-- Button -->
-      <UiBaseButton type="submit" class="w-full mt-4" :disabled="loading">
+      <UiBaseButton type="submit" class="w-full" :disabled="loading">
         {{ $t('auth.sign_in.button') }}
       </UiBaseButton>
 
