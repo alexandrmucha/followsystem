@@ -3,6 +3,7 @@
     "close": "Zavřít",
     "error": "Chyba",
     "cancel": "Zrušit",
+    "or": "nebo",
     "errors": {
       "security_verification_failed": "Bezpečnostní ověření selhalo. Zkuste to prosím znovu."
     }

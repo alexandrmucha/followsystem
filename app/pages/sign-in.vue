@@ -19,13 +19,24 @@
     </h1>
 
     <!-- Form -->
-    <form @submit.prevent="signIn" class="space-y-4">
+    <form @submit.prevent="signIn">
 
       <UiBaseButton type="button" class="w-full" variant="secondary" @click="signInWithGoogle">
         <span>
           {{ $t('auth.sign_in.continue_with_google') }}
         </span>
       </UiBaseButton>
+
+      <!-- Divider -->
+      <div class="relative flex items-center py-4">
+        <div class="grow border-t border-neutral-300 dark:border-neutral-700"></div>
+
+        <span class="mx-4 text-sm text-neutral-500 dark:text-neutral-400 uppercase">
+          {{ $t('common.or') }}
+        </span>
+
+        <div class="grow border-t border-neutral-300 dark:border-neutral-700"></div>
+      </div>
 
       <!-- Email -->
       <div>
@@ -42,7 +53,7 @@
       </div>
 
       <!-- Button -->
-      <UiBaseButton type="submit" class="w-full" :disabled="loading">
+      <UiBaseButton type="submit" class="w-full mt-4" :disabled="loading">
         {{ $t('auth.sign_in.button') }}
       </UiBaseButton>
 

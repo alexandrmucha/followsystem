@@ -3,6 +3,7 @@
     "close": "Close",
     "error": "Error",
     "cancel": "Cancel",
+    "or": "or",
     "errors": {
       "security_verification_failed": "Security verification failed. Please try again."
     }
