@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <h1 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-6">
-      {{ t('dashboard.title') }}
-    </h1>
-  </div>
+  <DashboardOnboarding />
 </template>
 
 <script lang="ts" setup>

@@ -30,8 +30,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-
 const emit = defineEmits<{
   (e: 'dismiss'): void
 }>()
@@ -58,28 +56,28 @@ const props = defineProps({
 
 const styles: Record<string, any> = {
   success: {
-    wrapper: 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-900',
+    wrapper: 'bg-emerald-50 dark:bg-emerald-950/20 border-emerald-500/30 dark:border-emerald-400/20',
     icon: 'text-emerald-600 dark:text-emerald-400',
     title: 'text-emerald-800 dark:text-emerald-200',
     message: 'text-emerald-700 dark:text-emerald-300',
     hint: 'text-emerald-600 dark:text-emerald-400'
   },
   error: {
-    wrapper: 'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-900',
+    wrapper: 'bg-red-50 dark:bg-red-950/20 border-red-500/30 dark:border-red-400/20',
     icon: 'text-red-600 dark:text-red-400',
     title: 'text-red-800 dark:text-red-200',
     message: 'text-red-700 dark:text-red-300',
     hint: 'text-red-600 dark:text-red-400'
   },
   warning: {
-    wrapper: 'bg-yellow-50 dark:bg-yellow-950/30 border-yellow-200 dark:border-yellow-900',
+    wrapper: 'bg-yellow-50 dark:bg-yellow-950/20 border-yellow-500/30 dark:border-yellow-400/20',
     icon: 'text-yellow-600 dark:text-yellow-400',
     title: 'text-yellow-800 dark:text-yellow-200',
     message: 'text-yellow-700 dark:text-yellow-300',
     hint: 'text-yellow-600 dark:text-yellow-400'
   },
   info: {
-    wrapper: 'bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-900',
+    wrapper: 'bg-blue-50 dark:bg-blue-950/20 border-blue-500/30 dark:border-blue-400/20',
     icon: 'text-blue-600 dark:text-blue-400',
     title: 'text-blue-800 dark:text-blue-200',
     message: 'text-blue-700 dark:text-blue-300',

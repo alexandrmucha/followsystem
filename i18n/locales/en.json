@@ -89,5 +89,23 @@
     "delete_account": "Delete account",
     "success": "Your account has been deleted. You can restore it by signing in within 30 days.",
     "restored": "Your account has been restored. Welcome back."
+  },
+  "onboarding": {
+    "title": "Get started",
+    "description": "Set up your account and start sending your first cold email campaigns.",
+    "steps": {
+      "connect_email": {
+        "title": "Připojit email",
+        "description": "Gmail nebo SMTP účet pro odesílání kampaní"
+      },
+      "add_leads": {
+        "title": "Přidat leady",
+        "description": "Import kontaktů, kterým chcete psát"
+      },
+      "create_campaign": {
+        "title": "Vytvořit kampaň",
+        "description": "Nastavte emailovou sekvenci a spusťte odesílání"
+      }
+    }
   }
 }
