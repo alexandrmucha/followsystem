@@ -95,16 +95,16 @@
     "description": "Set up your account and start sending your first cold email campaigns.",
     "steps": {
       "connect_email": {
-        "title": "Připojit email",
-        "description": "Gmail nebo SMTP účet pro odesílání kampaní"
-      },
-      "add_leads": {
-        "title": "Přidat leady",
-        "description": "Import kontaktů, kterým chcete psát"
+        "title": "Connect email",
+        "description": "Connect your Gmail or SMTP account to send emails"
       },
       "create_campaign": {
-        "title": "Vytvořit kampaň",
-        "description": "Nastavte emailovou sekvenci a spusťte odesílání"
+        "title": "Create campaign",
+        "description": "Build an email sequence and set up sending rules"
+      },
+      "add_leads": {
+        "title": "Add leads",
+        "description": "Import leads you will contact in your campaign"
       }
     }
   }
