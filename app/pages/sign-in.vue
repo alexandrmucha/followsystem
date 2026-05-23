@@ -30,8 +30,13 @@
         </p>
       </div>
 
+      <!-- Cloudflare Turnstile -->
+      <div class="flex justify-center">
+        <NuxtTurnstile v-model="turnstileToken" />
+      </div>
+
       <!-- Button -->
-      <UiBaseButton type="submit" class="w-full" :disabled="loading">
+      <UiBaseButton type="submit" class="w-full" :disabled="loading || !turnstileToken">
         {{ $t('auth.sign_in.button') }}
       </UiBaseButton>
 
@@ -65,6 +70,7 @@ definePageMeta({
 })
 
 const email = ref('')
+const turnstileToken = ref('')
 
 const loading = ref(false)
 const errorMsg = ref('')
@@ -96,6 +102,10 @@ const signIn = async () => {
     return
   }
 
+  if (!turnstileToken.value) {
+    return
+  }
+
   loading.value = true
 
   try {
@@ -103,10 +113,11 @@ const signIn = async () => {
       method: 'POST',
       body: {
         email: email.value,
+        turnstileToken: turnstileToken.value
       },
     })
   } catch (err) {
-    errorMsg.value = $t('auth.errors.magic_link')
+    errorMsg.value = t('auth.errors.magic_link')
     return
   } finally {
     loading.value = false
@@ -114,6 +125,7 @@ const signIn = async () => {
 
   showEmailAlert.value = true
   email.value = ''
+  turnstileToken.value = ''
 }
 
 const signInWithGoogle = () => {

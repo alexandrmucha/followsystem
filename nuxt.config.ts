@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     ],
   },
 
-  modules: ['@nuxtjs/i18n', '@nuxtjs/color-mode', '@pinia/nuxt'],
+  modules: ['@nuxtjs/i18n', '@nuxtjs/color-mode', '@pinia/nuxt', '@nuxtjs/turnstile'],
   i18n: {
     strategy: 'no_prefix',
     defaultLocale: 'en',
@@ -25,5 +25,8 @@ export default defineNuxtConfig({
     public: {
       apiBaseUrl: 'http://localhost:3001'
     }
-  }
+  },
+  turnstile: {
+    siteKey: '1x00000000000000000000AA',
+  },
 })
