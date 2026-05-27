@@ -2,7 +2,7 @@
   <div>
     <!-- Title -->
     <h1 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
-      {{ t('contacts.title') }}
+      {{ t('search.title') }}
     </h1>
 
   </div>
@@ -12,7 +12,7 @@
 const { t } = useI18n()
 
 useHead({
-  title: t('contacts.title')
+  title: t('search.title')
 })
 
 definePageMeta({

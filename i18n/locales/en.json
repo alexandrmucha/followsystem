@@ -33,20 +33,23 @@
   },
   "dashboard": {
     "title": "Dashboard",
-    "empty_state": {
-      "title": "Vítejte ve Fulply",
-      "description": "Najděte firmy, identifikujte příležitosti a začněte oslovovat.",
-      "industry_placeholder": "Obor (např. instalatér)",
-      "city_placeholder": "Město (např. Praha)",
-      "search_button": "Najít firmy"
+    "getting_started": {
+      "title": "Find companies with clear outreach signals",
+      "description": "Enter an industry and location to get started."
     }
   },
-  "contacts": {
-    "title": "Contacts"
+  "search": {
+    "title": "Search",
+    "form": {
+      "industry_placeholder": "Industry (e.g. plumber)",
+      "city_placeholder": "City (e.g. Prague)",
+      "helper_text": "We’ll analyze companies and surface outreach opportunities.",
+      "button": "Analyze companies"
+    }
   },
   "nav": {
     "dashboard": "Dashboard",
-    "contacts": "Contacts",
+    "search": "Search",
     "settings": "Settings"
   },
   "settings": {

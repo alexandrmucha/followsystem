@@ -1,5 +1,5 @@
 <template>
-  <DashboardEmptyState />
+  <DashboardGettingStarted />
 </template>
 
 <script lang="ts" setup>
