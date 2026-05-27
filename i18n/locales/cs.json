@@ -43,7 +43,7 @@
     "form": {
       "industry_placeholder": "Obor (např. instalatér)",
       "city_placeholder": "Město (např. Praha)",
-      "helper_text": "Zanalyzujeme firmy a zobrazíme příležitosti k oslovení.",
+      "helper_text": "Zanalyzujeme firmy a odhalíme příležitosti k oslovení.",
       "button": "Analyzovat firmy"
     }
   },
