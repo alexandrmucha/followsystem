@@ -32,7 +32,11 @@
     }
   },
   "dashboard": {
-    "title": "Přehled"
+    "title": "Přehled",
+    "empty_state": {
+      "title": "Vítejte ve Fulply",
+      "description": "Najděte firmy, identifikujte příležitosti a začněte oslovovat."
+    }
   },
   "contacts": {
     "title": "Kontakty"
@@ -89,23 +93,5 @@
     "delete_account": "Smazat účet",
     "success": "Váš účet byl smazán. Do 30 dnů jej můžete obnovit přihlášením.",
     "restored": "Váš účet byl obnoven. Vítejte zpět."
-  },
-  "onboarding": {
-    "title": "Začínáme",
-    "description": "Nastavte si účet a začněte posílat své první cold e-mail kampaně.",
-    "steps": {
-      "connect_email": {
-        "title": "Připojení e-mailu",
-        "description": "Gmail nebo SMTP účet pro odesílání e-mailů"
-      },
-      "create_campaign": {
-        "title": "Vytvoření kampaňe",
-        "description": "Vytvořte e-mailovou sekvenci a nastavte pravidla odesílání"
-      },
-      "add_leads": {
-        "title": "Přidání leadů",
-        "description": "Importujte leady, kterým budete v kampani posílat e-maily"
-      }
-    }
   }
 }

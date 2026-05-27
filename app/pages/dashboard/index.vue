@@ -1,5 +1,5 @@
 <template>
-  <OnboardingFlow />
+  <DashboardEmptyState />
 </template>
 
 <script lang="ts" setup>

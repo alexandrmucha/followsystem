@@ -3,7 +3,7 @@
     <label
       v-if="label"
       :for="id"
-      class="text-sm text-neutral-700 dark:text-neutral-300"
+      class="text-sm text-neutral-700 dark:text-neutral-300 mb-1"
     >
       {{ label }}
     </label>
@@ -13,7 +13,7 @@
       :type="type"
       :placeholder="placeholder"
       v-model="model"
-      class="mt-1 w-full bg-white dark:bg-neutral-900 rounded-lg border px-3 py-2 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:ring-2"
+      class="w-full bg-white dark:bg-neutral-900 rounded-lg border px-3 py-2 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:ring-2"
       :class="inputClass"
       @focus="$emit('focus')"
       @blur="$emit('blur')"
