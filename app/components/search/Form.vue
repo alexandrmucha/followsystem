@@ -41,6 +41,7 @@
         <UiBaseSelect
           v-model="limit"
           :label="$t('search.form.limit_label')"
+          class="max-w-sm"
         >
           <option :value="10">10 {{ $t('common.results') }}</option>
           <option :value="25">25 {{ $t('common.results') }}</option>
