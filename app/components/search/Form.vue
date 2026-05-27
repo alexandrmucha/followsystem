@@ -4,27 +4,36 @@
 
       <UiBaseInput
         v-model="industry"
+        :label="$t('search.form.industry_label')"
         :placeholder="$t('search.form.industry_placeholder')"
         class="flex-1"
       />
 
       <UiBaseInput
-        v-model="city"
-        :placeholder="$t('search.form.city_placeholder')"
+        v-model="location"
+        :label="$t('search.form.location_label')"
+        :placeholder="$t('search.form.location_placeholder')"
         class="flex-1"
       />
-
-      <UiBaseButton @click="search">
-        {{ $t('search.form.button') }}
-      </UiBaseButton>
-
     </div>
 
-    <!-- AI helper (optional) -->
+    <!-- Strategy cards -->
+    <div class="mt-5">
+      <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
+        {{ $t('search.form.focus_label') }}
+      </p>
+
+      <SearchFocusCards v-model="focus" />
+      
+    </div>
+
+    <UiBaseButton class="mt-5" @click="search">
+      {{ $t('search.form.button') }}
+    </UiBaseButton>
+
     <p v-if="showHelper" class="text-xs text-neutral-500 dark:text-neutral-400 mt-3">
       {{ $t('search.form.helper_text') }}
     </p>
-
   </UiBaseCard>
 </template>
 
@@ -37,12 +46,16 @@ const props = defineProps({
 })
 
 const industry = ref('')
-const city = ref('')
+const location = ref('')
+
+// default strategy
+const focus = ref('weak_websites')
 
 async function search() {
-  // TODO: trigger analysis flow
+  console.log({
+    industry: industry.value,
+    location: location.value,
+    focus: focus.value
+  })
 }
 </script>
-
-<style>
-</style>

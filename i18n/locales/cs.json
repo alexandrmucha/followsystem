@@ -41,8 +41,11 @@
   "search": {
     "title": "Hledání",
     "form": {
-      "industry_placeholder": "Obor (např. instalatér)",
-      "city_placeholder": "Město (např. Praha)",
+      "industry_label": "Obor",
+      "industry_placeholder": "např. instalatér",
+      "location_label": "Lokalita",
+      "location_placeholder": "např. Praha",
+      "focus_label": "Co hledáte?",
       "helper_text": "Zanalyzujeme firmy a odhalíme příležitosti k oslovení.",
       "button": "Analyzovat firmy"
     }

@@ -41,8 +41,11 @@
   "search": {
     "title": "Search",
     "form": {
-      "industry_placeholder": "Industry (e.g. plumber)",
-      "city_placeholder": "City (e.g. Prague)",
+      "industry_label": "Industry",
+      "industry_placeholder": "e.g. plumber",
+      "location_label": "Location",
+      "location_placeholder": "e.g. Prague, Berlin, Vienna",
+      "focus_label": "What are you looking for?",
       "helper_text": "We’ll analyze companies and surface outreach opportunities.",
       "button": "Analyze companies"
     }
