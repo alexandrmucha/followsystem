@@ -6,7 +6,8 @@
     "or": "nebo",
     "errors": {
       "security_verification_failed": "Bezpečnostní ověření selhalo. Zkuste to prosím znovu."
-    }
+    },
+    "results": "výsledků"
   },
   "auth": {
     "common": {
@@ -46,6 +47,8 @@
       "location_label": "Lokalita",
       "location_placeholder": "např. Praha",
       "focus_label": "Na co se chcete zaměřit?",
+      "advanced_settings": "Pokročilá nastavení",
+      "limit_label": "Počet výsledků",
       "helper_text": "Zanalyzujeme firmy a odhalíme příležitosti k oslovení.",
       "button": "Analyzovat firmy"
     },

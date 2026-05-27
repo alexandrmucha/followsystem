@@ -24,7 +24,30 @@
       </p>
 
       <SearchFocusCards v-model="focus" />
-      
+    </div>
+
+    <!-- Advanced settings -->
+    <div class="mt-5">
+      <button type="button" class="flex gap-2 items-center text-sm text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300 transition-colors cursor-pointer" @click="showAdvanced = !showAdvanced">
+        <span>
+          <LucideChevronUp v-if="showAdvanced" :size="16" />
+          <LucideChevronDown v-else :size="16" />
+        </span>
+        <span>{{ $t('search.form.advanced_settings') }}</span>
+      </button>
+
+      <div v-if="showAdvanced" class="mt-3 space-y-3">
+
+        <UiBaseSelect
+          v-model="limit"
+          :label="$t('search.form.limit_label')"
+        >
+          <option :value="10">10 {{ $t('common.results') }}</option>
+          <option :value="25">25 {{ $t('common.results') }}</option>
+          <option :value="50">50 {{ $t('common.results') }}</option>
+        </UiBaseSelect>
+
+      </div>
     </div>
 
     <UiBaseButton class="mt-5" @click="search">
@@ -47,15 +70,18 @@ const props = defineProps({
 
 const industry = ref('')
 const location = ref('')
-
-// default strategy
 const focus = ref('weak_websites')
+
+// advanced
+const showAdvanced = ref(false)
+const limit = ref(25)
 
 async function search() {
   console.log({
     industry: industry.value,
     location: location.value,
-    focus: focus.value
+    focus: focus.value,
+    limit: limit.value
   })
 }
 </script>
