@@ -48,6 +48,20 @@
       "focus_label": "Na co se chcete zaměřit?",
       "helper_text": "Zanalyzujeme firmy a odhalíme příležitosti k oslovení.",
       "button": "Analyzovat firmy"
+    },
+    "focus": {
+      "weak_websites": {
+        "title": "Zlepšení slabých webů",
+        "description": "Slabé nebo zastaralé weby s nízkou kvalitou UX a designu."
+      },
+      "growth_opportunities": {
+        "title": "Růstové příležitosti",
+        "description": "Firmy s nízkou online viditelností a slabou pozicí ve vyhledávačích."
+      },
+      "high_value": {
+        "title": "Vysoce hodnotné firmy",
+        "description": "Zavedené firmy s vyšším rozpočtem a dlouhodobým potenciálem."
+      }
     }
   },
   "nav": {

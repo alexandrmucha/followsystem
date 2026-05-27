@@ -10,11 +10,11 @@
       </template>
 
       <template #title>
-        Improve weak websites
+        {{ $t('search.focus.weak_websites.title') }}
       </template>
 
       <template #description>
-        Slabé nebo zastaralé weby s nízkou kvalitou UX
+        {{ $t('search.focus.weak_websites.description') }}
       </template>
     </SearchFocusCard>
 
@@ -27,11 +27,11 @@
       </template>
 
       <template #title>
-        Growth opportunities
+        {{ $t('search.focus.growth_opportunities.title') }}
       </template>
 
       <template #description>
-        Firmy s nízkou viditelností online a slabou Google přítomností
+        {{ $t('search.focus.growth_opportunities.description') }}
       </template>
     </SearchFocusCard>
 
@@ -44,11 +44,11 @@
       </template>
 
       <template #title>
-        High-value businesses
+        {{ $t('search.focus.high_value.title') }}
       </template>
 
       <template #description>
-        Větší a zavedené firmy s vyšším budgetem a dlouhodobým potenciálem
+        {{ $t('search.focus.high_value.description') }}
       </template>
     </SearchFocusCard>
 
