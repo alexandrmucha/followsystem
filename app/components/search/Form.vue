@@ -1,5 +1,5 @@
 <template>
-  <UiBaseCard class="mt-8 p-6">
+  <UiBaseCard>
     <div class="flex flex-col sm:flex-row gap-3">
 
       <UiBaseInput
@@ -21,7 +21,7 @@
     </div>
 
     <!-- AI helper (optional) -->
-    <p v-if="showHelper" class="text-xs text-neutral-500 mt-3">
+    <p v-if="showHelper" class="text-xs text-neutral-500 dark:text-neutral-400 mt-3">
       {{ $t('search.form.helper_text') }}
     </p>
 
