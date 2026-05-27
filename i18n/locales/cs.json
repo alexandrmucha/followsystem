@@ -35,7 +35,7 @@
     "title": "Přehled",
     "getting_started": {
       "title": "Najděte firmy s jasnými signály pro oslovení",
-      "description": "Zadejte obor a lokalitu. Fulply analyzuje firmy a odhalí obchodní příležitosti."
+      "description": "Zadejte obor a lokalitu a začněte."
     }
   },
   "search": {
@@ -43,7 +43,7 @@
     "form": {
       "industry_placeholder": "Obor (např. instalatér)",
       "city_placeholder": "Město (např. Praha)",
-      "helper_text": "Analyzujeme firmy a odhalíme obchodní příležitosti k oslovení.",
+      "helper_text": "Zanalyzujeme firmy a zobrazíme příležitosti k oslovení.",
       "button": "Analyzovat firmy"
     }
   },
