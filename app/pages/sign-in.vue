@@ -14,7 +14,7 @@
 
   <UiAuthCard v-else>
     <!-- Title -->
-    <h1 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-6">
+    <h1 class="text-xl font-semibold mb-6">
       {{ $t('auth.sign_in.title') }}
     </h1>
 

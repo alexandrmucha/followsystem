@@ -6,11 +6,11 @@
       ? 'border-indigo-500/40 dark:border-indigo-400/30 bg-indigo-500/5 dark:bg-indigo-500/5'
       : 'border-neutral-200 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800/40'"
   >
-    <div class="text-lg text-neutral-900 dark:text-neutral-100">
+    <div class="text-lg">
       <slot name="icon" />
     </div>
 
-    <div class="font-medium text-neutral-900 dark:text-neutral-100 mt-2">
+    <div class="font-medium mt-2">
       <slot name="title" />
     </div>
 

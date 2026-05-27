@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-neutral-50 dark:bg-neutral-950 flex flex-col">
+  <div class="min-h-screen bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 flex flex-col">
     <LayoutAnnouncements />
 
     <div class="px-4 sm:px-6 lg:px-8 flex flex-col sm:my-auto py-12">

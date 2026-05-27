@@ -1,13 +1,13 @@
 <template>
   <div class="max-w-md space-y-6">
     <!-- Title -->
-    <h1 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+    <h1 class="text-xl font-semibold">
       {{ t('settings.title') }}
     </h1>
 
     <!-- Account info -->
     <UiBaseCard>
-      <h2 class="text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-4">
+      <h2 class="text-sm font-medium mb-4">
         {{ t('settings.account.title') }}
       </h2>
 
@@ -21,7 +21,7 @@
 
   <!-- Preferences -->
   <UiBaseCard>
-    <h2 class="text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-4">
+    <h2 class="text-sm font-medium mb-4">
       {{ t('settings.preferences.title') }}
     </h2>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-4xl w-full mx-auto sm:mt-4">
 
-    <h1 class="text-2xl sm:text-3xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
+    <h1 class="text-2xl sm:text-3xl font-semibold mb-2">
       {{ $t('dashboard.getting_started.title') }}
     </h1>
 

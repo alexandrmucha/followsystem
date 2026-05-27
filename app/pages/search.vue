@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Title -->
-    <h1 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+    <h1 class="text-xl font-semibold">
       {{ t('search.title') }}
     </h1>
 
