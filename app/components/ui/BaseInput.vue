@@ -40,6 +40,6 @@ const inputClass = computed(() => {
     return 'border-red-400 dark:border-red-500 focus:border-red-500 focus:ring-red-500'
   }
 
-  return 'border-neutral-200 dark:border-neutral-700 focus:border-neutral-00 dark:focus:border-neutral-700 focus:ring-neutral-300 dark:focus:ring-neutral-700'
+  return 'border-neutral-200 dark:border-neutral-800 focus:border-neutral-300 dark:focus:border-neutral-700 focus:ring-neutral-300 dark:focus:ring-neutral-700'
 })
 </script>
