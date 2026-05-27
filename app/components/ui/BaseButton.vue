@@ -2,8 +2,8 @@
   <button
     :type="type"
     :disabled="disabled"
-    class="px-4 rounded-lg py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-300 dark:focus:ring-neutral-700"
-    :class="buttonClass"
+    class="rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-300 dark:focus:ring-neutral-700"
+    :class="[buttonClass, sizeClass]"
   >
     <slot />
   </button>
@@ -14,7 +14,26 @@ const props = defineProps<{
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
   variant?: 'primary' | 'secondary' | 'danger'
+  size?: 'md' | 'sm'
 }>()
+
+/* =========================
+   SIZE
+========================= */
+
+const sizeClass = computed(() => {
+  const size = props.size ?? 'md'
+
+  if (size === 'sm') {
+    return 'px-3 py-1.5 text-sm'
+  }
+
+  return 'px-4 py-2 text-sm'
+})
+
+/* =========================
+   VARIANTS
+========================= */
 
 const buttonClass = computed(() => {
   const variant = props.variant ?? 'primary'
