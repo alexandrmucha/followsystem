@@ -39,7 +39,11 @@
       <div class="flex justify-between items-center">
         <span>{{ t('settings.preferences.language') }}</span>
 
-        <UiBaseSelect v-model="locale" size="sm">
+        <UiBaseSelect
+          :model-value="locale"
+          @update:model-value="handleLocaleChange"
+          size="sm"
+        >
           <option v-for="loc in locales" :key="loc.code" :value="loc.code">{{ loc.name }}</option>
         </UiBaseSelect>
       </div>
@@ -56,7 +60,7 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t, locale, locales, setLocale } = useI18n()
 const route = useRoute()
 const authStore = useAuthStore()
 const alertFlow = useAlertFlow()
@@ -70,7 +74,12 @@ definePageMeta({
   layout: 'dashboard',
 })
 
-const { locale, locales } = useI18n()
+const handleLocaleChange = async (value: string | number | undefined) => {
+  if (typeof value !== 'string') return
+  if (value === locale.value) return
+
+  await setLocale(value as 'en' | 'cs')
+}
 
 const errorMap: Record<string, string> = {
   gmail_already_connected: t('settings.errors.gmail_already_connected'),
