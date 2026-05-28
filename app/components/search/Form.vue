@@ -34,15 +34,6 @@
 
       </div>
 
-      <!-- Strategy cards -->
-      <!-- <div class="mt-5">
-        <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
-          {{ $t('search.form.focus_label') }}
-        </p>
-
-        <SearchFocusCards v-model="searchDraft.focus" :disabled="loading" />
-      </div> -->
-
       <!-- Advanced settings -->
       <div class="mt-5">
         <button
@@ -71,18 +62,12 @@
         </div>
       </div>
 
-      <!-- BUTTON / LOADING / STOP -->
-      <div class="mt-5 flex items-center gap-3">
-
+      <!-- BUTTON  -->
+      <div class="mt-5">
         <UiBaseButton type="submit" class="flex items-center gap-2" :disabled="loading">
           <UiSpinner v-if="loading" />
           <span>{{ $t('search.form.button') }}</span>
         </UiBaseButton>
-
-        <UiBaseButton v-if="loading" type="button" variant="secondary" @click="cancelSearch">
-          {{ $t('search.form.cancel_button') }}
-        </UiBaseButton>
-
       </div>
 
     </form>
@@ -103,7 +88,6 @@ const showAdvanced = ref(false)
 
 // loading + abort
 const loading = ref(false)
-const controller = ref<AbortController | null>(null)
 
 const validate = () => {
   industryError.value = ''
@@ -137,30 +121,6 @@ const search = async () => {
   if (!validate()) return
 
   loading.value = true
-  controller.value = new AbortController()
-
-  try {
-    await new Promise((resolve, reject) => {
-      const timeout = setTimeout(resolve, 3000)
-
-      controller.value!.signal.addEventListener('abort', () => {
-        clearTimeout(timeout)
-        reject(new DOMException('Aborted', 'AbortError'))
-      })
-    })
-  } catch (e: any) {
-    if (e?.name !== 'AbortError') {
-      console.error(e)
-    }
-  } finally {
-    loading.value = false
-    controller.value = null
-  }
-}
-
-const cancelSearch = () => {
-  controller.value?.abort()
-  loading.value = false
-  controller.value = null
+ 
 }
 </script>

@@ -44,28 +44,12 @@
       "industry_placeholder": "např. instalatér",
       "location_label": "Lokalita",
       "location_placeholder": "např. Praha",
-      "focus_label": "Na co se chcete zaměřit?",
       "advanced_settings": "Pokročilá nastavení",
       "limit_label": "Počet výsledků",
       "button": "Najít firmy",
-      "cancel_button": "Zastavit",
       "errors": {
         "industry_required": "Obor je povinný",
         "location_required": "Lokalita je povinná"
-      }
-    },
-    "focus": {
-      "weak_websites": {
-        "title": "Zlepšení slabých webů",
-        "description": "Slabé nebo zastaralé weby s nízkou kvalitou UX a designu."
-      },
-      "growth_opportunities": {
-        "title": "Růstové příležitosti",
-        "description": "Firmy s nevyužitým růstovým potenciálem v tržbách, výkonu nebo viditelnosti."
-      },
-      "high_value": {
-        "title": "Vysoce hodnotné firmy",
-        "description": "Zavedené firmy s vyšším rozpočtem a dlouhodobým obchodním potenciálem."
       }
     }
   },

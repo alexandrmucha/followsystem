@@ -44,28 +44,12 @@
       "industry_placeholder": "e.g. plumber",
       "location_label": "Location",
       "location_placeholder": "e.g. Prague",
-      "focus_label": "What would you like to focus on?",
       "advanced_settings": "Advanced_settings",
       "limit_label": "Number of results",
       "button": "Find businesses",
-      "cancel_button": "Cancel",
       "errors": {
         "industry_required": "Industry is required",
         "location_required": "Location is required"
-      }
-    },
-    "focus": {
-      "weak_websites": {
-        "title": "Improve weak websites",
-        "description": "Low-quality or outdated websites with poor UX and design."
-      },
-      "growth_opportunities": {
-        "title": "Growth opportunities",
-        "description": "Businesses with untapped growth potential in revenue, performance, or visibility."
-      },
-      "high_value": {
-        "title": "High-value businesses",
-        "description": "Established businesses with higher budgets and strong long-term potential."
       }
     }
   },
