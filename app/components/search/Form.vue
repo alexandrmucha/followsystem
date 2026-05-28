@@ -65,8 +65,9 @@
         </div>
       </div>
 
-      <UiBaseButton type="submit" class="mt-5" :disabled="loading ">
-        {{ $t('search.form.button') }}
+      <UiBaseButton type="submit" class="mt-5 flex items-center gap-2" :disabled="loading ">
+        <span v-if="loading"><UiSpinner /></span>
+        <span>{{ $t('search.form.button') }}</span>
       </UiBaseButton>
 
       <p v-if="showHelper" class="text-xs text-neutral-500 dark:text-neutral-400 mt-3">

@@ -7,7 +7,8 @@
     "errors": {
       "security_verification_failed": "Bezpečnostní ověření selhalo. Zkuste to prosím znovu."
     },
-    "results": "výsledků"
+    "results": "výsledků",
+    "loading": "Načítání..."
   },
   "auth": {
     "common": {
