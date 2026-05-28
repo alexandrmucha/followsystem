@@ -25,15 +25,15 @@
           <div class="flex items-center gap-4 shrink-0">
 
             <!-- RATING -->
-            <div v-if="lead.rating !== null" class="flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-400">
-              <span>
-                <LucideStar :size="16" />
-              </span>
+            <span v-if="lead.rating !== null" class="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-300">
+              <LucideStar :size="16" />
 
-              <span>
-                {{ lead.rating }}
+              {{ lead.rating }}
+
+              <span class="text-gray-400 dark:text-gray-500">
+                ({{ lead.reviewCount }})
               </span>
-            </div>
+            </span>
 
             <!-- WEBSITE -->
             <a v-if="lead.website" :href="lead.website" target="_blank" class="text-sm text-neutral-900 dark:text-neutral-200 hover:underline">
