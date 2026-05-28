@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-xl font-semibold mb-6">
+    <h1 :class="[pageTitleClass, 'mb-6']">
       {{ t('dashboard.title') }}
     </h1>
 

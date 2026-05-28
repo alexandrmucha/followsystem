@@ -2,14 +2,14 @@
   <div class="max-w-md space-y-6">
     <!-- Title -->
     <h1 :class="pageTitleClass">
-      {{ t('settings.title') }}
+      {{ $t('settings.title') }}
     </h1>
 
     <!-- Account info -->
-    <SettingsSection :title="t('settings.account.title')">
+    <SettingsSection :title="$t('settings.account.title')">
       <SettingsRow>
         <template #label>
-          {{ t('settings.account.email') }}
+          {{ $t('settings.account.email') }}
         </template>
 
         <template #value>
@@ -19,24 +19,24 @@
     </SettingsSection>
 
     <!-- Preferences -->
-    <SettingsSection :title="t('settings.preferences.title')">
+    <SettingsSection :title="$t('settings.preferences.title')">
       <SettingsRow>
         <template #label>
-          {{ t('settings.preferences.theme.title') }}
+          {{ $t('settings.preferences.theme.title') }}
         </template>
 
         <template #value>
           <UiBaseSelect v-model="$colorMode.preference" size="sm">
-            <option value="system">{{ t('settings.preferences.theme.system') }}</option>
-            <option value="light">{{ t('settings.preferences.theme.light') }}</option>
-            <option value="dark">{{ t('settings.preferences.theme.dark') }}</option>
+            <option value="system">{{ $t('settings.preferences.theme.system') }}</option>
+            <option value="light">{{ $t('settings.preferences.theme.light') }}</option>
+            <option value="dark">{{ $t('settings.preferences.theme.dark') }}</option>
           </UiBaseSelect>
         </template>
       </SettingsRow>
 
       <SettingsRow>
         <template #label>
-          {{ t('settings.preferences.language') }}
+          {{ $t('settings.preferences.language') }}
         </template>
 
         <template #value>
