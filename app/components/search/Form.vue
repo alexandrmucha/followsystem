@@ -47,6 +47,8 @@
 </template>
 
 <script lang="ts" setup>
+import type { BusinessLeadDTO } from '~/types/business-lead.dto'
+
 const { t } = useI18n()
 const { $api } = useNuxtApp()
 const alertFlow = useAlertFlow()
@@ -100,8 +102,7 @@ const search = async () => {
   try {
     const res = await $api<{
       sessionId: string
-      total: number
-      leads: any[]
+      leads: BusinessLeadDTO[]
     }>('/search', {
       method: 'POST',
       body: {
