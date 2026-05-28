@@ -49,7 +49,6 @@
           type="button"
           class="flex gap-2 items-center text-sm text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300 transition-colors cursor-pointer"
           @click="showAdvanced = !showAdvanced"
-          :disabled="loading"
         >
           <span>
             <LucideChevronUp v-if="showAdvanced" :size="16" />
