@@ -9,11 +9,9 @@
       {{ $t('search.description') }}
     </p>
 
-    <div>
-      <SearchForm />
+    <SearchForm />
 
-      <SearchResults v-if="searchResults.leads.length" />
-    </div>
+    <SearchResults v-if="searchResults.leads.length" />
 
   </div>
 </template>

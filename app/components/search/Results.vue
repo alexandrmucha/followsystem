@@ -1,78 +1,60 @@
 <template>
   <div class="mt-6">
     <UiBaseCard>
-      <div class="p-4">
 
-        <!-- RESULTS -->
-        <ul class="space-y-4">
-          <li
-            v-for="lead in leads"
-            :key="lead.googlePlaceId"
-            class="border-b pb-3 last:border-b-0 last:pb-0"
-          >
-            <div class="flex flex-col gap-1">
+      <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
 
-              <!-- NAME + STATUS -->
-              <div class="flex items-center justify-between gap-2">
-                <h3 class="font-semibold text-base">
-                  {{ lead.name }}
-                </h3>
+        <div v-for="lead in leads" :key="lead.googlePlaceId" class="flex items-center justify-between gap-4 py-4">
 
-                <span
-                  v-if="lead.businessStatus"
-                  class="text-xs px-2 py-1 rounded bg-gray-100"
-                >
-                  {{ lead.businessStatus }}
-                </span>
-              </div>
+          <!-- LEFT -->
+          <div class="min-w-0 flex-1">
 
-              <!-- ADDRESS -->
-              <p v-if="lead.address" class="text-sm text-gray-600">
-                {{ lead.address }}
-              </p>
+            <!-- NAME -->
+            <h3 class="truncate font-medium text-sm">
+              {{ lead.name }}
+            </h3>
 
-              <!-- META -->
-              <div class="flex flex-wrap gap-3 text-xs text-gray-500 mt-1">
+            <!-- ADDRESS -->
+            <p v-if="lead.address" class="mt-1 truncate text-sm text-neutral-500 dark:text-neutral-400">
+              {{ lead.address }}
+            </p>
 
-                <span v-if="lead.rating !== null">
-                  ⭐ {{ lead.rating }} / 5
-                </span>
+          </div>
 
-                <span v-if="lead.reviewCount !== null">
-                  ({{ lead.reviewCount }} recenzí)
-                </span>
+          <!-- RIGHT -->
+          <div class="flex items-center gap-4 shrink-0">
 
-                <span v-if="lead.types?.length">
-                  {{ lead.types.slice(0, 2).join(', ') }}
-                </span>
+            <!-- RATING -->
+            <div v-if="lead.rating !== null" class="flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-400">
+              <span>
+                <LucideStar :size="16" />
+              </span>
 
-              </div>
-
-              <!-- CONTACT -->
-              <div class="flex gap-3 mt-2 text-xs">
-                <a
-                  v-if="lead.website"
-                  :href="lead.website"
-                  target="_blank"
-                  class="text-blue-600 hover:underline"
-                >
-                  Web
-                </a>
-
-                <span v-else class="text-gray-400">
-                  bez webu
-                </span>
-
-                <span v-if="lead.phone" class="text-gray-600">
-                  {{ lead.phone }}
-                </span>
-              </div>
-
+              <span>
+                {{ lead.rating }}
+              </span>
             </div>
-          </li>
-        </ul>
+
+            <!-- WEBSITE -->
+            <a v-if="lead.website" :href="lead.website" target="_blank" class="text-sm text-neutral-900 dark:text-neutral-200 hover:underline">
+              Web
+            </a>
+
+            <span v-else class="text-sm text-neutral-400 dark:text-neutral-500">
+              Bez webu
+            </span>
+
+            <!-- STATUS -->
+            <div class="rounded-full bg-yellow-100 px-2.5 py-1 text-xs font-medium text-yellow-900 dark:bg-yellow-900/30 dark:text-yellow-200">
+              Čeká na analýzu
+            </div>
+
+          </div>
+
+        </div>
 
       </div>
+
     </UiBaseCard>
   </div>
 </template>
