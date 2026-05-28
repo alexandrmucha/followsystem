@@ -9,13 +9,18 @@
       {{ $t('search.description') }}
     </p>
 
-    <SearchForm />
+    <div>
+      <SearchForm />
+
+      <SearchResults v-if="searchResults.leads.length" />
+    </div>
 
   </div>
 </template>
 
 <script lang="ts" setup>
 const { t } = useI18n()
+const searchResults = useSearchResultsStore()
 
 useHead({
   title: t('nav.search')
