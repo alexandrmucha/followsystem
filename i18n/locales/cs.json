@@ -34,14 +34,11 @@
     }
   },
   "dashboard": {
-    "title": "Přehled",
-    "getting_started": {
-      "title": "Najděte firmy s jasnými signály pro oslovení",
-      "description": "Začněte zadáním oboru a lokality."
-    }
+    "title": "Přehled"
   },
   "search": {
-    "title": "Hledání",
+    "title": "Najděte firmy s jasnými signály pro oslovení",
+    "description": "Začněte zadáním oboru a lokality.",
     "form": {
       "industry_label": "Obor",
       "industry_placeholder": "např. instalatér",

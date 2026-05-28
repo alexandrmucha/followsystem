@@ -34,14 +34,11 @@
     }
   },
   "dashboard": {
-    "title": "Dashboard",
-    "getting_started": {
-      "title": "Find businesses with clear outreach signals",
-      "description": "Enter an industry and location to get started."
-    }
+    "title": "Dashboard"
   },
   "search": {
-    "title": "Search",
+    "title": "Find businesses with clear outreach signals",
+    "description": "Enter an industry and location to get started.",
     "form": {
       "industry_label": "Industry",
       "industry_placeholder": "e.g. plumber",

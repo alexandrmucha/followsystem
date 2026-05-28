@@ -1,9 +1,15 @@
 <template>
-  <div>
-    <!-- Title -->
-    <h1 class="text-xl font-semibold">
-      {{ t('search.title') }}
+  <div class="max-w-4xl w-full mx-auto sm:mt-4">
+
+    <h1 class="text-2xl sm:text-3xl font-semibold mb-2">
+      {{ $t('search.title') }}
     </h1>
+
+    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-8">
+      {{ $t('search.description') }}
+    </p>
+
+    <SearchForm :show-helper="true" />
 
   </div>
 </template>
@@ -12,7 +18,7 @@
 const { t } = useI18n()
 
 useHead({
-  title: t('search.title')
+  title: t('nav.search')
 })
 
 definePageMeta({

@@ -1,5 +1,10 @@
 <template>
-  <DashboardGettingStarted />
+  <div>
+    <h1 class="text-xl font-semibold">
+      {{ t('dashboard.title') }}
+    </h1>
+
+  </div>
 </template>
 
 <script lang="ts" setup>
