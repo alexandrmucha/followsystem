@@ -94,7 +94,7 @@
 
       </div>
 
-      <p v-if="showHelper" class="text-xs text-neutral-500 dark:text-neutral-400 mt-3">
+      <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-3">
         {{ $t('search.form.helper_text') }}
       </p>
 
@@ -103,13 +103,6 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps({
-  showHelper: {
-    type: Boolean,
-    default: false
-  }
-})
-
 const { t } = useI18n()
 
 const industry = ref('')

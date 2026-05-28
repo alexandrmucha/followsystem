@@ -9,7 +9,7 @@
       {{ $t('search.description') }}
     </p>
 
-    <SearchForm :show-helper="true" />
+    <SearchForm />
 
   </div>
 </template>
