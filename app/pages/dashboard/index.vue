@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-xl font-semibold">
+    <h1 class="text-xl font-semibold mb-6">
       {{ t('dashboard.title') }}
     </h1>
 

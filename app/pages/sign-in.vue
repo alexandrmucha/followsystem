@@ -14,7 +14,7 @@
 
   <UiAuthCard v-else>
     <!-- Title -->
-    <h1 class="text-xl font-semibold mb-6">
+    <h1 :class="pageTitleClass">
       {{ $t('auth.sign_in.title') }}
     </h1>
 
@@ -40,13 +40,13 @@
       </div>
 
       <!-- Email -->
-      <div>
+      <UiFormField>
         <UiBaseInput v-model="email" :label="$t('auth.common.email')" type="email" placeholder="you@example.com" :error="!!emailError" />
 
-        <p v-if="!!emailError" class="text-sm text-red-500 dark:text-red-400 mt-2">
+        <p v-if="!!emailError" :class="fieldErrorClass">
           {{ emailError }}
         </p>
-      </div>
+      </UiFormField>
 
       <!-- Cloudflare Turnstile -->
       <div class="flex justify-center py-2">
@@ -59,7 +59,7 @@
       </UiBaseButton>
 
       <!-- System error -->
-      <p v-if="errorMsg" class="text-red-600 dark:text-red-500 text-sm text-center">
+      <p v-if="errorMsg" :class="[systemErrorClass, 'text-center mt-2']">
         {{ errorMsg }}
       </p>
 
@@ -68,6 +68,8 @@
 </template>
 
 <script lang="ts" setup>
+import { systemErrorClass } from '~/utils/ui';
+
 const { t } = useI18n()
 const config = useRuntimeConfig()
 const { $api } = useNuxtApp();
