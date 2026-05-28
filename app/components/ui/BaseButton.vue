@@ -2,7 +2,7 @@
   <button
     :type="type"
     :disabled="disabled"
-    class="rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-300 dark:focus:ring-neutral-700"
+    class="rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-300 dark:focus:ring-neutral-600"
     :class="[buttonClass, sizeClass]"
   >
     <slot />
