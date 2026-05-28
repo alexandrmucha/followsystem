@@ -107,7 +107,6 @@ const search = async () => {
       body: {
         industry: searchDraft.industry,
         location: searchDraft.location,
-        limit: searchDraft.limit ?? 25,
       },
     })
 
