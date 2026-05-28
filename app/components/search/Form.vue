@@ -52,13 +52,11 @@ const { $api } = useNuxtApp()
 const alertFlow = useAlertFlow()
 
 const searchDraft = useSearchDraftStore()
+const searchResults = useSearchResultsStore()
 
 // errors
 const industryError = ref('')
 const locationError = ref('')
-
-// UI
-const showAdvanced = ref(false)
 
 // loading
 const loading = ref(false)
@@ -94,6 +92,8 @@ watch(() => searchDraft.location, () => {
 const search = async () => {
   if (!validate()) return
 
+  searchResults.clear()
+
   loading.value = true
   alertFlow.clear()
 
@@ -110,6 +110,8 @@ const search = async () => {
       },
     })
 
+    searchResults.setSession(res.sessionId)
+    searchResults.setLeads(res.leads)
   } catch (err) {
     console.error(err)
     alertFlow.error(t('search.errors.failed'))
