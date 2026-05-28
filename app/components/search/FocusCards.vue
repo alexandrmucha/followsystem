@@ -4,7 +4,7 @@
     <SearchFocusCard
       :active="modelValue === 'weak_websites'"
       :disabled="disabled"
-      @select="!disabled && $emit('update:modelValue', 'weak_websites')"
+      @select="select('weak_websites')"
     >
       <template #icon>
         <LucideGlobe />
@@ -22,7 +22,7 @@
     <SearchFocusCard
       :active="modelValue === 'growth_opportunities'"
       :disabled="disabled"
-      @select="!disabled && $emit('update:modelValue', 'growth_opportunities')"
+      @select="select('growth_opportunities')"
     >
       <template #icon>
         <LucideTrendingUp />
@@ -40,7 +40,7 @@
     <SearchFocusCard
       :active="modelValue === 'high_value'"
       :disabled="disabled"
-      @select="!disabled && $emit('update:modelValue', 'high_value')"
+      @select="select('high_value')"
     >
       <template #icon>
         <LucideBriefcase />
@@ -59,10 +59,18 @@
 </template>
 
 <script lang="ts" setup>
-defineProps<{
+const props = defineProps<{
   modelValue: string
   disabled?: boolean
 }>()
 
-defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue'])
+
+/* =========================
+   CENTRAL CLICK LOGIC
+========================= */
+const select = (value: string) => {
+  if (props.disabled) return
+  emit('update:modelValue', value)
+}
 </script>

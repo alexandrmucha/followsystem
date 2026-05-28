@@ -4,7 +4,7 @@
 
       <div class="flex flex-col sm:flex-row gap-3">
 
-        <div class="flex-1">
+        <UiFormField class="flex-1">
           <UiBaseInput
             v-model="searchDraft.industry"
             :disabled="loading"
@@ -13,12 +13,12 @@
             :placeholder="$t('search.form.industry_placeholder')"
           />
 
-          <p v-if="industryError" class="text-sm text-red-500 dark:text-red-400 mt-2">
+          <p v-if="industryError" :class="fieldErrorClass">
             {{ industryError }}
           </p>
-        </div>
+        </UiFormField>
 
-        <div class="flex-1">
+        <UiFormField class="flex-1">
           <UiBaseInput
             v-model="searchDraft.location"
             :disabled="loading"
@@ -27,10 +27,10 @@
             :placeholder="$t('search.form.location_placeholder')"
           />
 
-          <p v-if="locationError" class="text-sm text-red-500 dark:text-red-400 mt-2">
+          <p v-if="locationError" :class="fieldErrorClass">
             {{ locationError }}
           </p>
-        </div>
+        </UiFormField>
 
       </div>
 
@@ -40,17 +40,14 @@
           {{ $t('search.form.focus_label') }}
         </p>
 
-        <SearchFocusCards
-          v-model="searchDraft.focus"
-          :disabled="loading"
-        />
+        <SearchFocusCards v-model="searchDraft.focus" :disabled="loading" />
       </div>
 
       <!-- Advanced settings -->
       <div class="mt-5">
         <button
           type="button"
-          class="flex gap-2 items-center text-sm text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300 transition-colors cursor-pointer"
+          class="flex gap-2 items-center text-sm text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 transition-colors cursor-pointer"
           @click="showAdvanced = !showAdvanced"
         >
           <span>
@@ -77,22 +74,13 @@
       <!-- BUTTON / LOADING / STOP -->
       <div class="mt-5 flex items-center gap-3">
 
-        <UiBaseButton
-          type="submit"
-          class="flex items-center gap-2"
-          :disabled="loading"
-        >
+        <UiBaseButton type="submit" class="flex items-center gap-2" :disabled="loading">
           <UiSpinner v-if="loading" />
           <span>{{ $t('search.form.button') }}</span>
         </UiBaseButton>
 
-        <UiBaseButton
-          v-if="loading"
-          type="button"
-          variant="secondary"
-          @click="cancelSearch"
-        >
-          Zastavit
+        <UiBaseButton v-if="loading" type="button" variant="secondary" @click="cancelSearch">
+          {{ $t('search.form.cancel_button') }}
         </UiBaseButton>
 
       </div>
