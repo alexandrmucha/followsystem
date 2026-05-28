@@ -1,38 +1,40 @@
 <template>
-  <UiBaseCard>
-    <h2 class="text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-4">
-      {{ $t('settings.security.title') }}
-    </h2>
+  <SettingsSection :title="$t('settings.security.title')">
+    <SettingsRow>
+      <template #label>
+        {{ t('settings.security.active_sessions') }}
+      </template>
 
-    <div class="text-sm text-neutral-700 dark:text-neutral-300">
-      
-      <div class="flex justify-between items-center">
-        <span>{{ t('settings.security.active_sessions') }}</span>
+      <template #value>
+        <span class="text-neutral-900 dark:text-neutral-100">
+          {{ data?.count }}
+        </span>
+      </template>
+    </SettingsRow>
 
-        <span class="text-neutral-900 dark:text-neutral-100">{{ data?.count }}</span>
-      </div>
-
-      <div class="mt-6">
-        <button type="button" @click="logoutAll" class="text-red-600 dark:text-red-400" :class="isDisabled ? 'opacity-50' : 'hover:underline cursor-pointer'" :disabled="isDisabled" >{{ $t('settings.security.logout_all') }}</button>
-      </div>
-
+    <div class="mt-6">
+      <button type="button" :disabled="isDisabled" :class="isDisabled ? disabledDangerLinkClass : dangerLinkClass" @click="logoutAll">
+        {{ $t('settings.security.logout_all') }}
+      </button>
     </div>
-  </UiBaseCard>
+  </SettingsSection>
 </template>
 
 <script lang="ts" setup>
+import { dangerLinkClass } from '~/utils/ui'
+
 const { t } = useI18n()
 const { $api } = useNuxtApp()
 const alertFlow = useAlertFlow()
 
 const loading = ref(false)
 
-const isDisabled = computed(() =>
-  loading.value || (data.value?.count ?? 0) <= 1
-)
-
 const { data, refresh } = await useAsyncData('sessions-count', () =>
   $api<{ count: number }>('/auth/sessions/count')
+)
+
+const isDisabled = computed(() =>
+  loading.value || (data.value?.count ?? 0) <= 1
 )
 
 const logoutAll = async () => {

@@ -1,60 +1,60 @@
 <template>
   <div class="max-w-md space-y-6">
     <!-- Title -->
-    <h1 class="text-xl font-semibold">
+    <h1 :class="pageTitleClass">
       {{ t('settings.title') }}
     </h1>
 
     <!-- Account info -->
-    <UiBaseCard>
-      <h2 class="text-sm font-medium mb-4">
-        {{ t('settings.account.title') }}
-      </h2>
+    <SettingsSection :title="t('settings.account.title')">
+      <SettingsRow>
+        <template #label>
+          {{ t('settings.account.email') }}
+        </template>
 
-      <div class="space-y-3 text-sm text-neutral-700 dark:text-neutral-300">
-        <div class="flex justify-between">
-          <span>{{ t('settings.account.email') }}</span>
-          <span class="text-neutral-900 dark:text-neutral-100">{{ authStore.user?.email }}</span>
-        </div>
-      </div>
-    </UiBaseCard>
+        <template #value>
+          {{ authStore.user?.email }}
+        </template>
+      </SettingsRow>
+    </SettingsSection>
 
-  <!-- Preferences -->
-  <UiBaseCard>
-    <h2 class="text-sm font-medium mb-4">
-      {{ t('settings.preferences.title') }}
-    </h2>
+    <!-- Preferences -->
+    <SettingsSection :title="t('settings.preferences.title')">
+      <SettingsRow>
+        <template #label>
+          {{ t('settings.preferences.theme.title') }}
+        </template>
 
-    <div class="space-y-3 text-sm text-neutral-700 dark:text-neutral-300">
-      <div class="flex justify-between items-center">
-        <span>{{ t('settings.preferences.theme.title') }}</span>
+        <template #value>
+          <UiBaseSelect v-model="$colorMode.preference" size="sm">
+            <option value="system">{{ t('settings.preferences.theme.system') }}</option>
+            <option value="light">{{ t('settings.preferences.theme.light') }}</option>
+            <option value="dark">{{ t('settings.preferences.theme.dark') }}</option>
+          </UiBaseSelect>
+        </template>
+      </SettingsRow>
 
-        <UiBaseSelect v-model="$colorMode.preference" size="sm">
-          <option value="system">{{ t('settings.preferences.theme.system') }}</option>
-          <option value="light">{{ t('settings.preferences.theme.light') }}</option>
-          <option value="dark">{{ t('settings.preferences.theme.dark') }}</option>
-        </UiBaseSelect>
-      </div>
+      <SettingsRow>
+        <template #label>
+          {{ t('settings.preferences.language') }}
+        </template>
 
-      <div class="flex justify-between items-center">
-        <span>{{ t('settings.preferences.language') }}</span>
+        <template #value>
+          <UiBaseSelect :model-value="locale" @update:model-value="handleLocaleChange" size="sm">
+            <option v-for="loc in locales" :key="loc.code" :value="loc.code">
+              {{ loc.name }}
+            </option>
+          </UiBaseSelect>
+        </template>
+      </SettingsRow>
 
-        <UiBaseSelect
-          :model-value="locale"
-          @update:model-value="handleLocaleChange"
-          size="sm"
-        >
-          <option v-for="loc in locales" :key="loc.code" :value="loc.code">{{ loc.name }}</option>
-        </UiBaseSelect>
-      </div>
-    </div>
-  </UiBaseCard>
+    </SettingsSection>
 
-  <!-- Security -->
-  <SettingsSecurity />
+    <!-- Security -->
+    <SettingsSecurity />
 
-  <!-- Danger -->
-  <SettingsDanger />
+    <!-- Danger -->
+    <SettingsDanger />
     
   </div>
 </template>

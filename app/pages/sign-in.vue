@@ -14,7 +14,7 @@
 
   <UiAuthCard v-else>
     <!-- Title -->
-    <h1 :class="pageTitleClass">
+    <h1 :class="[pageTitleClass, 'mb-6']">
       {{ $t('auth.sign_in.title') }}
     </h1>
 
