@@ -52,6 +52,7 @@
       "limit_label": "Počet výsledků",
       "helper_text": "Zanalyzujeme firmy a odhalíme příležitosti k oslovení.",
       "button": "Analyzovat firmy",
+      "cancel_button": "Zastavit",
       "errors": {
         "industry_required": "Obor je povinný",
         "location_required": "Lokalita je povinná"

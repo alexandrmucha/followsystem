@@ -52,6 +52,7 @@
       "limit_label": "Number of results",
       "helper_text": "We’ll analyze businesses and surface outreach opportunities.",
       "button": "Analyze businesses",
+      "cancel_button": "Cancel",
       "errors": {
         "industry_required": "Industry is required",
         "location_required": "Location is required"
