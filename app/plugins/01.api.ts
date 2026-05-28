@@ -1,11 +1,8 @@
-import { useRequestHeaders } from '#app'
-
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
   const csrfStore = useCsrfStore()
   const authStore = useAuthStore()
-  const event = useRequestEvent()
-
+  
   const baseFetch = $fetch.create({
     baseURL: config.public.apiBaseUrl,
     credentials: 'include',
@@ -14,7 +11,7 @@ export default defineNuxtPlugin(() => {
       const headers = new Headers(options.headers)
 
       // ---------------- SSR cookies ----------------
-      if (import.meta.server && event) {
+      if (import.meta.server) {
         const cookie = useRequestHeaders(['cookie']).cookie
         if (cookie) {
           headers.set('cookie', cookie)
@@ -30,21 +27,24 @@ export default defineNuxtPlugin(() => {
     },
   })
 
-  let csrfRefreshPromise: Promise<any> | null = null
+  let csrfRefreshPromise: Promise<unknown> | null = null
 
-  async function refreshCsrfOnce() {
+  function refreshCsrfOnce() {
     if (!csrfRefreshPromise) {
       csrfRefreshPromise = csrfStore.fetchToken().finally(() => {
         csrfRefreshPromise = null
       })
     }
-
     return csrfRefreshPromise
   }
 
-  async function api<T>(url: string, options: any = {}, _retry = false): Promise<T> {
+  async function api<T = any>(
+    url: string,
+    options: any = {},
+    _retry = false
+  ): Promise<T> {
     try {
-      return await baseFetch(url, options)
+      return await baseFetch<T>(url, options)
     } catch (err: any) {
       const status = err?.response?.status
       const message = err?.response?._data?.message

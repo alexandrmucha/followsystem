@@ -29,19 +29,19 @@
       <div class="flex justify-between items-center">
         <span>{{ t('settings.preferences.theme.title') }}</span>
 
-        <select v-model="$colorMode.preference" class="text-sm border border-neutral-200 dark:border-neutral-800 rounded-lg px-3 py-1 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-300 dark:focus:ring-neutral-700">
+        <UiBaseSelect v-model="$colorMode.preference" size="sm">
           <option value="system">{{ t('settings.preferences.theme.system') }}</option>
           <option value="light">{{ t('settings.preferences.theme.light') }}</option>
           <option value="dark">{{ t('settings.preferences.theme.dark') }}</option>
-        </select>
+        </UiBaseSelect>
       </div>
 
       <div class="flex justify-between items-center">
         <span>{{ t('settings.preferences.language') }}</span>
 
-        <select @change="handleLocaleSwitch" class="text-sm border border-neutral-200 dark:border-neutral-800 rounded-lg px-3 py-1 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-300 dark:focus:ring-neutral-700">
-          <option v-for="loc in locales" :key="loc.code" :value="loc.code" :selected="loc.code === currentLocale">{{ loc.name }}</option>
-        </select>
+        <UiBaseSelect v-model="locale" size="sm">
+          <option v-for="loc in locales" :key="loc.code" :value="loc.code">{{ loc.name }}</option>
+        </UiBaseSelect>
       </div>
     </div>
   </UiBaseCard>
@@ -70,13 +70,7 @@ definePageMeta({
   layout: 'dashboard',
 })
 
-const { locale: currentLocale, setLocale, locales } = useI18n()
-
-const handleLocaleSwitch = (event: Event) => {
-  const selectedLocale = (event.target as HTMLSelectElement).value
-  // @ts-ignore
-  setLocale(selectedLocale)
-}
+const { locale, locales } = useI18n()
 
 const errorMap: Record<string, string> = {
   gmail_already_connected: t('settings.errors.gmail_already_connected'),
