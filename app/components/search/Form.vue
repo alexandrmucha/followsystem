@@ -35,13 +35,13 @@
       </div>
 
       <!-- Strategy cards -->
-      <div class="mt-5">
+      <!-- <div class="mt-5">
         <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
           {{ $t('search.form.focus_label') }}
         </p>
 
         <SearchFocusCards v-model="searchDraft.focus" :disabled="loading" />
-      </div>
+      </div> -->
 
       <!-- Advanced settings -->
       <div class="mt-5">
