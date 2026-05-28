@@ -11,8 +11,9 @@
     <select
       :id="id"
       v-model="model"
+      :disabled="disabled"
       class="w-full bg-white dark:bg-neutral-900 rounded-lg border px-3 py-2 text-sm text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2"
-      :class="selectClass"
+      :class="[selectClass, disabledClass]"
       @focus="$emit('focus')"
       @blur="$emit('blur')"
     >
@@ -29,6 +30,7 @@ defineEmits(['focus', 'blur'])
 const props = defineProps<{
   label?: string
   error?: boolean
+  disabled?: boolean
 }>()
 
 const id = useId()
@@ -39,5 +41,11 @@ const selectClass = computed(() => {
   }
 
   return 'border-neutral-200 dark:border-neutral-700 focus:border-neutral-300 dark:focus:border-neutral-700 focus:ring-neutral-300 dark:focus:ring-neutral-700'
+})
+
+const disabledClass = computed(() => {
+  return props.disabled
+    ? 'opacity-50 cursor-not-allowed'
+    : ''
 })
 </script>

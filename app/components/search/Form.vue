@@ -6,6 +6,7 @@
         <div class="flex-1">
           <UiBaseInput
             v-model="industry"
+            :disabled="loading"
             :error="!!industryError"
             :label="$t('search.form.industry_label')"
             :placeholder="$t('search.form.industry_placeholder')"
@@ -19,6 +20,7 @@
         <div class="flex-1">
           <UiBaseInput
             v-model="location"
+            :disabled="loading"
             :error="!!locationError"
             :label="$t('search.form.location_label')"
             :placeholder="$t('search.form.location_placeholder')"
@@ -37,7 +39,7 @@
           {{ $t('search.form.focus_label') }}
         </p>
 
-        <SearchFocusCards v-model="focus" />
+        <SearchFocusCards v-model="focus" :disabled="loading" />
       </div>
 
       <!-- Advanced settings -->

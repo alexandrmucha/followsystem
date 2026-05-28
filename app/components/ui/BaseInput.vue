@@ -12,9 +12,10 @@
       :id="id"
       :type="type"
       :placeholder="placeholder"
+      :disabled="disabled"
       v-model="model"
       class="w-full bg-white dark:bg-neutral-900 rounded-lg border px-3 py-2 text-sm text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:ring-2"
-      :class="inputClass"
+      :class="[inputClass, disabledClass]"
       @focus="$emit('focus')"
       @blur="$emit('blur')"
     />
@@ -31,6 +32,7 @@ const props = defineProps<{
   type?: string
   placeholder?: string
   error?: boolean
+  disabled?: boolean
 }>()
 
 const id = useId()
@@ -41,5 +43,11 @@ const inputClass = computed(() => {
   }
 
   return 'border-neutral-200 dark:border-neutral-800 focus:border-neutral-300 dark:focus:border-neutral-700 focus:ring-neutral-300 dark:focus:ring-neutral-700'
+})
+
+const disabledClass = computed(() => {
+  return props.disabled
+    ? 'opacity-50 cursor-not-allowed'
+    : ''
 })
 </script>

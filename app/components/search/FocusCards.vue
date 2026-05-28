@@ -3,7 +3,8 @@
 
     <SearchFocusCard
       :active="modelValue === 'weak_websites'"
-      @select="$emit('update:modelValue', 'weak_websites')"
+      :disabled="disabled"
+      @select="!disabled && $emit('update:modelValue', 'weak_websites')"
     >
       <template #icon>
         <LucideGlobe />
@@ -20,7 +21,8 @@
 
     <SearchFocusCard
       :active="modelValue === 'growth_opportunities'"
-      @select="$emit('update:modelValue', 'growth_opportunities')"
+      :disabled="disabled"
+      @select="!disabled && $emit('update:modelValue', 'growth_opportunities')"
     >
       <template #icon>
         <LucideTrendingUp />
@@ -37,7 +39,8 @@
 
     <SearchFocusCard
       :active="modelValue === 'high_value'"
-      @select="$emit('update:modelValue', 'high_value')"
+      :disabled="disabled"
+      @select="!disabled && $emit('update:modelValue', 'high_value')"
     >
       <template #icon>
         <LucideBriefcase />
@@ -58,6 +61,7 @@
 <script lang="ts" setup>
 defineProps<{
   modelValue: string
+  disabled?: boolean
 }>()
 
 defineEmits(['update:modelValue'])
