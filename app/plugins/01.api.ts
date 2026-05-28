@@ -1,5 +1,4 @@
 import { useRequestHeaders } from '#app'
-import type { FetchError } from 'ofetch'
 
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
