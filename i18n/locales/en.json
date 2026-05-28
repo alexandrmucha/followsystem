@@ -44,12 +44,11 @@
       "industry_placeholder": "e.g. plumber",
       "location_label": "Location",
       "location_placeholder": "e.g. Prague",
-      "advanced_settings": "Advanced_settings",
-      "limit_label": "Number of results",
       "button": "Find businesses",
       "errors": {
         "industry_required": "Industry is required",
-        "location_required": "Location is required"
+        "location_required": "Location is required",
+        "failed": "Failed to find businesses. Please try again."
       }
     }
   },

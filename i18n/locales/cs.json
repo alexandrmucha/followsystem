@@ -44,12 +44,11 @@
       "industry_placeholder": "např. instalatér",
       "location_label": "Lokalita",
       "location_placeholder": "např. Praha",
-      "advanced_settings": "Pokročilá nastavení",
-      "limit_label": "Počet výsledků",
       "button": "Najít firmy",
       "errors": {
         "industry_required": "Obor je povinný",
-        "location_required": "Lokalita je povinná"
+        "location_required": "Lokalita je povinná",
+        "failed": "Nepodařilo se najít firmy. Zkuste to prosím znovu."
       }
     }
   },

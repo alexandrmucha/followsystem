@@ -34,34 +34,6 @@
 
       </div>
 
-      <!-- Advanced settings -->
-      <div class="mt-5">
-        <button
-          type="button"
-          class="flex gap-2 items-center text-sm text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 transition-colors cursor-pointer"
-          @click="showAdvanced = !showAdvanced"
-        >
-          <span>
-            <LucideChevronUp v-if="showAdvanced" :size="16" />
-            <LucideChevronDown v-else :size="16" />
-          </span>
-          <span>{{ $t('search.form.advanced_settings') }}</span>
-        </button>
-
-        <div v-if="showAdvanced" class="mt-3 space-y-3">
-          <UiBaseSelect
-            v-model="searchDraft.limit"
-            :disabled="loading"
-            :label="$t('search.form.limit_label')"
-            class="max-w-sm"
-          >
-            <option :value="10">10 {{ $t('common.results') }}</option>
-            <option :value="25">25 {{ $t('common.results') }}</option>
-            <option :value="50">50 {{ $t('common.results') }}</option>
-          </UiBaseSelect>
-        </div>
-      </div>
-
       <!-- BUTTON  -->
       <div class="mt-5">
         <UiBaseButton type="submit" class="flex items-center gap-2" :disabled="loading">
@@ -76,6 +48,8 @@
 
 <script lang="ts" setup>
 const { t } = useI18n()
+const { $api } = useNuxtApp()
+const alertFlow = useAlertFlow()
 
 const searchDraft = useSearchDraftStore()
 
@@ -86,7 +60,7 @@ const locationError = ref('')
 // UI
 const showAdvanced = ref(false)
 
-// loading + abort
+// loading
 const loading = ref(false)
 
 const validate = () => {
@@ -121,6 +95,28 @@ const search = async () => {
   if (!validate()) return
 
   loading.value = true
- 
+  alertFlow.clear()
+
+  try {
+    const res = await $api<{
+      sessionId: string
+      total: number
+      leads: any[]
+    }>('/search', {
+      method: 'POST',
+      body: {
+        industry: searchDraft.industry,
+        location: searchDraft.location,
+        limit: searchDraft.limit ?? 25,
+      },
+    })
+
+  } catch (err) {
+    console.error(err)
+    alertFlow.error(t('search.errors.failed'))
+
+  } finally {
+    loading.value = false
+  }
 }
 </script>
