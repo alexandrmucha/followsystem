@@ -50,7 +50,11 @@
       "advanced_settings": "Advanced_settings",
       "limit_label": "Number of results",
       "helper_text": "We’ll analyze businesses and surface outreach opportunities.",
-      "button": "Analyze businesses"
+      "button": "Analyze businesses",
+      "errors": {
+        "industry_required": "Industry is required",
+        "location_required": "Location is required"
+      }
     },
     "focus": {
       "weak_websites": {
