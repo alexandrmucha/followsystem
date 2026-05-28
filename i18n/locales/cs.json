@@ -47,7 +47,7 @@
       "focus_label": "Na co se chcete zaměřit?",
       "advanced_settings": "Pokročilá nastavení",
       "limit_label": "Počet výsledků",
-      "button": "Analyzovat firmy",
+      "button": "Najít firmy",
       "cancel_button": "Zastavit",
       "errors": {
         "industry_required": "Obor je povinný",

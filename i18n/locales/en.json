@@ -37,17 +37,17 @@
     "title": "Dashboard"
   },
   "search": {
-    "title": "Find businesses with clear outreach signals",
-    "description": "Enter an industry and location to get started.",
+    "title": "Find your next clients",
+    "description": "Enter an industry and location.",
     "form": {
       "industry_label": "Industry",
       "industry_placeholder": "e.g. plumber",
       "location_label": "Location",
-      "location_placeholder": "e.g. Prague, Berlin, Vienna",
+      "location_placeholder": "e.g. Prague",
       "focus_label": "What would you like to focus on?",
       "advanced_settings": "Advanced_settings",
       "limit_label": "Number of results",
-      "button": "Analyze businesses",
+      "button": "Find businesses",
       "cancel_button": "Cancel",
       "errors": {
         "industry_required": "Industry is required",
