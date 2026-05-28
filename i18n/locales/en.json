@@ -47,7 +47,6 @@
       "focus_label": "What would you like to focus on?",
       "advanced_settings": "Advanced_settings",
       "limit_label": "Number of results",
-      "helper_text": "We’ll analyze businesses and surface outreach opportunities.",
       "button": "Analyze businesses",
       "cancel_button": "Cancel",
       "errors": {

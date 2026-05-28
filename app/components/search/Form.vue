@@ -85,10 +85,6 @@
 
       </div>
 
-      <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-3">
-        {{ $t('search.form.helper_text') }}
-      </p>
-
     </form>
   </UiBaseCard>
 </template>

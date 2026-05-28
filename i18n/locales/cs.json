@@ -37,8 +37,8 @@
     "title": "Přehled"
   },
   "search": {
-    "title": "Najděte firmy s jasnými signály pro oslovení",
-    "description": "Začněte zadáním oboru a lokality.",
+    "title": "Najděte své přístí klienty",
+    "description": "Zadejte obor a lokalitu.",
     "form": {
       "industry_label": "Obor",
       "industry_placeholder": "např. instalatér",
@@ -47,7 +47,6 @@
       "focus_label": "Na co se chcete zaměřit?",
       "advanced_settings": "Pokročilá nastavení",
       "limit_label": "Počet výsledků",
-      "helper_text": "Zanalyzujeme firmy a odhalíme příležitosti k oslovení.",
       "button": "Analyzovat firmy",
       "cancel_button": "Zastavit",
       "errors": {
