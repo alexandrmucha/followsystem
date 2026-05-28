@@ -6,7 +6,7 @@
 
         <div class="flex-1">
           <UiBaseInput
-            v-model="industry"
+            v-model="searchDraft.industry"
             :disabled="loading"
             :error="!!industryError"
             :label="$t('search.form.industry_label')"
@@ -20,7 +20,7 @@
 
         <div class="flex-1">
           <UiBaseInput
-            v-model="location"
+            v-model="searchDraft.location"
             :disabled="loading"
             :error="!!locationError"
             :label="$t('search.form.location_label')"
@@ -40,7 +40,10 @@
           {{ $t('search.form.focus_label') }}
         </p>
 
-        <SearchFocusCards v-model="focus" :disabled="loading" />
+        <SearchFocusCards
+          v-model="searchDraft.focus"
+          :disabled="loading"
+        />
       </div>
 
       <!-- Advanced settings -->
@@ -59,7 +62,7 @@
 
         <div v-if="showAdvanced" class="mt-3 space-y-3">
           <UiBaseSelect
-            v-model="limit"
+            v-model="searchDraft.limit"
             :disabled="loading"
             :label="$t('search.form.limit_label')"
             class="max-w-sm"
@@ -105,22 +108,17 @@
 <script lang="ts" setup>
 const { t } = useI18n()
 
-const industry = ref('')
-const location = ref('')
-const focus = ref('weak_websites')
+const searchDraft = useSearchDraftStore()
 
 // errors
 const industryError = ref('')
 const locationError = ref('')
 
-// advanced
+// UI
 const showAdvanced = ref(false)
-const limit = ref(25)
 
-// loading
+// loading + abort
 const loading = ref(false)
-
-// abort controller (future-proof)
 const controller = ref<AbortController | null>(null)
 
 const validate = () => {
@@ -129,12 +127,12 @@ const validate = () => {
 
   let isValid = true
 
-  if (!industry.value.trim()) {
+  if (!searchDraft.industry.trim()) {
     industryError.value = t('search.form.errors.industry_required')
     isValid = false
   }
 
-  if (!location.value.trim()) {
+  if (!searchDraft.location.trim()) {
     locationError.value = t('search.form.errors.location_required')
     isValid = false
   }
@@ -143,11 +141,11 @@ const validate = () => {
 }
 
 // clear errors on typing
-watch(industry, () => {
+watch(() => searchDraft.industry, () => {
   if (industryError.value) industryError.value = ''
 })
 
-watch(location, () => {
+watch(() => searchDraft.location, () => {
   if (locationError.value) locationError.value = ''
 })
 
@@ -158,7 +156,6 @@ const search = async () => {
   controller.value = new AbortController()
 
   try {
-    // simulace requestu (nahraď API)
     await new Promise((resolve, reject) => {
       const timeout = setTimeout(resolve, 3000)
 
@@ -167,7 +164,6 @@ const search = async () => {
         reject(new DOMException('Aborted', 'AbortError'))
       })
     })
-
   } catch (e: any) {
     if (e?.name !== 'AbortError') {
       console.error(e)
