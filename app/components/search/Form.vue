@@ -7,7 +7,7 @@
         <UiFormField class="flex-1">
           <UiBaseInput
             v-model="searchDraft.industry"
-            :disabled="loading"
+            :disabled="loading || isAnalyzing"
             :error="!!industryError"
             :label="$t('search.form.industry_label')"
             :placeholder="$t('search.form.industry_placeholder')"
@@ -21,7 +21,7 @@
         <UiFormField class="flex-1">
           <UiBaseInput
             v-model="searchDraft.location"
-            :disabled="loading"
+            :disabled="loading || isAnalyzing"
             :error="!!locationError"
             :label="$t('search.form.location_label')"
             :placeholder="$t('search.form.location_placeholder')"
@@ -34,11 +34,17 @@
 
       </div>
 
-      <!-- BUTTON  -->
+      <!-- BUTTON -->
       <div class="mt-5">
-        <UiBaseButton type="submit" class="flex items-center gap-2" :disabled="loading">
-          <UiSpinner v-if="loading" />
-          <span>{{ $t('search.form.button') }}</span>
+        <UiBaseButton
+          type="submit"
+          class="flex items-center gap-2"
+          :disabled="loading || isAnalyzing"
+        >
+          <UiSpinner v-if="loading || isAnalyzing" />
+          <span>
+            {{ $t('search.form.button') }}
+          </span>
         </UiBaseButton>
       </div>
 
@@ -60,8 +66,11 @@ const searchResults = useSearchResultsStore()
 const industryError = ref('')
 const locationError = ref('')
 
-// loading
+// loading (API request)
 const loading = ref(false)
+
+// derived state (analysis running)
+const isAnalyzing = computed(() => searchResults.analyzing)
 
 const validate = () => {
   industryError.value = ''
@@ -113,6 +122,7 @@ const search = async () => {
 
     searchResults.setSession(res.sessionId)
     searchResults.setLeads(res.leads)
+
   } catch (err) {
     console.error(err)
     alertFlow.error(t('search.errors.failed'))
