@@ -59,6 +59,11 @@
         "done": "Analyzováno",
         "analyzing": "Probíhá analýza",
         "pending": "Čeká na analýzu"
+      },
+      "progress": {
+        "label": "Analyzováno {done} z {total} webů",
+        "done": "Analýza dokončena",
+        "estimating": "Odhadovaný čas: ~1–2 min"
       }
     }
   },

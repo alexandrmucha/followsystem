@@ -8,13 +8,32 @@
   </div>
 
   <div class="mt-8 space-y-6" v-if="leads.length">
-    <UiBaseCard>
 
+    <!-- PROGRESS -->
+    <UiBaseCard>
+      <div class="flex items-center justify-between mb-2">
+        <p class="text-sm text-neutral-600 dark:text-neutral-300">
+          {{ t('search.results.progress.label', { done: analyzedCount, total: websiteLeadsCount }) }}
+        </p>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          {{ progressPercent }}%
+        </p>
+      </div>
+
+      <div class="h-1.5 w-full rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden">
+        <div
+          class="h-full bg-indigo-500 dark:bg-indigo-400 transition-all duration-500"
+          :style="{ width: progressPercent + '%' }"
+        />
+      </div>
+
+      <p class="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
+        {{ progressPercent === 100 ? t('search.results.progress.done') : t('search.results.progress.estimating') }}
+      </p>
     </UiBaseCard>
 
+    <!-- LIST -->
     <UiBaseCard>
-
-      <!-- LIST -->
       <div class="divide-y divide-neutral-200 dark:divide-neutral-800">
         <div v-for="lead in leads" :key="lead.id" class="flex items-center justify-between gap-4 py-4">
 
@@ -49,8 +68,8 @@
 
         </div>
       </div>
-
     </UiBaseCard>
+
   </div>
 </template>
 
@@ -63,6 +82,15 @@ const { streamSession } = useAnalysisStream()
 
 const leads = computed(() => searchResults.leads)
 const searched = computed(() => searchResults.searched)
+
+const websiteLeadsCount = computed(() => leads.value.filter(l => l.hasWebsite).length)
+
+const analyzedCount = computed(() => leads.value.filter(l => l.analysisStatus === 'done').length)
+
+const progressPercent = computed(() => {
+  if (!websiteLeadsCount.value) return 100
+  return Math.round((analyzedCount.value / websiteLeadsCount.value) * 100)
+})
 
 watch(() => searchResults.sessionId, (sessionId) => {
   if (!sessionId) return

@@ -59,6 +59,11 @@
         "done": "Analyzed",
         "analyzing": "Analyzing",
         "pending": "Waiting"
+      },
+      "progress": {
+        "label": "Analyzed {done} of {total} websites",
+        "done": "Analysis complete",
+        "estimating": "Estimated time: ~1–2 min"
       }
     }
   },
