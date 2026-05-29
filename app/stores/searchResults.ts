@@ -4,6 +4,7 @@ import type { BusinessLeadDTO } from '~/types/business-lead.dto'
 export const useSearchResultsStore = defineStore('searchResults', () => {
   const sessionId = ref<string | null>(null)
   const leads = ref<BusinessLeadDTO[]>([])
+  const searched = ref(false)
 
   function setSession(id: string) {
     sessionId.value = id
@@ -11,11 +12,13 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
 
   function setLeads(data: BusinessLeadDTO[]) {
     leads.value = data
+    searched.value = true
   }
 
   function clear() {
     sessionId.value = null
     leads.value = []
+    searched.value = false
   }
 
   function updateAnalysisStatus(leadId: string, status: NonNullable<BusinessLeadDTO['analysisStatus']>) {
@@ -28,6 +31,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
   return {
     sessionId,
     leads,
+    searched,
     setSession,
     setLeads,
     clear,

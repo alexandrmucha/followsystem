@@ -52,6 +52,7 @@
       }
     },
     "results": {
+      "empty": "No businesses found for the given industry and location.",
       "website": "Website",
       "badge": {
         "no_website": "No website",

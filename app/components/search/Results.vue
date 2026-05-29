@@ -1,10 +1,23 @@
 <template>
-  <div class="mt-6" v-if="leads.length">
+  <div v-if="searched && !leads.length" class="mt-8">
+    <UiBaseCard>
+      <p class="text-sm text-neutral-500 dark:text-neutral-400 text-center">
+        {{ t('search.results.empty') }}
+      </p>
+    </UiBaseCard>
+  </div>
+
+  <div class="mt-8 space-y-6" v-if="leads.length">
+    <UiBaseCard>
+
+    </UiBaseCard>
+
     <UiBaseCard>
 
       <!-- LIST -->
       <div class="divide-y divide-neutral-200 dark:divide-neutral-800">
         <div v-for="lead in leads" :key="lead.id" class="flex items-center justify-between gap-4 py-4">
+
           <!-- LEFT -->
           <div class="min-w-0 flex-1">
             <h3 class="truncate font-medium text-sm">
@@ -32,7 +45,6 @@
             <div :class="badgeClass(lead)">
               {{ badgeText(lead) }}
             </div>
-
           </div>
 
         </div>
@@ -50,6 +62,7 @@ const searchResults = useSearchResultsStore()
 const { streamSession } = useAnalysisStream()
 
 const leads = computed(() => searchResults.leads)
+const searched = computed(() => searchResults.searched)
 
 watch(() => searchResults.sessionId, (sessionId) => {
   if (!sessionId) return

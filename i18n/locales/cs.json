@@ -52,6 +52,7 @@
       }
     },
     "results": {
+      "empty": "Pro zadaný obor a lokalitu nebyly nalezeny žádné firmy.",
       "website": "Web",
       "badge": {
         "no_website": "Bez webu",
