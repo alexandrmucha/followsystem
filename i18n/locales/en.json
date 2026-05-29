@@ -50,6 +50,15 @@
         "location_required": "Location is required",
         "failed": "Failed to find businesses. Please try again."
       }
+    },
+    "results": {
+      "website": "Website",
+      "badge": {
+        "no_website": "No website",
+        "done": "Analyzed",
+        "analyzing": "Analyzing",
+        "pending": "Waiting"
+      }
     }
   },
   "nav": {

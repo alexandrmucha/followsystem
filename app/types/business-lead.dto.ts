@@ -1,4 +1,5 @@
 export type BusinessLeadDTO = {
+  id: string
   googlePlaceId: string
   name: string
   address: string | null
@@ -9,4 +10,5 @@ export type BusinessLeadDTO = {
   types: string[]
   businessStatus: string | null
   hasWebsite: boolean
+  analysisStatus?: 'analyzing' | 'done'
 }

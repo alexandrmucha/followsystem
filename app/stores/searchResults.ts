@@ -18,11 +18,19 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     leads.value = []
   }
 
+  function updateAnalysisStatus(leadId: string, status: NonNullable<BusinessLeadDTO['analysisStatus']>) {
+    const lead = leads.value.find(l => l.id === leadId)
+    if (lead) {
+      lead.analysisStatus = status
+    }
+  }
+
   return {
     sessionId,
     leads,
     setSession,
     setLeads,
     clear,
+    updateAnalysisStatus,
   }
 })

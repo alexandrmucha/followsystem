@@ -49,6 +49,15 @@
         "industry_required": "Obor je povinný",
         "location_required": "Lokalita je povinná",
         "failed": "Nepodařilo se najít firmy. Zkuste to prosím znovu."
+      },
+      "results": {
+        "website": "Web",
+        "badge": {
+          "no_website": "Bez webu",
+          "done": "Analyzováno",
+          "analyzing": "Probíhá analýza",
+          "pending": "Čeká na analýzu"
+        }
       }
     }
   },
