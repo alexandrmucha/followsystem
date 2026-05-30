@@ -22,7 +22,7 @@
 
       <div class="h-1.5 w-full rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden">
         <div
-          class="h-full bg-indigo-500 dark:bg-indigo-400 transition-all duration-500"
+          class="h-full bg-indigo-500 transition-all duration-500"
           :style="{ width: progressPercent + '%' }"
         />
       </div>
