@@ -16,8 +16,11 @@
 </template>
 
 <script lang="ts" setup>
+import type { BusinessLeadDTO } from '~/types/business-lead.dto'
+
 const { t } = useI18n()
 const searchResults = useSearchResultsStore()
+const searchDraft = useSearchDraftStore()
 const { $api } = useNuxtApp()
 
 useHead({
@@ -29,13 +32,19 @@ definePageMeta({
   layout: 'dashboard',
 })
 
-
 const { data: latestSession } = await useAsyncData('latest-session', () =>
-  $api<{ sessionId: string, leads: import('~/types/business-lead.dto').BusinessLeadDTO[] } | null>('/search/latest')
+  $api<{ 
+    sessionId: string
+    industry: string
+    location: string
+    leads: BusinessLeadDTO[] 
+  } | null>('/search/latest')
 )
 
-if (latestSession.value && !searchResults.leads.length) {
+if (latestSession.value) {
   searchResults.setSession(latestSession.value.sessionId)
   searchResults.setLeads(latestSession.value.leads)
+  searchDraft.industry = latestSession.value.industry
+  searchDraft.location = latestSession.value.location
 }
 </script>
