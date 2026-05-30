@@ -94,6 +94,7 @@ const progressPercent = computed(() => {
 
 watch(() => searchResults.sessionId, (sessionId) => {
   if (!sessionId) return
+  if (!searchResults.analyzing) return
 
   streamSession(sessionId, (update) => {
     searchResults.updateAnalysisStatus(update.leadId, update.status)
