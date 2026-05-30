@@ -11,6 +11,8 @@ export function useAnalysisStream() {
     }) => void,
     onDone?: () => void
   ) {
+    if (import.meta.server) return
+    
     const url = `${config.public.apiBaseUrl}/search/stream/${sessionId}`
     const source = new EventSource(url, { withCredentials: true })
 

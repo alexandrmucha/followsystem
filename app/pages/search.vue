@@ -17,6 +17,8 @@
 
 <script lang="ts" setup>
 const { t } = useI18n()
+const searchResults = useSearchResultsStore()
+const { $api } = useNuxtApp()
 
 useHead({
   title: t('nav.search')
@@ -27,4 +29,13 @@ definePageMeta({
   layout: 'dashboard',
 })
 
+
+const { data: latestSession } = await useAsyncData('latest-session', () =>
+  $api<{ sessionId: string, leads: import('~/types/business-lead.dto').BusinessLeadDTO[] } | null>('/search/latest')
+)
+
+if (latestSession.value && !searchResults.leads.length) {
+  searchResults.setSession(latestSession.value.sessionId)
+  searchResults.setLeads(latestSession.value.leads)
+}
 </script>

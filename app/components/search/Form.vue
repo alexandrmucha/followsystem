@@ -7,7 +7,7 @@
         <UiFormField class="flex-1">
           <UiBaseInput
             v-model="searchDraft.industry"
-            :disabled="loading || isAnalyzing"
+            :disabled="isDisabled"
             :error="!!industryError"
             :label="$t('search.form.industry_label')"
             :placeholder="$t('search.form.industry_placeholder')"
@@ -21,7 +21,7 @@
         <UiFormField class="flex-1">
           <UiBaseInput
             v-model="searchDraft.location"
-            :disabled="loading || isAnalyzing"
+            :disabled="isDisabled"
             :error="!!locationError"
             :label="$t('search.form.location_label')"
             :placeholder="$t('search.form.location_placeholder')"
@@ -39,9 +39,9 @@
         <UiBaseButton
           type="submit"
           class="flex items-center gap-2"
-          :disabled="loading || isAnalyzing"
+          :disabled="isDisabled"
         >
-          <UiSpinner v-if="loading || isAnalyzing" />
+          <UiSpinner v-if="isDisabled" />
           <span>
             {{ $t('search.form.button') }}
           </span>
@@ -71,6 +71,8 @@ const loading = ref(false)
 
 // derived state (analysis running)
 const isAnalyzing = computed(() => searchResults.analyzing)
+
+const isDisabled = computed(() => loading.value || isAnalyzing.value)
 
 const validate = () => {
   industryError.value = ''
