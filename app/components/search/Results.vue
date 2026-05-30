@@ -77,6 +77,7 @@
 import type { BusinessLeadDTO } from '~/types/business-lead.dto'
 
 const { t } = useI18n()
+const { $api } = useNuxtApp()
 const searchResults = useSearchResultsStore()
 const { streamSession } = useAnalysisStream()
 
@@ -84,7 +85,6 @@ const leads = computed(() => searchResults.leads)
 const searched = computed(() => searchResults.searched)
 
 const websiteLeadsCount = computed(() => leads.value.filter(l => l.hasWebsite).length)
-
 const analyzedCount = computed(() => leads.value.filter(l => l.analysisStatus === 'done').length)
 
 const progressPercent = computed(() => {
@@ -99,6 +99,15 @@ watch(() => searchResults.sessionId, (sessionId) => {
     searchResults.updateAnalysisStatus(update.leadId, update.status)
   })
 }, { immediate: true })
+
+const { data: latestSession } = await useAsyncData('latest-session', () =>
+  $api<{ sessionId: string, leads: BusinessLeadDTO[] } | null>('/search/latest')
+)
+
+if (latestSession.value && !searchResults.leads.length) {
+  searchResults.setSession(latestSession.value.sessionId)
+  searchResults.setLeads(latestSession.value.leads)
+}
 
 function badgeClass(lead: BusinessLeadDTO) {
   const base = 'rounded-full px-2.5 py-1 text-xs font-medium'
