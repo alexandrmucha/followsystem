@@ -41,7 +41,11 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
   }
 
   const analyzing = computed(() =>
-    leads.value.some(l => l.hasWebsite && l.analysisStatus !== 'done' && l.analysisStatus !== 'error')
+    leads.value.some(l => 
+      l.hasWebsite && 
+      l.analysisStatus !== 'done' && 
+      l.analysisStatus !== 'error'
+    )
   )
 
   return {

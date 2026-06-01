@@ -28,7 +28,7 @@
       </div>
 
       <p class="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
-        {{ progressPercent === 100 ? t('search.results.progress.done') : t('search.results.progress.estimating') }}
+        {{ estimatedTimeText }}
       </p>
     </UiBaseCard>
 
@@ -94,13 +94,24 @@ const leads = computed(() => searchResults.leads)
 const searched = computed(() => searchResults.searched)
 
 const websiteLeadsCount = computed(() => leads.value.filter(l => l.hasWebsite).length)
-const analyzedCount = computed(() => 
+
+const analyzedCount = computed(() =>
   leads.value.filter(l => l.analysisStatus === 'done' || l.analysisStatus === 'error').length
 )
 
 const progressPercent = computed(() => {
   if (!websiteLeadsCount.value) return 100
   return Math.round((analyzedCount.value / websiteLeadsCount.value) * 100)
+})
+
+const estimatedTimeText = computed(() => {
+  if (progressPercent.value === 100) return t('search.results.progress.done')
+
+  const remaining = websiteLeadsCount.value - analyzedCount.value
+  const seconds = remaining * 10
+  const minutes = Math.ceil(seconds / 60)
+
+  return t('search.results.progress.estimating', { minutes })
 })
 
 watch(() => searchResults.sessionId, (sessionId) => {
