@@ -36,38 +36,21 @@
     </div>
 
     <!-- METRICS -->
-    <div v-if="lead.analysisStatus === 'done'" class="mt-3 flex flex-wrap items-center gap-4 text-xs text-neutral-500 dark:text-neutral-400">
-      <span
-        v-if="lead.largestContentfulPaint != null"
-        class="flex items-center gap-1"
-        :aria-label="t('search.results.metrics.lcp')"
-        :title="t('search.results.metrics.lcp')"
-      >
-        <LucideClock :size="13" />
-        {{ lead.largestContentfulPaint }} s
-      </span>
+    <div v-if="lead.analysisStatus === 'done'" class="mt-3 flex flex-wrap items-center gap-4">
+      <SearchMetricBadge :value="lead.largestContentfulPaint" type="lcp" :aria-label="t('search.results.metrics.lcp')">
+        <template #icon><LucideClock :size="13" /></template>
+      </SearchMetricBadge>
 
-      <span
-        v-if="lead.totalByteWeight != null"
-        class="flex items-center gap-1"
-        :aria-label="t('search.results.metrics.size')"
-        :title="t('search.results.metrics.size')"
-      >
-        <LucideHardDrive :size="13" />
-        {{ lead.totalByteWeight }} MB
-      </span>
+      <SearchMetricBadge :value="lead.totalByteWeight" type="size" :aria-label="t('search.results.metrics.size')">
+        <template #icon><LucideHardDrive :size="13" /></template>
+      </SearchMetricBadge>
 
-      <span
-        v-if="lead.hasSsl != null"
-        class="flex items-center gap-1"
-        :class="lead.hasSsl ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'"
-        :aria-label="lead.hasSsl ? t('search.results.ssl.yes') : t('search.results.ssl.no')"
-        :title="lead.hasSsl ? t('search.results.ssl.yes') : t('search.results.ssl.no')"
-      >
-        <LucideLock v-if="lead.hasSsl" :size="13" />
-        <LucideLockOpen v-else :size="13" />
-        {{ lead.hasSsl ? t('search.results.ssl.yes') : t('search.results.ssl.no') }}
-      </span>
+      <SearchMetricBadge :value="lead.hasSsl" type="ssl" :aria-label="lead.hasSsl ? t('search.results.ssl.yes') : t('search.results.ssl.no')">
+        <template #icon>
+          <LucideLock v-if="lead.hasSsl" :size="13" />
+          <LucideLockOpen v-else :size="13" />
+        </template>
+      </SearchMetricBadge>
     </div>
 
   </div>
