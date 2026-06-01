@@ -39,11 +39,11 @@
         </label>
 
         <UiBaseSelect size="sm" v-model="sortBy">
-          <option value="mobileScore">Performance (Mobile)</option>
-          <option value="performanceScore">Performance (Desktop)</option>
-          <option value="seoScore">SEO</option>
-          <option value="accessibilityScore">Accessibility</option>
-          <option value="bestPracticesScore">Best Practices</option>
+          <option value="mobileScore">{{ $t('search.results.categories.performance_mobile') }}</option>
+          <option value="performanceScore">{{ $t('search.results.categories.performance_desktop') }}</option>
+          <option value="seoScore">{{ $t('search.results.categories.seo') }}</option>
+          <option value="accessibilityScore">{{ $t('search.results.categories.accessibility') }}</option>
+          <option value="bestPracticesScore">{{ $t('search.results.categories.best_practices') }}</option>
         </UiBaseSelect>
       </div>
     </UiBaseCard>
@@ -87,11 +87,11 @@
 
           <!-- PAGESPEED BADGES -->
           <div v-if="lead.analysisStatus === 'done'" class="mt-4 flex flex-wrap gap-2">
-            <SearchPageSpeedBadge label="Performance (Mobile)" :score="lead.mobileScore" />
-            <SearchPageSpeedBadge label="Performance (Desktop)" :score="lead.performanceScore" />
-            <SearchPageSpeedBadge label="SEO" :score="lead.seoScore" />
-            <SearchPageSpeedBadge label="Accessibility" :score="lead.accessibilityScore" />
-            <SearchPageSpeedBadge label="Best Practices" :score="lead.bestPracticesScore" />
+            <SearchPageSpeedBadge :label="$t('search.results.categories.performance_mobile')" :score="lead.mobileScore" />
+            <SearchPageSpeedBadge :label="$t('search.results.categories.performance_desktop')" :score="lead.performanceScore" />
+            <SearchPageSpeedBadge :label="$t('search.results.categories.seo')" :score="lead.seoScore" />
+            <SearchPageSpeedBadge :label="$t('search.results.categories.accessibility')" :score="lead.accessibilityScore" />
+            <SearchPageSpeedBadge :label="$t('search.results.categories.best_practices')" :score="lead.bestPracticesScore" />
           </div>
 
         </div>

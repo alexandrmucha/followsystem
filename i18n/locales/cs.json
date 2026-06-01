@@ -65,6 +65,13 @@
         "done": "Analýza dokončena",
         "estimating": "Odhadovaný zbývající čas: ~{minutes} min"
       },
+      "categories": {
+        "performance_desktop": "Výkon (desktop)",
+        "performance_mobile": "Výkon (mobil)",
+        "seo": "SEO",
+        "accessibility": "Přístupnost",
+        "best_practices": "Osvědčené postupy"
+      },
       "sort": {
         "label": "Seřadit výsledky podle:"
       }

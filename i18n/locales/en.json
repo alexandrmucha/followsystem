@@ -65,6 +65,13 @@
         "done": "Analysis complete",
         "estimating": "Estimated time remaining: ~{minutes} min"
       },
+      "categories": {
+        "performance_desktop": "Performance (desktop)",
+        "performance_mobile": "Performance (mobile)",
+        "seo": "SEO",
+        "accessibility": "Accessibility",
+        "best_practices": "Best practices"
+      },
       "sort": {
         "label": "Sort results by:"
       }
