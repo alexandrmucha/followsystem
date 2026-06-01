@@ -69,7 +69,7 @@
           </div>
 
           <div v-if="lead.analysisStatus === 'done'" class="mt-3 flex flex-wrap gap-2">
-            <SearchPageSpeedBadge label="Performance (Mobile)" :score="null" />
+            <SearchPageSpeedBadge label="Performance (Mobile)" :score="lead.mobileScore" />
             <SearchPageSpeedBadge label="Performance (Desktop)" :score="lead.performanceScore" />
             <SearchPageSpeedBadge label="SEO" :score="lead.seoScore" />
             <SearchPageSpeedBadge label="Accessibility" :score="lead.accessibilityScore" />
