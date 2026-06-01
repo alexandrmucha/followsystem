@@ -8,9 +8,7 @@
       "security_verification_failed": "Bezpečnostní ověření selhalo. Zkuste to prosím znovu."
     },
     "results": "výsledků",
-    "loading": "Načítání...",
-    "yes": "ano",
-    "no": "ne"
+    "loading": "Načítání..."
   },
   "auth": {
     "common": {
@@ -72,8 +70,7 @@
         "performance_mobile": "Výkon (mobil)",
         "seo": "SEO",
         "accessibility": "Přístupnost",
-        "best_practices": "Osvědčené postupy",
-        "viewport": "Viewport"
+        "best_practices": "Osvědčené postupy"
       },
       "sort": {
         "label": "Seřadit výsledky podle:"

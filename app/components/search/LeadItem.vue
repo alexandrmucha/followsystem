@@ -28,7 +28,6 @@
 
     <!-- PAGESPEED BADGES -->
     <div v-if="lead.analysisStatus === 'done'" class="mt-4 flex flex-wrap gap-2">
-      <SearchPageSpeedBadge :label="t('search.results.categories.viewport')" :score="lead.hasViewport === null ? null : lead.hasViewport ? 100 : 0" :is-bool="true" />
       <SearchPageSpeedBadge :label="t('search.results.categories.performance_mobile')" :score="lead.mobileScore" />
       <SearchPageSpeedBadge :label="t('search.results.categories.performance_desktop')" :score="lead.performanceScore" />
       <SearchPageSpeedBadge :label="t('search.results.categories.seo')" :score="lead.seoScore" />

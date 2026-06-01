@@ -13,7 +13,6 @@ export function useAnalysisStream() {
       seoScore?: number | null
       accessibilityScore?: number | null
       bestPracticesScore?: number | null
-      hasViewport?: boolean | null
     }) => void,
     onDone?: () => void
   ) {

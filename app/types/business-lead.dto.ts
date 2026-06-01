@@ -16,5 +16,4 @@ export type BusinessLeadDTO = {
   seoScore?: number | null
   accessibilityScore?: number | null
   bestPracticesScore?: number | null
-  hasViewport?: boolean | null
 }

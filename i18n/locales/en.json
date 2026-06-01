@@ -8,9 +8,7 @@
       "security_verification_failed": "Security verification failed. Please try again."
     },
     "results": "results",
-    "loading": "Loading...",
-    "yes": "yes",
-    "no": "no"
+    "loading": "Loading..."
   },
   "auth": {
     "common": {
@@ -72,8 +70,7 @@
         "performance_mobile": "Performance (mobile)",
         "seo": "SEO",
         "accessibility": "Accessibility",
-        "best_practices": "Best practices",
-        "viewport": "Viewport"
+        "best_practices": "Best practices"
       },
       "sort": {
         "label": "Sort results by:"
