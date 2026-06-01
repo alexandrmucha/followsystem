@@ -72,6 +72,14 @@
         "accessibility": "Accessibility",
         "best_practices": "Best practices"
       },
+      "metrics": {
+        "lcp": "Largest Contentful Paint (LCP)",
+        "size": "Total page size"
+      },
+      "ssl": {
+        "yes": "SSL",
+        "no": "No SSL"
+      },
       "sort": {
         "label": "Sort results by:"
       }

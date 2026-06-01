@@ -16,4 +16,7 @@ export type BusinessLeadDTO = {
   seoScore?: number | null
   accessibilityScore?: number | null
   bestPracticesScore?: number | null
+  largestContentfulPaint?: number | null
+  totalByteWeight?: number | null
+  hasSsl?: boolean | null
 }

@@ -72,6 +72,14 @@
         "accessibility": "Přístupnost",
         "best_practices": "Osvědčené postupy"
       },
+      "metrics": {
+        "lcp": "Čas načtení hlavního obsahu (LCP)",
+        "size": "Celková velikost stránky"
+      },
+      "ssl": {
+        "yes": "SSL",
+        "no": "Bez SSL"
+      },
       "sort": {
         "label": "Seřadit výsledky podle:"
       }

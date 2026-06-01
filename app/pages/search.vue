@@ -61,6 +61,9 @@ watch(() => searchResults.sessionId, (sessionId) => {
       seoScore: update.seoScore,
       accessibilityScore: update.accessibilityScore,
       bestPracticesScore: update.bestPracticesScore,
+      largestContentfulPaint: update.largestContentfulPaint,
+      totalByteWeight: update.totalByteWeight,
+      hasSsl: update.hasSsl,
     })
   })
 }, { immediate: true })

@@ -13,11 +13,14 @@ export function useAnalysisStream() {
       seoScore?: number | null
       accessibilityScore?: number | null
       bestPracticesScore?: number | null
+      largestContentfulPaint?: number | null
+      totalByteWeight?: number | null
+      hasSsl?: boolean | null
     }) => void,
     onDone?: () => void
   ) {
     if (import.meta.server) return
-    
+
     const url = `${config.public.apiBaseUrl}/search/stream/${sessionId}`
     const source = new EventSource(url, { withCredentials: true })
 
