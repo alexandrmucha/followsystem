@@ -37,9 +37,10 @@
       <div class="divide-y divide-neutral-200 dark:divide-neutral-800">
         <div v-for="lead in leads" :key="lead.id" class="py-4">
 
-          <div class="flex items-center justify-between gap-4">
+          <div class="grid grid-cols-1 sm:flex sm:items-center sm:justify-between gap-3 sm:gap-4">
+            
             <!-- LEFT -->
-            <div class="min-w-0 flex-1">
+            <div class="min-w-0 w-full sm:flex-1">
               <h3 class="truncate font-medium text-sm">
                 {{ lead.name }}
               </h3>
@@ -49,7 +50,7 @@
             </div>
 
             <!-- RIGHT -->
-            <div class="flex items-center gap-4 shrink-0">
+            <div class="flex flex-wrap items-center gap-3 shrink-0 w-full sm:w-auto sm:justify-end">
               <span v-if="lead.rating !== null" class="flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-300">
                 <LucideStar :size="16" />
                 <span>{{ lead.rating }}</span>
@@ -68,7 +69,8 @@
             </div>
           </div>
 
-          <div v-if="lead.analysisStatus === 'done'" class="mt-3 flex flex-wrap gap-2">
+          <!-- PAGESPEED BADGES -->
+          <div v-if="lead.analysisStatus === 'done'" class="mt-4 flex flex-wrap gap-2">
             <SearchPageSpeedBadge label="Performance (Mobile)" :score="lead.mobileScore" />
             <SearchPageSpeedBadge label="Performance (Desktop)" :score="lead.performanceScore" />
             <SearchPageSpeedBadge label="SEO" :score="lead.seoScore" />
@@ -79,6 +81,7 @@
         </div>
       </div>
 
+      <!-- GOOGLE ATTRIBUTION -->
       <div class="mt-4 pt-4 border-t border-neutral-100 dark:border-neutral-800 flex justify-end">
         <p class="text-[10px] tracking-wide text-neutral-400 dark:text-neutral-500 uppercase font-medium select-none">
           Powered by Google
