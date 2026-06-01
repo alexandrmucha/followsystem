@@ -33,14 +33,14 @@
     </UiBaseCard>
 
     <!-- LIST -->
-    <UiBaseCard>
+    <UiBaseCard class="overflow-hidden">
       <div class="divide-y divide-neutral-200 dark:divide-neutral-800">
         <div v-for="lead in leads" :key="lead.id" class="py-4">
 
-          <div class="grid grid-cols-1 sm:flex sm:items-center sm:justify-between gap-3 sm:gap-4">
-            
+          <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center gap-3 md:gap-4 w-full min-w-0">
+
             <!-- LEFT -->
-            <div class="min-w-0 w-full sm:flex-1">
+            <div class="min-w-0 w-full">
               <h3 class="truncate font-medium text-sm">
                 {{ lead.name }}
               </h3>
@@ -49,8 +49,8 @@
               </p>
             </div>
 
-            <!-- RIGHT -->
-            <div class="flex flex-wrap items-center gap-3 shrink-0 w-full sm:w-auto sm:justify-end">
+            <!-- RIGHT  -->
+            <div class="flex flex-wrap items-center gap-3 md:justify-end w-full md:w-auto">
               <span v-if="lead.rating !== null" class="flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-300">
                 <LucideStar :size="16" />
                 <span>{{ lead.rating }}</span>
