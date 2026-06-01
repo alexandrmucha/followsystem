@@ -40,7 +40,7 @@
           <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center gap-3 md:gap-4 w-full min-w-0">
 
             <!-- LEFT -->
-            <div class="min-w-0 w-full">
+            <div class="min-w-0">
               <h3 class="truncate font-medium text-sm">
                 {{ lead.name }}
               </h3>
