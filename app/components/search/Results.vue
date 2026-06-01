@@ -78,6 +78,12 @@
 
         </div>
       </div>
+
+      <div class="mt-4 pt-4 border-t border-neutral-100 dark:border-neutral-800 flex justify-end">
+        <p class="text-[10px] tracking-wide text-neutral-400 dark:text-neutral-500 uppercase font-medium">
+          Powered by Google
+        </p>
+      </div>
     </UiBaseCard>
 
   </div>
@@ -108,7 +114,7 @@ const estimatedTimeText = computed(() => {
   if (progressPercent.value === 100) return t('search.results.progress.done')
 
   const remaining = websiteLeadsCount.value - analyzedCount.value
-  const seconds = remaining * 10
+  const seconds = remaining * 26
   const minutes = Math.ceil(seconds / 60)
 
   return t('search.results.progress.estimating', { minutes })
