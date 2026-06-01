@@ -8,6 +8,8 @@ export function useAnalysisStream() {
     onUpdate: (data: {
       leadId: string
       status: NonNullable<BusinessLeadDTO['analysisStatus']>
+      performanceScore?: number | null
+      mobileScore?: number | null
     }) => void,
     onDone?: () => void
   ) {

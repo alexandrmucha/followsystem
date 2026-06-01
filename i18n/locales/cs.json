@@ -58,7 +58,8 @@
         "no_website": "Bez webu",
         "done": "Analyzováno",
         "analyzing": "Probíhá analýza",
-        "pending": "Čeká na analýzu"
+        "pending": "Čeká na analýzu",
+        "error": "Nelze analyzovat"
       },
       "progress": {
         "label": "Analyzováno {done} z {total} webů",

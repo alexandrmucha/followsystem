@@ -58,7 +58,8 @@
         "no_website": "No website",
         "done": "Analyzed",
         "analyzing": "Analyzing",
-        "pending": "Waiting"
+        "pending": "Pending",
+        "error": "Could not analyze"
       },
       "progress": {
         "label": "Analyzed {done} of {total} websites",

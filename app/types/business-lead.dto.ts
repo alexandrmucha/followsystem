@@ -10,5 +10,7 @@ export type BusinessLeadDTO = {
   types: string[]
   businessStatus: string | null
   hasWebsite: boolean
-  analysisStatus?: 'analyzing' | 'done'
+  analysisStatus?: 'analyzing' | 'done' | 'error'
+  performanceScore?: number | null
+  mobileScore?: number | null
 }
