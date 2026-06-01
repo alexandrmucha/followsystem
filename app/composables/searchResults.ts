@@ -58,6 +58,7 @@ export function useSearchResults() {
         seoScore: update.seoScore,
         accessibilityScore: update.accessibilityScore,
         bestPracticesScore: update.bestPracticesScore,
+        hasViewport: update.hasViewport
       })
     })
   }, { immediate: true })

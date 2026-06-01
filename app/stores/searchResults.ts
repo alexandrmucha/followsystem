@@ -28,6 +28,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     seoScore?: number | null
     accessibilityScore?: number | null
     bestPracticesScore?: number | null
+    hasViewport?: boolean | null
   }) {
     const lead = leads.value.find(l => l.id === leadId)
     if (lead) {
@@ -37,6 +38,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       lead.seoScore = data.seoScore
       lead.accessibilityScore = data.accessibilityScore
       lead.bestPracticesScore = data.bestPracticesScore
+      lead.hasViewport = data.hasViewport
     }
   }
 
