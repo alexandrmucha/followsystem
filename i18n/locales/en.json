@@ -47,8 +47,7 @@
       "button": "Find businesses",
       "errors": {
         "industry_required": "Industry is required",
-        "location_required": "Location is required",
-        "failed": "Failed to find businesses. Please try again."
+        "location_required": "Location is required"
       }
     },
     "results": {
@@ -66,6 +65,9 @@
         "done": "Analysis complete",
         "estimating": "Estimated time: ~1–2 min"
       }
+    },
+    "errors": {
+      "failed": "Failed to find businesses. Please try again."
     }
   },
   "nav": {

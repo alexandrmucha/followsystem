@@ -47,8 +47,7 @@
       "button": "Najít firmy",
       "errors": {
         "industry_required": "Obor je povinný",
-        "location_required": "Lokalita je povinná",
-        "failed": "Nepodařilo se najít firmy. Zkuste to prosím znovu."
+        "location_required": "Lokalita je povinná"
       }
     },
     "results": {
@@ -66,6 +65,9 @@
         "done": "Analýza dokončena",
         "estimating": "Odhadovaný čas: ~1–2 min"
       }
+    },
+    "errors": {
+      "failed": "Nepodařilo se najít firmy. Zkuste to prosím znovu."
     }
   },
   "nav": {
