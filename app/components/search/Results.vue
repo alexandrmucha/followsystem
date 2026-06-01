@@ -68,12 +68,12 @@
             </div>
           </div>
 
-          <div v-if="lead.analysisStatus === 'done'">
-            <p>Performance: {{ lead.performanceScore }}</p>
-            <p>Mobile: {{ lead.mobileScore }}</p>
-            <p>SEO: {{ lead.seoScore }}</p>
-            <p>Accessibility: {{ lead.accessibilityScore }}</p>
-            <p>Best Practices: {{ lead.bestPracticesScore }}</p>
+          <div v-if="lead.analysisStatus === 'done'" class="mt-3 flex flex-wrap gap-2">
+            <SearchPageSpeedBadge label="Performance (Mobile)" :score="null" />
+            <SearchPageSpeedBadge label="Performance (Desktop)" :score="lead.performanceScore" />
+            <SearchPageSpeedBadge label="SEO" :score="lead.seoScore" />
+            <SearchPageSpeedBadge label="Accessibility" :score="lead.accessibilityScore" />
+            <SearchPageSpeedBadge label="Best Practices" :score="lead.bestPracticesScore" />
           </div>
 
         </div>
@@ -139,7 +139,7 @@ watch(() => searchResults.sessionId, (sessionId) => {
 function badgeClass(lead: BusinessLeadDTO) {
   const base = 'rounded-full px-2.5 py-1 text-xs font-medium'
   if (!lead.hasWebsite) return `${base} bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400`
-  if (lead.analysisStatus === 'done') return `${base} bg-green-100 text-green-900 dark:bg-green-900/30 dark:text-green-200`
+  if (lead.analysisStatus === 'done') return `${base} bg-emerald-100 text-emerald-900 dark:bg-emerald-900/30 dark:text-emerald-200`
   if (lead.analysisStatus === 'analyzing') return `${base} bg-blue-100 text-blue-900 dark:bg-blue-900/30 dark:text-blue-200`
   if (lead.analysisStatus === 'error') return `${base} bg-red-100 text-red-900 dark:bg-red-900/30 dark:text-red-200`
   return `${base} bg-yellow-100 text-yellow-900 dark:bg-yellow-900/30 dark:text-yellow-200`
@@ -152,4 +152,6 @@ function badgeText(lead: BusinessLeadDTO) {
   if (lead.analysisStatus === 'error') return t('search.results.badge.error')
   return t('search.results.badge.pending')
 }
+
+
 </script>
