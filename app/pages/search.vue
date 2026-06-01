@@ -10,7 +10,7 @@
     </p>
 
     <SearchForm />
-    <SearchResults/>
+    <SearchResults />
 
   </div>
 </template>
@@ -22,6 +22,7 @@ const { t } = useI18n()
 const searchResults = useSearchResultsStore()
 const searchDraft = useSearchDraftStore()
 const { $api } = useNuxtApp()
+const { streamSession } = useAnalysisStream()
 
 useHead({
   title: t('nav.search')
@@ -33,11 +34,11 @@ definePageMeta({
 })
 
 const { data: latestSession } = await useAsyncData('latest-session', () =>
-  $api<{ 
+  $api<{
     sessionId: string
     industry: string
     location: string
-    leads: BusinessLeadDTO[] 
+    leads: BusinessLeadDTO[]
   } | null>('/search/latest')
 )
 
@@ -47,4 +48,20 @@ if (latestSession.value) {
   searchDraft.industry = latestSession.value.industry
   searchDraft.location = latestSession.value.location
 }
+
+watch(() => searchResults.sessionId, (sessionId) => {
+  if (!sessionId) return
+  if (!searchResults.analyzing) return
+
+  streamSession(sessionId, (update) => {
+    searchResults.updateAnalysis(update.leadId, {
+      status: update.status,
+      performanceScore: update.performanceScore,
+      mobileScore: update.mobileScore,
+      seoScore: update.seoScore,
+      accessibilityScore: update.accessibilityScore,
+      bestPracticesScore: update.bestPracticesScore,
+    })
+  })
+}, { immediate: true })
 </script>

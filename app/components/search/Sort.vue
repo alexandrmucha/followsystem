@@ -5,7 +5,7 @@
         {{ t('search.results.sort.label') }}
       </label>
 
-      <UiBaseSelect size="sm" v-model="sortBy">
+      <UiBaseSelect size="sm" v-model="searchResults.sortBy">
         <option value="mobileScore">{{ t('search.results.categories.performance_mobile') }}</option>
         <option value="performanceScore">{{ t('search.results.categories.performance_desktop') }}</option>
         <option value="seoScore">{{ t('search.results.categories.seo') }}</option>
@@ -18,5 +18,5 @@
 
 <script lang="ts" setup>
 const { t } = useI18n()
-const { sortBy } = useSearchResults()
+const searchResults = useSearchResultsStore()
 </script>

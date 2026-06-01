@@ -1,5 +1,5 @@
 <template>
-  <div v-if="searched && !leads.length" class="mt-8">
+  <div v-if="searchResults.searched && !searchResults.sortedLeads.length" class="mt-8">
     <UiBaseCard>
       <p class="text-sm text-neutral-500 dark:text-neutral-400 text-center">
         {{ t('search.results.empty') }}
@@ -7,15 +7,15 @@
     </UiBaseCard>
   </div>
 
-  <div class="mt-8 space-y-6" v-if="leads.length">
+  <div class="mt-8 space-y-6" v-if="searchResults.sortedLeads.length">
 
     <SearchProgress />
 
-    <SearchSort v-if="!analyzing" />
+    <SearchSort v-if="!searchResults.analyzing" />
 
     <UiBaseCard class="overflow-hidden">
       <div class="divide-y divide-neutral-200 dark:divide-neutral-800">
-        <SearchLeadItem v-for="lead in leads" :key="lead.id" :lead="lead" />
+        <SearchLeadItem v-for="lead in searchResults.sortedLeads" :key="lead.id" :lead="lead" />
       </div>
 
       <div class="mt-4 pt-4 border-t border-neutral-100 dark:border-neutral-800 flex justify-end">
@@ -30,5 +30,5 @@
 
 <script lang="ts" setup>
 const { t } = useI18n()
-const { searched, leads, analyzing } = useSearchResults()
+const searchResults = useSearchResultsStore()
 </script>
