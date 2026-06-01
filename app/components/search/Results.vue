@@ -33,7 +33,7 @@
     </UiBaseCard>
 
     <UiBaseCard v-if="!searchResults.analyzing">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
         <label class="inline-block text-sm text-neutral-700 dark:text-neutral-300">
           {{ t('search.results.sort.label') }}
         </label>
