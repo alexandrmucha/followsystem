@@ -1,6 +1,6 @@
 <template>
   <span
-    class="flex items-center gap-1 text-xs"
+    class="flex items-center gap-1.5 text-xs"
     :class="valueColor"
     :aria-label="ariaLabel"
     :title="ariaLabel"

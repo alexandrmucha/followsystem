@@ -8,6 +8,11 @@
         <p v-if="lead.address" class="mt-1 truncate text-sm text-neutral-500 dark:text-neutral-400">
           {{ lead.address }}
         </p>
+        
+        <a v-if="lead.phone" :href="`tel:${lead.phone}`" class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:underline w-fit">
+          <LucidePhone :size="13" />
+          {{ lead.phone }}
+        </a>
       </div>
 
       <!-- RIGHT -->
