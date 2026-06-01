@@ -137,12 +137,12 @@ watch(() => searchResults.sessionId, (sessionId) => {
 }, { immediate: true })
 
 function badgeClass(lead: BusinessLeadDTO) {
-  const base = 'rounded-full px-2.5 py-1 text-xs font-medium'
+  const base = 'rounded-full px-2.5 py-1 text-xs font-medium select-none'
   if (!lead.hasWebsite) return `${base} bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400`
-  if (lead.analysisStatus === 'done') return `${base} bg-emerald-100 text-emerald-900 dark:bg-emerald-900/30 dark:text-emerald-200`
-  if (lead.analysisStatus === 'analyzing') return `${base} bg-blue-100 text-blue-900 dark:bg-blue-900/30 dark:text-blue-200`
-  if (lead.analysisStatus === 'error') return `${base} bg-red-100 text-red-900 dark:bg-red-900/30 dark:text-red-200`
-  return `${base} bg-yellow-100 text-yellow-900 dark:bg-yellow-900/30 dark:text-yellow-200`
+  if (lead.analysisStatus === 'done') return `${base} bg-emerald-100 text-emerald-900 dark:bg-emerald-900/30 dark:text-emerald-300`
+  if (lead.analysisStatus === 'analyzing') return `${base} bg-blue-100 text-blue-900 dark:bg-blue-900/30 dark:text-blue-300`
+  if (lead.analysisStatus === 'error') return `${base} bg-red-100 text-red-900 dark:bg-red-900/30 dark:text-red-300`
+  return `${base} bg-amber-100 text-amber-900 dark:bg-amber-900/30 dark:text-amber-300`
 }
 
 function badgeText(lead: BusinessLeadDTO) {
@@ -152,6 +152,4 @@ function badgeText(lead: BusinessLeadDTO) {
   if (lead.analysisStatus === 'error') return t('search.results.badge.error')
   return t('search.results.badge.pending')
 }
-
-
 </script>
