@@ -114,7 +114,7 @@ const estimatedTimeText = computed(() => {
   if (progressPercent.value === 100) return t('search.results.progress.done')
 
   const remaining = websiteLeadsCount.value - analyzedCount.value
-  const seconds = remaining * 26
+  const seconds = remaining * 30
   const minutes = Math.ceil(seconds / 60)
 
   return t('search.results.progress.estimating', { minutes })
