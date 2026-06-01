@@ -13,4 +13,7 @@ export type BusinessLeadDTO = {
   analysisStatus?: 'analyzing' | 'done' | 'error'
   performanceScore?: number | null
   mobileScore?: number | null
+  seoScore?: number | null
+  accessibilityScore?: number | null
+  bestPracticesScore?: number | null
 }

@@ -71,6 +71,9 @@
           <div v-if="lead.analysisStatus === 'done'">
             <p>Performance: {{ lead.performanceScore }}</p>
             <p>Mobile: {{ lead.mobileScore }}</p>
+            <p>SEO: {{ lead.seoScore }}</p>
+            <p>Accessibility: {{ lead.accessibilityScore }}</p>
+            <p>Best Practices: {{ lead.bestPracticesScore }}</p>
           </div>
 
         </div>
@@ -109,6 +112,9 @@ watch(() => searchResults.sessionId, (sessionId) => {
       status: update.status,
       performanceScore: update.performanceScore,
       mobileScore: update.mobileScore,
+      seoScore: update.seoScore,
+      accessibilityScore: update.accessibilityScore,
+      bestPracticesScore: update.bestPracticesScore,
     })
   })
 }, { immediate: true })

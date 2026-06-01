@@ -25,12 +25,18 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     status: NonNullable<BusinessLeadDTO['analysisStatus']>
     performanceScore?: number | null
     mobileScore?: number | null
+    seoScore?: number | null
+    accessibilityScore?: number | null
+    bestPracticesScore?: number | null
   }) {
     const lead = leads.value.find(l => l.id === leadId)
     if (lead) {
       lead.analysisStatus = data.status
       lead.performanceScore = data.performanceScore
       lead.mobileScore = data.mobileScore
+      lead.seoScore = data.seoScore
+      lead.accessibilityScore = data.accessibilityScore
+      lead.bestPracticesScore = data.bestPracticesScore
     }
   }
 

@@ -10,6 +10,9 @@ export function useAnalysisStream() {
       status: NonNullable<BusinessLeadDTO['analysisStatus']>
       performanceScore?: number | null
       mobileScore?: number | null
+      seoScore?: number | null
+      accessibilityScore?: number | null
+      bestPracticesScore?: number | null
     }) => void,
     onDone?: () => void
   ) {
