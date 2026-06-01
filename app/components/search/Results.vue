@@ -32,6 +32,22 @@
       </p>
     </UiBaseCard>
 
+    <UiBaseCard v-if="!searchResults.analyzing">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+        <label class="inline-block text-sm text-neutral-700 dark:text-neutral-300">
+          {{ t('search.results.sort.label') }}
+        </label>
+
+        <UiBaseSelect size="sm" v-model="sortBy">
+          <option value="mobileScore">Performance (Mobile)</option>
+          <option value="performanceScore">Performance (Desktop)</option>
+          <option value="seoScore">SEO</option>
+          <option value="accessibilityScore">Accessibility</option>
+          <option value="bestPracticesScore">Best Practices</option>
+        </UiBaseSelect>
+      </div>
+    </UiBaseCard>
+
     <!-- LIST -->
     <UiBaseCard class="overflow-hidden">
       <div class="divide-y divide-neutral-200 dark:divide-neutral-800">
@@ -99,18 +115,35 @@ const { t } = useI18n()
 const searchResults = useSearchResultsStore()
 const { streamSession } = useAnalysisStream()
 
-const leads = computed(() => searchResults.leads)
-const searched = computed(() => searchResults.searched)
+const sortBy = ref<keyof Pick<BusinessLeadDTO, 'mobileScore' | 'performanceScore' | 'seoScore' | 'accessibilityScore' | 'bestPracticesScore'>>('mobileScore')
 
-const websiteLeadsCount = computed(() => leads.value.filter(l => l.hasWebsite).length)
+const searched = computed(() => searchResults.searched)
+const websiteLeadsCount = computed(() => searchResults.leads.filter(l => l.hasWebsite).length)
 
 const analyzedCount = computed(() =>
-  leads.value.filter(l => l.analysisStatus === 'done' || l.analysisStatus === 'error').length
+  searchResults.leads.filter(l => l.analysisStatus === 'done' || l.analysisStatus === 'error').length
 )
 
 const progressPercent = computed(() => {
   if (!websiteLeadsCount.value) return 100
   return Math.round((analyzedCount.value / websiteLeadsCount.value) * 100)
+})
+
+const leads = computed(() => {
+  const rawLeads = [...searchResults.leads]
+
+  if (searchResults.analyzing) {
+    return rawLeads
+  }
+
+  return rawLeads.sort((a, b) => {
+    if (!a.hasWebsite && b.hasWebsite) return 1
+    if (a.hasWebsite && !b.hasWebsite) return -1
+
+    const scoreA = a[sortBy.value] ?? 100
+    const scoreB = b[sortBy.value] ?? 100
+    return (scoreA as number) - (scoreB as number)
+  })
 })
 
 const estimatedTimeText = computed(() => {

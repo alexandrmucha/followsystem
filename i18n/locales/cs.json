@@ -64,6 +64,9 @@
         "label": "Analyzováno {done} z {total} webů",
         "done": "Analýza dokončena",
         "estimating": "Odhadovaný zbývající čas: ~{minutes} min"
+      },
+      "sort": {
+        "label": "Seřadit výsledky podle:"
       }
     },
     "errors": {

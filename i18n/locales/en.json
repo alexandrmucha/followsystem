@@ -64,6 +64,9 @@
         "label": "Analyzed {done} of {total} websites",
         "done": "Analysis complete",
         "estimating": "Estimated time remaining: ~{minutes} min"
+      },
+      "sort": {
+        "label": "Sort results by:"
       }
     },
     "errors": {
