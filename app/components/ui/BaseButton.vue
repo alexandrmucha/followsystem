@@ -13,27 +13,15 @@
 const props = defineProps<{
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
-  variant?: 'primary' | 'secondary' | 'danger'
+  variant?: 'primary' | 'secondary' | 'danger' | 'magic'
   size?: 'md' | 'sm'
 }>()
 
-/* =========================
-   SIZE
-========================= */
-
 const sizeClass = computed(() => {
   const size = props.size ?? 'md'
-
-  if (size === 'sm') {
-    return 'px-3 py-1.5 text-sm'
-  }
-
+  if (size === 'sm') return 'px-3 py-1.5 text-sm'
   return 'px-4 py-2 text-sm'
 })
-
-/* =========================
-   VARIANTS
-========================= */
 
 const buttonClass = computed(() => {
   const variant = props.variant ?? 'primary'
@@ -42,12 +30,24 @@ const buttonClass = computed(() => {
     if (variant === 'secondary') {
       return 'bg-transparent border border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 opacity-50'
     }
-
     if (variant === 'danger') {
       return 'bg-red-600 text-white opacity-50'
     }
-
+    if (variant === 'magic') {
+      return 'bg-gradient-to-r from-indigo-500 to-purple-600 dark:from-indigo-600 dark:to-purple-700 text-white opacity-50'
+    }
     return 'bg-neutral-900 dark:bg-neutral-800 text-white opacity-50'
+  }
+
+  if (variant === 'magic') {
+    return `
+      bg-gradient-to-r from-indigo-500 to-purple-600
+      dark:from-indigo-600 dark:to-purple-700
+      text-white
+      hover:from-indigo-600 hover:to-purple-700
+      dark:hover:from-indigo-700 dark:hover:to-purple-800
+      cursor-pointer
+    `
   }
 
   if (variant === 'secondary') {

@@ -41,21 +41,28 @@
     </div>
 
     <!-- METRICS -->
-    <div v-if="lead.analysisStatus === 'done'" class="mt-3 flex flex-wrap items-center gap-4">
-      <SearchMetricBadge :value="lead.largestContentfulPaint" type="lcp" :aria-label="t('search.results.metrics.lcp')">
-        <template #icon><LucideClock :size="13" /></template>
-      </SearchMetricBadge>
+    <div v-if="lead.analysisStatus === 'done'" class="mt-3 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center gap-4">
+        <SearchMetricBadge :value="lead.largestContentfulPaint" type="lcp" :aria-label="t('search.results.metrics.lcp')">
+          <template #icon><LucideClock :size="13" /></template>
+        </SearchMetricBadge>
 
-      <SearchMetricBadge :value="lead.totalByteWeight" type="size" :aria-label="t('search.results.metrics.size')">
-        <template #icon><LucideHardDrive :size="13" /></template>
-      </SearchMetricBadge>
+        <SearchMetricBadge :value="lead.totalByteWeight" type="size" :aria-label="t('search.results.metrics.size')">
+          <template #icon><LucideHardDrive :size="13" /></template>
+        </SearchMetricBadge>
 
-      <SearchMetricBadge :value="lead.hasSsl" type="ssl" :aria-label="lead.hasSsl ? t('search.results.ssl.yes') : t('search.results.ssl.no')">
-        <template #icon>
-          <LucideLock v-if="lead.hasSsl" :size="13" />
-          <LucideLockOpen v-else :size="13" />
-        </template>
-      </SearchMetricBadge>
+        <SearchMetricBadge :value="lead.hasSsl" type="ssl" :aria-label="lead.hasSsl ? t('search.results.ssl.yes') : t('search.results.ssl.no')">
+          <template #icon>
+            <LucideLock v-if="lead.hasSsl" :size="13" />
+            <LucideLockOpen v-else :size="13" />
+          </template>
+        </SearchMetricBadge>
+      </div>
+
+      <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" @click="$emit('generate-email', lead)">
+        <LucideSparkles :size="16" />
+        {{ t('search.results.generate_email') }}
+      </UiBaseButton>
     </div>
 
   </div>
@@ -65,6 +72,7 @@
 import type { BusinessLeadDTO } from '~/types/business-lead.dto'
 
 const props = defineProps<{ lead: BusinessLeadDTO }>()
+defineEmits<{ 'generate-email': [lead: BusinessLeadDTO] }>()
 const { t } = useI18n()
 
 const badgeClass = computed(() => {

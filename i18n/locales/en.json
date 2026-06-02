@@ -84,7 +84,8 @@
       },
       "sort": {
         "label": "Sort results by:"
-      }
+      },
+      "generate_email": "Generate email"
     },
     "errors": {
       "failed": "Failed to find businesses. Please try again.",

@@ -84,7 +84,8 @@
       },
       "sort": {
         "label": "Seřadit výsledky podle:"
-      }
+      },
+      "generate_email": "Vygenerovat e-mail"
     },
     "errors": {
       "failed": "Nepodařilo se najít firmy. Zkuste to prosím znovu.",
