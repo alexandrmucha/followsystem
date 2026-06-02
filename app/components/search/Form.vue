@@ -141,6 +141,7 @@ const search = async () => {
     })
 
     searchResults.setSession(res.sessionId)
+    searchResults.setSessionStatus('analyzing')
     searchResults.setLeads(res.leads)
 
   } catch (err) {
