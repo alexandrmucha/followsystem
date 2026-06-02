@@ -6,7 +6,8 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
   const sessionStatus = ref<string | null>(null)
   const leads = ref<BusinessLeadDTO[]>([])
   const searched = ref(false)
-  const sortBy = ref<keyof Pick<BusinessLeadDTO, 'mobileScore' | 'performanceScore' | 'seoScore' | 'accessibilityScore' | 'bestPracticesScore' | 'largestContentfulPaint' | 'totalByteWeight'>>('mobileScore')
+
+  const sortBy = useCookie<keyof Pick<BusinessLeadDTO, 'mobileScore' | 'performanceScore' | 'seoScore' | 'accessibilityScore' | 'bestPracticesScore' | 'largestContentfulPaint' | 'totalByteWeight'>>('sortBy', { default: () => 'mobileScore' })
 
   function setSession(id: string) {
     sessionId.value = id
