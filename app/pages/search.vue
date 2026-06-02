@@ -79,8 +79,6 @@ watch(() => searchResults.sessionStatus, (sessionStatus) => {
       largestContentfulPaint: update.largestContentfulPaint,
       totalByteWeight: update.totalByteWeight,
       hasSsl: update.hasSsl,
-      isResponsive: update.isResponsive,
-      hasViewport: update.hasViewport,
     })
   }, (sessionStatus) => {
     searchResults.setSessionStatus(sessionStatus)

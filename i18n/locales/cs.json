@@ -8,9 +8,7 @@
       "security_verification_failed": "Bezpečnostní ověření selhalo. Zkuste to prosím znovu."
     },
     "results": "výsledků",
-    "loading": "Načítání...",
-    "yes": "ano",
-    "no": "ne"
+    "loading": "Načítání..."
   },
   "auth": {
     "common": {
@@ -78,9 +76,7 @@
       },
       "metrics": {
         "lcp": "Čas načtení hlavního obsahu (LCP)",
-        "size": "Celková velikost stránky",
-        "responsive": "Responzivní web",
-        "viewport": "Viewport meta tag"
+        "size": "Celková velikost stránky"
       },
       "ssl": {
         "yes": "SSL",

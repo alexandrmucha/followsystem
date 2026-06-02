@@ -56,14 +56,6 @@
           <LucideLockOpen v-else :size="13" />
         </template>
       </SearchMetricBadge>
-
-      <SearchMetricBadge :value="lead.isResponsive" type="responsive" :aria-label="t('search.results.metrics.responsive')">
-        <template #icon><LucideSmartphone :size="13" /></template>
-      </SearchMetricBadge>
-
-      <SearchMetricBadge :value="lead.hasViewport" type="viewport" :aria-label="t('search.results.metrics.viewport')">
-        <template #icon><LucideCode2 :size="13" /></template>
-      </SearchMetricBadge>
     </div>
 
   </div>
