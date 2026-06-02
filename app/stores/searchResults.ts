@@ -6,7 +6,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
   const sessionStatus = ref<string | null>(null)
   const leads = ref<BusinessLeadDTO[]>([])
   const searched = ref(false)
-  const sortBy = ref<keyof Pick<BusinessLeadDTO, 'mobileScore' | 'performanceScore' | 'seoScore' | 'accessibilityScore' | 'bestPracticesScore'>>('mobileScore')
+  const sortBy = ref<keyof Pick<BusinessLeadDTO, 'mobileScore' | 'performanceScore' | 'seoScore' | 'accessibilityScore' | 'bestPracticesScore' | 'largestContentfulPaint' | 'totalByteWeight'>>('mobileScore')
 
   function setSession(id: string) {
     sessionId.value = id
@@ -72,13 +72,21 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
 
     if (sessionStatus.value === 'analyzing') return rawLeads
 
+    const isMetric = sortBy.value === 'largestContentfulPaint' || sortBy.value === 'totalByteWeight'
+
     return rawLeads.sort((a, b) => {
       if (!a.hasWebsite && b.hasWebsite) return 1
       if (a.hasWebsite && !b.hasWebsite) return -1
 
-      const scoreA = a[sortBy.value] ?? 100
-      const scoreB = b[sortBy.value] ?? 100
-      return (scoreA as number) - (scoreB as number)
+      const aVal = a[sortBy.value]
+      const bVal = b[sortBy.value]
+
+      if (aVal == null && bVal == null) return 0
+      if (aVal == null) return 1
+      if (bVal == null) return -1
+
+      if (isMetric) return (bVal as number) - (aVal as number)
+      return (aVal as number) - (bVal as number)
     })
   })
 

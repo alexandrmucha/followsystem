@@ -75,8 +75,8 @@
         "best_practices": "Osvědčené postupy"
       },
       "metrics": {
-        "lcp": "Čas načtení hlavního obsahu (LCP)",
-        "size": "Celková velikost stránky"
+        "lcp": "Čas načtení (LCP)",
+        "size": "Velikost stránky"
       },
       "ssl": {
         "yes": "SSL",

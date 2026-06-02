@@ -11,6 +11,8 @@
         <option value="seoScore">{{ t('search.results.categories.seo') }}</option>
         <option value="accessibilityScore">{{ t('search.results.categories.accessibility') }}</option>
         <option value="bestPracticesScore">{{ t('search.results.categories.best_practices') }}</option>
+        <option value="largestContentfulPaint">{{ t('search.results.metrics.lcp') }}</option>
+        <option value="totalByteWeight">{{ t('search.results.metrics.size') }}</option>
       </UiBaseSelect>
     </div>
   </UiBaseCard>
