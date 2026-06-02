@@ -160,6 +160,7 @@
   },
   "templates": {
     "title": "Šablony e-mailů",
-    "description": "Přizpůsobte si šablony pro oslovování firem."
+    "description": "Přizpůsobte si šablony pro oslovování firem.",
+    "create": "Vytvořit šablonu"
   }
 }

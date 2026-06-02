@@ -160,6 +160,7 @@
   },
   "templates": {
     "title": "Email templates",
-    "description": "Customize your templates for outreaching businesses."
+    "description": "Customize your templates for outreaching businesses.",
+    "create": "Create template"
   }
 }
