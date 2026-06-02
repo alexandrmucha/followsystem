@@ -4,8 +4,8 @@
 
       <!-- LEFT -->
       <div class="min-w-0">
-        <h3 class="truncate font-medium text-sm" :title="lead.name">{{ lead.name }}</h3>
-        <p v-if="lead.address" class="mt-1 truncate text-sm text-neutral-500 dark:text-neutral-400" :title="lead.address">
+        <h3 class="truncate font-medium text-sm">{{ lead.name }}</h3>
+        <p v-if="lead.address" class="mt-1 truncate text-sm text-neutral-500 dark:text-neutral-400">
           {{ lead.address }}
         </p>
         
