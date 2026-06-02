@@ -79,7 +79,6 @@
       "metrics": {
         "lcp": "Largest Contentful Paint (LCP)",
         "size": "Total page size",
-        "responsive": "Responsive",
         "viewport": "Viewport meta tag"
       },
       "ssl": {

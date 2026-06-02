@@ -13,7 +13,7 @@
 <script lang="ts" setup>
 const props = defineProps<{
   value: number | boolean | null | undefined
-  type: 'lcp' | 'size' | 'ssl' | 'responsive' | 'viewport'
+  type: 'lcp' | 'size' | 'ssl' | 'viewport'
   ariaLabel?: string
 }>()
 
@@ -21,19 +21,18 @@ const { t } = useI18n()
 
 const displayValue = computed(() => {
   if (props.value == null) return '--'
-  if (props.type === 'ssl') return props.value ? t('search.results.ssl.yes') : t('search.results.ssl.no')
-  if (props.type === 'lcp') return `${props.value} s`
-  if (props.type === 'size') return `${props.value} MB`
-  if (props.type === 'responsive' || props.type === 'viewport') {
+  if (props.type === 'ssl' || props.type === 'viewport') {
     return props.value ? t('common.yes') : t('common.no')
   }
+  if (props.type === 'lcp') return `${props.value} s`
+  if (props.type === 'size') return `${props.value} MB`
   return props.value
 })
 
 const valueColor = computed(() => {
   if (props.value == null) return 'text-neutral-400 dark:text-neutral-500'
 
-  if (props.type === 'ssl' || props.type === 'responsive' || props.type === 'viewport') {
+  if (props.type === 'ssl' || props.type === 'viewport') {
     return props.value
       ? 'text-emerald-600 dark:text-emerald-400'
       : 'text-red-600 dark:text-red-400'
