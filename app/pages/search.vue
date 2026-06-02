@@ -36,6 +36,7 @@ definePageMeta({
 const { data: latestSession } = await useAsyncData('latest-session', () =>
   $api<{
     sessionId: string
+    sessionStatus: string
     industry: string
     location: string
     leads: BusinessLeadDTO[]
@@ -44,16 +45,21 @@ const { data: latestSession } = await useAsyncData('latest-session', () =>
 
 if (latestSession.value) {
   searchResults.setSession(latestSession.value.sessionId)
+  searchResults.setSessionStatus(latestSession.value.sessionStatus)
   searchResults.setLeads(latestSession.value.leads)
   searchDraft.industry = latestSession.value.industry
   searchDraft.location = latestSession.value.location
 }
 
-watch(() => searchResults.sessionId, (sessionId) => {
-  if (!sessionId) return
-  if (!searchResults.analyzing) return
+let closeStream: (() => void) | undefined | void
 
-  streamSession(sessionId, (update) => {
+watch(() => searchResults.sessionStatus, (sessionStatus) => {
+  if (sessionStatus !== 'analyzing') return
+  if (!searchResults.sessionId) return
+
+  closeStream?.()
+
+  closeStream = streamSession(searchResults.sessionId, (update) => {
     searchResults.updateAnalysis(update.leadId, {
       status: update.status,
       performanceScore: update.performanceScore,
@@ -65,6 +71,8 @@ watch(() => searchResults.sessionId, (sessionId) => {
       totalByteWeight: update.totalByteWeight,
       hasSsl: update.hasSsl,
     })
+  }, (sessionStatus) => {
+    searchResults.setSessionStatus(sessionStatus)
   })
 }, { immediate: true })
 </script>

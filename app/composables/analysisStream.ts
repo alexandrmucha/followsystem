@@ -17,6 +17,7 @@ export function useAnalysisStream() {
       totalByteWeight?: number | null
       hasSsl?: boolean | null
     }) => void,
+    onSessionUpdate?: (status: string) => void,
     onDone?: () => void
   ) {
     if (import.meta.server) return
@@ -26,6 +27,12 @@ export function useAnalysisStream() {
 
     source.onmessage = (event) => {
       const data = JSON.parse(event.data)
+
+      if (data.sessionStatus) {
+        onSessionUpdate?.(data.sessionStatus)
+        return
+      }
+
       onUpdate(data)
     }
 

@@ -45,6 +45,8 @@
       "location_label": "Lokalita",
       "location_placeholder": "např. Praha",
       "button": "Najít firmy",
+      "stop_button": "Zastavit analýzu",
+      "resume_button": "Obnovit analýzu",
       "errors": {
         "industry_required": "Obor je povinný",
         "location_required": "Lokalita je povinná"
@@ -85,7 +87,9 @@
       }
     },
     "errors": {
-      "failed": "Nepodařilo se najít firmy. Zkuste to prosím znovu."
+      "failed": "Nepodařilo se najít firmy. Zkuste to prosím znovu.",
+      "stop_failed": "Nepodařilo se zastavit analýzu. Zkuste to prosím znovu.",
+      "resume_failed": "Nepodařilo se obnovit analýzu. Zkuste to prosím znovu."
     }
   },
   "nav": {

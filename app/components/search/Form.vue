@@ -34,17 +34,38 @@
 
       </div>
 
+      {{ searchResults.sessionStatus }}
+
       <!-- BUTTON -->
-      <div class="mt-5">
+      <div class="mt-5 flex items-center gap-3">
         <UiBaseButton
           type="submit"
           class="flex items-center gap-2"
           :disabled="isDisabled"
         >
-          <UiSpinner v-if="isDisabled" />
-          <span>
-            {{ $t('search.form.button') }}
-          </span>
+          <UiSpinner v-if="loading" />
+          <span>{{ $t('search.form.button') }}</span>
+        </UiBaseButton>
+
+        <UiBaseButton
+          v-if="searchResults.sessionStatus === 'analyzing' || searchResults.sessionStatus === 'cancelling'"
+          type="button"
+          variant="secondary"
+          class="flex items-center gap-2"
+          :disabled="searchResults.sessionStatus === 'cancelling'"
+          @click="stop"
+        >
+          <UiSpinner v-if="searchResults.sessionStatus === 'cancelling'" />
+          <span>{{ $t('search.form.stop_button') }}</span>
+        </UiBaseButton>
+
+        <UiBaseButton
+          v-if="searchResults.sessionStatus === 'cancelled'"
+          type="button"
+          variant="secondary"
+          @click="resume"
+        >
+          {{ $t('search.form.resume_button') }}
         </UiBaseButton>
       </div>
 
@@ -69,10 +90,7 @@ const locationError = ref('')
 // loading (API request)
 const loading = ref(false)
 
-// derived state (analysis running)
-const isAnalyzing = computed(() => searchResults.analyzing)
-
-const isDisabled = computed(() => loading.value || isAnalyzing.value)
+const isDisabled = computed(() => loading.value || searchResults.sessionStatus === 'analyzing' || searchResults.sessionStatus === 'cancelling')
 
 const validate = () => {
   industryError.value = ''
@@ -131,6 +149,28 @@ const search = async () => {
 
   } finally {
     loading.value = false
+  }
+}
+
+const stop = async () => {
+  alertFlow.clear()
+  try {
+    await $api(`/search/stop/${searchResults.sessionId}`, { method: 'POST' })
+    searchResults.setSessionStatus('cancelling')
+  } catch (err) {
+    console.error(err)
+    alertFlow.error(t('search.errors.stop_failed'))
+  }
+}
+
+const resume = async () => {
+  alertFlow.clear()
+  try {
+    await $api(`/search/resume/${searchResults.sessionId}`, { method: 'POST' })
+    searchResults.setSessionStatus('analyzing')
+  } catch (err) {
+    console.error(err)
+    alertFlow.error(t('search.errors.resume_failed'))
   }
 }
 </script>

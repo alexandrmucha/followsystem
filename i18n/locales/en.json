@@ -45,6 +45,8 @@
       "location_label": "Location",
       "location_placeholder": "e.g. Prague",
       "button": "Find businesses",
+      "stop_button": "Stop analysis",
+      "resume_button": "Resume analysis",
       "errors": {
         "industry_required": "Industry is required",
         "location_required": "Location is required"
@@ -85,7 +87,9 @@
       }
     },
     "errors": {
-      "failed": "Failed to find businesses. Please try again."
+      "failed": "Failed to find businesses. Please try again.",
+      "stop_failed": "Failed to stop analysis. Please try again.",
+      "resume_failed": "Failed to resume analysis. Please try again."
     }
   },
   "nav": {
