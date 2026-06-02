@@ -107,6 +107,7 @@
   },
   "nav": {
     "search": "Search",
+    "templates": "Templates",
     "settings": "Settings"
   },
   "settings": {
@@ -156,5 +157,9 @@
     "delete_account": "Delete account",
     "success": "Your account has been deleted. You can restore it by signing in within 30 days.",
     "restored": "Your account has been restored. Welcome back."
+  },
+  "templates": {
+    "title": "Email templates",
+    "description": "Customize your templates for outreaching businesses."
   }
 }

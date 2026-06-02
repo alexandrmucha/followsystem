@@ -107,6 +107,7 @@
   },
   "nav": {
     "search": "Hledání",
+    "templates": "Šablony",
     "settings": "Nastavení"
   },
   "settings": {
@@ -156,5 +157,9 @@
     "delete_account": "Smazat účet",
     "success": "Váš účet byl smazán. Do 30 dnů jej můžete obnovit přihlášením.",
     "restored": "Váš účet byl obnoven. Vítejte zpět."
+  },
+  "templates": {
+    "title": "Šablony e-mailů",
+    "description": "Přizpůsobte si šablony pro oslovování firem."
   }
 }

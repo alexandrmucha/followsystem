@@ -15,6 +15,14 @@
 
           {{ $t('nav.search') }}
         </LayoutNavigationItem>
+
+        <LayoutNavigationItem to="/templates">
+          <template #icon>
+            <LazyLucideFileText :size="20" />
+          </template>
+
+          {{ $t('nav.templates') }}
+        </LayoutNavigationItem>
       </nav>
 
     </div>
