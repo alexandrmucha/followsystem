@@ -62,7 +62,7 @@
       </SearchMetricBadge>
 
       <SearchMetricBadge :value="lead.hasViewport" type="viewport" :aria-label="t('search.results.metrics.viewport')">
-        <template #icon><LucideCode2 :size="13" /></template>
+        <template #icon><LucideLayout :size="13" /></template>
       </SearchMetricBadge>
     </div>
 
