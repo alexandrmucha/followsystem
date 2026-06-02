@@ -57,7 +57,8 @@
         "done": "Analyzed",
         "analyzing": "Analyzing",
         "pending": "Pending",
-        "error": "Could not analyze"
+        "error": "Could not analyze",
+        "cancelled": "Cancelled"
       },
       "progress": {
         "label": "Analyzed {done} of {total} websites",
