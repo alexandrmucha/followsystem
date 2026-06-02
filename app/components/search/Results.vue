@@ -15,7 +15,12 @@
 
     <UiBaseCard class="overflow-hidden">
       <div class="divide-y divide-neutral-200 dark:divide-neutral-800">
-        <SearchLeadItem v-for="lead in searchResults.sortedLeads" :key="lead.id" :lead="lead" />
+        <SearchLeadItem
+          v-for="lead in searchResults.sortedLeads"
+          :key="lead.id"
+          :lead="lead"
+          @generate-email="openEmailModal"
+        />
       </div>
 
       <div class="mt-4 pt-4 border-t border-neutral-100 dark:border-neutral-800 flex justify-end">
@@ -26,9 +31,23 @@
     </UiBaseCard>
 
   </div>
+
+  <SearchEmailModal
+    v-if="selectedLead"
+    :lead="selectedLead"
+    @close="selectedLead = null"
+  />
 </template>
 
 <script lang="ts" setup>
+import type { BusinessLeadDTO } from '~/types/business-lead.dto'
+
 const { t } = useI18n()
 const searchResults = useSearchResultsStore()
+
+const selectedLead = ref<BusinessLeadDTO | null>(null)
+
+const openEmailModal = (lead: BusinessLeadDTO) => {
+  selectedLead.value = lead
+}
 </script>

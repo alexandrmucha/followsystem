@@ -41,7 +41,7 @@
           class="flex items-center gap-2"
           :disabled="isDisabled"
         >
-          <UiSpinner v-if="isDisabled" />
+          <UiSpinner v-if="isDisabled && searchResults.sessionStatus !== 'cancelling'" />
           <span>{{ $t('search.form.button') }}</span>
         </UiBaseButton>
 

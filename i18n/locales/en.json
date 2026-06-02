@@ -91,6 +91,18 @@
       "failed": "Failed to find businesses. Please try again.",
       "stop_failed": "Failed to stop analysis. Please try again.",
       "resume_failed": "Failed to resume analysis. Please try again."
+    },
+    "email": {
+      "title": "Generate email",
+      "recipient_label": "Recipient email",
+      "recipient_hint_before": "Find the recipient's email on their",
+      "recipient_hint_link": "website",
+      "recipient_hint_after": ".",
+      "subject_label": "Subject",
+      "body_label": "Email body",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "open": "Open in email client"
     }
   },
   "nav": {

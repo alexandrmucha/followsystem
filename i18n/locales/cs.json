@@ -91,6 +91,18 @@
       "failed": "Nepodařilo se najít firmy. Zkuste to prosím znovu.",
       "stop_failed": "Nepodařilo se zastavit analýzu. Zkuste to prosím znovu.",
       "resume_failed": "Nepodařilo se obnovit analýzu. Zkuste to prosím znovu."
+    },
+    "email": {
+      "title": "Vygenerovat e-mail",
+      "recipient_label": "E-mail příjemce",
+      "recipient_hint_before": "E-mail příjemce najdete na",
+      "recipient_hint_link": "webu firmy",
+      "recipient_hint_after": ".",
+      "subject_label": "Předmět",
+      "body_label": "Text e-mailu",
+      "copy": "Kopírovat",
+      "copied": "Zkopírováno!",
+      "open": "Otevřít v e-mailovém klientu"
     }
   },
   "nav": {

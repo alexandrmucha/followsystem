@@ -5,14 +5,25 @@
   >
     <div
       :class="[
-        'bg-white dark:bg-neutral-900 w-full rounded-2xl p-4 sm:p-6 border border-neutral-200 dark:border-neutral-800 shadow-xl',
+        'relative bg-white dark:bg-neutral-900 w-full rounded-2xl p-4 sm:p-6 border border-neutral-200 dark:border-neutral-800 shadow-xl',
         widthClass
       ]"
     >
+      <!-- Close button -->
+      <button
+        type="button"
+        class="absolute top-4 right-4 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 cursor-pointer"
+        :title="$t('common.close')"
+        :aria-label="$t('common.close')"
+        @click="close"
+      >
+        <LucideX :size="18" />
+      </button>
+
       <!-- Header -->
       <h1
         v-if="title"
-        class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2"
+        class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2 pr-8"
       >
         {{ title }}
       </h1>
