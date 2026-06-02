@@ -41,7 +41,7 @@
           class="flex items-center gap-2"
           :disabled="isDisabled"
         >
-          <UiSpinner v-if="loading" />
+          <UiSpinner v-if="isDisabled" />
           <span>{{ $t('search.form.button') }}</span>
         </UiBaseButton>
 
