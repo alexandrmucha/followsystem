@@ -33,6 +33,15 @@ definePageMeta({
   layout: 'dashboard',
 })
 
+const route = useRoute()
+const alertFlow = useAlertFlow()
+
+onMounted(() => {
+  if (route.query.restored === '1') {
+    alertFlow.success(t('account_deletion.restored'))
+  }
+})
+
 const { data: latestSession } = await useAsyncData('latest-session', () =>
   $api<{
     sessionId: string

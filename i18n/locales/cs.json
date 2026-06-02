@@ -33,9 +33,6 @@
       "magic_link": "Nepodařilo se vygenerovat přihlašovací odkaz. Zkuste to prosím znovu."
     }
   },
-  "dashboard": {
-    "title": "Přehled"
-  },
   "search": {
     "title": "Najděte své přístí klienty",
     "description": "Zadejte obor a lokalitu.",
@@ -95,7 +92,6 @@
     }
   },
   "nav": {
-    "dashboard": "Přehled",
     "search": "Hledání",
     "settings": "Nastavení"
   },

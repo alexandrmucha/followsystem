@@ -8,14 +8,6 @@
       <UiLogo />
 
       <nav class="mt-8 space-y-1">
-        <LayoutNavigationItem to="/dashboard">
-          <template #icon>
-            <LucideGauge :size="20" />
-          </template>
-
-          {{ $t('nav.dashboard') }}
-        </LayoutNavigationItem>
-
         <LayoutNavigationItem to="/search">
           <template #icon>
             <LazyLucideMapPinSearch :size="20" />

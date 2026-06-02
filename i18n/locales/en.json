@@ -33,9 +33,6 @@
       "magic_link": "Failed to generate sign-in link. Please try again."
     }
   },
-  "dashboard": {
-    "title": "Dashboard"
-  },
   "search": {
     "title": "Find your next clients",
     "description": "Enter an industry and location.",
@@ -95,7 +92,6 @@
     }
   },
   "nav": {
-    "dashboard": "Dashboard",
     "search": "Search",
     "settings": "Settings"
   },
