@@ -28,6 +28,8 @@ const searchResults = useSearchResultsStore()
 
 const estimatedTimeText = computed(() => {
   if (searchResults.progressPercent === 100) return t('search.results.progress.done')
+  if (searchResults.sessionStatus === 'cancelled') return t('search.results.progress.paused')
+  if (searchResults.sessionStatus === 'cancelling') return t('search.results.progress.cancelling')
 
   const remaining = searchResults.websiteLeadsCount - searchResults.analyzedCount
   const seconds = remaining * 30

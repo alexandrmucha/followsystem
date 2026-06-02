@@ -65,6 +65,8 @@
       "progress": {
         "label": "Analyzed {done} of {total} websites",
         "done": "Analysis complete",
+        "paused": "Analysis paused",
+        "cancelling": "Stopping analysis...",
         "estimating": "Estimated time remaining: ~{minutes} min"
       },
       "categories": {

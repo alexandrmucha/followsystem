@@ -65,6 +65,8 @@
       "progress": {
         "label": "Analyzováno {done} z {total} webů",
         "done": "Analýza dokončena",
+        "paused": "Analýza pozastavena",
+        "cancelling": "Zastavuji analýzu...",
         "estimating": "Odhadovaný zbývající čas: ~{minutes} min"
       },
       "categories": {
