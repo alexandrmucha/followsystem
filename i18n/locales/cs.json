@@ -79,6 +79,7 @@
       "metrics": {
         "lcp": "Čas načtení hlavního obsahu (LCP)",
         "size": "Celková velikost stránky",
+        "responsive": "Responzivní web",
         "viewport": "Viewport meta tag"
       },
       "ssl": {

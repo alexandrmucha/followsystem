@@ -57,6 +57,10 @@
         </template>
       </SearchMetricBadge>
 
+      <SearchMetricBadge :value="lead.isResponsive" type="responsive" :aria-label="t('search.results.metrics.responsive')">
+        <template #icon><LucideSmartphone :size="13" /></template>
+      </SearchMetricBadge>
+
       <SearchMetricBadge :value="lead.hasViewport" type="viewport" :aria-label="t('search.results.metrics.viewport')">
         <template #icon><LucideLayout :size="13" /></template>
       </SearchMetricBadge>
