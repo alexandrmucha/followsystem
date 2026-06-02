@@ -34,8 +34,6 @@
 
       </div>
 
-      {{ searchResults.sessionStatus }}
-
       <!-- BUTTON -->
       <div class="mt-5 flex items-center gap-3">
         <UiBaseButton
