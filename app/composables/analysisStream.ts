@@ -16,6 +16,8 @@ export function useAnalysisStream() {
       largestContentfulPaint?: number | null
       totalByteWeight?: number | null
       hasSsl?: boolean | null
+      isResponsive?: boolean | null
+      hasViewport?: boolean | null
     }) => void,
     onSessionUpdate?: (status: string) => void,
     onDone?: () => void

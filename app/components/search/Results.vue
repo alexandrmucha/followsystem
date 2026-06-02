@@ -11,7 +11,7 @@
 
     <SearchProgress />
 
-    <SearchSort v-if="!searchResults.analyzing" />
+    <SearchSort v-if="searchResults.sessionStatus === 'done' || searchResults.sessionStatus === 'cancelled'" />
 
     <UiBaseCard class="overflow-hidden">
       <div class="divide-y divide-neutral-200 dark:divide-neutral-800">

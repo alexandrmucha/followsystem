@@ -8,7 +8,9 @@
       "security_verification_failed": "Security verification failed. Please try again."
     },
     "results": "results",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "yes": "yes",
+    "no": "no"
   },
   "auth": {
     "common": {
@@ -76,7 +78,9 @@
       },
       "metrics": {
         "lcp": "Largest Contentful Paint (LCP)",
-        "size": "Total page size"
+        "size": "Total page size",
+        "responsive": "Responsive",
+        "viewport": "Viewport meta tag"
       },
       "ssl": {
         "yes": "SSL",

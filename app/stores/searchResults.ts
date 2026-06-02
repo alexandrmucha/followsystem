@@ -38,6 +38,8 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     largestContentfulPaint?: number | null
     totalByteWeight?: number | null
     hasSsl?: boolean | null
+    isResponsive?: boolean | null
+    hasViewport?: boolean | null
   }) {
     const lead = leads.value.find(l => l.id === leadId)
     if (lead) {
@@ -50,6 +52,8 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       lead.largestContentfulPaint = data.largestContentfulPaint
       lead.totalByteWeight = data.totalByteWeight
       lead.hasSsl = data.hasSsl
+      lead.isResponsive = data.isResponsive
+      lead.hasViewport = data.hasViewport
     }
   }
 
