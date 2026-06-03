@@ -13,8 +13,8 @@ export function useTemplateParser() {
       .replace(/\{accessibility_score\}/g, String(lead.accessibilityScore ?? ''))
       .replace(/\{best_practices_score\}/g, String(lead.bestPracticesScore ?? ''))
 
-    result = result.replace(/\{if (.+?)\}([\s\S]*?)\{endif\}/g, (_, condition, content) => {
-      return evaluateCondition(condition, lead) ? content : ''
+    result = result.replace(/\{if (.+?)\}([\s\S]*?)(?:\{else\}([\s\S]*?))?\{endif\}/g, (_, condition, ifContent, elseContent) => {
+      return evaluateCondition(condition, lead) ? ifContent : (elseContent ?? '')
     })
 
     result = result.replace(/\n{3,}/g, '\n\n')

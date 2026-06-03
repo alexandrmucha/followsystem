@@ -186,6 +186,7 @@
       "body_label": "Text šablony",
       "placeholders_hint": "Dostupné proměnné",
       "conditions_hint": "Příklad podmínky",
+      "operators_hint": "Dostupné operátory",
       "errors": {
         "save": "Nepodařilo se uložit šablonu. Zkuste to prosím znovu.",
         "load": "Nepodařilo se načíst šablonu. Zkuste to prosím znovu.",

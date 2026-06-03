@@ -186,6 +186,7 @@
       "body_label": "Template body",
       "placeholders_hint": "Available placeholders",
       "conditions_hint": "Condition example",
+      "operators_hint": "Available operators",
       "errors": {
         "save": "Failed to save template. Please try again.",
         "load": "Failed to load template. Please try again.",
