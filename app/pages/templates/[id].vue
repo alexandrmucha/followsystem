@@ -36,20 +36,20 @@
       </UiBaseCard>
 
       <UiBaseCard>
-        <UiBaseInput
-          v-model="subject"
-          :label="$t('templates.edit.subject_label')"
-        />
-      </UiBaseCard>
+        <div class="space-y-4">
+          <UiBaseInput
+            v-model="subject"
+            :label="$t('templates.edit.subject_label')"
+          />
 
-      <UiBaseCard>
-        <UiBaseTextarea
-          v-model="body"
-          :label="$t('templates.edit.body_label')"
-          :rows="16"
-        />
+          <UiBaseTextarea
+            v-model="body"
+            :label="$t('templates.edit.body_label')"
+            :rows="16"
+          />
+        </div>
       </UiBaseCard>
-
+      
       <UiBaseCard>
         <p class="text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
           {{ $t('templates.edit.placeholders_hint') }}
