@@ -84,7 +84,8 @@
       },
       "ssl": {
         "yes": "SSL",
-        "no": "No SSL"
+        "no": "No SSL",
+        "no_redirect": "No HTTPS redirect"
       },
       "viewport": {
         "yes": "Viewport",

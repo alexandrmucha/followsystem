@@ -84,7 +84,8 @@
       },
       "ssl": {
         "yes": "SSL",
-        "no": "Bez SSL"
+        "no": "Bez SSL",
+        "no_redirect": "Chybí HTTPS redirect"
       },
       "viewport": {
         "yes": "Viewport",

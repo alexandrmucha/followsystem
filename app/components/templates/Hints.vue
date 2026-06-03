@@ -83,7 +83,7 @@ const variables = [
   'lcp', 'lcp_times', 'page_size',
 ]
 
-const booleanVariables = ['has_website', 'has_ssl', 'has_viewport']
+const booleanVariables = ['has_website', 'has_ssl', 'has_https_redirect', 'has_viewport']
 
 const operators = ['>', '<', '>=', '<=', '==', '!=', 'and', 'or']
 </script>

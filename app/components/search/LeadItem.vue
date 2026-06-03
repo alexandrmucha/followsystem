@@ -51,9 +51,9 @@
           <template #icon><LucideHardDrive :size="13" /></template>
         </SearchMetricBadge>
 
-        <SearchMetricBadge :value="lead.hasSsl" type="ssl" :aria-label="lead.hasSsl ? t('search.results.ssl.yes') : t('search.results.ssl.no')">
+        <SearchMetricBadge :value="sslValue" type="ssl" :aria-label="sslAriaLabel">
           <template #icon>
-            <LucideLock v-if="lead.hasSsl" :size="13" />
+            <LucideLock v-if="sslValue !== false" :size="13" />
             <LucideLockOpen v-else :size="13" />
           </template>
         </SearchMetricBadge>
@@ -80,6 +80,20 @@ import type { BusinessLeadDTO } from '~/types/business-lead.dto'
 const props = defineProps<{ lead: BusinessLeadDTO }>()
 defineEmits<{ 'generate-email': [lead: BusinessLeadDTO] }>()
 const { t } = useI18n()
+
+const sslValue = computed(() => {
+  if (props.lead.hasSsl == null) return undefined
+  if (!props.lead.hasSsl) return false
+  if (props.lead.hasHttpsRedirect === false) return null
+  return true
+})
+
+const sslAriaLabel = computed(() => {
+  if (sslValue.value === null) return t('search.results.ssl.no_redirect')
+  if (sslValue.value === false) return t('search.results.ssl.no')
+  if (sslValue.value === true) return t('search.results.ssl.yes')
+  return ''
+})
 
 const badgeVariant = computed((): 'neutral' | 'emerald' | 'blue' | 'amber' | 'red' => {
   if (!props.lead.hasWebsite) return 'neutral'

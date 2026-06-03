@@ -19,5 +19,6 @@ export type BusinessLeadDTO = {
   largestContentfulPaint?: number | null
   totalByteWeight?: number | null
   hasSsl?: boolean | null
+  hasHttpsRedirect?: boolean | null
   hasViewport?: boolean | null
 }
