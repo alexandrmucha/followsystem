@@ -21,23 +21,77 @@ export function useTemplateParser() {
       .replace(/\{seo_score\}/g, String(lead.seoScore ?? ''))
       .replace(/\{accessibility_score\}/g, String(lead.accessibilityScore ?? ''))
       .replace(/\{best_practices_score\}/g, String(lead.bestPracticesScore ?? ''))
+      .replace(/\{rating\}/g, String(lead.rating ?? ''))
+      .replace(/\{review_count\}/g, String(lead.reviewCount ?? ''))
 
-    result = result.replace(/\{if (.+?)\}([\s\S]*?)(?:\{else\}([\s\S]*?))?\{endif\}/g, (_, condition, ifContent, elseContent) => {
-      return evaluateCondition(condition, lead) ? ifContent : (elseContent ?? '')
-    })
-
+    result = expandElseIf(result)
+    result = processConditions(result, lead)
     result = result.replace(/\n{3,}/g, '\n\n')
 
     return result.trim()
   }
 
+  // Expands {elseif cond} into nested {else}{if cond}...{endif} using a depth counter
+  // so that {endif}s are correctly added at each nesting level.
+  function expandElseIf(text: string): string {
+    if (!text.includes('{elseif ')) return text
+
+    const tokenRe = /\{(if [^}]+|elseif [^}]+|else|endif)\}/g
+    let result = ''
+    let lastEnd = 0
+    let depth = 0
+    const elseifCounts: number[] = []
+
+    for (const m of text.matchAll(tokenRe)) {
+      const tag = m[1]!
+      const full = m[0]
+      const start = m.index!
+
+      result += text.slice(lastEnd, start)
+      lastEnd = start + full.length
+
+      if (tag.startsWith('if ')) {
+        depth++
+        elseifCounts[depth] = 0
+        result += full
+      } else if (tag === 'endif') {
+        const extra = elseifCounts[depth] ?? 0
+        result += '{endif}'.repeat(extra) + full
+        elseifCounts[depth] = 0
+        depth--
+      } else if (tag.startsWith('elseif ') && depth > 0) {
+        const cond = tag.slice('elseif '.length)
+        elseifCounts[depth] = (elseifCounts[depth] ?? 0) + 1
+        result += `{else}{if ${cond}}`
+      } else {
+        result += full
+      }
+    }
+
+    result += text.slice(lastEnd)
+    return result
+  }
+
+  // Processes conditions inside-out: each pass replaces the innermost {if}...{endif}
+  // blocks (those with no nested {if} inside) until none remain.
+  function processConditions(text: string, lead: BusinessLeadDTO): string {
+    const innermostIf = /\{if ([^}]+)\}((?:(?!\{if )[\s\S])*?)(?:\{else\}((?:(?!\{if )[\s\S])*?))?\{endif\}/g
+    let prev = ''
+    let result = text
+    while (prev !== result) {
+      prev = result
+      result = result.replace(innermostIf, (_, condition, ifContent, elseContent) => {
+        return evaluateCondition(condition, lead) ? ifContent : (elseContent ?? '')
+      })
+    }
+    return result
+  }
+
   function evaluateCondition(condition: string, lead: BusinessLeadDTO): boolean {
-    // Handle OR
     if (condition.includes(' or ')) {
       return condition.split(' or ').some(c => evaluateCondition(c.trim(), lead))
     }
 
-    // Handle AND
     if (condition.includes(' and ')) {
       return condition.split(' and ').every(c => evaluateCondition(c.trim(), lead))
     }
@@ -63,7 +117,11 @@ export function useTemplateParser() {
 
   function getLeadField(field: string, lead: BusinessLeadDTO): number | null {
     const map: Record<string, number | null | undefined> = {
+      has_website: lead.hasWebsite ? 1 : 0,
       has_ssl: lead.hasSsl ? 1 : 0,
+      has_viewport: lead.hasViewport ? 1 : 0,
+      rating: lead.rating,
+      review_count: lead.reviewCount,
       lcp: lead.largestContentfulPaint,
       page_size: lead.totalByteWeight,
       mobile_performance_score: lead.mobileScore,

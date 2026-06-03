@@ -189,7 +189,9 @@
       "subject_label": "Subject",
       "body_label": "Template body",
       "placeholders_hint": "Available placeholders",
+      "boolean_hint": "Boolean variables (use 0 = no, 1 = yes in conditions)",
       "conditions_hint": "Condition example",
+      "nesting_hint": "Nesting & logical operators",
       "operators_hint": "Available operators",
       "errors": {
         "save": "Failed to save template. Please try again.",

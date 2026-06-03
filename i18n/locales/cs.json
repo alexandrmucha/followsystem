@@ -189,7 +189,9 @@
       "subject_label": "Předmět",
       "body_label": "Text šablony",
       "placeholders_hint": "Dostupné proměnné",
+      "boolean_hint": "Booleovské proměnné (v podmínkách: 0 = ne, 1 = ano)",
       "conditions_hint": "Příklad podmínky",
+      "nesting_hint": "Vnořování a logické operátory",
       "operators_hint": "Dostupné operátory",
       "errors": {
         "save": "Nepodařilo se uložit šablonu. Zkuste to prosím znovu.",
