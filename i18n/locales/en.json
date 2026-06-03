@@ -103,9 +103,9 @@
     "email": {
       "title": "Generate email",
       "template_label": "Template",
-      "template_hint_before": "You can customize templates on the",
-      "template_hint_link": "templates page",
-      "template_hint_after": ".",
+      "template_hint_before": "You can customize them on the",
+      "template_hint_link": "templates",
+      "template_hint_after": " page.",
       "recipient_label": "Recipient email",
       "recipient_hint_before": "Find the recipient's email on their",
       "recipient_hint_link": "website",

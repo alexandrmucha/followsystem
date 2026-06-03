@@ -103,8 +103,8 @@
     "email": {
       "title": "Vygenerovat e-mail",
       "template_label": "Šablona",
-      "template_hint_before": "Šablony si můžete upravit na",
-      "template_hint_link": "stránce šablon",
+      "template_hint_before": "Šablony si můžete upravit na stránce",
+      "template_hint_link": "šablony",
       "template_hint_after": ".",
       "recipient_label": "E-mail příjemce",
       "recipient_hint_before": "E-mail příjemce najdete na",

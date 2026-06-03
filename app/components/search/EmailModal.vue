@@ -19,9 +19,9 @@
 
         <p class="text-xs text-neutral-400 dark:text-neutral-500">
           {{ t('search.email.template_hint_before') }}
-          <button type="button" class="underline hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors" @click="navigateTo('/templates')">
+          <NuxtLink to="/templates" class="underline hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors">
             {{ t('search.email.template_hint_link') }}
-          </button>{{ t('search.email.template_hint_after') }}
+          </NuxtLink>{{ t('search.email.template_hint_after') }}
         </p>
       </UiFormField>
 
