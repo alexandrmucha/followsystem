@@ -32,10 +32,19 @@
       </UiBaseCard>
 
       <UiBaseCard>
-        <p class="mt-2 text-xs text-neutral-400 dark:text-neutral-500">
+        <p class="text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
           {{ $t('templates.placeholders_hint') }}
-          <span class="font-mono">{company_name}, {website}, {mobile_performance_score}, {desktop_performance_score}, {seo_score}, {accessibility_score}, {best_practices_score}, {lcp}, {page_size}</span>
         </p>
+        
+        <div class="flex flex-wrap gap-1.5">
+          <span
+            v-for="variable in variables"
+            :key="variable"
+            class="font-mono text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-1.5 py-0.5 rounded"
+          >
+            {{ '{' + variable + '}' }}
+          </span>
+        </div>
       </UiBaseCard>
     </div>
 
@@ -47,6 +56,11 @@ const { t } = useI18n()
 const { $api } = useNuxtApp()
 const route = useRoute()
 const alertFlow = useAlertFlow()
+
+const variables = [
+  'company_name', 'website', 'mobile_performance_score', 'desktop_performance_score',
+  'seo_score', 'accessibility_score', 'best_practices_score', 'lcp', 'page_size'
+]
 
 useHead({
   title: t('templates.edit_title')

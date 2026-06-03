@@ -166,7 +166,6 @@
     "description": "Customize your templates for outreaching businesses.",
     "create": "Create template",
     "empty": "You have no templates yet.",
-
     "errors": {
       "create": "Failed to create template. Please try again.",
       "delete": "Failed to delete template. Please try again.",
@@ -174,12 +173,11 @@
       "load": "Failed to load templates. Please try again.",
       "load_single": "Failed to load templates. Please try again."
     },
-
     "back": "Back to templates",
     "edit_title": "Edit template",
     "name_label": "Template name",
     "body_label": "Template body",
-    "placeholders_hint": "Available placeholders:",
+    "placeholders_hint": "Available placeholders",
     "saved": "Template saved."
   }
 }
