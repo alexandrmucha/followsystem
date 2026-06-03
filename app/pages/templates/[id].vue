@@ -20,7 +20,7 @@
     </div>
 
     <p v-if="error" :class="[systemErrorClass, 'text-center py-8']">
-      {{ $t('templates.errors.load') }}
+      {{ $t('templates.errors.load_single') }}
     </p>
 
     <div v-else class="space-y-4">
