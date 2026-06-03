@@ -98,6 +98,7 @@
     },
     "email": {
       "title": "Vygenerovat e-mail",
+      "template_label": "Šablona",
       "recipient_label": "E-mail příjemce",
       "recipient_hint_before": "E-mail příjemce najdete na",
       "recipient_hint_link": "webu firmy",

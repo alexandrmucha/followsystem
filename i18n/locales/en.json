@@ -98,6 +98,7 @@
     },
     "email": {
       "title": "Generate email",
+      "template_label": "Template",
       "recipient_label": "Recipient email",
       "recipient_hint_before": "Find the recipient's email on their",
       "recipient_hint_link": "website",
