@@ -84,4 +84,8 @@ watch(() => searchResults.sessionStatus, (sessionStatus) => {
     searchResults.setSessionStatus(sessionStatus)
   })
 }, { immediate: true })
+
+onUnmounted(() => {
+  closeStream?.()
+})
 </script>
