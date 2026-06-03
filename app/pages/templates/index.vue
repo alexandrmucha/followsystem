@@ -45,7 +45,7 @@
     </div>
 
     <div class="mt-6 flex justify-end">
-      <UiBaseButton variant="secondary" size="sm" @click="restoreDefaults">
+      <UiBaseButton variant="secondary" size="sm" :disabled="restoringDefaults" @click="restoreDefaults">
         {{ $t('templates.restore_defaults') }}
       </UiBaseButton>
     </div>
@@ -84,6 +84,7 @@ const { data: templates, refresh, error } = await useAsyncData('templates', () =
 
 const creating = ref(false)
 const deleteId = ref<string | null>(null)
+const restoringDefaults = ref(false)
 
 const createTemplate = async () => {
   creating.value = true
@@ -118,12 +119,15 @@ const confirmDelete = async () => {
 }
 
 const restoreDefaults = async () => {
+  restoringDefaults.value = true
   alertFlow.clear()
   try {
     await $api('/templates/defaults', { method: 'POST' })
     await refresh()
   } catch {
     alertFlow.error(t('templates.errors.restore'))
+  } finally {
+    restoringDefaults.value = false
   }
 }
 </script>
