@@ -166,7 +166,8 @@
     "description": "Customize your templates for outreaching businesses.",
     "create": "Create template",
     "empty": "You have no templates yet.",
-    "delete_confirm": "Are you sure you want to delete this template?",
+    "delete_confirm_title": "Delete template",
+    "delete_confirm_description": "Are you sure you want to delete this template? This action cannot be undone.",
     "errors": {
       "create": "Failed to create template. Please try again.",
       "delete": "Failed to delete template. Please try again.",

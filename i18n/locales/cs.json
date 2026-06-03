@@ -166,7 +166,8 @@
     "description": "Přizpůsobte si šablony pro oslovování firem.",
     "create": "Vytvořit šablonu",
     "empty": "Zatím nemáte žádné šablony.",
-    "delete_confirm": "Opravdu chcete smazat tuto šablonu?",
+    "delete_confirm_title": "Smazat šablonu",
+    "delete_confirm_description": "Opravdu chcete smazat tuto šablonu? Tato akce je nevratná.",
     "errors": {
       "create": "Nepodařilo se vytvořit šablonu. Zkuste to prosím znovu.",
       "delete": "Nepodařilo se smazat šablonu. Zkuste to prosím znovu.",

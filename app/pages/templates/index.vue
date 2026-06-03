@@ -44,6 +44,15 @@
       </template>
     </div>
 
+    <UiConfirmModal
+      v-if="deleteId"
+      :title="$t('templates.delete_confirm_title')"
+      :description="$t('templates.delete_confirm_description')"
+      :confirm-label="$t('common.delete')"
+      @confirm="confirmDelete"
+      @cancel="deleteId = null"
+    />
+
   </div>
 </template>
 
@@ -66,6 +75,7 @@ const { data: templates, refresh, error } = await useAsyncData('templates', () =
 )
 
 const creating = ref(false)
+const deleteId = ref<string | null>(null)
 
 const createTemplate = async () => {
   creating.value = true
@@ -81,16 +91,21 @@ const createTemplate = async () => {
   }
 }
 
-const deleteTemplate = async (id: string) => {
-  if (!confirm(t('templates.delete_confirm'))) return
+const deleteTemplate = (id: string) => {
+  deleteId.value = id
+}
 
+const confirmDelete = async () => {
+  if (!deleteId.value) return
   alertFlow.clear()
 
   try {
-    await $api(`/templates/${id}`, { method: 'DELETE' })
+    await $api(`/templates/${deleteId.value}`, { method: 'DELETE' })
     await refresh()
   } catch {
     alertFlow.error(t('templates.errors.delete'))
+  } finally {
+    deleteId.value = null
   }
 }
 </script>
