@@ -124,6 +124,7 @@ const restoreDefaults = async () => {
   try {
     await $api('/templates/defaults', { method: 'POST' })
     await refresh()
+    alertFlow.success(t('templates.restored'))
   } catch {
     alertFlow.error(t('templates.errors.restore'))
   } finally {
