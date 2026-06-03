@@ -178,6 +178,7 @@
     "name_label": "Název šablony",
     "body_label": "Text šablony",
     "placeholders_hint": "Dostupné proměnné",
+    "conditions_hint": "Příklad podmínky",
     "saved": "Šablona uložena."
   }
 }

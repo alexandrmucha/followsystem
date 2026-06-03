@@ -178,6 +178,7 @@
     "name_label": "Template name",
     "body_label": "Template body",
     "placeholders_hint": "Available placeholders",
+    "conditions_hint": "Condition example",
     "saved": "Template saved."
   }
 }

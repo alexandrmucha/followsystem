@@ -44,7 +44,7 @@
           {{ $t('templates.placeholders_hint') }}
         </p>
 
-        <div class="flex flex-wrap gap-1.5">
+        <div class="flex flex-wrap gap-1.5 mb-4">
           <span
             v-for="variable in variables"
             :key="variable"
@@ -53,7 +53,18 @@
             {{ '{' + variable + '}' }}
           </span>
         </div>
+
+        <p class="text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+          {{ $t('templates.conditions_hint') }}
+        </p>
+
+        <pre class="font-mono text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-3 py-2 rounded whitespace-pre-wrap">
+{if lcp > 4}
+Your website loads in {lcp} seconds.
+{endif}
+</pre>
       </UiBaseCard>
+      
     </div>
 
   </div>
