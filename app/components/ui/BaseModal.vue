@@ -1,7 +1,7 @@
 <template>
   <div
     class="fixed inset-0 bg-black/20 flex items-center justify-center p-4 z-50"
-    @click.self="handleOverlayClick"
+    @mousedown.self="handleOverlayClick"
   >
     <div
       :class="[
