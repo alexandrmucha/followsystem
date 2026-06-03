@@ -8,7 +8,7 @@
       <span
         v-for="variable in variables"
         :key="variable"
-        class="font-mono text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-1.5 py-0.5 rounded"
+        :class="codeTagClass"
       >
         {{ '{' + variable + '}' }}
       </span>
@@ -32,7 +32,7 @@ Your website loads in {lcp} seconds.
       <span
         v-for="op in operators"
         :key="op"
-        class="font-mono text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-1.5 py-0.5 rounded"
+        :class="codeTagClass"
       >
         {{ op }}
       </span>
@@ -41,6 +41,8 @@ Your website loads in {lcp} seconds.
 </template>
 
 <script lang="ts" setup>
+import { codeTagClass } from '~/utils/ui';
+
 const variables = [
   'company_name', 'website', 'mobile_performance_score', 'desktop_performance_score',
   'seo_score', 'accessibility_score', 'best_practices_score', 'lcp', 'page_size'
