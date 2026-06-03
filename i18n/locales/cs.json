@@ -103,12 +103,16 @@
     "email": {
       "title": "Vygenerovat e-mail",
       "template_label": "Šablona",
+      "template_hint_before": "Šablony si můžete upravit na",
+      "template_hint_link": "stránce šablon",
+      "template_hint_after": ".",
       "recipient_label": "E-mail příjemce",
       "recipient_hint_before": "E-mail příjemce najdete na",
       "recipient_hint_link": "webu firmy",
       "recipient_hint_after": ".",
       "subject_label": "Předmět",
       "body_label": "Text e-mailu",
+      "body_hint": "Před odesláním si e-mail pečlivě překontrolujte — zkontrolujte, že byly všechny proměnné správně nahrazeny.",
       "copy": "Kopírovat",
       "copied": "Zkopírováno!",
       "open": "Otevřít v e-mailovém klientu"

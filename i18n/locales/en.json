@@ -103,12 +103,16 @@
     "email": {
       "title": "Generate email",
       "template_label": "Template",
+      "template_hint_before": "You can customize templates on the",
+      "template_hint_link": "templates page",
+      "template_hint_after": ".",
       "recipient_label": "Recipient email",
       "recipient_hint_before": "Find the recipient's email on their",
       "recipient_hint_link": "website",
       "recipient_hint_after": ".",
       "subject_label": "Subject",
       "body_label": "Email body",
+      "body_hint": "Review the email carefully before sending — make sure all placeholders were replaced correctly.",
       "copy": "Copy",
       "copied": "Copied!",
       "open": "Open in email client"

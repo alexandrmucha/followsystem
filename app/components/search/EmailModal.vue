@@ -16,6 +16,13 @@
             {{ template.name }}
           </option>
         </UiBaseSelect>
+
+        <p class="text-xs text-neutral-400 dark:text-neutral-500">
+          {{ t('search.email.template_hint_before') }}
+          <button type="button" class="underline hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors" @click="navigateTo('/templates')">
+            {{ t('search.email.template_hint_link') }}
+          </button>{{ t('search.email.template_hint_after') }}
+        </p>
       </UiFormField>
 
       <!-- Recipient -->
@@ -49,6 +56,10 @@
           :label="t('search.email.body_label')"
           :rows="12"
         />
+
+        <p class="text-xs text-neutral-400 dark:text-neutral-500">
+          {{ t('search.email.body_hint') }}
+        </p>
       </UiFormField>
 
       <!-- Actions -->
