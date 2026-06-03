@@ -63,7 +63,7 @@ if (latestSession.value) {
 let closeStream: (() => void) | undefined | void
 
 watch(() => searchResults.sessionStatus, (sessionStatus) => {
-  if (sessionStatus !== 'analyzing') return
+  if (sessionStatus !== 'analyzing' && sessionStatus !== 'cancelling') return
   if (!searchResults.sessionId) return
 
   closeStream?.()
