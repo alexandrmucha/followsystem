@@ -87,7 +87,7 @@ definePageMeta({
 })
 
 const { data: templates, refresh, error } = await useAsyncData('templates', () =>
-  $api<{ id: string; name: string; isDefault: boolean }[]>('/templates')
+  $api<{ id: string; name: string; isDefault: boolean; subject: string; body: string }[]>('/templates')
 )
 
 const creating = ref(false)

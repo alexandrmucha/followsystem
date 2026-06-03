@@ -89,8 +89,8 @@ const body = ref('')
 const copied = ref(false)
 const selectedTemplateId = ref('')
 
-const { data: templates } = await useAsyncData('email-templates', () =>
-  $api<{ id: string; name: string; subject: string; body: string }[]>('/templates')
+const { data: templates } = await useAsyncData('templates', () =>
+  $api<{ id: string; name: string; isDefault: boolean; subject: string; body: string }[]>('/templates')
 )
 
 const applyTemplate = (templateId: string, lead: BusinessLeadDTO) => {
@@ -102,7 +102,8 @@ const applyTemplate = (templateId: string, lead: BusinessLeadDTO) => {
 
 watch(templates, (templates) => {
   if (templates?.length && !selectedTemplateId.value) {
-    selectedTemplateId.value = templates[0]!.id
+    const defaultTemplate = templates.find(t => t.isDefault) ?? templates[0]
+    if (defaultTemplate) selectedTemplateId.value = defaultTemplate.id
   }
 }, { immediate: true })
 
