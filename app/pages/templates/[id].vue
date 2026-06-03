@@ -32,10 +32,18 @@
       </UiBaseCard>
 
       <UiBaseCard>
+        <UiBaseTextarea
+          v-model="body"
+          :label="$t('templates.body_label')"
+          :rows="16"
+        />
+      </UiBaseCard>
+
+      <UiBaseCard>
         <p class="text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
           {{ $t('templates.placeholders_hint') }}
         </p>
-        
+
         <div class="flex flex-wrap gap-1.5">
           <span
             v-for="variable in variables"
@@ -74,10 +82,11 @@ definePageMeta({
 const id = route.params.id as string
 
 const { data: template, error } = await useAsyncData(`template-${id}`, () =>
-  $api<{ id: string; name: string }>(`/templates/${id}`)
+  $api<{ id: string; name: string; body: string }>(`/templates/${id}`)
 )
 
 const name = ref(template.value?.name ?? '')
+const body = ref(template.value?.body ?? '')
 const saving = ref(false)
 
 const save = async () => {
@@ -87,7 +96,7 @@ const save = async () => {
   try {
     await $api(`/templates/${id}`, {
       method: 'PATCH',
-      body: { name: name.value },
+      body: { name: name.value, body: body.value },
     })
     alertFlow.success(t('templates.saved'))
   } catch {
