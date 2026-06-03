@@ -119,8 +119,8 @@ export function useTemplateParser() {
   function getLeadField(field: string, lead: BusinessLeadDTO): number | null {
     const map: Record<string, number | null | undefined> = {
       has_website: lead.hasWebsite ? 1 : 0,
-      has_ssl: lead.hasSsl ? 1 : 0,
-      has_viewport: lead.hasViewport ? 1 : 0,
+      has_ssl: lead.hasSsl == null ? null : lead.hasSsl ? 1 : 0,
+      has_viewport: lead.hasViewport == null ? null : lead.hasViewport ? 1 : 0,
       rating: lead.rating,
       review_count: lead.reviewCount,
       lcp: lead.largestContentfulPaint,
