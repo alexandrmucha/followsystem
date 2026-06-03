@@ -11,7 +11,8 @@
     "loading": "Načítání...",
     "edit": "Upravit",
     "delete": "Smazat",
-    "save": "Uložit"
+    "save": "Uložit",
+    "saved": "Uloženo"
   },
   "auth": {
     "common": {
@@ -180,7 +181,6 @@
       "body_label": "Text šablony",
       "placeholders_hint": "Dostupné proměnné",
       "conditions_hint": "Příklad podmínky",
-      "saved": "Šablona uložena.",
       "errors": {
         "save": "Nepodařilo se uložit šablonu. Zkuste to prosím znovu.",
         "load": "Nepodařilo se načíst šablonu. Zkuste to prosím znovu."

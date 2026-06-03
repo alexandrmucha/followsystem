@@ -11,7 +11,8 @@
     "loading": "Loading...",
     "edit": "Edit",
     "delete": "Delete",
-    "save": "Save"
+    "save": "Save",
+    "saved": "Saved"
   },
   "auth": {
     "common": {
@@ -180,7 +181,6 @@
       "body_label": "Template body",
       "placeholders_hint": "Available placeholders",
       "conditions_hint": "Condition example",
-      "saved": "Template saved.",
       "errors": {
         "save": "Failed to save template. Please try again.",
         "load": "Failed to load template. Please try again."

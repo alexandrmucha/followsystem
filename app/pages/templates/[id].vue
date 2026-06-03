@@ -13,9 +13,9 @@
         </h1>
       </div>
 
-      <UiBaseButton variant="primary" size="sm" class="w-fit shrink-0" :disabled="saving || !!error" @click="save">
-        <UiSpinner v-if="saving" />
-        {{ $t('common.save') }}
+      <UiBaseButton variant="primary" size="sm" class="flex items-center gap-2 w-fit shrink-0" :disabled="saving || !!error" @click="save">
+        <LucideCheck v-if="saved" :size="16" />
+        {{ saved ? $t('common.saved') : $t('common.save') }}
       </UiBaseButton>
     </div>
 
@@ -97,6 +97,7 @@ const { data: template, error } = await useAsyncData(`template-${id}`, () =>
 const name = ref(template.value?.name ?? '')
 const body = ref(template.value?.body ?? '')
 const saving = ref(false)
+const saved = ref(false)
 
 const save = async () => {
   saving.value = true
@@ -107,7 +108,8 @@ const save = async () => {
       method: 'PATCH',
       body: { name: name.value, body: body.value },
     })
-    alertFlow.success(t('templates.edit.saved'))
+    saved.value = true
+    setTimeout(() => saved.value = false, 2000)
   } catch {
     alertFlow.error(t('templates.edit.errors.save'))
   } finally {
