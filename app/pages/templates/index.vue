@@ -44,7 +44,7 @@
       </template>
     </div>
 
-    <div class="mt-4 flex justify-end">
+    <div class="mt-6 flex justify-end">
       <UiBaseButton variant="secondary" size="sm" @click="restoreDefaults">
         {{ $t('templates.restore_defaults') }}
       </UiBaseButton>
