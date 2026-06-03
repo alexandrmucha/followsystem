@@ -25,9 +25,17 @@
 
       <template v-else>
         <UiBaseCard v-for="template in templates" :key="template.id">
-          <div class="flex items-center justify-between">
-            <p class="font-medium text-sm">{{ template.name }}</p>
-            <div class="flex items-center gap-2">
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2 min-w-0">
+              <p class="font-medium text-sm truncate">{{ template.name }}</p>
+              <span v-if="template.isDefault" class="shrink-0 rounded-full px-2 py-0.5 text-xs font-medium bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+                {{ $t('templates.default_badge') }}
+              </span>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <UiBaseButton v-if="!template.isDefault" variant="secondary" size="sm" :disabled="settingDefaultId === template.id" @click="setDefault(template.id)">
+                {{ $t('templates.set_default') }}
+              </UiBaseButton>
               <UiBaseButton variant="secondary" size="sm" @click="navigateTo(`/templates/${template.id}`)">
                 {{ $t('common.edit') }}
               </UiBaseButton>
@@ -79,12 +87,13 @@ definePageMeta({
 })
 
 const { data: templates, refresh, error } = await useAsyncData('templates', () =>
-  $api<{ id: string; name: string }[]>('/templates')
+  $api<{ id: string; name: string; isDefault: boolean }[]>('/templates')
 )
 
 const creating = ref(false)
 const deleteId = ref<string | null>(null)
 const restoringDefaults = ref(false)
+const settingDefaultId = ref<string | null>(null)
 
 const createTemplate = async () => {
   creating.value = true
@@ -115,6 +124,19 @@ const confirmDelete = async () => {
     alertFlow.error(t('templates.errors.delete'))
   } finally {
     deleteId.value = null
+  }
+}
+
+const setDefault = async (id: string) => {
+  settingDefaultId.value = id
+  alertFlow.clear()
+  try {
+    await $api(`/templates/${id}`, { method: 'PATCH', body: { isDefault: true } })
+    await refresh()
+  } catch {
+    alertFlow.error(t('templates.errors.set_default'))
+  } finally {
+    settingDefaultId.value = null
   }
 }
 
