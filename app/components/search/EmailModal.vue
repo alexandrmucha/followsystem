@@ -36,7 +36,7 @@
 
       <!-- Body -->
       <UiFormField>
-        <UiBaseTextArea
+        <UiBaseTextarea
           v-model="body"
           :label="t('search.email.body_label')"
           :rows="12"

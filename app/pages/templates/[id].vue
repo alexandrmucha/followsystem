@@ -13,13 +13,17 @@
         </h1>
       </div>
 
-      <UiBaseButton variant="primary" size="sm" class="w-fit shrink-0" :disabled="saving" @click="save">
+      <UiBaseButton variant="primary" size="sm" class="w-fit shrink-0" :disabled="saving || !!error" @click="save">
         <UiSpinner v-if="saving" />
         {{ $t('common.save') }}
       </UiBaseButton>
     </div>
 
-    <div class="space-y-4">
+    <p v-if="error" :class="[systemErrorClass, 'text-center py-8']">
+      {{ $t('templates.errors.load') }}
+    </p>
+
+    <div v-else class="space-y-4">
       <UiBaseCard>
         <UiBaseInput
           v-model="name"
@@ -28,13 +32,9 @@
       </UiBaseCard>
 
       <UiBaseCard>
-        <UiBaseTextarea
-          v-model="body"
-          :label="$t('templates.body_label')"
-          :rows="16"
-        />
         <p class="mt-2 text-xs text-neutral-400 dark:text-neutral-500">
           {{ $t('templates.placeholders_hint') }}
+          <span class="font-mono">{company_name}, {website}, {mobile_performance_score}, {desktop_performance_score}, {seo_score}, {accessibility_score}, {best_practices_score}, {lcp}, {page_size}</span>
         </p>
       </UiBaseCard>
     </div>
@@ -59,12 +59,11 @@ definePageMeta({
 
 const id = route.params.id as string
 
-const { data: template } = await useAsyncData(`template-${id}`, () =>
-  $api<{ id: string; name: string; body: string }>(`/templates/${id}`)
+const { data: template, error } = await useAsyncData(`template-${id}`, () =>
+  $api<{ id: string; name: string }>(`/templates/${id}`)
 )
 
 const name = ref(template.value?.name ?? '')
-const body = ref(template.value?.body ?? '')
 const saving = ref(false)
 
 const save = async () => {
@@ -74,11 +73,11 @@ const save = async () => {
   try {
     await $api(`/templates/${id}`, {
       method: 'PATCH',
-      body: { name: name.value, body: body.value },
+      body: { name: name.value },
     })
     alertFlow.success(t('templates.saved'))
   } catch {
-    alertFlow.error(t('templates.save_error'))
+    alertFlow.error(t('templates.errors.save'))
   } finally {
     saving.value = false
   }

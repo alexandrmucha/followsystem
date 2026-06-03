@@ -171,15 +171,15 @@
       "create": "Nepodařilo se vytvořit šablonu. Zkuste to prosím znovu.",
       "delete": "Nepodařilo se smazat šablonu. Zkuste to prosím znovu.",
       "save": "Nepodařilo se uložit šablonu. Zkuste to prosím znovu.",
-      "load": "Nepodařilo se načíst šablony. Zkuste to prosím znovu."
+      "load": "Nepodařilo se načíst šablony. Zkuste to prosím znovu.",
+      "load_single": "Nepodařilo se načíst šablonu. Zkuste to prosím znovu."
     },
-    
+
     "back": "Zpět na šablony",
-    "edit_title": "Upravit šablonu",
+    "edit_title": "Úprava šablony",
     "name_label": "Název šablony",
     "body_label": "Text šablony",
-    "placeholders_hint": "Použijte {jmeno_firmy}, {web}, {lcp}, {velikost} pro automatické doplnění dat.",
-    "saved": "Šablona uložena.",
-    "save_error": "Nepodařilo se uložit šablonu."
+    "placeholders_hint": "Dostupné proměnné:",
+    "saved": "Šablona uložena."
   }
 }
