@@ -44,9 +44,9 @@ Your website loads in {lcp} seconds.
 import { codeBlockClass, codeTagClass, hintLabelClass } from '~/utils/ui'
 
 const variables = [
-  'company_name', 'website', 'mobile_performance_score', 'desktop_performance_score',
+  'company_name', 'website', 'clean_website', 'mobile_performance_score', 'desktop_performance_score',
   'seo_score', 'accessibility_score', 'best_practices_score', 'lcp', 'page_size'
 ]
 
-const operators = ['>', '<', '>=', '<=', '==']
+const operators = ['>', '<', '>=', '<=', '==', '!=']
 </script>

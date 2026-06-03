@@ -86,6 +86,10 @@
         "yes": "SSL",
         "no": "Bez SSL"
       },
+      "viewport": {
+        "yes": "Viewport",
+        "no": "Bez viewportu"
+      },
       "sort": {
         "label": "Seřadit výsledky podle:"
       },

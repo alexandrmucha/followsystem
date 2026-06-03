@@ -86,6 +86,10 @@
         "yes": "SSL",
         "no": "No SSL"
       },
+      "viewport": {
+        "yes": "Viewport",
+        "no": "No Viewport"
+      },
       "sort": {
         "label": "Sort results by:"
       },

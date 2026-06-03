@@ -1,10 +1,19 @@
 import type { BusinessLeadDTO } from '~/types/business-lead.dto'
 
 export function useTemplateParser() {
+  function cleanWebsiteUrl(url: string | null | undefined): string {
+    if (!url) return ''
+    return url
+      .replace(/^(https?:\/\/)?(www\.)?/, '')
+      .replace(/\/$/, '')
+      .toLowerCase()
+  }
+
   function parseTemplate(template: string, lead: BusinessLeadDTO): string {
     let result = template
       .replace(/\{company_name\}/g, lead.name)
       .replace(/\{website\}/g, lead.website ?? '')
+      .replace(/\{clean_website\}/g, cleanWebsiteUrl(lead.website))
       .replace(/\{lcp\}/g, String(lead.largestContentfulPaint ?? ''))
       .replace(/\{page_size\}/g, String(lead.totalByteWeight ?? ''))
       .replace(/\{mobile_performance_score\}/g, String(lead.mobileScore ?? ''))
@@ -23,7 +32,17 @@ export function useTemplateParser() {
   }
 
   function evaluateCondition(condition: string, lead: BusinessLeadDTO): boolean {
-    const match = condition.match(/(\w+)\s*(>|<|>=|<=|==)\s*(\d+(\.\d+)?)/)
+    // Handle OR
+    if (condition.includes(' or ')) {
+      return condition.split(' or ').some(c => evaluateCondition(c.trim(), lead))
+    }
+
+    // Handle AND
+    if (condition.includes(' and ')) {
+      return condition.split(' and ').every(c => evaluateCondition(c.trim(), lead))
+    }
+
+    const match = condition.match(/(\w+)\s*(>|<|>=|<=|==|!=)\s*(\d+(\.\d+)?)/)
     if (!match) return false
 
     const [, field, operator, value] = match as [string, string, string, string]
@@ -37,12 +56,14 @@ export function useTemplateParser() {
       case '>=': return fieldValue >= num
       case '<=': return fieldValue <= num
       case '==': return fieldValue === num
+      case '!=': return fieldValue !== num
       default: return false
     }
   }
 
   function getLeadField(field: string, lead: BusinessLeadDTO): number | null {
     const map: Record<string, number | null | undefined> = {
+      has_ssl: lead.hasSsl ? 1 : 0,
       lcp: lead.largestContentfulPaint,
       page_size: lead.totalByteWeight,
       mobile_performance_score: lead.mobileScore,
