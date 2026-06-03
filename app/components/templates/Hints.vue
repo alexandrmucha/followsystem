@@ -80,7 +80,7 @@ const variables = [
   'rating', 'review_count',
   'mobile_performance_score', 'desktop_performance_score',
   'seo_score', 'accessibility_score', 'best_practices_score',
-  'lcp', 'page_size',
+  'lcp', 'lcp_times', 'page_size',
 ]
 
 const booleanVariables = ['has_website', 'has_ssl', 'has_viewport']

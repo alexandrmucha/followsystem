@@ -25,14 +25,14 @@
 
       <template v-else>
         <UiBaseCard v-for="template in templates" :key="template.id">
-          <div class="flex items-center justify-between gap-3">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div class="flex items-center gap-2 min-w-0">
               <p class="font-medium text-sm truncate">{{ template.name }}</p>
               <UiBaseBadge v-if="template.isDefault" variant="blue">
                 {{ $t('templates.default_badge') }}
               </UiBaseBadge>
             </div>
-            <div class="flex items-center gap-2 shrink-0">
+            <div class="flex flex-wrap items-center gap-2">
               <UiBaseButton v-if="!template.isDefault" variant="secondary" size="sm" :disabled="settingDefaultId === template.id" @click="setDefault(template.id)">
                 {{ $t('templates.set_default') }}
               </UiBaseButton>

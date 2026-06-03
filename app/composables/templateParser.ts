@@ -15,6 +15,7 @@ export function useTemplateParser() {
       .replace(/\{website\}/g, lead.website ?? '')
       .replace(/\{clean_website\}/g, cleanWebsiteUrl(lead.website))
       .replace(/\{lcp\}/g, String(lead.largestContentfulPaint ?? ''))
+      .replace(/\{lcp_times\}/g, String(Math.round((lead.largestContentfulPaint ?? 0) / 2.5)))
       .replace(/\{page_size\}/g, String(lead.totalByteWeight ?? ''))
       .replace(/\{mobile_performance_score\}/g, String(lead.mobileScore ?? ''))
       .replace(/\{desktop_performance_score\}/g, String(lead.performanceScore ?? ''))
