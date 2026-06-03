@@ -17,6 +17,8 @@ export function useTemplateParser() {
       return evaluateCondition(condition, lead) ? content : ''
     })
 
+    result = result.replace(/\n{3,}/g, '\n\n')
+
     return result.trim()
   }
 
