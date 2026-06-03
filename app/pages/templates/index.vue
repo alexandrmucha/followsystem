@@ -44,6 +44,12 @@
       </template>
     </div>
 
+    <div class="mt-4 flex justify-end">
+      <UiBaseButton variant="secondary" size="sm" @click="restoreDefaults">
+        {{ $t('templates.restore_defaults') }}
+      </UiBaseButton>
+    </div>
+
     <UiConfirmModal
       v-if="deleteId"
       :title="$t('templates.delete_confirm_title')"
@@ -57,6 +63,8 @@
 </template>
 
 <script lang="ts" setup>
+import { systemErrorClass } from '~/utils/ui'
+
 const { t } = useI18n()
 const { $api } = useNuxtApp()
 const alertFlow = useAlertFlow()
@@ -106,6 +114,16 @@ const confirmDelete = async () => {
     alertFlow.error(t('templates.errors.delete'))
   } finally {
     deleteId.value = null
+  }
+}
+
+const restoreDefaults = async () => {
+  alertFlow.clear()
+  try {
+    await $api('/templates/defaults', { method: 'POST' })
+    await refresh()
+  } catch {
+    alertFlow.error(t('templates.errors.restore'))
   }
 }
 </script>
