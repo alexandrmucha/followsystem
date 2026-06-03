@@ -28,9 +28,9 @@
           <div class="flex items-center justify-between gap-3">
             <div class="flex items-center gap-2 min-w-0">
               <p class="font-medium text-sm truncate">{{ template.name }}</p>
-              <span v-if="template.isDefault" class="shrink-0 rounded-full px-2 py-0.5 text-xs font-medium bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+              <UiBaseBadge v-if="template.isDefault" variant="blue">
                 {{ $t('templates.default_badge') }}
-              </span>
+              </UiBaseBadge>
             </div>
             <div class="flex items-center gap-2 shrink-0">
               <UiBaseButton v-if="!template.isDefault" variant="secondary" size="sm" :disabled="settingDefaultId === template.id" @click="setDefault(template.id)">

@@ -27,7 +27,7 @@
           {{ t('search.results.website') }}
         </a>
 
-        <div :class="badgeClass">{{ badgeText }}</div>
+        <UiBaseBadge :variant="badgeVariant">{{ badgeText }}</UiBaseBadge>
       </div>
     </div>
 
@@ -81,14 +81,13 @@ const props = defineProps<{ lead: BusinessLeadDTO }>()
 defineEmits<{ 'generate-email': [lead: BusinessLeadDTO] }>()
 const { t } = useI18n()
 
-const badgeClass = computed(() => {
-  const base = 'rounded-full px-2.5 py-1 text-xs font-medium select-none'
-  if (!props.lead.hasWebsite) return `${base} bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400`
-  if (props.lead.analysisStatus === 'done') return `${base} bg-emerald-100 text-emerald-900 dark:bg-emerald-900/30 dark:text-emerald-300`
-  if (props.lead.analysisStatus === 'analyzing') return `${base} bg-blue-100 text-blue-900 dark:bg-blue-900/30 dark:text-blue-300`
-  if (props.lead.analysisStatus === 'error') return `${base} bg-red-100 text-red-900 dark:bg-red-900/30 dark:text-red-300`
-  if (props.lead.analysisStatus === 'cancelled') return `${base} bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400`
-  return `${base} bg-amber-100 text-amber-900 dark:bg-amber-900/30 dark:text-amber-300`
+const badgeVariant = computed((): 'neutral' | 'emerald' | 'blue' | 'amber' | 'red' => {
+  if (!props.lead.hasWebsite) return 'neutral'
+  if (props.lead.analysisStatus === 'done') return 'emerald'
+  if (props.lead.analysisStatus === 'analyzing') return 'blue'
+  if (props.lead.analysisStatus === 'error') return 'red'
+  if (props.lead.analysisStatus === 'cancelled') return 'neutral'
+  return 'amber'
 })
 
 const badgeText = computed(() => {
