@@ -5,11 +5,11 @@
       <div>
         <NuxtLink to="/templates" class="flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:underline mb-3">
           <LucideArrowLeft :size="14" />
-          {{ $t('templates.back') }}
+          {{ $t('templates.edit.back') }}
         </NuxtLink>
 
         <h1 class="text-2xl sm:text-3xl font-semibold">
-          {{ $t('templates.edit_title') }}
+          {{ $t('templates.edit.title') }}
         </h1>
       </div>
 
@@ -20,28 +20,28 @@
     </div>
 
     <p v-if="error" :class="[systemErrorClass, 'text-center py-8']">
-      {{ $t('templates.errors.load_single') }}
+      {{ $t('templates.edit.errors.load') }}
     </p>
 
     <div v-else class="space-y-4">
       <UiBaseCard>
         <UiBaseInput
           v-model="name"
-          :label="$t('templates.name_label')"
+          :label="$t('templates.edit.name_label')"
         />
       </UiBaseCard>
 
       <UiBaseCard>
         <UiBaseTextarea
           v-model="body"
-          :label="$t('templates.body_label')"
+          :label="$t('templates.edit.body_label')"
           :rows="16"
         />
       </UiBaseCard>
 
       <UiBaseCard>
         <p class="text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
-          {{ $t('templates.placeholders_hint') }}
+          {{ $t('templates.edit.placeholders_hint') }}
         </p>
 
         <div class="flex flex-wrap gap-1.5 mb-4">
@@ -55,16 +55,14 @@
         </div>
 
         <p class="text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
-          {{ $t('templates.conditions_hint') }}
+          {{ $t('templates.edit.conditions_hint') }}
         </p>
 
-        <pre class="font-mono text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-3 py-2 rounded whitespace-pre-wrap">
-{if lcp > 4}
+        <pre class="font-mono text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-3 py-2 rounded whitespace-pre-wrap">{if lcp > 4}
 Your website loads in {lcp} seconds.
-{endif}
-</pre>
+{endif}</pre>
       </UiBaseCard>
-      
+
     </div>
 
   </div>
@@ -82,7 +80,7 @@ const variables = [
 ]
 
 useHead({
-  title: t('templates.edit_title')
+  title: t('templates.edit.title')
 })
 
 definePageMeta({
@@ -109,9 +107,9 @@ const save = async () => {
       method: 'PATCH',
       body: { name: name.value, body: body.value },
     })
-    alertFlow.success(t('templates.saved'))
+    alertFlow.success(t('templates.edit.saved'))
   } catch {
-    alertFlow.error(t('templates.errors.save'))
+    alertFlow.error(t('templates.edit.errors.save'))
   } finally {
     saving.value = false
   }

@@ -166,19 +166,24 @@
     "description": "Přizpůsobte si šablony pro oslovování firem.",
     "create": "Vytvořit šablonu",
     "empty": "Zatím nemáte žádné šablony.",
+    "delete_confirm": "Opravdu chcete smazat tuto šablonu?",
     "errors": {
       "create": "Nepodařilo se vytvořit šablonu. Zkuste to prosím znovu.",
       "delete": "Nepodařilo se smazat šablonu. Zkuste to prosím znovu.",
-      "save": "Nepodařilo se uložit šablonu. Zkuste to prosím znovu.",
-      "load": "Nepodařilo se načíst šablony. Zkuste to prosím znovu.",
-      "load_single": "Nepodařilo se načíst šablonu. Zkuste to prosím znovu."
+      "load": "Nepodařilo se načíst šablony. Zkuste to prosím znovu."
     },
-    "back": "Zpět na šablony",
-    "edit_title": "Úprava šablony",
-    "name_label": "Název šablony",
-    "body_label": "Text šablony",
-    "placeholders_hint": "Dostupné proměnné",
-    "conditions_hint": "Příklad podmínky",
-    "saved": "Šablona uložena."
+    "edit": {
+      "back": "Zpět na šablony",
+      "title": "Úprava šablony",
+      "name_label": "Název šablony",
+      "body_label": "Text šablony",
+      "placeholders_hint": "Dostupné proměnné",
+      "conditions_hint": "Příklad podmínky",
+      "saved": "Šablona uložena.",
+      "errors": {
+        "save": "Nepodařilo se uložit šablonu. Zkuste to prosím znovu.",
+        "load": "Nepodařilo se načíst šablonu. Zkuste to prosím znovu."
+      }
+    }
   }
 }
