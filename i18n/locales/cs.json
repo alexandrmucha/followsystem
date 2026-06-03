@@ -183,7 +183,8 @@
       "conditions_hint": "Příklad podmínky",
       "errors": {
         "save": "Nepodařilo se uložit šablonu. Zkuste to prosím znovu.",
-        "load": "Nepodařilo se načíst šablonu. Zkuste to prosím znovu."
+        "load": "Nepodařilo se načíst šablonu. Zkuste to prosím znovu.",
+        "name_taken": "Šablona s tímto názvem již existuje."
       }
     }
   }

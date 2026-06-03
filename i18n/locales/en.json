@@ -183,7 +183,8 @@
       "conditions_hint": "Condition example",
       "errors": {
         "save": "Failed to save template. Please try again.",
-        "load": "Failed to load template. Please try again."
+        "load": "Failed to load template. Please try again.",
+        "name_taken": "A template with this name already exists."
       }
     }
   }

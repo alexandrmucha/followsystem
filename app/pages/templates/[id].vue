@@ -28,7 +28,11 @@
         <UiBaseInput
           v-model="name"
           :label="$t('templates.edit.name_label')"
+          :error="!!nameError"
         />
+        <p v-if="nameError" :class="[fieldErrorClass, 'mt-1']">
+          {{ nameError }}
+        </p>
       </UiBaseCard>
 
       <UiBaseCard>
@@ -98,8 +102,14 @@ const name = ref(template.value?.name ?? '')
 const body = ref(template.value?.body ?? '')
 const saving = ref(false)
 const saved = ref(false)
+const nameError = ref('')
+
+watch(name, () => {
+  if (nameError.value) nameError.value = ''
+})
 
 const save = async () => {
+  nameError.value = ''
   saving.value = true
   alertFlow.clear()
 
@@ -110,8 +120,12 @@ const save = async () => {
     })
     saved.value = true
     setTimeout(() => saved.value = false, 2000)
-  } catch {
-    alertFlow.error(t('templates.edit.errors.save'))
+  } catch (err: any) {
+    if (err?.data?.message === 'name_taken') {
+      nameError.value = t('templates.edit.errors.name_taken')
+    } else {
+      alertFlow.error(t('templates.edit.errors.save'))
+    }
   } finally {
     saving.value = false
   }
