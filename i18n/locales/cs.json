@@ -181,6 +181,7 @@
       "back": "Zpět na šablony",
       "title": "Úprava šablony",
       "name_label": "Název šablony",
+      "subject_label": "Předmět",
       "body_label": "Text šablony",
       "placeholders_hint": "Dostupné proměnné",
       "conditions_hint": "Příklad podmínky",

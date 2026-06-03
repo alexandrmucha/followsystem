@@ -181,6 +181,7 @@
       "back": "Back to templates",
       "title": "Edit template",
       "name_label": "Template name",
+      "subject_label": "Subject",
       "body_label": "Template body",
       "placeholders_hint": "Available placeholders",
       "conditions_hint": "Condition example",

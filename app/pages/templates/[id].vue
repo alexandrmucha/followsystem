@@ -36,6 +36,13 @@
       </UiBaseCard>
 
       <UiBaseCard>
+        <UiBaseInput
+          v-model="subject"
+          :label="$t('templates.edit.subject_label')"
+        />
+      </UiBaseCard>
+
+      <UiBaseCard>
         <UiBaseTextarea
           v-model="body"
           :label="$t('templates.edit.body_label')"
@@ -73,6 +80,8 @@ Your website loads in {lcp} seconds.
 </template>
 
 <script lang="ts" setup>
+import { fieldErrorClass, systemErrorClass } from '~/utils/ui'
+
 const { t } = useI18n()
 const { $api } = useNuxtApp()
 const route = useRoute()
@@ -95,10 +104,11 @@ definePageMeta({
 const id = route.params.id as string
 
 const { data: template, error } = await useAsyncData(`template-${id}`, () =>
-  $api<{ id: string; name: string; body: string }>(`/templates/${id}`)
+  $api<{ id: string; name: string; subject: string; body: string }>(`/templates/${id}`)
 )
 
 const name = ref(template.value?.name ?? '')
+const subject = ref(template.value?.subject ?? '')
 const body = ref(template.value?.body ?? '')
 const saving = ref(false)
 const saved = ref(false)
@@ -116,7 +126,7 @@ const save = async () => {
   try {
     await $api(`/templates/${id}`, {
       method: 'PATCH',
-      body: { name: name.value, body: body.value },
+      body: { name: name.value, subject: subject.value, body: body.value },
     })
     saved.value = true
     setTimeout(() => saved.value = false, 2000)
