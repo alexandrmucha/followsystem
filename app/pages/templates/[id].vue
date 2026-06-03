@@ -29,6 +29,7 @@
           v-model="name"
           :label="$t('templates.edit.name_label')"
           :error="!!nameError"
+          :maxlength="50"
         />
         <p v-if="nameError" :class="[fieldErrorClass, 'mt-1']">
           {{ nameError }}
@@ -40,12 +41,14 @@
           <UiBaseInput
             v-model="subject"
             :label="$t('templates.edit.subject_label')"
+            :maxlength="100"
           />
 
           <UiBaseTextarea
             v-model="body"
             :label="$t('templates.edit.body_label')"
             :rows="16"
+            :maxlength="5000"
           />
         </div>
       </UiBaseCard>

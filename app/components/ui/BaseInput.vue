@@ -13,12 +13,17 @@
       :type="type"
       :placeholder="placeholder"
       :disabled="disabled"
+      :maxlength="maxlength"
       v-model="model"
       class="w-full bg-white dark:bg-neutral-900 rounded-lg border text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:ring-2"
       :class="[sizeClass, inputClass, disabledClass]"
       @focus="$emit('focus')"
       @blur="$emit('blur')"
     />
+
+    <div v-if="maxlength !== undefined" class="flex justify-end mt-1">
+      <span class="text-xs" :class="counterClass">{{ model?.length ?? 0 }} / {{ maxlength }}</span>
+    </div>
   </div>
 </template>
 
@@ -34,6 +39,7 @@ const props = defineProps<{
   error?: boolean
   disabled?: boolean
   size?: 'md' | 'sm'
+  maxlength?: number
 }>()
 
 const id = useId()
@@ -64,5 +70,13 @@ const inputClass = computed(() => {
 
 const disabledClass = computed(() => {
   return props.disabled ? 'opacity-50 cursor-not-allowed' : ''
+})
+
+const counterClass = computed(() => {
+  if (!props.maxlength) return ''
+  const remaining = props.maxlength - (model.value?.length ?? 0)
+  if (remaining <= Math.ceil(props.maxlength * 0.05)) return 'text-red-500 dark:text-red-400'
+  if (remaining <= Math.ceil(props.maxlength * 0.20)) return 'text-amber-500 dark:text-amber-400'
+  return 'text-neutral-400 dark:text-neutral-500'
 })
 </script>
