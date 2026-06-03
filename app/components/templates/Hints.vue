@@ -1,6 +1,6 @@
 <template>
   <UiBaseCard>
-    <p :class="hintLabelClass">
+    <p :class="[hintLabelClass, 'mb-2']">
       {{ $t('templates.edit.placeholders_hint') }}
     </p>
 
@@ -14,17 +14,17 @@
       </span>
     </div>
 
-    <p :class="hintLabelClass">
+    <p :class="[hintLabelClass, 'mb-2']">
       {{ $t('templates.edit.conditions_hint') }}
     </p>
 
-    <pre :class="codeBlockClass">{if lcp == 1}
+    <pre :class="[codeBlockClass, 'mb-4']">{if lcp == 1}
 Your website loads in 1 second.
 {else}
 Your website loads in {lcp} seconds.
 {endif}</pre>
 
-    <p :class="hintLabelClass">
+    <p :class="[hintLabelClass, 'mb-2']">
       {{ $t('templates.edit.operators_hint') }}
     </p>
 
@@ -41,7 +41,7 @@ Your website loads in {lcp} seconds.
 </template>
 
 <script lang="ts" setup>
-import { codeBlockClass, codeTagClass } from '~/utils/ui';
+import { codeBlockClass, codeTagClass, hintLabelClass } from '~/utils/ui'
 
 const variables = [
   'company_name', 'website', 'mobile_performance_score', 'desktop_performance_score',
