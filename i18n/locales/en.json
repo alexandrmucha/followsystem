@@ -39,9 +39,9 @@
   },
   "search": {
     "title": "Find your next clients",
-    "description": "Enter an industry and location.",
+    "description": "Enter a location to find businesses.",
     "form": {
-      "industry_label": "Industry",
+      "industry_label": "Industry (optional)",
       "industry_placeholder": "e.g. plumber",
       "location_label": "Location",
       "location_placeholder": "e.g. Prague",
@@ -49,12 +49,11 @@
       "stop_button": "Stop analysis",
       "resume_button": "Resume analysis",
       "errors": {
-        "industry_required": "Industry is required",
         "location_required": "Location is required"
       }
     },
     "results": {
-      "empty": "No businesses found for the given industry and location.",
+      "empty": "No businesses found for the given location.",
       "website": "Website",
       "badge": {
         "no_website": "No website",
