@@ -59,6 +59,8 @@
           </template>
         </SearchMetricBadge>
 
+        <span v-if="lead.aiMissingCtaMobile != null || lead.aiMissingCtaDesktop != null || lead.aiHasPoorMobileDesign != null || lead.aiHasPoorDesign != null" class="w-px h-3 bg-neutral-200 dark:bg-neutral-700 self-center" />
+
         <SearchMetricBadge v-if="lead.aiMissingCtaMobile != null" :value="lead.aiMissingCtaMobile" type="ai" :aria-label="lead.aiMissingCtaMobile ? t('search.results.ai.missing_cta_mobile') : t('search.results.ai.has_cta_mobile')">
           <template #icon><LucideMousePointer :size="13" /></template>
         </SearchMetricBadge>
