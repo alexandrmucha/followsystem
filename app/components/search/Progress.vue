@@ -19,6 +19,10 @@
     <p class="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
       {{ estimatedTimeText }}
     </p>
+
+    <p v-if="searchResults.sessionStatus === 'analyzing'" class="mt-1 text-xs text-neutral-400 dark:text-neutral-500">
+      {{ t('search.results.progress.sort_hint') }}
+    </p>
   </UiBaseCard>
 </template>
 

@@ -69,7 +69,8 @@
         "done": "Analysis complete",
         "paused": "Analysis paused",
         "cancelling": "Stopping analysis...",
-        "estimating": "Estimated time remaining: ~{minutes} min"
+        "estimating": "Estimated time remaining: ~{minutes} min",
+        "sort_hint": "Results will be sorted after analysis is complete."
       },
       "categories": {
         "performance_desktop": "Performance (desktop)",

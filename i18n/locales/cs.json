@@ -69,7 +69,8 @@
         "done": "Analýza dokončena",
         "paused": "Analýza pozastavena",
         "cancelling": "Zastavuji analýzu...",
-        "estimating": "Odhadovaný zbývající čas: ~{minutes} min"
+        "estimating": "Odhadovaný zbývající čas: ~{minutes} min",
+        "sort_hint": "Po dokončení analýzy budou výsledky seřazeny."
       },
       "categories": {
         "performance_desktop": "Výkon (desktop)",
