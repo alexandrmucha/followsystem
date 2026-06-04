@@ -91,7 +91,8 @@
         "no": "No Viewport"
       },
       "sort": {
-        "label": "Sort results by:"
+        "label": "Sort results by:",
+        "lead_score": "Lead value"
       },
       "generate_email": "Generate email"
     },

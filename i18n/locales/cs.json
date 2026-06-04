@@ -91,7 +91,8 @@
         "no": "Bez viewportu"
       },
       "sort": {
-        "label": "Seřadit výsledky podle:"
+        "label": "Seřadit výsledky podle:",
+        "lead_score": "Hodnota leadu"
       },
       "generate_email": "Vygenerovat e-mail"
     },

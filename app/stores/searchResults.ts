@@ -7,7 +7,9 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
   const leads = ref<BusinessLeadDTO[]>([])
   const searched = ref(false)
 
-  const sortBy = useCookie<keyof Pick<BusinessLeadDTO, 'mobileScore' | 'performanceScore' | 'seoScore' | 'accessibilityScore' | 'bestPracticesScore' | 'largestContentfulPaint' | 'totalByteWeight'>>('sortBy', { default: () => 'mobileScore' })
+  type SortOption = 'leadScore' | keyof Pick<BusinessLeadDTO, 'mobileScore' | 'performanceScore' | 'seoScore' | 'accessibilityScore' | 'bestPracticesScore' | 'largestContentfulPaint' | 'totalByteWeight'>
+
+  const sortBy = useCookie<SortOption>('sortBy', { default: () => 'leadScore' })
 
   function setSession(id: string) {
     sessionId.value = id
@@ -72,10 +74,43 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     return Math.round((analyzedCount.value / websiteLeadsCount.value) * 100)
   })
 
+  function computeLeadScore(lead: BusinessLeadDTO): number {
+    if (!lead.hasWebsite) return 3
+    if (lead.analysisStatus !== 'done') return 0
+
+    let score = 0
+
+    if (lead.hasSsl === false) score += 2
+    else if (lead.hasHttpsRedirect === false) score += 1
+
+    if (lead.hasViewport === false) score += 2
+
+    if (lead.largestContentfulPaint != null) {
+      if (lead.largestContentfulPaint > 4) score += 2
+      else if (lead.largestContentfulPaint > 2.5) score += 1
+    }
+
+    if (lead.mobileScore != null) {
+      if (lead.mobileScore < 50) score += 2
+      else if (lead.mobileScore < 70) score += 1
+    }
+
+    if (lead.seoScore != null) {
+      if (lead.seoScore < 50) score += 2
+      else if (lead.seoScore < 90) score += 1
+    }
+
+    return score
+  }
+
   const sortedLeads = computed(() => {
     const rawLeads = [...leads.value]
 
     if (sessionStatus.value === 'analyzing') return rawLeads
+
+    if (sortBy.value === 'leadScore') {
+      return rawLeads.sort((a, b) => computeLeadScore(b) - computeLeadScore(a))
+    }
 
     const isMetric = sortBy.value === 'largestContentfulPaint' || sortBy.value === 'totalByteWeight'
 

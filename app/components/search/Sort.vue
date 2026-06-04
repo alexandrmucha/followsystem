@@ -6,6 +6,7 @@
       </label>
 
       <UiBaseSelect size="sm" v-model="searchResults.sortBy">
+        <option value="leadScore">{{ t('search.results.sort.lead_score') }}</option>
         <option value="mobileScore">{{ t('search.results.categories.performance_mobile') }}</option>
         <option value="performanceScore">{{ t('search.results.categories.performance_desktop') }}</option>
         <option value="seoScore">{{ t('search.results.categories.seo') }}</option>
