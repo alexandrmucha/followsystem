@@ -118,6 +118,11 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       else if (lead.seoScore < 90) score += 1
     }
 
+    if (lead.rating != null && lead.reviewCount != null) {
+      if (lead.rating >= 4.5 && lead.reviewCount >= 10) score += 2
+      else if (lead.rating >= 4.0 && lead.reviewCount >= 5) score += 1
+    }
+
     return score
   }
 
