@@ -13,7 +13,7 @@
 <script lang="ts" setup>
 const props = defineProps<{
   value: number | boolean | null | undefined
-  type: 'lcp' | 'size' | 'ssl' | 'ai'
+  type: 'lcp' | 'size' | 'ssl' | 'cta' | 'ai'
   ariaLabel?: string
 }>()
 
@@ -25,6 +25,10 @@ const displayValue = computed(() => {
     if (props.value === null) return t('search.results.ssl.no_redirect')
     return props.value ? t('search.results.ssl.yes') : t('search.results.ssl.no')
   }
+  if (props.type === 'cta') {
+    if (props.value === null) return props.ariaLabel ?? t('search.results.ai.cta_partial')
+    return props.value ? t('search.results.ai.cta_ok') : t('search.results.ai.cta_missing')
+  }
   if (props.value === null) return '--'
   if (props.type === 'ai') return props.ariaLabel ?? '--'
   if (props.type === 'lcp') return `${props.value} s`
@@ -35,7 +39,7 @@ const displayValue = computed(() => {
 const valueColor = computed(() => {
   if (props.value === undefined) return 'text-neutral-400 dark:text-neutral-500'
   if (props.value === null) {
-    if (props.type === 'ssl') return 'text-amber-500 dark:text-amber-400'
+    if (props.type === 'ssl' || props.type === 'cta') return 'text-amber-500 dark:text-amber-400'
     return 'text-neutral-400 dark:text-neutral-500'
   }
 
@@ -45,7 +49,7 @@ const valueColor = computed(() => {
       : 'text-emerald-600 dark:text-emerald-400'
   }
 
-  if (props.type === 'ssl') {
+  if (props.type === 'ssl' || props.type === 'cta') {
     return props.value
       ? 'text-emerald-600 dark:text-emerald-400'
       : 'text-red-600 dark:text-red-400'

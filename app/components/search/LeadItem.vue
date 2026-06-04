@@ -61,11 +61,7 @@
 
         <span v-if="lead.aiMissingCtaMobile != null || lead.aiMissingCtaDesktop != null || lead.aiHasPoorMobileDesign != null || lead.aiHasPoorDesign != null" class="w-px h-3 bg-neutral-200 dark:bg-neutral-700 self-center" />
 
-        <SearchMetricBadge v-if="lead.aiMissingCtaMobile != null" :value="lead.aiMissingCtaMobile" type="ai" :aria-label="lead.aiMissingCtaMobile ? t('search.results.ai.missing_cta_mobile') : t('search.results.ai.has_cta_mobile')">
-          <template #icon><LucideMousePointer :size="13" /></template>
-        </SearchMetricBadge>
-
-        <SearchMetricBadge v-if="lead.aiMissingCtaDesktop != null" :value="lead.aiMissingCtaDesktop" type="ai" :aria-label="lead.aiMissingCtaDesktop ? t('search.results.ai.missing_cta_desktop') : t('search.results.ai.has_cta_desktop')">
+        <SearchMetricBadge v-if="ctaValue !== undefined" :value="ctaValue" type="cta" :aria-label="ctaAriaLabel">
           <template #icon><LucideMousePointer :size="13" /></template>
         </SearchMetricBadge>
 
@@ -106,6 +102,24 @@ const { t } = useI18n()
 const leadScorePercent = computed(() =>
   Math.min(100, Math.round(computeLeadScore(props.lead) / LEAD_SCORE_MAX * 100))
 )
+
+const ctaValue = computed(() => {
+  const mobile = props.lead.aiMissingCtaMobile
+  const desktop = props.lead.aiMissingCtaDesktop
+  if (mobile == null && desktop == null) return undefined
+  if (mobile === false && desktop === false) return true
+  if (mobile === true && desktop === true) return false
+  return null
+})
+
+const ctaAriaLabel = computed(() => {
+  if (ctaValue.value === null) {
+    return props.lead.aiMissingCtaMobile === true
+      ? t('search.results.ai.cta_missing_mobile')
+      : t('search.results.ai.cta_missing_desktop')
+  }
+  return undefined
+})
 
 const sslValue = computed(() => {
   if (props.lead.hasSsl == null) return undefined
