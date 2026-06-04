@@ -17,6 +17,10 @@ export function useAnalysisStream() {
       totalByteWeight?: number | null
       hasSsl?: boolean | null
       hasHttpsRedirect?: boolean | null
+      aiMissingCtaMobile?: boolean | null
+      aiMissingCtaDesktop?: boolean | null
+      aiHasPoorMobileDesign?: boolean | null
+      aiHasPoorDesign?: boolean | null
     }) => void,
     onSessionUpdate?: (status: string) => void,
     onDone?: () => void

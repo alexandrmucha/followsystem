@@ -91,6 +91,16 @@
         "label": "Sort results by:",
         "lead_score": "Lead value"
       },
+      "ai": {
+        "missing_cta_mobile": "No CTA (mobile)",
+        "has_cta_mobile": "CTA OK (mobile)",
+        "missing_cta_desktop": "No CTA (desktop)",
+        "has_cta_desktop": "CTA OK (desktop)",
+        "poor_mobile_design": "Poor mobile design",
+        "good_mobile_design": "Good mobile design",
+        "poor_design": "Poor design",
+        "good_design": "Good design"
+      },
       "generate_email": "Generate email"
     },
     "errors": {

@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import type { BusinessLeadDTO } from '~/types/business-lead.dto'
 
-export const LEAD_SCORE_MAX = 12
+export const LEAD_SCORE_MAX = 18
 
 export function computeLeadScore(lead: BusinessLeadDTO): number {
   if (!lead.hasWebsite) return 3
@@ -31,6 +31,11 @@ export function computeLeadScore(lead: BusinessLeadDTO): number {
     if (lead.rating >= 4.5 && lead.reviewCount >= 10) score += 2
     else if (lead.rating >= 4.0 && lead.reviewCount >= 5) score += 1
   }
+
+  if (lead.aiMissingCtaMobile === true) score += 2
+  if (lead.aiMissingCtaDesktop === true) score += 1
+  if (lead.aiHasPoorMobileDesign === true) score += 2
+  if (lead.aiHasPoorDesign === true) score += 1
 
   return score
 }
@@ -76,6 +81,10 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     totalByteWeight?: number | null
     hasSsl?: boolean | null
     hasHttpsRedirect?: boolean | null
+    aiMissingCtaMobile?: boolean | null
+    aiMissingCtaDesktop?: boolean | null
+    aiHasPoorMobileDesign?: boolean | null
+    aiHasPoorDesign?: boolean | null
   }) {
     const lead = leads.value.find(l => l.id === leadId)
     if (lead) {
@@ -89,6 +98,10 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       lead.totalByteWeight = data.totalByteWeight
       lead.hasSsl = data.hasSsl
       lead.hasHttpsRedirect = data.hasHttpsRedirect
+      lead.aiMissingCtaMobile = data.aiMissingCtaMobile
+      lead.aiMissingCtaDesktop = data.aiMissingCtaDesktop
+      lead.aiHasPoorMobileDesign = data.aiHasPoorMobileDesign
+      lead.aiHasPoorDesign = data.aiHasPoorDesign
     }
   }
 

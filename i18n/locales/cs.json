@@ -91,6 +91,16 @@
         "label": "Seřadit výsledky podle:",
         "lead_score": "Hodnota leadu"
       },
+      "ai": {
+        "missing_cta_mobile": "Chybí CTA (mobil)",
+        "has_cta_mobile": "CTA OK (mobil)",
+        "missing_cta_desktop": "Chybí CTA (desktop)",
+        "has_cta_desktop": "CTA OK (desktop)",
+        "poor_mobile_design": "Špatný mobilní design",
+        "good_mobile_design": "Dobrý mobilní design",
+        "poor_design": "Špatný design",
+        "good_design": "Dobrý design"
+      },
       "generate_email": "Vygenerovat e-mail"
     },
     "errors": {

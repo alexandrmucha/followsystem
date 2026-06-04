@@ -59,6 +59,22 @@
           </template>
         </SearchMetricBadge>
 
+        <SearchMetricBadge v-if="lead.aiMissingCtaMobile != null" :value="lead.aiMissingCtaMobile" type="ai" :aria-label="lead.aiMissingCtaMobile ? t('search.results.ai.missing_cta_mobile') : t('search.results.ai.has_cta_mobile')">
+          <template #icon><LucideMousePointer :size="13" /></template>
+        </SearchMetricBadge>
+
+        <SearchMetricBadge v-if="lead.aiMissingCtaDesktop != null" :value="lead.aiMissingCtaDesktop" type="ai" :aria-label="lead.aiMissingCtaDesktop ? t('search.results.ai.missing_cta_desktop') : t('search.results.ai.has_cta_desktop')">
+          <template #icon><LucideMousePointer :size="13" /></template>
+        </SearchMetricBadge>
+
+        <SearchMetricBadge v-if="lead.aiHasPoorMobileDesign != null" :value="lead.aiHasPoorMobileDesign" type="ai" :aria-label="lead.aiHasPoorMobileDesign ? t('search.results.ai.poor_mobile_design') : t('search.results.ai.good_mobile_design')">
+          <template #icon><LucideSmartphone :size="13" /></template>
+        </SearchMetricBadge>
+
+        <SearchMetricBadge v-if="lead.aiHasPoorDesign != null" :value="lead.aiHasPoorDesign" type="ai" :aria-label="lead.aiHasPoorDesign ? t('search.results.ai.poor_design') : t('search.results.ai.good_design')">
+          <template #icon><LucidePaintbrush :size="13" /></template>
+        </SearchMetricBadge>
+
       </div>
 
       <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" @click="$emit('generate-email', lead)">
