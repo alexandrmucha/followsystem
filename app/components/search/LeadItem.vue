@@ -71,6 +71,13 @@
       </UiBaseButton>
     </div>
 
+    <div v-else-if="!lead.hasWebsite" class="mt-3 flex sm:justify-end">
+      <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" @click="$emit('generate-email', lead)">
+        <LucideSparkles :size="16" />
+        {{ t('search.results.generate_email') }}
+      </UiBaseButton>
+    </div>
+
   </div>
 </template>
 
