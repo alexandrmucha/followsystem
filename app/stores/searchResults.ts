@@ -74,6 +74,24 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     return Math.round((analyzedCount.value / websiteLeadsCount.value) * 100)
   })
 
+  function computeLeadTiebreaker(lead: BusinessLeadDTO): number {
+    if (!lead.hasWebsite || lead.analysisStatus !== 'done') return 100
+
+    const weights = [
+      { value: lead.mobileScore, weight: 3 },
+      { value: lead.seoScore, weight: 2 },
+      { value: lead.performanceScore, weight: 2 },
+      { value: lead.accessibilityScore, weight: 1 },
+      { value: lead.bestPracticesScore, weight: 1 },
+    ]
+
+    const available = weights.filter(w => w.value != null) as { value: number; weight: number }[]
+    if (!available.length) return 100
+
+    const totalWeight = available.reduce((sum, w) => sum + w.weight, 0)
+    return available.reduce((sum, w) => sum + w.value * w.weight, 0) / totalWeight
+  }
+
   function computeLeadScore(lead: BusinessLeadDTO): number {
     if (!lead.hasWebsite) return 3
     if (lead.analysisStatus !== 'done') return 0
@@ -109,7 +127,11 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     if (sessionStatus.value === 'analyzing') return rawLeads
 
     if (sortBy.value === 'leadScore') {
-      return rawLeads.sort((a, b) => computeLeadScore(b) - computeLeadScore(a))
+      return rawLeads.sort((a, b) => {
+        const scoreDiff = computeLeadScore(b) - computeLeadScore(a)
+        if (scoreDiff !== 0) return scoreDiff
+        return computeLeadTiebreaker(a) - computeLeadTiebreaker(b)
+      })
     }
 
     const isMetric = sortBy.value === 'largestContentfulPaint' || sortBy.value === 'totalByteWeight'
