@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import type { BusinessLeadDTO } from '~/types/business-lead.dto'
 
-export const LEAD_SCORE_MAX = 22
+export const LEAD_SCORE_MAX = 21
 
 export function computeLeadScore(lead: BusinessLeadDTO): number {
   if (!lead.hasWebsite) return 3
@@ -17,11 +17,6 @@ export function computeLeadScore(lead: BusinessLeadDTO): number {
     else if (lead.largestContentfulPaint > 2.5) score += 1
   }
 
-  if (lead.mobileScore != null) {
-    if (lead.mobileScore < 50) score += 2
-    else if (lead.mobileScore < 70) score += 1
-  }
-
   if (lead.seoScore != null) {
     if (lead.seoScore < 50) score += 2
     else if (lead.seoScore < 90) score += 1
@@ -34,7 +29,7 @@ export function computeLeadScore(lead: BusinessLeadDTO): number {
 
   if (lead.aiMissingCtaMobile === true) score += 2
   if (lead.aiMissingCtaDesktop === true) score += 1
-  if (lead.aiHasPoorMobileDesign === true) score += 2
+  if (lead.aiHasPoorMobileDesign === true) score += 3
   if (lead.aiHasPoorDesign === true) score += 1
   if (lead.aiWeakCopywriting === true) score += 2
   if (lead.aiMissingContactInfo === true) score += 2
