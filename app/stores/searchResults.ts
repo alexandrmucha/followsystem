@@ -12,8 +12,6 @@ export function computeLeadScore(lead: BusinessLeadDTO): number {
   if (lead.hasSsl === false) score += 2
   else if (lead.hasHttpsRedirect === false) score += 1
 
-  if (lead.hasViewport === false) score += 2
-
   if (lead.largestContentfulPaint != null) {
     if (lead.largestContentfulPaint > 4) score += 2
     else if (lead.largestContentfulPaint > 2.5) score += 1
@@ -78,7 +76,6 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     totalByteWeight?: number | null
     hasSsl?: boolean | null
     hasHttpsRedirect?: boolean | null
-    hasViewport?: boolean | null
   }) {
     const lead = leads.value.find(l => l.id === leadId)
     if (lead) {
@@ -92,7 +89,6 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       lead.totalByteWeight = data.totalByteWeight
       lead.hasSsl = data.hasSsl
       lead.hasHttpsRedirect = data.hasHttpsRedirect
-      lead.hasViewport = data.hasViewport
     }
   }
 

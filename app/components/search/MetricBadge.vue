@@ -13,7 +13,7 @@
 <script lang="ts" setup>
 const props = defineProps<{
   value: number | boolean | null | undefined
-  type: 'lcp' | 'size' | 'ssl' | 'viewport'
+  type: 'lcp' | 'size' | 'ssl'
   ariaLabel?: string
 }>()
 
@@ -26,7 +26,6 @@ const displayValue = computed(() => {
     return props.value ? t('search.results.ssl.yes') : t('search.results.ssl.no')
   }
   if (props.value === null) return '--'
-  if (props.type === 'viewport') return props.value ? t('search.results.viewport.yes') : t('search.results.viewport.no')
   if (props.type === 'lcp') return `${props.value} s`
   if (props.type === 'size') return `${props.value} MB`
   return props.value
@@ -39,7 +38,7 @@ const valueColor = computed(() => {
     return 'text-neutral-400 dark:text-neutral-500'
   }
 
-  if (props.type === 'ssl' || props.type === 'viewport') {
+  if (props.type === 'ssl') {
     return props.value
       ? 'text-emerald-600 dark:text-emerald-400'
       : 'text-red-600 dark:text-red-400'

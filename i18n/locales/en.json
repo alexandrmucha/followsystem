@@ -87,10 +87,6 @@
         "no": "No SSL",
         "no_redirect": "No HTTPS redirect"
       },
-      "viewport": {
-        "yes": "Viewport",
-        "no": "No Viewport"
-      },
       "sort": {
         "label": "Sort results by:",
         "lead_score": "Lead value"

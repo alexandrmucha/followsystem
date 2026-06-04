@@ -59,11 +59,6 @@
           </template>
         </SearchMetricBadge>
 
-        <SearchMetricBadge :value="lead.hasViewport" type="viewport" :aria-label="lead.hasViewport ? t('search.results.viewport.yes') : t('search.results.viewport.no')">
-          <template #icon>
-            <LucideMonitor :size="13" />
-          </template>
-        </SearchMetricBadge>
       </div>
 
       <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" @click="$emit('generate-email', lead)">

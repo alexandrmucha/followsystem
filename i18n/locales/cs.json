@@ -87,10 +87,6 @@
         "no": "Bez SSL",
         "no_redirect": "Chybí HTTPS redirect"
       },
-      "viewport": {
-        "yes": "Viewport",
-        "no": "Bez viewportu"
-      },
       "sort": {
         "label": "Seřadit výsledky podle:",
         "lead_score": "Hodnota leadu"

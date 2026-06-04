@@ -23,9 +23,12 @@
         />
       </div>
 
-      <div class="mt-4 pt-4 border-t border-neutral-100 dark:border-neutral-800 flex justify-end">
+      <div class="mt-4 pt-4 border-t border-neutral-100 dark:border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1">
         <p class="text-[10px] tracking-wide text-neutral-400 dark:text-neutral-500 uppercase font-medium select-none">
           Powered by Google
+        </p>
+        <p class="text-[10px] tracking-wide text-neutral-400 dark:text-neutral-500 uppercase font-medium select-none">
+          AI analysis by Claude
         </p>
       </div>
     </UiBaseCard>

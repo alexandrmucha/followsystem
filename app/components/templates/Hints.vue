@@ -45,12 +45,10 @@ Fast website.
     </p>
 
     <pre :class="[codeBlockClass, 'mb-4']">{if has_website == 1}
-  {if has_ssl == 0 and has_viewport == 0}
-  Missing SSL and viewport.
-  {elseif has_ssl == 0}
+  {if has_ssl == 0}
   Missing SSL.
-  {elseif has_viewport == 0}
-  Missing viewport.
+  {elseif has_https_redirect == 0}
+  Missing HTTPS redirect.
   {endif}
 {else}
 No website found.
@@ -83,7 +81,7 @@ const variables = [
   'lcp', 'lcp_times', 'page_size',
 ]
 
-const booleanVariables = ['has_website', 'has_ssl', 'has_https_redirect', 'has_viewport']
+const booleanVariables = ['has_website', 'has_ssl', 'has_https_redirect']
 
 const operators = ['>', '<', '>=', '<=', '==', '!=', 'and', 'or']
 </script>

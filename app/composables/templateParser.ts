@@ -121,7 +121,6 @@ export function useTemplateParser() {
       has_website: lead.hasWebsite ? 1 : 0,
       has_ssl: lead.hasSsl == null ? null : lead.hasSsl ? 1 : 0,
       has_https_redirect: lead.hasHttpsRedirect == null ? null : lead.hasHttpsRedirect ? 1 : 0,
-      has_viewport: lead.hasViewport == null ? null : lead.hasViewport ? 1 : 0,
       rating: lead.rating,
       review_count: lead.reviewCount,
       lcp: lead.largestContentfulPaint,

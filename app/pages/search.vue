@@ -80,7 +80,6 @@ watch(() => searchResults.sessionStatus, (sessionStatus) => {
       totalByteWeight: update.totalByteWeight,
       hasSsl: update.hasSsl,
       hasHttpsRedirect: update.hasHttpsRedirect,
-      hasViewport: update.hasViewport,
     })
   }, (sessionStatus) => {
     searchResults.setSessionStatus(sessionStatus)
