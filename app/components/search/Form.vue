@@ -22,9 +22,14 @@
           <UiBaseInput
             v-model="searchDraft.industry"
             :disabled="isDisabled"
+            :error="!!industryError"
             :label="$t('search.form.industry_label')"
             :placeholder="$t('search.form.industry_placeholder')"
           />
+
+          <p v-if="industryError" :class="fieldErrorClass">
+            {{ industryError }}
+          </p>
         </UiFormField>
 
       </div>
@@ -77,6 +82,7 @@ const searchDraft = useSearchDraftStore()
 const searchResults = useSearchResultsStore()
 
 // errors
+const industryError = ref('')
 const locationError = ref('')
 
 // loading (API request)
@@ -85,9 +91,15 @@ const loading = ref(false)
 const isDisabled = computed(() => loading.value || searchResults.sessionStatus === 'analyzing' || searchResults.sessionStatus === 'cancelling')
 
 const validate = () => {
+  industryError.value = ''
   locationError.value = ''
 
   let isValid = true
+
+  if (!searchDraft.industry.trim()) {
+    industryError.value = t('search.form.errors.industry_required')
+    isValid = false
+  }
 
   if (!searchDraft.location.trim()) {
     locationError.value = t('search.form.errors.location_required')
@@ -98,6 +110,10 @@ const validate = () => {
 }
 
 // clear errors on typing
+watch(() => searchDraft.industry, () => {
+  if (industryError.value) industryError.value = ''
+})
+
 watch(() => searchDraft.location, () => {
   if (locationError.value) locationError.value = ''
 })

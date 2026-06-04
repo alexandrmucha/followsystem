@@ -39,9 +39,9 @@
   },
   "search": {
     "title": "Najděte své přístí klienty",
-    "description": "Zadejte lokalitu pro vyhledání firem.",
+    "description": "Zadejte obor a lokalitu pro vyhledání firem.",
     "form": {
-      "industry_label": "Obor (volitelný)",
+      "industry_label": "Obor",
       "industry_placeholder": "např. instalatér",
       "location_label": "Lokalita",
       "location_placeholder": "např. Praha",
@@ -49,6 +49,7 @@
       "stop_button": "Zastavit analýzu",
       "resume_button": "Obnovit analýzu",
       "errors": {
+        "industry_required": "Obor je povinný",
         "location_required": "Lokalita je povinná"
       }
     },
