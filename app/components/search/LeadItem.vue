@@ -73,6 +73,14 @@
           <template #icon><LucidePaintbrush :size="13" /></template>
         </SearchMetricBadge>
 
+        <SearchMetricBadge v-if="lead.aiWeakCopywriting != null" :value="lead.aiWeakCopywriting" type="ai" :aria-label="lead.aiWeakCopywriting ? t('search.results.ai.weak_copywriting') : t('search.results.ai.good_copywriting')">
+          <template #icon><LucidePenLine :size="13" /></template>
+        </SearchMetricBadge>
+
+        <SearchMetricBadge v-if="lead.aiMissingContactInfo != null" :value="lead.aiMissingContactInfo" type="ai" :aria-label="lead.aiMissingContactInfo ? t('search.results.ai.missing_contact_info') : t('search.results.ai.has_contact_info')">
+          <template #icon><LucideContact :size="13" /></template>
+        </SearchMetricBadge>
+
       </div>
 
       <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2 sm:ml-auto" @click="$emit('generate-email', lead)">

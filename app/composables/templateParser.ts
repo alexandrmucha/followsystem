@@ -125,6 +125,8 @@ export function useTemplateParser() {
       ai_missing_cta_desktop: lead.aiMissingCtaDesktop == null ? null : lead.aiMissingCtaDesktop ? 1 : 0,
       ai_has_poor_mobile_design: lead.aiHasPoorMobileDesign == null ? null : lead.aiHasPoorMobileDesign ? 1 : 0,
       ai_has_poor_design: lead.aiHasPoorDesign == null ? null : lead.aiHasPoorDesign ? 1 : 0,
+      ai_weak_copywriting: lead.aiWeakCopywriting == null ? null : lead.aiWeakCopywriting ? 1 : 0,
+      ai_missing_contact_info: lead.aiMissingContactInfo == null ? null : lead.aiMissingContactInfo ? 1 : 0,
       rating: lead.rating,
       review_count: lead.reviewCount,
       lcp: lead.largestContentfulPaint,

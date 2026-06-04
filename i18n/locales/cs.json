@@ -103,7 +103,11 @@
         "poor_mobile_design": "Špatný mobilní design",
         "good_mobile_design": "Dobrý mobilní design",
         "poor_design": "Špatný design",
-        "good_design": "Dobrý design"
+        "good_design": "Dobrý design",
+        "weak_copywriting": "Slabé texty",
+        "good_copywriting": "Texty OK",
+        "missing_contact_info": "Chybí kontaktní údaje",
+        "has_contact_info": "Kontaktní údaje OK"
       },
       "generate_email": "Vygenerovat e-mail"
     },

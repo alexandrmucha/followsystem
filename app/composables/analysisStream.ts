@@ -21,6 +21,8 @@ export function useAnalysisStream() {
       aiMissingCtaDesktop?: boolean | null
       aiHasPoorMobileDesign?: boolean | null
       aiHasPoorDesign?: boolean | null
+      aiWeakCopywriting?: boolean | null
+      aiMissingContactInfo?: boolean | null
     }) => void,
     onSessionUpdate?: (status: string) => void,
     onDone?: () => void

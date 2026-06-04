@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import type { BusinessLeadDTO } from '~/types/business-lead.dto'
 
-export const LEAD_SCORE_MAX = 18
+export const LEAD_SCORE_MAX = 22
 
 export function computeLeadScore(lead: BusinessLeadDTO): number {
   if (!lead.hasWebsite) return 3
@@ -36,6 +36,8 @@ export function computeLeadScore(lead: BusinessLeadDTO): number {
   if (lead.aiMissingCtaDesktop === true) score += 1
   if (lead.aiHasPoorMobileDesign === true) score += 2
   if (lead.aiHasPoorDesign === true) score += 1
+  if (lead.aiWeakCopywriting === true) score += 2
+  if (lead.aiMissingContactInfo === true) score += 2
 
   return score
 }
@@ -85,6 +87,8 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     aiMissingCtaDesktop?: boolean | null
     aiHasPoorMobileDesign?: boolean | null
     aiHasPoorDesign?: boolean | null
+    aiWeakCopywriting?: boolean | null
+    aiMissingContactInfo?: boolean | null
   }) {
     const lead = leads.value.find(l => l.id === leadId)
     if (lead) {
@@ -102,6 +106,8 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       lead.aiMissingCtaDesktop = data.aiMissingCtaDesktop
       lead.aiHasPoorMobileDesign = data.aiHasPoorMobileDesign
       lead.aiHasPoorDesign = data.aiHasPoorDesign
+      lead.aiWeakCopywriting = data.aiWeakCopywriting
+      lead.aiMissingContactInfo = data.aiMissingContactInfo
     }
   }
 
