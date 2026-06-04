@@ -32,15 +32,18 @@
                 {{ $t('templates.default_badge') }}
               </UiBaseBadge>
             </div>
-            <div class="flex flex-wrap items-center gap-2">
+            <div class="flex flex-wrap items-center gap-2 justify-end sm:justify-start">
               <UiBaseButton v-if="!template.isDefault" variant="secondary" size="sm" :disabled="settingDefaultId === template.id" @click="setDefault(template.id)">
-                {{ $t('templates.set_default') }}
+                <LucideStar :size="14" class="sm:hidden" />
+                <span class="hidden sm:inline">{{ $t('templates.set_default') }}</span>
               </UiBaseButton>
               <UiBaseButton variant="secondary" size="sm" @click="navigateTo(`/templates/${template.id}`)">
-                {{ $t('common.edit') }}
+                <LucidePencil :size="14" class="sm:hidden" />
+                <span class="hidden sm:inline">{{ $t('common.edit') }}</span>
               </UiBaseButton>
               <UiBaseButton variant="danger" size="sm" @click="deleteTemplate(template.id)">
-                {{ $t('common.delete') }}
+                <LucideTrash2 :size="14" class="sm:hidden" />
+                <span class="hidden sm:inline">{{ $t('common.delete') }}</span>
               </UiBaseButton>
             </div>
           </div>
