@@ -147,8 +147,9 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       if (!a.hasWebsite && b.hasWebsite) return 1
       if (a.hasWebsite && !b.hasWebsite) return -1
 
-      const aVal = a[sortBy.value]
-      const bVal = b[sortBy.value]
+      const key = sortBy.value as keyof BusinessLeadDTO
+      const aVal = a[key]
+      const bVal = b[key]
 
       if (aVal == null && bVal == null) return 0
       if (aVal == null) return 1
