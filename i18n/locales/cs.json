@@ -105,9 +105,7 @@
         "poor_design": "Špatný design",
         "good_design": "Dobrý design",
         "weak_copywriting": "Slabé texty",
-        "good_copywriting": "Texty OK",
-        "missing_contact_info": "Chybí kontaktní údaje",
-        "has_contact_info": "Kontaktní údaje OK"
+        "good_copywriting": "Texty OK"
       },
       "generate_email": "Vygenerovat e-mail"
     },

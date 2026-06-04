@@ -25,5 +25,4 @@ export type BusinessLeadDTO = {
   aiHasPoorMobileDesign?: boolean | null
   aiHasPoorDesign?: boolean | null
   aiWeakCopywriting?: boolean | null
-  aiMissingContactInfo?: boolean | null
 }

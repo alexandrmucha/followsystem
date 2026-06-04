@@ -85,7 +85,6 @@ watch(() => searchResults.sessionStatus, (sessionStatus) => {
       aiHasPoorMobileDesign: update.aiHasPoorMobileDesign,
       aiHasPoorDesign: update.aiHasPoorDesign,
       aiWeakCopywriting: update.aiWeakCopywriting,
-      aiMissingContactInfo: update.aiMissingContactInfo,
     })
   }, (sessionStatus) => {
     searchResults.setSessionStatus(sessionStatus)

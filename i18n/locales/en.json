@@ -105,9 +105,7 @@
         "poor_design": "Poor design",
         "good_design": "Good design",
         "weak_copywriting": "Weak copywriting",
-        "good_copywriting": "Good copywriting",
-        "missing_contact_info": "Missing contact info",
-        "has_contact_info": "Contact info OK"
+        "good_copywriting": "Good copywriting"
       },
       "generate_email": "Generate email"
     },

@@ -77,9 +77,6 @@
           <template #icon><LucidePenLine :size="13" /></template>
         </SearchMetricBadge>
 
-        <SearchMetricBadge v-if="lead.aiMissingContactInfo != null" :value="lead.aiMissingContactInfo" type="ai" :aria-label="lead.aiMissingContactInfo ? t('search.results.ai.missing_contact_info') : t('search.results.ai.has_contact_info')">
-          <template #icon><LucideContact :size="13" /></template>
-        </SearchMetricBadge>
 
       </div>
 
