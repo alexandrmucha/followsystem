@@ -27,6 +27,7 @@
           {{ t('search.results.website') }}
         </a>
 
+        <SearchPageSpeedBadge v-if="lead.analysisStatus === 'done' || !lead.hasWebsite" :label="t('search.results.sort.lead_score')" :score="leadScorePercent" magic />
         <UiBaseBadge :variant="badgeVariant">{{ badgeText }}</UiBaseBadge>
       </div>
     </div>
@@ -83,10 +84,15 @@
 
 <script lang="ts" setup>
 import type { BusinessLeadDTO } from '~/types/business-lead.dto'
+import { computeLeadScore, LEAD_SCORE_MAX } from '~/stores/searchResults'
 
 const props = defineProps<{ lead: BusinessLeadDTO }>()
 defineEmits<{ 'generate-email': [lead: BusinessLeadDTO] }>()
 const { t } = useI18n()
+
+const leadScorePercent = computed(() =>
+  Math.min(100, Math.round(computeLeadScore(props.lead) / LEAD_SCORE_MAX * 100))
+)
 
 const sslValue = computed(() => {
   if (props.lead.hasSsl == null) return undefined

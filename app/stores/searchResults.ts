@@ -1,6 +1,42 @@
 import { defineStore } from 'pinia'
 import type { BusinessLeadDTO } from '~/types/business-lead.dto'
 
+export const LEAD_SCORE_MAX = 12
+
+export function computeLeadScore(lead: BusinessLeadDTO): number {
+  if (!lead.hasWebsite) return 3
+  if (lead.analysisStatus !== 'done') return 0
+
+  let score = 0
+
+  if (lead.hasSsl === false) score += 2
+  else if (lead.hasHttpsRedirect === false) score += 1
+
+  if (lead.hasViewport === false) score += 2
+
+  if (lead.largestContentfulPaint != null) {
+    if (lead.largestContentfulPaint > 4) score += 2
+    else if (lead.largestContentfulPaint > 2.5) score += 1
+  }
+
+  if (lead.mobileScore != null) {
+    if (lead.mobileScore < 50) score += 2
+    else if (lead.mobileScore < 70) score += 1
+  }
+
+  if (lead.seoScore != null) {
+    if (lead.seoScore < 50) score += 2
+    else if (lead.seoScore < 90) score += 1
+  }
+
+  if (lead.rating != null && lead.reviewCount != null) {
+    if (lead.rating >= 4.5 && lead.reviewCount >= 10) score += 2
+    else if (lead.rating >= 4.0 && lead.reviewCount >= 5) score += 1
+  }
+
+  return score
+}
+
 export const useSearchResultsStore = defineStore('searchResults', () => {
   const sessionId = ref<string | null>(null)
   const sessionStatus = ref<string | null>(null)
@@ -90,40 +126,6 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
 
     const totalWeight = available.reduce((sum, w) => sum + w.weight, 0)
     return available.reduce((sum, w) => sum + w.value * w.weight, 0) / totalWeight
-  }
-
-  function computeLeadScore(lead: BusinessLeadDTO): number {
-    if (!lead.hasWebsite) return 3
-    if (lead.analysisStatus !== 'done') return 0
-
-    let score = 0
-
-    if (lead.hasSsl === false) score += 2
-    else if (lead.hasHttpsRedirect === false) score += 1
-
-    if (lead.hasViewport === false) score += 2
-
-    if (lead.largestContentfulPaint != null) {
-      if (lead.largestContentfulPaint > 4) score += 2
-      else if (lead.largestContentfulPaint > 2.5) score += 1
-    }
-
-    if (lead.mobileScore != null) {
-      if (lead.mobileScore < 50) score += 2
-      else if (lead.mobileScore < 70) score += 1
-    }
-
-    if (lead.seoScore != null) {
-      if (lead.seoScore < 50) score += 2
-      else if (lead.seoScore < 90) score += 1
-    }
-
-    if (lead.rating != null && lead.reviewCount != null) {
-      if (lead.rating >= 4.5 && lead.reviewCount >= 10) score += 2
-      else if (lead.rating >= 4.0 && lead.reviewCount >= 5) score += 1
-    }
-
-    return score
   }
 
   const sortedLeads = computed(() => {
