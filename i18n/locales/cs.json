@@ -126,7 +126,7 @@
       "recipient_hint_after": ".",
       "subject_label": "Předmět",
       "body_label": "Text e-mailu",
-      "body_hint": "Před odesláním si e-mail pečlivě překontrolujte — zkontrolujte, že byly všechny proměnné správně nahrazeny.",
+      "body_hint": "Před odesláním si e-mail pečlivě překontrolujte — ověřte, že obsah odpovídá skutečnému stavu webu.",
       "copy": "Kopírovat",
       "copied": "Zkopírováno!",
       "open": "Otevřít v e-mailovém klientu"

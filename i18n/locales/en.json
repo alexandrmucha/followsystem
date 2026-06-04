@@ -126,7 +126,7 @@
       "recipient_hint_after": ".",
       "subject_label": "Subject",
       "body_label": "Email body",
-      "body_hint": "Review the email carefully before sending — make sure all placeholders were replaced correctly.",
+      "body_hint": "Review the email carefully before sending — make sure the content accurately reflects the actual state of the website.",
       "copy": "Copy",
       "copied": "Copied!",
       "open": "Open in email client"
