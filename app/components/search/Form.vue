@@ -6,20 +6,6 @@
 
         <UiFormField class="flex-1">
           <UiBaseInput
-            v-model="searchDraft.location"
-            :disabled="isDisabled"
-            :error="!!locationError"
-            :label="$t('search.form.location_label')"
-            :placeholder="$t('search.form.location_placeholder')"
-          />
-
-          <p v-if="locationError" :class="fieldErrorClass">
-            {{ locationError }}
-          </p>
-        </UiFormField>
-
-        <UiFormField class="flex-1">
-          <UiBaseInput
             v-model="searchDraft.industry"
             :disabled="isDisabled"
             :error="!!industryError"
@@ -29,6 +15,20 @@
 
           <p v-if="industryError" :class="fieldErrorClass">
             {{ industryError }}
+          </p>
+        </UiFormField>
+
+        <UiFormField class="flex-1">
+          <UiBaseInput
+            v-model="searchDraft.location"
+            :disabled="isDisabled"
+            :error="!!locationError"
+            :label="$t('search.form.location_label')"
+            :placeholder="$t('search.form.location_placeholder')"
+          />
+
+          <p v-if="locationError" :class="fieldErrorClass">
+            {{ locationError }}
           </p>
         </UiFormField>
 
