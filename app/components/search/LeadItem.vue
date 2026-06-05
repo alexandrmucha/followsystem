@@ -59,13 +59,13 @@
           </template>
         </SearchMetricBadge>
 
-        <span v-if="lead.aiMissingCtaMobile != null || lead.aiMissingCtaDesktop != null || lead.aiHasPoorMobileDesign != null || lead.aiHasPoorDesign != null" class="w-px h-3 bg-neutral-200 dark:bg-neutral-700 self-center" />
+        <span v-if="lead.aiMissingCtaMobile != null || lead.aiMissingCtaDesktop != null || lead.isResponsive != null || lead.aiHasPoorDesign != null" class="w-px h-3 bg-neutral-200 dark:bg-neutral-700 self-center" />
 
         <SearchMetricBadge v-if="ctaValue !== undefined" :value="ctaValue" type="cta" :aria-label="ctaAriaLabel">
           <template #icon><LucideMousePointer :size="13" /></template>
         </SearchMetricBadge>
 
-        <SearchMetricBadge v-if="lead.aiHasPoorMobileDesign != null" :value="lead.aiHasPoorMobileDesign" type="ai" :aria-label="lead.aiHasPoorMobileDesign ? t('search.results.ai.poor_mobile_design') : t('search.results.ai.good_mobile_design')">
+        <SearchMetricBadge v-if="lead.isResponsive != null" :value="!lead.isResponsive" type="ai" :aria-label="lead.isResponsive ? t('search.results.ai.is_responsive') : t('search.results.ai.not_responsive')">
           <template #icon><LucideSmartphone :size="13" /></template>
         </SearchMetricBadge>
 

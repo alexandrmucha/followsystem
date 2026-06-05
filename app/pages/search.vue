@@ -82,7 +82,7 @@ watch(() => searchResults.sessionStatus, (sessionStatus) => {
       hasHttpsRedirect: update.hasHttpsRedirect,
       aiMissingCtaMobile: update.aiMissingCtaMobile,
       aiMissingCtaDesktop: update.aiMissingCtaDesktop,
-      aiHasPoorMobileDesign: update.aiHasPoorMobileDesign,
+      isResponsive: update.isResponsive,
       aiHasPoorDesign: update.aiHasPoorDesign,
       aiWeakCopywriting: update.aiWeakCopywriting,
     })

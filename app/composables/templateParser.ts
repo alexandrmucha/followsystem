@@ -123,7 +123,7 @@ export function useTemplateParser() {
       has_https_redirect: lead.hasHttpsRedirect == null ? null : lead.hasHttpsRedirect ? 1 : 0,
       ai_missing_cta_mobile: lead.aiMissingCtaMobile == null ? null : lead.aiMissingCtaMobile ? 1 : 0,
       ai_missing_cta_desktop: lead.aiMissingCtaDesktop == null ? null : lead.aiMissingCtaDesktop ? 1 : 0,
-      ai_has_poor_mobile_design: lead.aiHasPoorMobileDesign == null ? null : lead.aiHasPoorMobileDesign ? 1 : 0,
+      is_responsive: lead.isResponsive == null ? null : lead.isResponsive ? 1 : 0,
       ai_has_poor_design: lead.aiHasPoorDesign == null ? null : lead.aiHasPoorDesign ? 1 : 0,
       ai_weak_copywriting: lead.aiWeakCopywriting == null ? null : lead.aiWeakCopywriting ? 1 : 0,
       rating: lead.rating,

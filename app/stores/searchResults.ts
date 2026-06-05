@@ -29,7 +29,7 @@ export function computeLeadScore(lead: BusinessLeadDTO): number {
 
   if (lead.aiMissingCtaMobile === true) score += 2
   if (lead.aiMissingCtaDesktop === true) score += 1
-  if (lead.aiHasPoorMobileDesign === true) score += 3
+  if (lead.isResponsive === false) score += 3
   if (lead.aiHasPoorDesign === true) score += 2
   if (lead.aiWeakCopywriting === true) score += 2
 
@@ -79,7 +79,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     hasHttpsRedirect?: boolean | null
     aiMissingCtaMobile?: boolean | null
     aiMissingCtaDesktop?: boolean | null
-    aiHasPoorMobileDesign?: boolean | null
+    isResponsive?: boolean | null
     aiHasPoorDesign?: boolean | null
     aiWeakCopywriting?: boolean | null
   }) {
@@ -97,7 +97,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       lead.hasHttpsRedirect = data.hasHttpsRedirect
       lead.aiMissingCtaMobile = data.aiMissingCtaMobile
       lead.aiMissingCtaDesktop = data.aiMissingCtaDesktop
-      lead.aiHasPoorMobileDesign = data.aiHasPoorMobileDesign
+      lead.isResponsive = data.isResponsive
       lead.aiHasPoorDesign = data.aiHasPoorDesign
       lead.aiWeakCopywriting = data.aiWeakCopywriting
     }

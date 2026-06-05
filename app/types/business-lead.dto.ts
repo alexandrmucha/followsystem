@@ -22,7 +22,7 @@ export type BusinessLeadDTO = {
   hasHttpsRedirect?: boolean | null
   aiMissingCtaMobile?: boolean | null
   aiMissingCtaDesktop?: boolean | null
-  aiHasPoorMobileDesign?: boolean | null
+  isResponsive?: boolean | null
   aiHasPoorDesign?: boolean | null
   aiWeakCopywriting?: boolean | null
 }
