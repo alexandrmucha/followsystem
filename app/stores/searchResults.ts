@@ -14,7 +14,7 @@ export function computeLeadScore(lead: BusinessLeadDTO): number {
   if (!lead.hasWebsite) return score + 3
   if (lead.analysisStatus !== 'done') return 0
 
-  if (lead.hasSsl === false) score += 2
+  if (lead.hasSsl === false) score += 3
 
   if (lead.largestContentfulPaint != null) {
     if (lead.largestContentfulPaint > 4) score += 2
@@ -26,9 +26,9 @@ export function computeLeadScore(lead: BusinessLeadDTO): number {
     else if (lead.seoScore < 90) score += 1
   }
 
-  if (lead.isResponsive === false) score += 3
-  if (lead.aiMissingCtaMobile === true) score += 2
-  if (lead.aiMissingCtaDesktop === true) score += 2
+  if (lead.isResponsive === false) score += 5
+  if (lead.aiMissingCtaMobile === true) score += 1
+  if (lead.aiMissingCtaDesktop === true) score += 1
 
   if (lead.aiDesignScore != null) {
     if (lead.aiDesignScore < 50) score += 2
@@ -36,8 +36,7 @@ export function computeLeadScore(lead: BusinessLeadDTO): number {
   }
 
   if (lead.aiCopywritingScore != null) {
-    if (lead.aiCopywritingScore < 50) score += 2
-    else if (lead.aiCopywritingScore < 70) score += 1
+    if (lead.aiCopywritingScore < 50) score += 1
   }
 
   return score
