@@ -34,10 +34,10 @@
         />
 
         <p v-if="lead?.website" class="text-xs text-neutral-400 dark:text-neutral-500">
-          {{ t('search.email.recipient_hint_before') }}
+          {{ lead?.email ? t('search.email.recipient_hint_verify_before') : t('search.email.recipient_hint_before') }}
           <a :href="lead.website" target="_blank" class="underline hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors">
             {{ t('search.email.recipient_hint_link') }}
-          </a>
+          </a>{{ t('search.email.recipient_hint_after') }}
         </p>
       </UiFormField>
 
