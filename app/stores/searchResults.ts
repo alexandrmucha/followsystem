@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import type { BusinessLeadDTO } from '~/types/business-lead.dto'
 
-export const LEAD_SCORE_MAX = 18
+export const LEAD_SCORE_MAX = 17
 
 export function computeLeadScore(lead: BusinessLeadDTO): number {
   if (!lead.hasWebsite) return 3
@@ -10,7 +10,6 @@ export function computeLeadScore(lead: BusinessLeadDTO): number {
   let score = 0
 
   if (lead.hasSsl === false) score += 2
-  else if (lead.hasHttpsRedirect === false) score += 1
 
   if (lead.largestContentfulPaint != null) {
     if (lead.largestContentfulPaint > 4) score += 2
@@ -84,7 +83,6 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     largestContentfulPaint?: number | null
     totalByteWeight?: number | null
     hasSsl?: boolean | null
-    hasHttpsRedirect?: boolean | null
     isResponsive?: boolean | null
     aiMissingCtaMobile?: boolean | null
     aiMissingCtaDesktop?: boolean | null
@@ -102,7 +100,6 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       lead.largestContentfulPaint = data.largestContentfulPaint
       lead.totalByteWeight = data.totalByteWeight
       lead.hasSsl = data.hasSsl
-      lead.hasHttpsRedirect = data.hasHttpsRedirect
       lead.isResponsive = data.isResponsive
       lead.aiMissingCtaMobile = data.aiMissingCtaMobile
       lead.aiMissingCtaDesktop = data.aiMissingCtaDesktop

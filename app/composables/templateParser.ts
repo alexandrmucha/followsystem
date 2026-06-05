@@ -24,6 +24,8 @@ export function useTemplateParser() {
       .replace(/\{best_practices_score\}/g, String(lead.bestPracticesScore ?? ''))
       .replace(/\{rating\}/g, String(lead.rating ?? ''))
       .replace(/\{review_count\}/g, String(lead.reviewCount ?? ''))
+      .replace(/\{ai_design_score\}/g, String(lead.aiDesignScore ?? ''))
+      .replace(/\{ai_copywriting_score\}/g, String(lead.aiCopywritingScore ?? ''))
 
     result = expandElseIf(result)
     result = processConditions(result, lead)
@@ -120,7 +122,6 @@ export function useTemplateParser() {
     const map: Record<string, number | null | undefined> = {
       has_website: lead.hasWebsite ? 1 : 0,
       has_ssl: lead.hasSsl == null ? null : lead.hasSsl ? 1 : 0,
-      has_https_redirect: lead.hasHttpsRedirect == null ? null : lead.hasHttpsRedirect ? 1 : 0,
       is_responsive: lead.isResponsive == null ? null : lead.isResponsive ? 1 : 0,
       ai_missing_cta_mobile: lead.aiMissingCtaMobile == null ? null : lead.aiMissingCtaMobile ? 1 : 0,
       ai_missing_cta_desktop: lead.aiMissingCtaDesktop == null ? null : lead.aiMissingCtaDesktop ? 1 : 0,

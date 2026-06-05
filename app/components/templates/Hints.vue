@@ -47,8 +47,8 @@ Fast website.
     <pre :class="[codeBlockClass, 'mb-4']">{if has_website == 1}
   {if has_ssl == 0}
   Missing SSL.
-  {elseif has_https_redirect == 0}
-  Missing HTTPS redirect.
+  {elseif is_responsive == 0}
+  Not responsive.
   {endif}
 {else}
 No website found.
@@ -82,7 +82,7 @@ const variables = [
   'ai_design_score', 'ai_copywriting_score',
 ]
 
-const booleanVariables = ['has_website', 'has_ssl', 'has_https_redirect', 'is_responsive', 'ai_missing_cta_mobile', 'ai_missing_cta_desktop']
+const booleanVariables = ['has_website', 'has_ssl', 'is_responsive', 'ai_missing_cta_mobile', 'ai_missing_cta_desktop']
 
 const operators = ['>', '<', '>=', '<=', '==', '!=', 'and', 'or']
 </script>

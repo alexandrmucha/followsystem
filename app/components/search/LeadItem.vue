@@ -126,13 +126,10 @@ const ctaAriaLabel = computed(() => {
 
 const sslValue = computed(() => {
   if (props.lead.hasSsl == null) return undefined
-  if (!props.lead.hasSsl) return false
-  if (props.lead.hasHttpsRedirect === false) return null
-  return true
+  return props.lead.hasSsl ? true : false
 })
 
 const sslAriaLabel = computed(() => {
-  if (sslValue.value === null) return t('search.results.ssl.no_redirect')
   if (sslValue.value === false) return t('search.results.ssl.no')
   if (sslValue.value === true) return t('search.results.ssl.yes')
   return ''

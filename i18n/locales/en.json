@@ -85,8 +85,7 @@
       },
       "ssl": {
         "yes": "SSL",
-        "no": "No SSL",
-        "no_redirect": "No HTTPS redirect"
+        "no": "No SSL"
       },
       "sort": {
         "label": "Sort results by:",
