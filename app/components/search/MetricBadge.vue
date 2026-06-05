@@ -40,7 +40,7 @@ const displayValue = computed(() => {
 const valueColor = computed(() => {
   if (props.value === undefined) return 'text-neutral-400 dark:text-neutral-500'
   if (props.value === null) {
-    if (props.type === 'ssl' || props.type === 'cta') return 'text-amber-500 dark:text-amber-400'
+    if (props.type === 'ssl' || props.type === 'cta') return 'text-amber-600 dark:text-amber-400'
     return 'text-neutral-400 dark:text-neutral-500'
   }
 
