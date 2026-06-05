@@ -38,7 +38,7 @@
     }
   },
   "search": {
-    "title": "Najděte své přístí klienty",
+    "title": "Najděte své příští klienty",
     "description": "Zadejte obor a lokalitu pro vyhledání firem.",
     "form": {
       "industry_label": "Obor",
