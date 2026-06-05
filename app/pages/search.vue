@@ -79,6 +79,7 @@ watch(() => searchResults.sessionStatus, (sessionStatus) => {
       largestContentfulPaint: update.largestContentfulPaint,
       totalByteWeight: update.totalByteWeight,
       hasSsl: update.hasSsl,
+      email: update.email,
       isResponsive: update.isResponsive,
       aiMissingCtaMobile: update.aiMissingCtaMobile,
       aiMissingCtaDesktop: update.aiMissingCtaDesktop,

@@ -82,6 +82,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     largestContentfulPaint?: number | null
     totalByteWeight?: number | null
     hasSsl?: boolean | null
+    email?: string | null
     isResponsive?: boolean | null
     aiMissingCtaMobile?: boolean | null
     aiMissingCtaDesktop?: boolean | null
@@ -99,6 +100,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       lead.largestContentfulPaint = data.largestContentfulPaint
       lead.totalByteWeight = data.totalByteWeight
       lead.hasSsl = data.hasSsl
+      lead.email = data.email
       lead.isResponsive = data.isResponsive
       lead.aiMissingCtaMobile = data.aiMissingCtaMobile
       lead.aiMissingCtaDesktop = data.aiMissingCtaDesktop

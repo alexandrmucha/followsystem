@@ -125,7 +125,7 @@ watch(selectedTemplateId, (id) => {
 
 watch(() => props.lead, (lead) => {
   if (!lead) return
-  recipient.value = ''
+  recipient.value = lead.email ?? ''
   if (selectedTemplateId.value) {
     applyTemplate(selectedTemplateId.value, lead)
   }

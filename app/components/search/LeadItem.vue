@@ -13,6 +13,11 @@
           <LucidePhone :size="13" />
           {{ lead.phone }}
         </a>
+
+        <a v-if="lead.email" :href="`mailto:${lead.email}`" class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:underline w-fit">
+          <LucideMail :size="13" />
+          {{ lead.email }}
+        </a>
       </div>
 
       <!-- RIGHT -->
