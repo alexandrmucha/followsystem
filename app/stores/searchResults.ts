@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import type { BusinessLeadDTO } from '~/types/business-lead.dto'
 
-export const LEAD_SCORE_MAX = 20
+export const LEAD_SCORE_MAX = 18
 
 export function computeLeadScore(lead: BusinessLeadDTO): number {
   if (!lead.hasWebsite) return 3
@@ -27,11 +27,19 @@ export function computeLeadScore(lead: BusinessLeadDTO): number {
     else if (lead.rating >= 4.0 && lead.reviewCount >= 5) score += 1
   }
 
+  if (lead.isResponsive === false) score += 3
   if (lead.aiMissingCtaMobile === true) score += 2
   if (lead.aiMissingCtaDesktop === true) score += 1
-  if (lead.isResponsive === false) score += 3
-  if (lead.aiHasPoorDesign === true) score += 2
-  if (lead.aiWeakCopywriting === true) score += 2
+
+  if (lead.aiDesignScore != null) {
+    if (lead.aiDesignScore < 50) score += 2
+    else if (lead.aiDesignScore < 70) score += 1
+  }
+
+  if (lead.aiCopywritingScore != null) {
+    if (lead.aiCopywritingScore < 50) score += 2
+    else if (lead.aiCopywritingScore < 70) score += 1
+  }
 
   return score
 }
@@ -77,11 +85,11 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     totalByteWeight?: number | null
     hasSsl?: boolean | null
     hasHttpsRedirect?: boolean | null
+    isResponsive?: boolean | null
     aiMissingCtaMobile?: boolean | null
     aiMissingCtaDesktop?: boolean | null
-    isResponsive?: boolean | null
-    aiHasPoorDesign?: boolean | null
-    aiWeakCopywriting?: boolean | null
+    aiDesignScore?: number | null
+    aiCopywritingScore?: number | null
   }) {
     const lead = leads.value.find(l => l.id === leadId)
     if (lead) {
@@ -95,11 +103,11 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       lead.totalByteWeight = data.totalByteWeight
       lead.hasSsl = data.hasSsl
       lead.hasHttpsRedirect = data.hasHttpsRedirect
+      lead.isResponsive = data.isResponsive
       lead.aiMissingCtaMobile = data.aiMissingCtaMobile
       lead.aiMissingCtaDesktop = data.aiMissingCtaDesktop
-      lead.isResponsive = data.isResponsive
-      lead.aiHasPoorDesign = data.aiHasPoorDesign
-      lead.aiWeakCopywriting = data.aiWeakCopywriting
+      lead.aiDesignScore = data.aiDesignScore
+      lead.aiCopywritingScore = data.aiCopywritingScore
     }
   }
 

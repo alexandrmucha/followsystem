@@ -59,25 +59,23 @@
           </template>
         </SearchMetricBadge>
 
-        <span v-if="lead.aiMissingCtaMobile != null || lead.aiMissingCtaDesktop != null || lead.isResponsive != null || lead.aiHasPoorDesign != null" class="w-px h-3 bg-neutral-200 dark:bg-neutral-700 self-center" />
+        <SearchMetricBadge v-if="lead.isResponsive != null" :value="!lead.isResponsive" type="problem" :aria-label="lead.isResponsive ? t('search.results.ai.is_responsive') : t('search.results.ai.not_responsive')">
+          <template #icon><LucideSmartphone :size="13" /></template>
+        </SearchMetricBadge>
+
+        <span v-if="lead.aiMissingCtaMobile != null || lead.aiMissingCtaDesktop != null || lead.aiDesignScore != null || lead.aiCopywritingScore != null" class="w-px h-3 bg-neutral-200 dark:bg-neutral-700 self-center" />
 
         <SearchMetricBadge v-if="ctaValue !== undefined" :value="ctaValue" type="cta" :aria-label="ctaAriaLabel">
           <template #icon><LucideMousePointer :size="13" /></template>
         </SearchMetricBadge>
 
-        <SearchMetricBadge v-if="lead.isResponsive != null" :value="!lead.isResponsive" type="ai" :aria-label="lead.isResponsive ? t('search.results.ai.is_responsive') : t('search.results.ai.not_responsive')">
-          <template #icon><LucideSmartphone :size="13" /></template>
-        </SearchMetricBadge>
-
-        <SearchMetricBadge v-if="lead.aiHasPoorDesign != null" :value="lead.aiHasPoorDesign" type="ai" :aria-label="lead.aiHasPoorDesign ? t('search.results.ai.poor_design') : t('search.results.ai.good_design')">
+        <SearchMetricBadge v-if="lead.aiDesignScore != null" :value="lead.aiDesignScore" type="score" :aria-label="t('search.results.ai.design')">
           <template #icon><LucidePaintbrush :size="13" /></template>
         </SearchMetricBadge>
 
-        <SearchMetricBadge v-if="lead.aiWeakCopywriting != null" :value="lead.aiWeakCopywriting" type="ai" :aria-label="lead.aiWeakCopywriting ? t('search.results.ai.weak_copywriting') : t('search.results.ai.good_copywriting')">
+        <SearchMetricBadge v-if="lead.aiCopywritingScore != null" :value="lead.aiCopywritingScore" type="score" :aria-label="t('search.results.ai.copywriting')">
           <template #icon><LucidePenLine :size="13" /></template>
         </SearchMetricBadge>
-
-
       </div>
 
       <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2 sm:ml-auto" @click="$emit('generate-email', lead)">

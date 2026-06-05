@@ -93,20 +93,14 @@
         "lead_score": "Lead value"
       },
       "ai": {
-        "missing_cta_mobile": "No CTA (mobile)",
-        "has_cta_mobile": "CTA OK (mobile)",
-        "missing_cta_desktop": "No CTA (desktop)",
-        "has_cta_desktop": "CTA OK (desktop)",
+        "not_responsive": "Not responsive",
+        "is_responsive": "Responsive",
+        "design": "Design",
+        "copywriting": "Copywriting",
         "cta_ok": "CTA OK",
         "cta_missing": "No CTA",
         "cta_missing_mobile": "No CTA (mobile)",
-        "cta_missing_desktop": "No CTA (desktop)",
-        "not_responsive": "Not responsive",
-        "is_responsive": "Responsive",
-        "poor_design": "Poor design",
-        "good_design": "Good design",
-        "weak_copywriting": "Weak copywriting",
-        "good_copywriting": "Good copywriting"
+        "cta_missing_desktop": "No CTA (desktop)"
       },
       "generate_email": "Generate email"
     },

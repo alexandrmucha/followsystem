@@ -13,7 +13,7 @@
 <script lang="ts" setup>
 const props = defineProps<{
   value: number | boolean | null | undefined
-  type: 'lcp' | 'size' | 'ssl' | 'cta' | 'ai'
+  type: 'lcp' | 'size' | 'ssl' | 'cta' | 'problem' | 'score'
   ariaLabel?: string
 }>()
 
@@ -21,6 +21,7 @@ const { t } = useI18n()
 
 const displayValue = computed(() => {
   if (props.value === undefined) return '--'
+  if (props.type === 'score') return props.value != null ? String(props.value) : '--'
   if (props.type === 'ssl') {
     if (props.value === null) return t('search.results.ssl.no_redirect')
     return props.value ? t('search.results.ssl.yes') : t('search.results.ssl.no')
@@ -30,7 +31,7 @@ const displayValue = computed(() => {
     return props.value ? t('search.results.ai.cta_ok') : t('search.results.ai.cta_missing')
   }
   if (props.value === null) return '--'
-  if (props.type === 'ai') return props.ariaLabel ?? '--'
+  if (props.type === 'problem') return props.ariaLabel ?? '--'
   if (props.type === 'lcp') return `${props.value} s`
   if (props.type === 'size') return `${props.value} MB`
   return props.value
@@ -43,7 +44,7 @@ const valueColor = computed(() => {
     return 'text-neutral-400 dark:text-neutral-500'
   }
 
-  if (props.type === 'ai') {
+  if (props.type === 'problem') {
     return props.value
       ? 'text-red-600 dark:text-red-400'
       : 'text-emerald-600 dark:text-emerald-400'
@@ -53,6 +54,13 @@ const valueColor = computed(() => {
     return props.value
       ? 'text-emerald-600 dark:text-emerald-400'
       : 'text-red-600 dark:text-red-400'
+  }
+
+  if (props.type === 'score') {
+    const v = props.value as number
+    if (v >= 90) return 'text-emerald-600 dark:text-emerald-400'
+    if (v >= 50) return 'text-amber-600 dark:text-amber-400'
+    return 'text-red-600 dark:text-red-400'
   }
 
   if (props.type === 'lcp') {

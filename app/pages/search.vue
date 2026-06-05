@@ -80,11 +80,11 @@ watch(() => searchResults.sessionStatus, (sessionStatus) => {
       totalByteWeight: update.totalByteWeight,
       hasSsl: update.hasSsl,
       hasHttpsRedirect: update.hasHttpsRedirect,
+      isResponsive: update.isResponsive,
       aiMissingCtaMobile: update.aiMissingCtaMobile,
       aiMissingCtaDesktop: update.aiMissingCtaDesktop,
-      isResponsive: update.isResponsive,
-      aiHasPoorDesign: update.aiHasPoorDesign,
-      aiWeakCopywriting: update.aiWeakCopywriting,
+      aiDesignScore: update.aiDesignScore,
+      aiCopywritingScore: update.aiCopywritingScore,
     })
   }, (sessionStatus) => {
     searchResults.setSessionStatus(sessionStatus)

@@ -93,20 +93,14 @@
         "lead_score": "Hodnota leadu"
       },
       "ai": {
-        "missing_cta_mobile": "Chybí CTA (mobil)",
-        "has_cta_mobile": "CTA OK (mobil)",
-        "missing_cta_desktop": "Chybí CTA (desktop)",
-        "has_cta_desktop": "CTA OK (desktop)",
+        "not_responsive": "Není responzivní",
+        "is_responsive": "Responzivní",
+        "design": "Design",
+        "copywriting": "Copywriting",
         "cta_ok": "CTA OK",
         "cta_missing": "Chybí CTA",
         "cta_missing_mobile": "Chybí CTA (mobil)",
-        "cta_missing_desktop": "Chybí CTA (desktop)",
-        "not_responsive": "Není responzivní",
-        "is_responsive": "Responzivní",
-        "poor_design": "Špatný design",
-        "good_design": "Dobrý design",
-        "weak_copywriting": "Slabé texty",
-        "good_copywriting": "Texty OK"
+        "cta_missing_desktop": "Chybí CTA (desktop)"
       },
       "generate_email": "Vygenerovat e-mail"
     },
