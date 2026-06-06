@@ -106,7 +106,9 @@
         "cta_ok": "CTA OK",
         "cta_missing": "Chybí CTA",
         "cta_missing_mobile": "Chybí CTA (mobil)",
-        "cta_missing_desktop": "Chybí CTA (desktop)"
+        "cta_missing_desktop": "Chybí CTA (desktop)",
+        "has_own_website": "Vlastní web",
+        "no_own_website": "Externí web"
       },
       "generate_email": "Vygenerovat e-mail"
     },

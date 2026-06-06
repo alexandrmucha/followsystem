@@ -48,6 +48,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     aiMissingCtaDesktop?: boolean | null
     aiDesignScore?: number | null
     aiCopywritingScore?: number | null
+    aiHasOwnWebsite?: boolean | null
     leadScore?: number | null
   }) {
     const lead = leads.value.find(l => l.id === leadId)
@@ -67,6 +68,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       lead.aiMissingCtaDesktop = data.aiMissingCtaDesktop
       lead.aiDesignScore = data.aiDesignScore
       lead.aiCopywritingScore = data.aiCopywritingScore
+      lead.aiHasOwnWebsite = data.aiHasOwnWebsite
       lead.leadScore = data.leadScore
     }
   }

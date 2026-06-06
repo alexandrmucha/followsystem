@@ -68,6 +68,10 @@
           <template #icon><LucideSmartphone :size="13" /></template>
         </SearchMetricBadge>
 
+        <SearchMetricBadge v-if="lead.aiHasOwnWebsite != null" :value="lead.aiHasOwnWebsite" type="boolean" :aria-label="lead.aiHasOwnWebsite ? t('search.results.ai.has_own_website') : t('search.results.ai.no_own_website')">
+          <template #icon><LucideGlobe :size="13" /></template>
+        </SearchMetricBadge>
+
         <span v-if="ctaState != null || lead.aiDesignScore != null || lead.aiCopywritingScore != null" class="w-px h-3 bg-neutral-200 dark:bg-neutral-700 self-center" />
 
         <SearchMetricBadge v-if="ctaState != null" :value="ctaState" type="cta">

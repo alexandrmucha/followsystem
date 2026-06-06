@@ -25,5 +25,6 @@ export type BusinessLeadDTO = {
   aiMissingCtaDesktop?: boolean | null
   aiDesignScore?: number | null
   aiCopywritingScore?: number | null
+  aiHasOwnWebsite?: boolean | null
   leadScore?: number | null
 }

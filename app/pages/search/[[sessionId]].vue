@@ -91,6 +91,7 @@ watch(() => searchResults.sessionStatus, (sessionStatus) => {
       aiMissingCtaDesktop: update.aiMissingCtaDesktop,
       aiDesignScore: update.aiDesignScore,
       aiCopywritingScore: update.aiCopywritingScore,
+      aiHasOwnWebsite: update.aiHasOwnWebsite,
       leadScore: update.leadScore,
     })
   }, (sessionStatus) => {

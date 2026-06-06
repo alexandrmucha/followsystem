@@ -106,7 +106,9 @@
         "cta_ok": "CTA OK",
         "cta_missing": "No CTA",
         "cta_missing_mobile": "No CTA (mobile)",
-        "cta_missing_desktop": "No CTA (desktop)"
+        "cta_missing_desktop": "No CTA (desktop)",
+        "has_own_website": "Own website",
+        "no_own_website": "External website"
       },
       "generate_email": "Generate email"
     },
