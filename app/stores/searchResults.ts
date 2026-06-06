@@ -105,7 +105,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
   const sortedLeads = computed(() => {
     const rawLeads = [...leads.value]
 
-    if (sessionStatus.value === 'analyzing') return rawLeads
+    if (sessionStatus.value === 'analyzing' || sessionStatus.value === 'cancelling') return rawLeads
 
     if (sortBy.value === 'leadScore') {
       return rawLeads.sort((a, b) => {
