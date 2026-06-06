@@ -126,6 +126,8 @@ export function useTemplateParser() {
       ai_missing_cta_mobile: lead.aiMissingCtaMobile == null ? null : lead.aiMissingCtaMobile ? 1 : 0,
       ai_missing_cta_desktop: lead.aiMissingCtaDesktop == null ? null : lead.aiMissingCtaDesktop ? 1 : 0,
       ai_copyright_year: lead.aiCopyrightYear,
+      ai_has_server_errors: lead.aiHasServerErrors == null ? null : lead.aiHasServerErrors ? 1 : 0,
+      ai_has_placeholder_content: lead.aiHasPlaceholderContent == null ? null : lead.aiHasPlaceholderContent ? 1 : 0,
       ai_has_own_website: lead.aiHasOwnWebsite == null ? null : lead.aiHasOwnWebsite ? 1 : 0,
       has_third_level_domain: lead.hasThirdLevelDomain == null ? null : lead.hasThirdLevelDomain ? 1 : 0,
       ai_uses_web_builder: lead.aiUsesWebBuilder == null ? null : lead.aiUsesWebBuilder ? 1 : 0,

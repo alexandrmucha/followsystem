@@ -82,7 +82,7 @@ const variables = [
   'ai_design_score', 'ai_copywriting_score', 'ai_copyright_year',
 ]
 
-const booleanVariables = ['has_website', 'has_ssl', 'is_responsive', 'has_third_level_domain', 'ai_missing_cta_mobile', 'ai_missing_cta_desktop', 'ai_has_own_website', 'ai_uses_web_builder', 'ai_has_web_builder_ads']
+const booleanVariables = ['has_website', 'has_ssl', 'is_responsive', 'has_third_level_domain', 'ai_missing_cta_mobile', 'ai_missing_cta_desktop', 'ai_has_own_website', 'ai_uses_web_builder', 'ai_has_web_builder_ads', 'ai_has_server_errors', 'ai_has_placeholder_content']
 
 const operators = ['>', '<', '>=', '<=', '==', '!=', 'and', 'or']
 </script>

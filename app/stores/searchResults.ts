@@ -52,6 +52,8 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     hasThirdLevelDomain?: boolean | null
     aiUsesWebBuilder?: boolean | null
     aiHasWebBuilderAds?: boolean | null
+    aiHasServerErrors?: boolean | null
+    aiHasPlaceholderContent?: boolean | null
     aiCopyrightYear?: number | null
     leadScore?: number | null
   }) {
@@ -76,6 +78,8 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       lead.hasThirdLevelDomain = data.hasThirdLevelDomain
       lead.aiUsesWebBuilder = data.aiUsesWebBuilder
       lead.aiHasWebBuilderAds = data.aiHasWebBuilderAds
+      lead.aiHasServerErrors = data.aiHasServerErrors
+      lead.aiHasPlaceholderContent = data.aiHasPlaceholderContent
       lead.aiCopyrightYear = data.aiCopyrightYear
       lead.leadScore = data.leadScore
     }

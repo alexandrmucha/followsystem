@@ -26,6 +26,8 @@ export function useAnalysisStream() {
       hasThirdLevelDomain?: boolean | null
       aiUsesWebBuilder?: boolean | null
       aiHasWebBuilderAds?: boolean | null
+      aiHasServerErrors?: boolean | null
+      aiHasPlaceholderContent?: boolean | null
       aiCopyrightYear?: number | null
       leadScore?: number | null
     }) => void,

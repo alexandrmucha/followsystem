@@ -86,6 +86,14 @@
           <template #icon><LucideMegaphone :size="13" /></template>
         </SearchMetricBadge>
 
+        <SearchMetricBadge v-if="lead.aiHasServerErrors != null" :value="!lead.aiHasServerErrors" type="boolean" :aria-label="!lead.aiHasServerErrors ? t('search.results.ai.no_server_errors') : t('search.results.ai.has_server_errors')">
+          <template #icon><LucideServerCrash :size="13" /></template>
+        </SearchMetricBadge>
+
+        <SearchMetricBadge v-if="lead.aiHasPlaceholderContent != null" :value="!lead.aiHasPlaceholderContent" type="boolean" :aria-label="!lead.aiHasPlaceholderContent ? t('search.results.ai.no_placeholder_content') : t('search.results.ai.has_placeholder_content')">
+          <template #icon><LucideFileQuestion :size="13" /></template>
+        </SearchMetricBadge>
+
         <SearchMetricBadge v-if="lead.aiCopyrightYear != null" :value="lead.aiCopyrightYear" type="year" :aria-label="t('search.results.ai.copyright_year')">
           <template #icon><LucideCopyright :size="13" /></template>
         </SearchMetricBadge>
