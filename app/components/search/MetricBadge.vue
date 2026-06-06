@@ -13,7 +13,7 @@
 <script lang="ts" setup>
 const props = defineProps<{
   value: number | boolean | null | undefined
-  type: 'lcp' | 'size' | 'ssl' | 'cta' | 'boolean' | 'score'
+  type: 'lcp' | 'size' | 'cta' | 'boolean' | 'score'
   ariaLabel?: string
 }>()
 
@@ -22,9 +22,6 @@ const { t } = useI18n()
 const displayValue = computed(() => {
   if (props.value === undefined) return '--'
   if (props.type === 'score') return props.value != null ? String(props.value) : '--'
-  if (props.type === 'ssl') {
-    return props.value ? t('search.results.ssl.yes') : t('search.results.ssl.no')
-  }
   if (props.type === 'cta') {
     if (props.value === null) return props.ariaLabel ?? t('search.results.ai.cta_partial')
     return props.value ? t('search.results.ai.cta_ok') : t('search.results.ai.cta_missing')
@@ -43,7 +40,7 @@ const valueColor = computed(() => {
     return 'text-neutral-400 dark:text-neutral-500'
   }
 
-  if (props.type === 'ssl' || props.type === 'cta' || props.type === 'boolean') {
+  if (props.type === 'cta' || props.type === 'boolean') {
     return props.value
       ? 'text-emerald-600 dark:text-emerald-400'
       : 'text-red-600 dark:text-red-400'

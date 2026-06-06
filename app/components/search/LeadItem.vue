@@ -57,9 +57,9 @@
           <template #icon><LucideHardDrive :size="13" /></template>
         </SearchMetricBadge>
 
-        <SearchMetricBadge :value="sslValue" type="ssl" :aria-label="sslAriaLabel">
+        <SearchMetricBadge v-if="lead.hasSsl != null" :value="lead.hasSsl" type="boolean" :aria-label="lead.hasSsl ? t('search.results.ssl.yes') : t('search.results.ssl.no')">
           <template #icon>
-            <LucideLock v-if="sslValue !== false" :size="13" />
+            <LucideLock v-if="lead.hasSsl !== false" :size="13" />
             <LucideLockOpen v-else :size="13" />
           </template>
         </SearchMetricBadge>
@@ -131,17 +131,6 @@ const ctaAriaLabel = computed(() => {
       : t('search.results.ai.cta_missing_desktop')
   }
   return undefined
-})
-
-const sslValue = computed(() => {
-  if (props.lead.hasSsl == null) return undefined
-  return props.lead.hasSsl ? true : false
-})
-
-const sslAriaLabel = computed(() => {
-  if (sslValue.value === false) return t('search.results.ssl.no')
-  if (sslValue.value === true) return t('search.results.ssl.yes')
-  return ''
 })
 
 const badgeVariant = computed((): 'neutral' | 'emerald' | 'blue' | 'amber' | 'red' => {
