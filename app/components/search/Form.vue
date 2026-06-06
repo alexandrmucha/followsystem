@@ -128,7 +128,7 @@ const search = async () => {
 
   try {
     const res = await $api<{
-      sessionId: string
+      id: string
       leads: BusinessLeadDTO[]
     }>('/search', {
       method: 'POST',
@@ -138,7 +138,7 @@ const search = async () => {
       },
     })
 
-    searchResults.setSession(res.sessionId)
+    searchResults.setSession(res.id)
     searchResults.setSessionStatus('analyzing')
     searchResults.setLeads(res.leads)
 

@@ -16,6 +16,14 @@
           {{ $t('nav.search') }}
         </LayoutNavigationItem>
 
+        <LayoutNavigationItem to="/history">
+          <template #icon>
+            <LazyLucideHistory :size="20" />
+          </template>
+
+          {{ $t('nav.history') }}
+        </LayoutNavigationItem>
+
         <LayoutNavigationItem to="/templates">
           <template #icon>
             <LazyLucideFileText :size="20" />
@@ -23,6 +31,7 @@
 
           {{ $t('nav.templates') }}
         </LayoutNavigationItem>
+        
       </nav>
 
     </div>

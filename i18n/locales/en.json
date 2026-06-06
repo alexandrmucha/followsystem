@@ -138,7 +138,24 @@
   "nav": {
     "search": "Search",
     "templates": "Templates",
+    "history": "History",
     "settings": "Settings"
+  },
+  "history": {
+    "title": "Search history",
+    "description": "Overview of your previous searches.",
+    "empty": "You have no searches yet.",
+    "leads": "businesses",
+    "open": "Open",
+    "status": {
+      "done": "Done",
+      "analyzing": "Analyzing",
+      "cancelling": "Stopping",
+      "cancelled": "Cancelled"
+    },
+    "errors": {
+      "load": "Failed to load history. Please try again."
+    }
   },
   "settings": {
     "title": "Settings",

@@ -138,7 +138,24 @@
   "nav": {
     "search": "Hledání",
     "templates": "Šablony",
+    "history": "Historie",
     "settings": "Nastavení"
+  },
+  "history": {
+    "title": "Historie vyhledávání",
+    "description": "Přehled vašich předchozích vyhledávání.",
+    "empty": "Zatím nemáte žádná vyhledávání.",
+    "leads": "firem",
+    "open": "Otevřít",
+    "status": {
+      "done": "Dokončeno",
+      "analyzing": "Probíhá analýza",
+      "cancelling": "Zastavuje se",
+      "cancelled": "Přerušeno"
+    },
+    "errors": {
+      "load": "Nepodařilo se načíst historii. Zkuste to prosím znovu."
+    }
   },
   "settings": {
     "title": "Nastavení",

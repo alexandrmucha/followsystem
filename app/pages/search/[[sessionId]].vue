@@ -42,22 +42,24 @@ onMounted(() => {
   }
 })
 
-const { data: latestSession } = await useAsyncData('latest-session', () =>
+const sessionParam = route.params.sessionId as string | undefined
+
+const { data: sessionData } = await useAsyncData(sessionParam ? `session-${sessionParam}` : 'latest-session', () =>
   $api<{
-    sessionId: string
+    id: string
     sessionStatus: string
     industry: string
     location: string
     leads: BusinessLeadDTO[]
-  } | null>('/search/latest')
+  } | null>(sessionParam ? `/search/sessions/${sessionParam}` : '/search/latest')
 )
 
-if (latestSession.value) {
-  searchResults.setSession(latestSession.value.sessionId)
-  searchResults.setSessionStatus(latestSession.value.sessionStatus)
-  searchResults.setLeads(latestSession.value.leads)
-  searchDraft.industry = latestSession.value.industry
-  searchDraft.location = latestSession.value.location
+if (sessionData.value) {
+  searchResults.setSession(sessionData.value.id)
+  searchResults.setSessionStatus(sessionData.value.sessionStatus)
+  searchResults.setLeads(sessionData.value.leads)
+  searchDraft.industry = sessionData.value.industry
+  searchDraft.location = sessionData.value.location
 }
 
 let closeStream: (() => void) | undefined | void
