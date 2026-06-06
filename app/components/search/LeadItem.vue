@@ -38,7 +38,7 @@
     </div>
 
     <!-- PAGESPEED BADGES -->
-    <div v-if="lead.analysisStatus === 'done'" class="mt-4 flex flex-wrap gap-2">
+    <div v-if="lead.analysisStatus === 'done' && lead.hasWebsite" class="mt-4 flex flex-wrap gap-2">
       <SearchPageSpeedBadge :label="t('search.results.categories.performance_mobile')" :score="lead.mobileScore" />
       <SearchPageSpeedBadge :label="t('search.results.categories.performance_desktop')" :score="lead.performanceScore" />
       <SearchPageSpeedBadge :label="t('search.results.categories.seo')" :score="lead.seoScore" />
@@ -47,7 +47,7 @@
     </div>
 
     <!-- METRICS -->
-    <div v-if="lead.analysisStatus === 'done'" class="mt-3 flex flex-wrap items-center gap-4">
+    <div v-if="lead.analysisStatus === 'done' && lead.hasWebsite" class="mt-3 flex flex-wrap items-center gap-4">
       <div class="flex flex-wrap items-center gap-4">
         <SearchMetricBadge :value="lead.largestContentfulPaint" type="lcp" :aria-label="t('search.results.metrics.lcp')">
           <template #icon><LucideClock :size="13" /></template>
@@ -84,6 +84,13 @@
       </div>
 
       <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2 sm:ml-auto" @click="$emit('generate-email', lead)">
+        <LucideSparkles :size="16" />
+        {{ t('search.results.generate_email') }}
+      </UiBaseButton>
+    </div>
+
+    <div v-else-if="!lead.hasWebsite" class="mt-3 flex sm:justify-end">
+      <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" @click="$emit('generate-email', lead)">
         <LucideSparkles :size="16" />
         {{ t('search.results.generate_email') }}
       </UiBaseButton>
