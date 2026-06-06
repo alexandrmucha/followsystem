@@ -244,7 +244,6 @@
       "subject_label": "Subject",
       "body_label": "Template body",
       "custom_prompt_label": "Custom AI instructions",
-      "custom_prompt_hint": "Additional instructions for AI when generating an email from this template.",
       "placeholders_hint": "Available placeholders",
       "boolean_hint": "Boolean variables (use 0 = no, 1 = yes in conditions)",
       "conditions_hint": "Condition example",

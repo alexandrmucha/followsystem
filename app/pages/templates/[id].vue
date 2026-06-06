@@ -61,9 +61,6 @@
             :rows="4"
             :maxlength="1000"
           />
-          <p class="text-xs text-neutral-400 dark:text-neutral-500">
-            {{ $t('templates.edit.custom_prompt_hint') }}
-          </p>
         </UiFormField>
       </UiBaseCard>
       
