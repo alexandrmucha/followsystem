@@ -38,8 +38,8 @@
     }
   },
   "search": {
-    "title": "Najděte své příští klienty",
-    "description": "Zadejte obor a lokalitu pro vyhledání firem.",
+    "title": "Získejte nové klienty",
+    "description": "Najděte firmy s největším potenciálem pro nový nebo redesignovaný web.",
     "form": {
       "industry_label": "Obor",
       "industry_placeholder": "např. instalatér",
@@ -128,6 +128,8 @@
       "subject_label": "Předmět",
       "body_label": "Text e-mailu",
       "body_hint": "Před odesláním si e-mail pečlivě překontrolujte — ověřte, že obsah odpovídá skutečnému stavu webu.",
+      "generate_ai": "Generovat s AI",
+      "generating_ai": "Generuji...",
       "copy": "Kopírovat",
       "copied": "Zkopírováno!",
       "open": "Otevřít v e-mailovém klientu"

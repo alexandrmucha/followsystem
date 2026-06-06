@@ -62,6 +62,12 @@
         </p>
       </UiFormField>
 
+      <!-- AI generate -->
+      <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2 ml-auto" :disabled="generatingAi" @click="generateWithAi">
+        <LucideSparkles :size="14" />
+        {{ generatingAi ? t('search.email.generating_ai') : t('search.email.generate_ai') }}
+      </UiBaseButton>
+
       <!-- Actions -->
       <div class="flex gap-3 justify-end pt-2">
         <UiBaseButton variant="secondary" size="sm" class="flex items-center gap-2" @click="copy">
@@ -70,7 +76,7 @@
         </UiBaseButton>
 
         <a :href="mailtoLink" target="_blank">
-          <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2">
+          <UiBaseButton variant="primary" size="sm" class="flex items-center gap-2">
             <LucideMail :size="14" />
             {{ t('search.email.open') }}
           </UiBaseButton>
@@ -134,6 +140,23 @@ watch(() => props.lead, (lead) => {
 const mailtoLink = computed(() => {
   return `mailto:${recipient.value}?subject=${encodeURIComponent(subject.value)}&body=${encodeURIComponent(body.value)}`
 })
+
+const generatingAi = ref(false)
+
+const generateWithAi = async () => {
+  if (!props.lead || generatingAi.value) return
+  generatingAi.value = true
+  try {
+    const result = await $api<{ subject: string; body: string }>('/email/generate', {
+      method: 'POST',
+      body: { lead: props.lead, subject: subject.value, body: body.value },
+    })
+    subject.value = result.subject
+    body.value = result.body
+  } finally {
+    generatingAi.value = false
+  }
+}
 
 const copy = async () => {
   await navigator.clipboard.writeText(body.value)

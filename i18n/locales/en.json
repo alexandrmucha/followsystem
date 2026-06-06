@@ -38,8 +38,8 @@
     }
   },
   "search": {
-    "title": "Find your next clients",
-    "description": "Enter an industry and location to find businesses.",
+    "title": "Get new clients",
+    "description": "Find businesses with the highest potential for a new or redesigned website.",
     "form": {
       "industry_label": "Industry",
       "industry_placeholder": "e.g. plumber",
@@ -128,6 +128,8 @@
       "subject_label": "Subject",
       "body_label": "Email body",
       "body_hint": "Review the email carefully before sending — make sure the content accurately reflects the actual state of the website.",
+      "generate_ai": "Generate with AI",
+      "generating_ai": "Generating...",
       "copy": "Copy",
       "copied": "Copied!",
       "open": "Open in email client"
