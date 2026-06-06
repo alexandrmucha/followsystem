@@ -75,8 +75,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
 
   const analyzedCount = computed(() =>
     leads.value.filter(l =>
-      l.analysisStatus === 'done' ||
-      l.analysisStatus === 'error'
+      l.hasWebsite && (l.analysisStatus === 'done' || l.analysisStatus === 'error')
     ).length
   )
 

@@ -1,11 +1,11 @@
 <template>
   <div
-    class="fixed inset-0 bg-black/20 flex items-center justify-center p-4 z-50"
+    class="fixed inset-0 bg-black/20 flex items-start justify-center p-4 z-50 overflow-y-auto"
     @mousedown.self="handleOverlayClick"
   >
     <div
       :class="[
-        'relative bg-white dark:bg-neutral-900 w-full rounded-2xl p-4 sm:p-6 border border-neutral-200 dark:border-neutral-800 shadow-xl',
+        'relative bg-white dark:bg-neutral-900 w-full rounded-2xl p-4 sm:p-6 border border-neutral-200 dark:border-neutral-800 shadow-xl my-auto',
         widthClass
       ]"
     >
