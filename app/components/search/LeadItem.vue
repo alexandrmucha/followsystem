@@ -68,9 +68,9 @@
           <template #icon><LucideSmartphone :size="13" /></template>
         </SearchMetricBadge>
 
-        <span v-if="lead.aiMissingCtaMobile != null || lead.aiMissingCtaDesktop != null || lead.aiDesignScore != null || lead.aiCopywritingScore != null" class="w-px h-3 bg-neutral-200 dark:bg-neutral-700 self-center" />
+        <span v-if="ctaState != null || lead.aiDesignScore != null || lead.aiCopywritingScore != null" class="w-px h-3 bg-neutral-200 dark:bg-neutral-700 self-center" />
 
-        <SearchMetricBadge v-if="ctaValue !== undefined" :value="ctaValue" type="cta" :aria-label="ctaAriaLabel">
+        <SearchMetricBadge v-if="ctaState != null" :value="ctaState" type="cta">
           <template #icon><LucideMousePointer :size="13" /></template>
         </SearchMetricBadge>
 
@@ -115,22 +115,16 @@ const leadScoreLabel = computed(() => {
   return t('search.results.lead_score_label.weak')
 })
 
-const ctaValue = computed(() => {
+type CtaState = 'ok' | 'missing' | 'missing_mobile' | 'missing_desktop'
+
+const ctaState = computed((): CtaState | null => {
   const mobile = props.lead.aiMissingCtaMobile
   const desktop = props.lead.aiMissingCtaDesktop
-  if (mobile == null && desktop == null) return undefined
-  if (mobile === false && desktop === false) return true
-  if (mobile === true && desktop === true) return false
-  return null
-})
-
-const ctaAriaLabel = computed(() => {
-  if (ctaValue.value === null) {
-    return props.lead.aiMissingCtaMobile === true
-      ? t('search.results.ai.cta_missing_mobile')
-      : t('search.results.ai.cta_missing_desktop')
-  }
-  return undefined
+  if (mobile == null && desktop == null) return null
+  if (mobile === false && desktop === false) return 'ok'
+  if (mobile === true && desktop === true) return 'missing'
+  if (mobile === true) return 'missing_mobile'
+  return 'missing_desktop'
 })
 
 const badgeVariant = computed((): 'neutral' | 'emerald' | 'blue' | 'amber' | 'red' => {
