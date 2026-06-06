@@ -64,7 +64,7 @@
           </template>
         </SearchMetricBadge>
 
-        <SearchMetricBadge v-if="lead.isResponsive != null" :value="!lead.isResponsive" type="problem" :aria-label="lead.isResponsive ? t('search.results.ai.is_responsive') : t('search.results.ai.not_responsive')">
+        <SearchMetricBadge v-if="lead.isResponsive != null" :value="lead.isResponsive" type="boolean" :aria-label="lead.isResponsive ? t('search.results.ai.is_responsive') : t('search.results.ai.not_responsive')">
           <template #icon><LucideSmartphone :size="13" /></template>
         </SearchMetricBadge>
 
