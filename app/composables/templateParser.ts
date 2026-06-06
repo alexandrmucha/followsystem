@@ -26,6 +26,7 @@ export function useTemplateParser() {
       .replace(/\{review_count\}/g, String(lead.reviewCount ?? ''))
       .replace(/\{ai_design_score\}/g, String(lead.aiDesignScore ?? ''))
       .replace(/\{ai_copywriting_score\}/g, String(lead.aiCopywritingScore ?? ''))
+      .replace(/\{ai_copyright_year\}/g, String(lead.aiCopyrightYear ?? ''))
 
     result = expandElseIf(result)
     result = processConditions(result, lead)
