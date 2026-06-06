@@ -125,6 +125,7 @@ export function useTemplateParser() {
       is_responsive: lead.isResponsive == null ? null : lead.isResponsive ? 1 : 0,
       ai_missing_cta_mobile: lead.aiMissingCtaMobile == null ? null : lead.aiMissingCtaMobile ? 1 : 0,
       ai_missing_cta_desktop: lead.aiMissingCtaDesktop == null ? null : lead.aiMissingCtaDesktop ? 1 : 0,
+      ai_has_own_website: lead.aiHasOwnWebsite == null ? null : lead.aiHasOwnWebsite ? 1 : 0,
       ai_design_score: lead.aiDesignScore,
       ai_copywriting_score: lead.aiCopywritingScore,
       rating: lead.rating,
