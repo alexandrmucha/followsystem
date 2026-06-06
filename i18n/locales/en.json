@@ -91,6 +91,12 @@
         "label": "Sort results by:",
         "lead_score": "Lead value"
       },
+      "lead_score_label": {
+        "excellent": "Excellent",
+        "good": "Good",
+        "average": "Average",
+        "weak": "Weak"
+      },
       "ai": {
         "not_responsive": "Not responsive",
         "is_responsive": "Responsive",

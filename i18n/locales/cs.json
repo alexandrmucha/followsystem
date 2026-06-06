@@ -91,6 +91,12 @@
         "label": "Seřadit výsledky podle:",
         "lead_score": "Hodnota leadu"
       },
+      "lead_score_label": {
+        "excellent": "Výborný",
+        "good": "Dobrý",
+        "average": "Průměrný",
+        "weak": "Slabý"
+      },
       "ai": {
         "not_responsive": "Není responzivní",
         "is_responsive": "Responzivní",

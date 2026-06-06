@@ -32,7 +32,7 @@
           {{ t('search.results.website') }}
         </a>
 
-        <SearchPageSpeedBadge v-if="lead.analysisStatus === 'done' || !lead.hasWebsite" :label="t('search.results.sort.lead_score')" :score="leadScorePercent" magic />
+        <SearchPageSpeedBadge v-if="lead.analysisStatus === 'done' || !lead.hasWebsite" :label="leadScoreLabel" :score="leadScorePercent" magic />
         <UiBaseBadge :variant="badgeVariant">{{ badgeText }}</UiBaseBadge>
       </div>
     </div>
@@ -110,6 +110,14 @@ const { t } = useI18n()
 const leadScorePercent = computed(() =>
   Math.min(100, Math.round(computeLeadScore(props.lead) / LEAD_SCORE_MAX * 100))
 )
+
+const leadScoreLabel = computed(() => {
+  const p = leadScorePercent.value
+  if (p >= 60) return t('search.results.lead_score_label.excellent')
+  if (p >= 35) return t('search.results.lead_score_label.good')
+  if (p >= 21) return t('search.results.lead_score_label.average')
+  return t('search.results.lead_score_label.weak')
+})
 
 const ctaValue = computed(() => {
   const mobile = props.lead.aiMissingCtaMobile
