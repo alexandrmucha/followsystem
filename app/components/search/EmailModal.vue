@@ -110,7 +110,7 @@ const copied = ref(false)
 const selectedTemplateId = ref('')
 
 const { data: templates } = await useAsyncData('templates', () =>
-  $api<{ id: string; name: string; isDefault: boolean; subject: string; body: string }[]>('/templates')
+  $api<{ id: string; name: string; isDefault: boolean; subject: string; body: string; customPrompt: string | null }[]>('/templates')
 )
 
 const applyTemplate = (templateId: string, lead: BusinessLeadDTO) => {
@@ -150,9 +150,10 @@ const generateWithAi = async () => {
   if (!props.lead || generatingAi.value) return
   generatingAi.value = true
   try {
+    const selectedTemplate = templates.value?.find(t => t.id === selectedTemplateId.value)
     const result = await $api<{ subject: string; body: string }>('/email/generate', {
       method: 'POST',
-      body: { lead: props.lead, subject: subject.value, body: body.value },
+      body: { lead: props.lead, subject: subject.value, body: body.value, customPrompt: selectedTemplate?.customPrompt ?? null },
     })
     subject.value = result.subject
     body.value = result.body

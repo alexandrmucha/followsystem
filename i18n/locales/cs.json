@@ -243,6 +243,8 @@
       "name_label": "Název šablony",
       "subject_label": "Předmět",
       "body_label": "Text šablony",
+      "custom_prompt_label": "Vlastní instrukce pro AI",
+      "custom_prompt_hint": "Doplňující instrukce pro AI při generování e-mailu z této šablony.",
       "placeholders_hint": "Dostupné proměnné",
       "boolean_hint": "Booleovské proměnné (v podmínkách: 0 = ne, 1 = ano)",
       "conditions_hint": "Příklad podmínky",

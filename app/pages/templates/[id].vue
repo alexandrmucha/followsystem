@@ -52,6 +52,20 @@
           />
         </div>
       </UiBaseCard>
+
+      <UiBaseCard>
+        <UiFormField>
+          <UiBaseTextarea
+            v-model="customPrompt"
+            :label="$t('templates.edit.custom_prompt_label')"
+            :rows="4"
+            :maxlength="1000"
+          />
+          <p class="text-xs text-neutral-400 dark:text-neutral-500">
+            {{ $t('templates.edit.custom_prompt_hint') }}
+          </p>
+        </UiFormField>
+      </UiBaseCard>
       
       <TemplatesHints />
 
@@ -80,12 +94,13 @@ definePageMeta({
 const id = route.params.id as string
 
 const { data: template, error } = await useAsyncData(`template-${id}`, () =>
-  $api<{ id: string; name: string; subject: string; body: string }>(`/templates/${id}`)
+  $api<{ id: string; name: string; subject: string; body: string; customPrompt: string | null }>(`/templates/${id}`)
 )
 
 const name = ref(template.value?.name ?? '')
 const subject = ref(template.value?.subject ?? '')
 const body = ref(template.value?.body ?? '')
+const customPrompt = ref(template.value?.customPrompt ?? '')
 const saving = ref(false)
 const saved = ref(false)
 const nameError = ref('')
@@ -102,7 +117,7 @@ const save = async () => {
   try {
     await $api(`/templates/${id}`, {
       method: 'PATCH',
-      body: { name: name.value, subject: subject.value, body: body.value },
+      body: { name: name.value, subject: subject.value, body: body.value, customPrompt: customPrompt.value || null },
     })
     saved.value = true
     setTimeout(() => saved.value = false, 2000)
