@@ -143,7 +143,7 @@
   },
   "history": {
     "title": "Search history",
-    "description": "Overview of your previous searches.",
+    "description": "Overview of your searches from the last 30 days.",
     "empty": "You have no searches yet.",
     "leads": "businesses",
     "open": "Open",

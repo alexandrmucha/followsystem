@@ -143,7 +143,7 @@
   },
   "history": {
     "title": "Historie vyhledávání",
-    "description": "Přehled vašich předchozích vyhledávání.",
+    "description": "Přehled vašich vyhledávání za posledních 30 dní.",
     "empty": "Zatím nemáte žádná vyhledávání.",
     "leads": "firem",
     "open": "Otevřít",
