@@ -11,7 +11,7 @@
 
       <!-- Template selector -->
       <UiFormField>
-        <UiBaseSelect v-model="selectedTemplateId" :label="t('search.email.template_label')">
+        <UiBaseSelect v-model="selectedTemplateId" :label="t('search.email.template_label')" :disabled="generatingAi">
           <option v-for="template in templates" :key="template.id" :value="template.id">
             {{ template.name }}
           </option>
@@ -31,6 +31,7 @@
           v-model="recipient"
           :label="t('search.email.recipient_label')"
           placeholder="info@example.com"
+          :disabled="generatingAi"
         />
 
         <p v-if="lead?.website" class="text-xs text-neutral-400 dark:text-neutral-500">
@@ -46,6 +47,7 @@
         <UiBaseInput
           v-model="subject"
           :label="t('search.email.subject_label')"
+          :disabled="generatingAi"
         />
       </UiFormField>
 
@@ -55,6 +57,7 @@
           v-model="body"
           :label="t('search.email.body_label')"
           :rows="12"
+          :disabled="generatingAi"
         />
 
         <p class="text-xs text-neutral-400 dark:text-neutral-500">
