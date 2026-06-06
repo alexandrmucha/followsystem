@@ -32,7 +32,7 @@
           {{ t('search.results.website') }}
         </a>
 
-        <SearchPageSpeedBadge v-if="lead.analysisStatus === 'done' || !lead.hasWebsite" :label="leadScoreLabel" :score="leadScorePercent" magic />
+        <SearchPageSpeedBadge v-if="lead.analysisStatus === 'done'" :label="leadScoreLabel" :score="lead.leadScore" magic />
         <UiBaseBadge :variant="badgeVariant">{{ badgeText }}</UiBaseBadge>
       </div>
     </div>
@@ -89,30 +89,19 @@
       </UiBaseButton>
     </div>
 
-    <div v-else-if="!lead.hasWebsite" class="mt-3 flex sm:justify-end">
-      <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" @click="$emit('generate-email', lead)">
-        <LucideSparkles :size="16" />
-        {{ t('search.results.generate_email') }}
-      </UiBaseButton>
-    </div>
 
   </div>
 </template>
 
 <script lang="ts" setup>
 import type { BusinessLeadDTO } from '~/types/business-lead.dto'
-import { computeLeadScore, LEAD_SCORE_MAX } from '~/stores/searchResults'
-
 const props = defineProps<{ lead: BusinessLeadDTO }>()
 defineEmits<{ 'generate-email': [lead: BusinessLeadDTO] }>()
 const { t } = useI18n()
 
-const leadScorePercent = computed(() =>
-  Math.min(100, Math.round(computeLeadScore(props.lead) / LEAD_SCORE_MAX * 100))
-)
-
 const leadScoreLabel = computed(() => {
-  const p = leadScorePercent.value
+  const p = props.lead.leadScore
+  if (p == null) return ''
   if (p >= 60) return t('search.results.lead_score_label.excellent')
   if (p >= 35) return t('search.results.lead_score_label.good')
   if (p >= 21) return t('search.results.lead_score_label.average')

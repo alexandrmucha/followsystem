@@ -1,46 +1,6 @@
 import { defineStore } from 'pinia'
 import type { BusinessLeadDTO } from '~/types/business-lead.dto'
 
-export const LEAD_SCORE_MAX = 19
-
-export function computeLeadScore(lead: BusinessLeadDTO): number {
-  let score = 0
-
-  if (lead.rating != null && lead.reviewCount != null) {
-    if (lead.rating >= 4.5 && lead.reviewCount >= 10) score += 2
-    else if (lead.rating >= 4.0 && lead.reviewCount >= 5) score += 1
-  }
-
-  if (!lead.hasWebsite) return score + 3
-  if (lead.analysisStatus !== 'done') return 0
-
-  if (lead.hasSsl === false) score += 3
-
-  if (lead.largestContentfulPaint != null) {
-    if (lead.largestContentfulPaint > 4) score += 2
-    else if (lead.largestContentfulPaint > 2.5) score += 1
-  }
-
-  if (lead.seoScore != null) {
-    if (lead.seoScore < 50) score += 2
-    else if (lead.seoScore < 90) score += 1
-  }
-
-  if (lead.isResponsive === false) score += 5
-  if (lead.aiMissingCtaMobile === true) score += 1
-  if (lead.aiMissingCtaDesktop === true) score += 1
-
-  if (lead.aiDesignScore != null) {
-    if (lead.aiDesignScore < 50) score += 2
-    else if (lead.aiDesignScore < 70) score += 1
-  }
-
-  if (lead.aiCopywritingScore != null) {
-    if (lead.aiCopywritingScore < 50) score += 1
-  }
-
-  return score
-}
 
 export const useSearchResultsStore = defineStore('searchResults', () => {
   const sessionId = ref<string | null>(null)
@@ -88,6 +48,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     aiMissingCtaDesktop?: boolean | null
     aiDesignScore?: number | null
     aiCopywritingScore?: number | null
+    leadScore?: number | null
   }) {
     const lead = leads.value.find(l => l.id === leadId)
     if (lead) {
@@ -106,6 +67,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       lead.aiMissingCtaDesktop = data.aiMissingCtaDesktop
       lead.aiDesignScore = data.aiDesignScore
       lead.aiCopywritingScore = data.aiCopywritingScore
+      lead.leadScore = data.leadScore
     }
   }
 
@@ -148,7 +110,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
 
     if (sortBy.value === 'leadScore') {
       return rawLeads.sort((a, b) => {
-        const scoreDiff = computeLeadScore(b) - computeLeadScore(a)
+        const scoreDiff = (b.leadScore ?? 0) - (a.leadScore ?? 0)
         if (scoreDiff !== 0) return scoreDiff
         return computeLeadTiebreaker(a) - computeLeadTiebreaker(b)
       })
