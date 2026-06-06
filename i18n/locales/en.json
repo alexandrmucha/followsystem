@@ -50,8 +50,7 @@
       "resume_button": "Resume analysis",
       "errors": {
         "industry_required": "Industry is required",
-        "location_required": "Location is required",
-        "load": "Failed to load the search session. Please try again."
+        "location_required": "Location is required"
       }
     },
     "results": {
@@ -124,6 +123,7 @@
       "generate_email": "Generate email"
     },
     "errors": {
+      "load": "Failed to load the search session. Please try again.",
       "failed": "Failed to find businesses. Please try again.",
       "stop_failed": "Failed to stop analysis. Please try again.",
       "resume_failed": "Failed to resume analysis. Please try again."
