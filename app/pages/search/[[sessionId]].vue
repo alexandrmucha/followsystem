@@ -92,6 +92,9 @@ watch(() => searchResults.sessionStatus, (sessionStatus) => {
       aiDesignScore: update.aiDesignScore,
       aiCopywritingScore: update.aiCopywritingScore,
       aiHasOwnWebsite: update.aiHasOwnWebsite,
+      hasThirdLevelDomain: update.hasThirdLevelDomain,
+      aiUsesWebBuilder: update.aiUsesWebBuilder,
+      aiHasWebBuilderAds: update.aiHasWebBuilderAds,
       leadScore: update.leadScore,
     })
   }, (sessionStatus) => {

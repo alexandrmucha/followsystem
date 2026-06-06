@@ -26,5 +26,8 @@ export type BusinessLeadDTO = {
   aiDesignScore?: number | null
   aiCopywritingScore?: number | null
   aiHasOwnWebsite?: boolean | null
+  hasThirdLevelDomain?: boolean | null
+  aiUsesWebBuilder?: boolean | null
+  aiHasWebBuilderAds?: boolean | null
   leadScore?: number | null
 }

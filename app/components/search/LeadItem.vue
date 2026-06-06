@@ -68,10 +68,22 @@
           <template #icon><LucideSmartphone :size="13" /></template>
         </SearchMetricBadge>
 
-        <span v-if="ctaState != null || lead.aiHasOwnWebsite != null || lead.aiDesignScore != null || lead.aiCopywritingScore != null" class="w-px h-3 bg-neutral-200 dark:bg-neutral-700 self-center" />
+        <SearchMetricBadge v-if="lead.hasThirdLevelDomain != null" :value="!lead.hasThirdLevelDomain" type="boolean" :aria-label="!lead.hasThirdLevelDomain ? t('search.results.metrics.own_domain') : t('search.results.metrics.third_level_domain')">
+          <template #icon><LucideLink :size="13" /></template>
+        </SearchMetricBadge>
+
+        <span v-if="ctaState != null || lead.aiHasOwnWebsite != null || lead.aiUsesWebBuilder != null || lead.aiHasWebBuilderAds != null || lead.aiDesignScore != null || lead.aiCopywritingScore != null" class="w-px h-3 bg-neutral-200 dark:bg-neutral-700 self-center" />
 
         <SearchMetricBadge v-if="lead.aiHasOwnWebsite != null" :value="lead.aiHasOwnWebsite" type="boolean" :aria-label="lead.aiHasOwnWebsite ? t('search.results.ai.has_own_website') : t('search.results.ai.no_own_website')">
           <template #icon><LucideGlobe :size="13" /></template>
+        </SearchMetricBadge>
+
+        <SearchMetricBadge v-if="lead.aiUsesWebBuilder != null" :value="!lead.aiUsesWebBuilder" type="boolean" :aria-label="!lead.aiUsesWebBuilder ? t('search.results.ai.no_web_builder') : t('search.results.ai.uses_web_builder')">
+          <template #icon><LucideBlocks :size="13" /></template>
+        </SearchMetricBadge>
+
+        <SearchMetricBadge v-if="lead.aiHasWebBuilderAds != null" :value="!lead.aiHasWebBuilderAds" type="boolean" :aria-label="!lead.aiHasWebBuilderAds ? t('search.results.ai.no_web_builder_ads') : t('search.results.ai.has_web_builder_ads')">
+          <template #icon><LucideMegaphone :size="13" /></template>
         </SearchMetricBadge>
 
         <SearchMetricBadge v-if="ctaState != null" :value="ctaState" type="cta">

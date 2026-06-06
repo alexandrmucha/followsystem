@@ -23,6 +23,9 @@ export function useAnalysisStream() {
       aiDesignScore?: number | null
       aiCopywritingScore?: number | null
       aiHasOwnWebsite?: boolean | null
+      hasThirdLevelDomain?: boolean | null
+      aiUsesWebBuilder?: boolean | null
+      aiHasWebBuilderAds?: boolean | null
       leadScore?: number | null
     }) => void,
     onSessionUpdate?: (status: string) => void,

@@ -82,7 +82,9 @@
       },
       "metrics": {
         "lcp": "Load time (LCP)",
-        "size": "Page size"
+        "size": "Page size",
+        "own_domain": "Own domain",
+        "third_level_domain": "Subdomain"
       },
       "ssl": {
         "yes": "SSL",
@@ -108,7 +110,11 @@
         "cta_missing_mobile": "No CTA (mobile)",
         "cta_missing_desktop": "No CTA (desktop)",
         "has_own_website": "Own website",
-        "no_own_website": "External website"
+        "no_own_website": "External website",
+        "no_web_builder": "No web builder",
+        "uses_web_builder": "Web builder",
+        "no_web_builder_ads": "No builder ads",
+        "has_web_builder_ads": "Builder ads"
       },
       "generate_email": "Generate email"
     },

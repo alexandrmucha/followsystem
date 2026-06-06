@@ -82,7 +82,9 @@
       },
       "metrics": {
         "lcp": "Čas načtení (LCP)",
-        "size": "Velikost stránky"
+        "size": "Velikost stránky",
+        "own_domain": "Vlastní doména",
+        "third_level_domain": "Subdoména"
       },
       "ssl": {
         "yes": "SSL",
@@ -108,7 +110,11 @@
         "cta_missing_mobile": "Chybí CTA (mobil)",
         "cta_missing_desktop": "Chybí CTA (desktop)",
         "has_own_website": "Vlastní web",
-        "no_own_website": "Externí web"
+        "no_own_website": "Externí web",
+        "no_web_builder": "Bez web builderu",
+        "uses_web_builder": "Web builder",
+        "no_web_builder_ads": "Bez reklam builderu",
+        "has_web_builder_ads": "Reklamy builderu"
       },
       "generate_email": "Vygenerovat e-mail"
     },
