@@ -9,14 +9,18 @@
       {{ $t('search.description') }}
     </p>
 
-    <SearchForm />
-    <SearchResults />
+    <p v-if="sessionError" :class="[systemErrorClass, 'text-center py-8']">{{ $t('search.errors.load') }}</p>
+    <template v-else>
+      <SearchForm />
+      <SearchResults />
+    </template>
 
   </div>
 </template>
 
 <script lang="ts" setup>
 import type { BusinessLeadDTO } from '~/types/business-lead.dto'
+import { systemErrorClass } from '~/utils/ui'
 
 const { t } = useI18n()
 const searchResults = useSearchResultsStore()
@@ -44,7 +48,7 @@ onMounted(() => {
 
 const sessionParam = route.params.sessionId as string | undefined
 
-const { data: sessionData } = await useAsyncData(sessionParam ? `session-${sessionParam}` : 'latest-session', () =>
+const { data: sessionData, error: sessionError } = await useAsyncData(sessionParam ? `session-${sessionParam}` : 'latest-session', () =>
   $api<{
     id: string
     sessionStatus: string
