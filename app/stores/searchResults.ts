@@ -52,6 +52,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     hasThirdLevelDomain?: boolean | null
     aiUsesWebBuilder?: boolean | null
     aiHasWebBuilderAds?: boolean | null
+    aiCopyrightYear?: number | null
     leadScore?: number | null
   }) {
     const lead = leads.value.find(l => l.id === leadId)
@@ -75,6 +76,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       lead.hasThirdLevelDomain = data.hasThirdLevelDomain
       lead.aiUsesWebBuilder = data.aiUsesWebBuilder
       lead.aiHasWebBuilderAds = data.aiHasWebBuilderAds
+      lead.aiCopyrightYear = data.aiCopyrightYear
       lead.leadScore = data.leadScore
     }
   }

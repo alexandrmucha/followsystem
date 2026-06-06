@@ -109,6 +109,7 @@
         "cta_missing": "No CTA",
         "cta_missing_mobile": "No CTA (mobile)",
         "cta_missing_desktop": "No CTA (desktop)",
+        "copyright_year": "Copyright year",
         "has_own_website": "Own website",
         "no_own_website": "External website",
         "no_web_builder": "No web builder",

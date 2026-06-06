@@ -13,7 +13,7 @@
 <script lang="ts" setup>
 const props = defineProps<{
   value: number | boolean | string | null | undefined
-  type: 'lcp' | 'size' | 'cta' | 'boolean' | 'score'
+  type: 'lcp' | 'size' | 'cta' | 'boolean' | 'score' | 'year'
   ariaLabel?: string
 }>()
 
@@ -31,6 +31,7 @@ const displayValue = computed(() => {
   if (props.type === 'boolean') return props.ariaLabel ?? '--'
   if (props.type === 'lcp') return `${props.value} s`
   if (props.type === 'size') return `${props.value} MB`
+  if (props.type === 'year') return String(props.value)
   return props.value
 })
 
@@ -67,6 +68,13 @@ const valueColor = computed(() => {
     if (v <= 1.6) return 'text-emerald-600 dark:text-emerald-400'
     if (v <= 3) return 'text-amber-600 dark:text-amber-400'
     return 'text-red-600 dark:text-red-400'
+  }
+
+  if (props.type === 'year') {
+    const age = new Date().getFullYear() - (props.value as number)
+    if (age >= 5) return 'text-red-600 dark:text-red-400'
+    if (age >= 3) return 'text-amber-600 dark:text-amber-400'
+    return 'text-emerald-600 dark:text-emerald-400'
   }
 
   return 'text-neutral-500 dark:text-neutral-400'

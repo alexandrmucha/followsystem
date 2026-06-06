@@ -79,7 +79,7 @@ const variables = [
   'mobile_performance_score', 'desktop_performance_score',
   'seo_score', 'accessibility_score', 'best_practices_score',
   'lcp', 'lcp_times', 'page_size',
-  'ai_design_score', 'ai_copywriting_score',
+  'ai_design_score', 'ai_copywriting_score', 'ai_copyright_year',
 ]
 
 const booleanVariables = ['has_website', 'has_ssl', 'is_responsive', 'has_third_level_domain', 'ai_missing_cta_mobile', 'ai_missing_cta_desktop', 'ai_has_own_website', 'ai_uses_web_builder', 'ai_has_web_builder_ads']

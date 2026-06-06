@@ -95,6 +95,7 @@ watch(() => searchResults.sessionStatus, (sessionStatus) => {
       hasThirdLevelDomain: update.hasThirdLevelDomain,
       aiUsesWebBuilder: update.aiUsesWebBuilder,
       aiHasWebBuilderAds: update.aiHasWebBuilderAds,
+      aiCopyrightYear: update.aiCopyrightYear,
       leadScore: update.leadScore,
     })
   }, (sessionStatus) => {

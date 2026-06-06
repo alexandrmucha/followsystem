@@ -109,6 +109,7 @@
         "cta_missing": "Chybí CTA",
         "cta_missing_mobile": "Chybí CTA (mobil)",
         "cta_missing_desktop": "Chybí CTA (desktop)",
+        "copyright_year": "Copyright rok",
         "has_own_website": "Vlastní web",
         "no_own_website": "Externí web",
         "no_web_builder": "Bez web builderu",

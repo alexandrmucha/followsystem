@@ -86,6 +86,10 @@
           <template #icon><LucideMegaphone :size="13" /></template>
         </SearchMetricBadge>
 
+        <SearchMetricBadge v-if="lead.aiCopyrightYear != null" :value="lead.aiCopyrightYear" type="year" :aria-label="t('search.results.ai.copyright_year')">
+          <template #icon><LucideCopyright :size="13" /></template>
+        </SearchMetricBadge>
+
         <SearchMetricBadge v-if="ctaState != null" :value="ctaState" type="cta">
           <template #icon><LucideMousePointer :size="13" /></template>
         </SearchMetricBadge>
