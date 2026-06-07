@@ -99,6 +99,7 @@ watch(() => searchResults.sessionStatus, (sessionStatus) => {
       aiHasPlaceholderContent: update.aiHasPlaceholderContent,
       aiCopyrightYear: update.aiCopyrightYear,
       leadScore: update.leadScore,
+      aiNote: update.aiNote,
     })
   }, (sessionStatus) => {
     searchResults.setSessionStatus(sessionStatus)

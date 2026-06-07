@@ -34,4 +34,5 @@ export type BusinessLeadDTO = {
   aiHasPlaceholderContent?: boolean | null
   aiCopyrightYear?: number | null
   leadScore?: number | null
+  aiNote?: string | null
 }

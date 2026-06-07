@@ -61,6 +61,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     aiHasPlaceholderContent?: boolean | null
     aiCopyrightYear?: number | null
     leadScore?: number | null
+    aiNote?: string | null
   }) {
     const lead = leads.value.find(l => l.id === leadId)
     if (lead) {
@@ -87,6 +88,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       lead.aiHasPlaceholderContent = data.aiHasPlaceholderContent
       lead.aiCopyrightYear = data.aiCopyrightYear
       lead.leadScore = data.leadScore
+      lead.aiNote = data.aiNote
     }
   }
 

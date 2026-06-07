@@ -124,7 +124,9 @@
       "generate_email": "Generate email",
       "export_csv": "Export CSV",
       "mark_contacted": "Mark as contacted",
-      "contacted": "Contacted"
+      "contacted": "Contacted",
+      "show_note": "Show note",
+      "hide_note": "Hide note"
     },
     "errors": {
       "load": "Failed to load the search session. Please try again.",
@@ -163,7 +165,7 @@
   },
   "history": {
     "title": "Search history",
-    "description": "Overview of your searches from the last 30 days.",
+    "description": "Overview of your searches from the last 30 days. Marked contacts are saved permanently.",
     "empty": "You have no searches yet.",
     "leads": "businesses",
     "open": "Open",

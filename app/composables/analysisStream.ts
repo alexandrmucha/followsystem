@@ -30,6 +30,7 @@ export function useAnalysisStream() {
       aiHasPlaceholderContent?: boolean | null
       aiCopyrightYear?: number | null
       leadScore?: number | null
+      aiNote?: string | null
     }) => void,
     onSessionUpdate?: (status: string) => void,
     onDone?: () => void

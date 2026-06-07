@@ -124,7 +124,9 @@
       "generate_email": "Vygenerovat e-mail",
       "export_csv": "Exportovat CSV",
       "mark_contacted": "Označit jako kontaktováno",
-      "contacted": "Kontaktováno"
+      "contacted": "Kontaktováno",
+      "show_note": "Zobrazit poznámku",
+      "hide_note": "Skrýt poznámku"
     },
     "errors": {
       "load": "Nepodařilo se načíst vyhledávání. Zkuste to prosím znovu.",
@@ -163,7 +165,7 @@
   },
   "history": {
     "title": "Historie vyhledávání",
-    "description": "Přehled vašich vyhledávání za posledních 30 dní.",
+    "description": "Přehled vašich vyhledávání za posledních 30 dní. Označené kontakty jsou uloženy trvale.",
     "empty": "Zatím nemáte žádná vyhledávání.",
     "leads": "firem",
     "open": "Otevřít",
