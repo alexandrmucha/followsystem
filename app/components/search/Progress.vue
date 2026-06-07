@@ -23,12 +23,44 @@
     <p v-if="searchResults.sessionStatus === 'analyzing'" class="mt-1 text-xs text-neutral-400 dark:text-neutral-500">
       {{ t('search.results.progress.sort_hint') }}
     </p>
+
+    <div v-if="searchResults.sessionStatus === 'done' || searchResults.sessionStatus === 'cancelled'" class="mt-3 flex justify-end">
+      <UiBaseButton variant="secondary" size="sm" class="flex items-center gap-2" :disabled="exporting" @click="exportCsv">
+        <LucideDownload :size="14" />
+        {{ t('search.results.export_csv') }}
+      </UiBaseButton>
+    </div>
   </UiBaseCard>
 </template>
 
 <script lang="ts" setup>
 const { t } = useI18n()
 const searchResults = useSearchResultsStore()
+const { $api } = useNuxtApp()
+const alertFlow = useAlertFlow()
+
+const exporting = ref(false)
+
+const exportCsv = async () => {
+  if (!searchResults.sessionId) return
+  exporting.value = true
+  alertFlow.clear()
+  try {
+    const blob = await $api<Blob>(`/search/sessions/${searchResults.sessionId}/export`, {
+      responseType: 'blob',
+    })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `leads-${searchResults.sessionId}.csv`
+    a.click()
+    URL.revokeObjectURL(url)
+  } catch {
+    alertFlow.error(t('search.errors.export_failed'))
+  } finally {
+    exporting.value = false
+  }
+}
 
 const estimatedTimeText = computed(() => {
   if (searchResults.progressPercent === 100) return t('search.results.progress.done')
