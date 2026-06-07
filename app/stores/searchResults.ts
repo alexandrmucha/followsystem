@@ -10,7 +10,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
 
   type SortOption = 'leadScore' | keyof Pick<BusinessLeadDTO, 'mobileScore' | 'performanceScore' | 'seoScore' | 'accessibilityScore' | 'bestPracticesScore' | 'largestContentfulPaint' | 'totalByteWeight'>
 
-  const sortBy = useCookie<SortOption>('sortBy', { default: () => 'leadScore' })
+  const sortBy = ref<SortOption>('leadScore')
 
   function setSession(id: string) {
     sessionId.value = id
