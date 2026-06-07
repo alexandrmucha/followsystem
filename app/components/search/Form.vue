@@ -65,6 +65,10 @@
         >
           {{ $t('search.form.resume_button') }}
         </UiBaseButton>
+
+        <p v-if="usage" class="ml-auto text-xs text-neutral-400 dark:text-neutral-500">
+          {{ $t('search.form.usage', { used: usage.sessions.used, limit: usage.sessions.limit }) }}
+        </p>
       </div>
 
     </form>
@@ -87,6 +91,10 @@ const locationError = ref('')
 
 // loading (API request)
 const loading = ref(false)
+
+const { data: usage, refresh: refreshUsage } = await useAsyncData('search-usage', () =>
+  $api<{ sessions: { used: number; limit: number; remaining: number } }>('/search/usage')
+)
 
 const isDisabled = computed(() => loading.value || searchResults.sessionStatus === 'analyzing' || searchResults.sessionStatus === 'cancelling')
 
@@ -141,6 +149,7 @@ const search = async () => {
     searchResults.setSession(res.id)
     searchResults.setSessionStatus('analyzing')
     searchResults.setLeads(res.leads)
+    refreshUsage()
 
   } catch (err) {
     console.error(err)

@@ -49,6 +49,7 @@
       "button": "Najít firmy",
       "stop_button": "Zastavit analýzu",
       "resume_button": "Obnovit analýzu",
+      "usage": "{used} / {limit} vyhledávání tento měsíc",
       "errors": {
         "industry_required": "Obor je povinný",
         "location_required": "Lokalita je povinná"
