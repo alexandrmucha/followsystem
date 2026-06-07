@@ -39,7 +39,7 @@
   },
   "search": {
     "title": "Get new clients",
-    "description": "Find businesses with the highest potential for a new or redesigned website.",
+    "description": "Find businesses with the highest potential for a website redesign.",
     "form": {
       "industry_label": "Industry",
       "industry_placeholder": "e.g. plumber",

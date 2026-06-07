@@ -39,7 +39,7 @@
   },
   "search": {
     "title": "Získejte nové klienty",
-    "description": "Najděte firmy s největším potenciálem pro nový nebo redesignovaný web.",
+    "description": "Najděte firmy s největším potenciálem pro přestavbu webu.",
     "form": {
       "industry_label": "Obor",
       "industry_placeholder": "např. instalatér",
