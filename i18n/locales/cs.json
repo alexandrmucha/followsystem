@@ -65,13 +65,13 @@
         "analyzing": "Probíhá analýza",
         "pending": "Čeká na analýzu",
         "error": "Nelze analyzovat",
-        "cancelled": "Přerušeno"
+        "canceled": "Přerušeno"
       },
       "progress": {
         "label": "Analyzováno {done} z {total} webů",
         "done": "Analýza dokončena",
         "paused": "Analýza pozastavena",
-        "cancelling": "Zastavuji analýzu...",
+        "canceling": "Zastavuji analýzu...",
         "estimating": "Odhadovaný zbývající čas: ~{minutes} min",
         "sort_hint": "Po dokončení analýzy budou výsledky seřazeny."
       },
@@ -174,8 +174,8 @@
     "status": {
       "done": "Dokončeno",
       "analyzing": "Probíhá analýza",
-      "cancelling": "Zastavuje se",
-      "cancelled": "Přerušeno"
+      "canceling": "Zastavuje se",
+      "canceled": "Přerušeno"
     },
     "errors": {
       "load": "Nepodařilo se načíst historii. Zkuste to prosím znovu."

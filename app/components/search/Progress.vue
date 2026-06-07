@@ -24,7 +24,7 @@
       {{ t('search.results.progress.sort_hint') }}
     </p>
 
-    <div v-if="searchResults.sessionStatus === 'done' || searchResults.sessionStatus === 'cancelled'" class="mt-3 flex justify-end">
+    <div v-if="searchResults.sessionStatus === 'done' || searchResults.sessionStatus === 'canceled'" class="mt-3 flex justify-end">
       <UiBaseButton variant="secondary" size="sm" class="flex items-center gap-2" :disabled="exporting" @click="exportCsv">
         <LucideDownload :size="16" />
         {{ t('search.results.export_csv') }}
@@ -64,8 +64,8 @@ const exportCsv = async () => {
 
 const estimatedTimeText = computed(() => {
   if (searchResults.progressPercent === 100) return t('search.results.progress.done')
-  if (searchResults.sessionStatus === 'cancelled') return t('search.results.progress.paused')
-  if (searchResults.sessionStatus === 'cancelling') return t('search.results.progress.cancelling')
+  if (searchResults.sessionStatus === 'canceled') return t('search.results.progress.paused')
+  if (searchResults.sessionStatus === 'canceling') return t('search.results.progress.canceling')
 
   const remaining = searchResults.websiteLeadsCount - searchResults.analyzedCount
   const seconds = remaining * 5

@@ -41,24 +41,24 @@
           class="flex items-center gap-2"
           :disabled="isDisabled || limitReached"
         >
-          <UiSpinner v-if="isDisabled && searchResults.sessionStatus !== 'cancelling'" />
+          <UiSpinner v-if="isDisabled && searchResults.sessionStatus !== 'canceling'" />
           <span>{{ $t('search.form.button') }}</span>
         </UiBaseButton>
 
         <UiBaseButton
-          v-if="searchResults.sessionStatus === 'analyzing' || searchResults.sessionStatus === 'cancelling'"
+          v-if="searchResults.sessionStatus === 'analyzing' || searchResults.sessionStatus === 'canceling'"
           type="button"
           variant="secondary"
           class="flex items-center gap-2"
-          :disabled="searchResults.sessionStatus === 'cancelling'"
+          :disabled="searchResults.sessionStatus === 'canceling'"
           @click="stop"
         >
-          <UiSpinner v-if="searchResults.sessionStatus === 'cancelling'" />
+          <UiSpinner v-if="searchResults.sessionStatus === 'canceling'" />
           <span>{{ $t('search.form.stop_button') }}</span>
         </UiBaseButton>
 
         <UiBaseButton
-          v-if="searchResults.sessionStatus === 'cancelled'"
+          v-if="searchResults.sessionStatus === 'canceled'"
           type="button"
           variant="secondary"
           @click="resume"
@@ -102,7 +102,7 @@ const { data: usage, refresh: refreshUsage } = await useAsyncData('search-usage'
 )
 
 const limitReached = computed(() => usage.value != null && usage.value.sessions.remaining === 0)
-const isDisabled = computed(() => loading.value || searchResults.sessionStatus === 'analyzing' || searchResults.sessionStatus === 'cancelling')
+const isDisabled = computed(() => loading.value || searchResults.sessionStatus === 'analyzing' || searchResults.sessionStatus === 'canceling')
 
 const validate = () => {
   industryError.value = ''
@@ -170,7 +170,7 @@ const stop = async () => {
   alertFlow.clear()
   try {
     await $api(`/search/sessions/${searchResults.sessionId}/stop`, { method: 'POST' })
-    searchResults.setSessionStatus('cancelling')
+    searchResults.setSessionStatus('canceling')
   } catch (err) {
     console.error(err)
     alertFlow.error(t('search.errors.stop_failed'))

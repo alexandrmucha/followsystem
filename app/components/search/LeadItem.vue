@@ -202,7 +202,7 @@ const badgeVariant = computed((): 'neutral' | 'emerald' | 'blue' | 'amber' | 're
   if (props.lead.analysisStatus === 'done') return 'emerald'
   if (props.lead.analysisStatus === 'analyzing') return 'blue'
   if (props.lead.analysisStatus === 'error') return 'red'
-  if (props.lead.analysisStatus === 'cancelled') return 'neutral'
+  if (props.lead.analysisStatus === 'canceled') return 'neutral'
   return 'amber'
 })
 
@@ -211,7 +211,7 @@ const badgeText = computed(() => {
   if (props.lead.analysisStatus === 'done') return t('search.results.badge.done')
   if (props.lead.analysisStatus === 'analyzing') return t('search.results.badge.analyzing')
   if (props.lead.analysisStatus === 'error') return t('search.results.badge.error')
-  if (props.lead.analysisStatus === 'cancelled') return t('search.results.badge.cancelled')
+  if (props.lead.analysisStatus === 'canceled') return t('search.results.badge.canceled')
   return t('search.results.badge.pending')
 })
 </script>

@@ -65,13 +65,13 @@
         "analyzing": "Analyzing",
         "pending": "Pending",
         "error": "Could not analyze",
-        "cancelled": "Cancelled"
+        "canceled": "Canceled"
       },
       "progress": {
         "label": "Analyzed {done} of {total} websites",
         "done": "Analysis complete",
         "paused": "Analysis paused",
-        "cancelling": "Stopping analysis...",
+        "canceling": "Stopping analysis...",
         "estimating": "Estimated time remaining: ~{minutes} min",
         "sort_hint": "Results will be sorted after analysis is complete."
       },
@@ -174,8 +174,8 @@
     "status": {
       "done": "Done",
       "analyzing": "Analyzing",
-      "cancelling": "Stopping",
-      "cancelled": "Cancelled"
+      "canceling": "Stopping",
+      "canceled": "Canceled"
     },
     "errors": {
       "load": "Failed to load history. Please try again."

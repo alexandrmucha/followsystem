@@ -80,7 +80,7 @@ function formatDate(iso: string) {
 function statusVariant(status: string): 'emerald' | 'blue' | 'amber' | 'neutral' {
   if (status === 'done') return 'emerald'
   if (status === 'analyzing') return 'blue'
-  if (status === 'cancelling') return 'amber'
+  if (status === 'canceling') return 'amber'
   return 'neutral'
 }
 
