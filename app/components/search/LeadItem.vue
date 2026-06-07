@@ -109,7 +109,7 @@
     </div>
 
     <!-- ACTIONS (analyzed website leads) -->
-    <div v-if="lead.analysisStatus === 'done' && lead.hasWebsite" class="mt-3 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-2">
+    <div v-if="lead.analysisStatus === 'done' && lead.hasWebsite" class="mt-4 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
       <button v-if="lead.aiNote" class="order-1 flex items-center gap-1.5 text-xs text-neutral-400 dark:text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors cursor-pointer" @click="noteVisible = !noteVisible">
         <LucideFileText :size="13" />
         {{ noteVisible ? t('search.results.hide_note') : t('search.results.show_note') }}
