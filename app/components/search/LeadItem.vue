@@ -34,16 +34,6 @@
 
         <SearchPageSpeedBadge v-if="lead.analysisStatus === 'done'" :label="leadScoreLabel" :score="lead.leadScore" magic />
         <UiBaseBadge :variant="badgeVariant">{{ badgeText }}</UiBaseBadge>
-        <UiBaseButton
-          variant="secondary"
-          size="sm"
-          class="flex items-center gap-2 shrink-0"
-          :disabled="contactingLeadId === lead.id"
-          @click="toggleContacted"
-        >
-          <LucideCheck v-if="lead.contactedAt" :size="16" />
-          {{ lead.contactedAt ? t('search.results.contacted') : t('search.results.mark_contacted') }}
-        </UiBaseButton>
       </div>
     </div>
 
@@ -121,13 +111,23 @@
         </SearchMetricBadge>
       </div>
 
-      <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2 sm:ml-auto" @click="$emit('generate-email', lead)">
-        <LucideSparkles :size="16" />
-        {{ t('search.results.generate_email') }}
-      </UiBaseButton>
+      <div class="flex flex-wrap items-center gap-3 sm:ml-auto">
+        <UiBaseButton variant="secondary" size="sm" class="flex items-center gap-2" :disabled="contactingLeadId === lead.id" @click="toggleContacted">
+          <LucideCheck v-if="lead.contactedAt" :size="16" />
+          {{ lead.contactedAt ? t('search.results.contacted') : t('search.results.mark_contacted') }}
+        </UiBaseButton>
+        <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" @click="$emit('generate-email', lead)">
+          <LucideSparkles :size="16" />
+          {{ t('search.results.generate_email') }}
+        </UiBaseButton>
+      </div>
     </div>
 
-    <div v-else-if="!lead.hasWebsite" class="mt-3 flex sm:justify-end">
+    <div v-else-if="!lead.hasWebsite" class="mt-3 flex flex-wrap sm:justify-end gap-3">
+      <UiBaseButton variant="secondary" size="sm" class="flex items-center gap-2" :disabled="contactingLeadId === lead.id" @click="toggleContacted">
+        <LucideCheck v-if="lead.contactedAt" :size="16" />
+        {{ lead.contactedAt ? t('search.results.contacted') : t('search.results.mark_contacted') }}
+      </UiBaseButton>
       <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" @click="$emit('generate-email', lead)">
         <LucideSparkles :size="16" />
         {{ t('search.results.generate_email') }}
