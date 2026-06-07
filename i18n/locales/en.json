@@ -50,6 +50,7 @@
       "stop_button": "Stop analysis",
       "resume_button": "Resume analysis",
       "usage": "{used} / {limit} searches this month",
+      "usage_limit_reached": "You have reached your monthly limit.",
       "errors": {
         "industry_required": "Industry is required",
         "location_required": "Location is required"

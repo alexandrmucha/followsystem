@@ -39,7 +39,7 @@
         <UiBaseButton
           type="submit"
           class="flex items-center gap-2"
-          :disabled="isDisabled"
+          :disabled="isDisabled || limitReached"
         >
           <UiSpinner v-if="isDisabled && searchResults.sessionStatus !== 'cancelling'" />
           <span>{{ $t('search.form.button') }}</span>
@@ -66,9 +66,14 @@
           {{ $t('search.form.resume_button') }}
         </UiBaseButton>
 
-        <p v-if="usage" class="ml-auto text-xs text-neutral-400 dark:text-neutral-500">
-          {{ $t('search.form.usage', { used: usage.sessions.used, limit: usage.sessions.limit }) }}
-        </p>
+        <div v-if="usage" class="ml-auto text-right">
+          <p class="text-xs text-neutral-400 dark:text-neutral-500">
+            {{ $t('search.form.usage', { used: usage.sessions.used, limit: usage.sessions.limit }) }}
+          </p>
+          <p v-if="limitReached" class="text-xs text-red-500 dark:text-red-400 mt-0.5">
+            {{ $t('search.form.usage_limit_reached') }}
+          </p>
+        </div>
       </div>
 
     </form>
@@ -96,6 +101,7 @@ const { data: usage, refresh: refreshUsage } = await useAsyncData('search-usage'
   $api<{ sessions: { used: number; limit: number; remaining: number } }>('/search/usage')
 )
 
+const limitReached = computed(() => usage.value != null && usage.value.sessions.remaining === 0)
 const isDisabled = computed(() => loading.value || searchResults.sessionStatus === 'analyzing' || searchResults.sessionStatus === 'cancelling')
 
 const validate = () => {

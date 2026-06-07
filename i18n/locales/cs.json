@@ -50,6 +50,7 @@
       "stop_button": "Zastavit analýzu",
       "resume_button": "Obnovit analýzu",
       "usage": "{used} / {limit} vyhledávání tento měsíc",
+      "usage_limit_reached": "Dosáhli jste měsíčního limitu.",
       "errors": {
         "industry_required": "Obor je povinný",
         "location_required": "Lokalita je povinná"
