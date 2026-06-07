@@ -83,11 +83,13 @@ definePageMeta({
   middleware: ['guest']
 })
 
+const route = useRoute()
+
 const email = ref('')
 const turnstileToken = ref('')
 
 const loading = ref(false)
-const errorMsg = ref('')
+const errorMsg = ref(route.query.error === 'invalid_token' ? t('auth.errors.invalid_token') : '')
 const emailError = ref('')
 const showEmailAlert = ref(false)
 
