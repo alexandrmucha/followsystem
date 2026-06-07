@@ -5,10 +5,6 @@
       <!-- LEFT -->
       <div class="min-w-0">
         <h3 class="truncate font-medium text-sm" :title="lead.name">{{ lead.name }}</h3>
-        <p v-if="lead.address" class="mt-1 truncate text-sm text-neutral-500 dark:text-neutral-400" :title="lead.address">
-          {{ lead.address }}
-        </p>
-        
         <a v-if="lead.phone" :href="`tel:${lead.phone}`" class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:underline w-fit">
           <LucidePhone :size="13" />
           {{ lead.phone }}
