@@ -26,7 +26,7 @@
 
     <div v-if="searchResults.sessionStatus === 'done' || searchResults.sessionStatus === 'cancelled'" class="mt-3 flex justify-end">
       <UiBaseButton variant="secondary" size="sm" class="flex items-center gap-2" :disabled="exporting" @click="exportCsv">
-        <LucideDownload :size="14" />
+        <LucideDownload :size="16" />
         {{ t('search.results.export_csv') }}
       </UiBaseButton>
     </div>

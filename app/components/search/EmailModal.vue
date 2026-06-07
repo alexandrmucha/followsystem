@@ -67,20 +67,20 @@
 
       <!-- AI generate -->
       <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2 ml-auto" :disabled="generatingAi" @click="generateWithAi">
-        <LucideSparkles :size="14" />
+        <LucideSparkles :size="16" />
         {{ generatingAi ? t('search.email.generating_ai') : t('search.email.generate_ai') }}
       </UiBaseButton>
 
       <!-- Actions -->
       <div class="flex flex-col sm:flex-row sm:justify-end gap-3 pt-2">
         <UiBaseButton variant="secondary" size="sm" class="flex items-center justify-center gap-2" @click="copy">
-          <LucideCopy :size="14" />
+          <LucideCopy :size="16" />
           {{ copied ? t('search.email.copied') : t('search.email.copy') }}
         </UiBaseButton>
 
         <a :href="mailtoLink" target="_blank" class="block sm:inline-block">
           <UiBaseButton variant="primary" size="sm" class="flex items-center justify-center gap-2 w-full">
-            <LucideMail :size="14" />
+            <LucideMail :size="16" />
             {{ t('search.email.open') }}
           </UiBaseButton>
         </a>
