@@ -125,8 +125,8 @@
       "export_csv": "Export CSV",
       "mark_contacted": "Mark as contacted",
       "contacted": "Contacted",
-      "show_note": "Show note",
-      "hide_note": "Hide note"
+      "show_note": "Show AI note",
+      "hide_note": "Hide AI note"
     },
     "errors": {
       "load": "Failed to load the search session. Please try again.",

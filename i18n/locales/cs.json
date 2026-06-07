@@ -125,8 +125,8 @@
       "export_csv": "Exportovat CSV",
       "mark_contacted": "Označit jako kontaktováno",
       "contacted": "Kontaktováno",
-      "show_note": "Zobrazit poznámku",
-      "hide_note": "Skrýt poznámku"
+      "show_note": "Zobrazit AI poznámku",
+      "hide_note": "Skrýt AI poznámku"
     },
     "errors": {
       "load": "Nepodařilo se načíst vyhledávání. Zkuste to prosím znovu.",
