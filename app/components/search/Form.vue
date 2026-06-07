@@ -154,7 +154,7 @@ const search = async () => {
 const stop = async () => {
   alertFlow.clear()
   try {
-    await $api(`/search/stop/${searchResults.sessionId}`, { method: 'POST' })
+    await $api(`/search/sessions/${searchResults.sessionId}/stop`, { method: 'POST' })
     searchResults.setSessionStatus('cancelling')
   } catch (err) {
     console.error(err)
@@ -165,7 +165,7 @@ const stop = async () => {
 const resume = async () => {
   alertFlow.clear()
   try {
-    await $api(`/search/resume/${searchResults.sessionId}`, { method: 'POST' })
+    await $api(`/search/sessions/${searchResults.sessionId}/resume`, { method: 'POST' })
     searchResults.setSessionStatus('analyzing')
   } catch (err) {
     console.error(err)

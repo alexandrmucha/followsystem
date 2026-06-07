@@ -55,7 +55,7 @@ const { data: sessionData, error: sessionError } = await useAsyncData(sessionPar
     industry: string
     location: string
     leads: BusinessLeadDTO[]
-  } | null>(sessionParam ? `/search/sessions/${sessionParam}` : '/search/latest')
+  } | null>(sessionParam ? `/search/sessions/${sessionParam}` : '/search/sessions/latest')
 )
 
 if (sessionData.value) {
