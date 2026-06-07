@@ -11,7 +11,7 @@ export type BusinessLeadDTO = {
   businessStatus: string | null
   hasWebsite: boolean
   contactedAt?: string | null
-  analysisStatus?: 'analyzing' | 'done' | 'error' | 'cancelled'
+  analysisStatus?: 'pending' | 'analyzing' | 'done' | 'error' | 'cancelled'
   performanceScore?: number | null
   mobileScore?: number | null
   seoScore?: number | null
