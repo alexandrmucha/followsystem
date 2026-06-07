@@ -34,6 +34,16 @@
 
         <SearchPageSpeedBadge v-if="lead.analysisStatus === 'done'" :label="leadScoreLabel" :score="lead.leadScore" magic />
         <UiBaseBadge :variant="badgeVariant">{{ badgeText }}</UiBaseBadge>
+        <UiBaseButton
+          variant="secondary"
+          size="sm"
+          class="flex items-center gap-2 shrink-0"
+          :disabled="contactingLeadId === lead.id"
+          @click="toggleContacted"
+        >
+          <LucideCheck v-if="lead.contactedAt" :size="16" />
+          {{ lead.contactedAt ? t('search.results.contacted') : t('search.results.mark_contacted') }}
+        </UiBaseButton>
       </div>
     </div>
 
@@ -133,6 +143,28 @@ import type { BusinessLeadDTO } from '~/types/business-lead.dto'
 const props = defineProps<{ lead: BusinessLeadDTO }>()
 defineEmits<{ 'generate-email': [lead: BusinessLeadDTO] }>()
 const { t } = useI18n()
+const { $api } = useNuxtApp()
+const searchResults = useSearchResultsStore()
+
+const contactingLeadId = ref<string | null>(null)
+const alertFlow = useAlertFlow()
+
+const toggleContacted = async () => {
+  const contacted = !props.lead.contactedAt
+  contactingLeadId.value = props.lead.id
+  alertFlow.clear()
+  try {
+    await $api(`/search/leads/${props.lead.id}/contacted`, {
+      method: 'PATCH',
+      body: { contacted },
+    })
+    searchResults.setContactedAt(props.lead.id, contacted ? new Date().toISOString() : null)
+  } catch {
+    alertFlow.error(t('search.errors.contacted_failed'))
+  } finally {
+    contactingLeadId.value = null
+  }
+}
 
 const leadScoreLabel = computed(() => {
   const p = props.lead.leadScore

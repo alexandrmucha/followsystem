@@ -120,10 +120,13 @@
         "no_web_builder_ads": "Bez reklam builderu",
         "has_web_builder_ads": "Reklamy builderu"
       },
-      "generate_email": "Vygenerovat e-mail"
+      "generate_email": "Vygenerovat e-mail",
+      "mark_contacted": "Označit jako kontaktováno",
+      "contacted": "Kontaktováno"
     },
     "errors": {
       "load": "Nepodařilo se načíst vyhledávání. Zkuste to prosím znovu.",
+      "contacted_failed": "Nepodařilo se uložit stav kontaktu. Zkuste to prosím znovu.",
       "failed": "Nepodařilo se najít firmy. Zkuste to prosím znovu.",
       "stop_failed": "Nepodařilo se zastavit analýzu. Zkuste to prosím znovu.",
       "resume_failed": "Nepodařilo se obnovit analýzu. Zkuste to prosím znovu."

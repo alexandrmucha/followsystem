@@ -25,6 +25,11 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     searched.value = true
   }
 
+  function setContactedAt(leadId: string, contactedAt: string | null) {
+    const lead = leads.value.find(l => l.id === leadId)
+    if (lead) lead.contactedAt = contactedAt
+  }
+
   function clear() {
     sessionId.value = null
     sessionStatus.value = null
@@ -161,6 +166,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     setSession,
     setSessionStatus,
     setLeads,
+    setContactedAt,
     clear,
     updateAnalysis,
   }

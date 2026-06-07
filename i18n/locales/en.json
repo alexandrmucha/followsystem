@@ -120,10 +120,13 @@
         "no_web_builder_ads": "No builder ads",
         "has_web_builder_ads": "Builder ads"
       },
-      "generate_email": "Generate email"
+      "generate_email": "Generate email",
+      "mark_contacted": "Mark as contacted",
+      "contacted": "Contacted"
     },
     "errors": {
       "load": "Failed to load the search session. Please try again.",
+      "contacted_failed": "Failed to save contact status. Please try again.",
       "failed": "Failed to find businesses. Please try again.",
       "stop_failed": "Failed to stop analysis. Please try again.",
       "resume_failed": "Failed to resume analysis. Please try again."
