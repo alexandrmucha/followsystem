@@ -66,11 +66,12 @@
       </UiFormField>
 
       <!-- AI generate -->
-      <div class="flex justify-end">
+      <div class="flex flex-col items-end">
         <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" :disabled="generatingAi" @click="generateWithAi">
           <LucideSparkles :size="16" />
           {{ generatingAi ? t('search.email.generating_ai') : t('search.email.generate_ai') }}
         </UiBaseButton>
+        <p v-if="generateError" class="text-xs text-red-500 dark:text-red-400 mt-1">{{ generateError }}</p>
       </div>
 
       <!-- Actions -->
@@ -147,10 +148,12 @@ const mailtoLink = computed(() => {
 })
 
 const generatingAi = ref(false)
+const generateError = ref('')
 
 const generateWithAi = async () => {
   if (!props.lead || generatingAi.value) return
   generatingAi.value = true
+  generateError.value = ''
   try {
     const selectedTemplate = templates.value?.find(t => t.id === selectedTemplateId.value)
     const result = await $api<{ subject: string; body: string }>('/email/generate', {
@@ -160,6 +163,13 @@ const generateWithAi = async () => {
     subject.value = result.subject
     body.value = result.body
     refreshNuxtData('credits-usage')
+  } catch (err: any) {
+    const message = err?.response?._data?.message
+    if (message === 'insufficient_credits') {
+      generateError.value = t('search.email.error_insufficient_credits')
+    } else {
+      generateError.value = t('search.email.error_generate')
+    }
   } finally {
     generatingAi.value = false
   }

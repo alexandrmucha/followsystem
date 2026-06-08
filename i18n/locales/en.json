@@ -151,6 +151,8 @@
       "body_label": "Email body",
       "body_hint": "Review the email carefully before sending — make sure the content accurately reflects the actual state of the website.",
       "generate_ai": "Generate with AI",
+      "error_insufficient_credits": "You don't have enough credits.",
+      "error_generate": "Generation failed. Please try again.",
       "generating_ai": "Generating...",
       "copy": "Copy",
       "copied": "Copied!",
