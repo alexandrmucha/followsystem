@@ -60,12 +60,8 @@ const { $api } = useNuxtApp()
 
 const sidebarOpen = computed(() => sidebar.sidebarOpen.value)
 
-const { data: credits, refresh: refreshCredits } = await useAsyncData('credits-usage', () =>
+const { data: credits } = await useAsyncData('credits-usage', () =>
   $api<{ limit: number; remaining: number }>('/credits/usage')
 )
 
-onMounted(() => {
-  const interval = setInterval(refreshCredits, 30000)
-  onUnmounted(() => clearInterval(interval))
-})
 </script>

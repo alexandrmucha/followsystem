@@ -141,6 +141,7 @@ const search = async () => {
     searchResults.setSession(res.id)
     searchResults.setSessionStatus('analyzing')
     searchResults.setLeads(res.leads)
+    refreshNuxtData('credits-usage')
 
   } catch (err) {
     console.error(err)

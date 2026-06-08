@@ -103,6 +103,9 @@ watch(() => searchResults.sessionStatus, (sessionStatus) => {
     })
   }, (sessionStatus) => {
     searchResults.setSessionStatus(sessionStatus)
+    if (sessionStatus === 'done' || sessionStatus === 'canceled') {
+      refreshNuxtData('credits-usage')
+    }
   })
 }, { immediate: true })
 

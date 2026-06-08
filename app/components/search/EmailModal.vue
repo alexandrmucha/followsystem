@@ -159,6 +159,7 @@ const generateWithAi = async () => {
     })
     subject.value = result.subject
     body.value = result.body
+    refreshNuxtData('credits-usage')
   } finally {
     generatingAi.value = false
   }
