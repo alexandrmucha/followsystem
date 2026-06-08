@@ -34,7 +34,7 @@
     </div>
 
     <!-- PAGESPEED BADGES -->
-    <div v-if="lead.analysisStatus === 'done' && lead.hasWebsite" class="mt-4 flex flex-wrap gap-2">
+    <div v-if="lead.analysisStatus === 'done' && lead.hasWebsite && !isExternalPlatform" class="mt-4 flex flex-wrap gap-2">
       <SearchPageSpeedBadge :label="t('search.results.categories.performance_mobile')" :score="lead.mobileScore" />
       <SearchPageSpeedBadge :label="t('search.results.categories.performance_desktop')" :score="lead.performanceScore" />
       <SearchPageSpeedBadge :label="t('search.results.categories.seo')" :score="lead.seoScore" />
@@ -45,6 +45,15 @@
     <!-- METRICS -->
     <div v-if="lead.analysisStatus === 'done' && lead.hasWebsite" class="mt-3 flex flex-wrap items-center gap-4">
       <div class="flex flex-wrap items-center gap-4">
+
+        <!-- external platform — show only the indicator -->
+        <template v-if="isExternalPlatform">
+          <SearchMetricBadge :value="false" type="boolean" :aria-label="t('search.results.ai.no_own_website')">
+            <template #icon><LucideGlobe :size="13" /></template>
+          </SearchMetricBadge>
+        </template>
+
+        <template v-else>
         <SearchMetricBadge :value="lead.largestContentfulPaint" type="lcp" :aria-label="t('search.results.metrics.lcp')">
           <template #icon><LucideClock :size="13" /></template>
         </SearchMetricBadge>
@@ -105,6 +114,7 @@
         <SearchMetricBadge v-if="lead.aiCopywritingScore != null" :value="lead.aiCopywritingScore" type="score" :aria-label="t('search.results.ai.copywriting')">
           <template #icon><LucidePenLine :size="13" /></template>
         </SearchMetricBadge>
+        </template>
       </div>
     </div>
 
@@ -186,6 +196,8 @@ const leadScoreLabel = computed(() => {
 })
 
 type CtaState = 'ok' | 'missing' | 'missing_mobile' | 'missing_desktop'
+
+const isExternalPlatform = computed(() => props.lead.aiHasOwnWebsite === false)
 
 const ctaState = computed((): CtaState | null => {
   const mobile = props.lead.aiMissingCtaMobile
