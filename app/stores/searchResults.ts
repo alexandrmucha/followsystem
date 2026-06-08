@@ -108,7 +108,10 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
   })
 
   function computeLeadTiebreaker(lead: BusinessLeadDTO): number {
-    if (!lead.hasWebsite || lead.analysisStatus !== 'done') return 100
+    if (lead.analysisStatus !== 'done') return 100
+    if (lead.aiWebsiteNonOperational === true) return -30
+    if (!lead.hasWebsite) return -20
+    if (lead.aiHasOwnWebsite === false) return -10
 
     const weights = [
       { value: lead.mobileScore, weight: 3 },
