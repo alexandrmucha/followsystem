@@ -4,7 +4,7 @@
       <LucideX :size="20" />
     </button>
 
-    <div class="p-6">
+    <div class="p-6 flex flex-col h-full">
       <UiLogo />
 
       <nav class="mt-8 space-y-1">
@@ -31,8 +31,23 @@
 
           {{ $t('nav.templates') }}
         </LayoutNavigationItem>
-        
       </nav>
+
+      <div v-if="credits" class="mt-auto pt-6">
+        <div class="flex items-center justify-between text-xs text-neutral-500 dark:text-neutral-400 mb-1.5">
+          <span class="flex items-center gap-1.5">
+            <LucideZap :size="13" />
+            {{ $t('nav.credits') }}
+          </span>
+          <span>{{ credits.remaining }} / {{ credits.limit }}</span>
+        </div>
+        <div class="h-1 w-full rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden">
+          <div
+            class="h-full rounded-full bg-indigo-500 dark:bg-indigo-600 transition-all duration-500"
+            :style="{ width: Math.round((credits.remaining / credits.limit) * 100) + '%' }"
+          />
+        </div>
+      </div>
 
     </div>
 
@@ -41,6 +56,11 @@
 
 <script lang="ts" setup>
 const sidebar = useSidebar()
+const { $api } = useNuxtApp()
 
 const sidebarOpen = computed(() => sidebar.sidebarOpen.value)
+
+const { data: credits } = await useAsyncData('credits-usage', () =>
+  $api<{ limit: number; remaining: number }>('/credits/usage')
+)
 </script>

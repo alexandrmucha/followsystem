@@ -161,7 +161,8 @@
     "search": "Search",
     "templates": "Templates",
     "history": "History",
-    "settings": "Settings"
+    "settings": "Settings",
+    "credits": "Credits"
   },
   "history": {
     "title": "Search history",
