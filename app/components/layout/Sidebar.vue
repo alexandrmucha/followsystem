@@ -43,7 +43,7 @@
         </div>
         <div class="h-1 w-full rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden">
           <div
-            class="h-full rounded-full bg-indigo-500 dark:bg-indigo-600 transition-all duration-500"
+            class="h-full bg-linear-to-r from-indigo-500 to-purple-600 dark:from-indigo-600 dark:to-purple-700 transition-all duration-500"
             :style="{ width: Math.round((credits.remaining / credits.limit) * 100) + '%' }"
           />
         </div>
