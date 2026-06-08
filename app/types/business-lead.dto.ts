@@ -33,6 +33,7 @@ export type BusinessLeadDTO = {
   aiHasServerErrors?: boolean | null
   aiHasPlaceholderContent?: boolean | null
   aiCopyrightYear?: number | null
+  aiWebsiteNonOperational?: boolean | null
   leadScore?: number | null
   aiNote?: string | null
 }

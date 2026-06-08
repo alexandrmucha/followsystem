@@ -98,6 +98,7 @@ watch(() => searchResults.sessionStatus, (sessionStatus) => {
       aiHasServerErrors: update.aiHasServerErrors,
       aiHasPlaceholderContent: update.aiHasPlaceholderContent,
       aiCopyrightYear: update.aiCopyrightYear,
+      aiWebsiteNonOperational: update.aiWebsiteNonOperational,
       leadScore: update.leadScore,
       aiNote: update.aiNote,
     })

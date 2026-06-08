@@ -117,6 +117,7 @@
         "copyright_year": "Copyright year",
         "has_own_website": "Own website",
         "no_own_website": "External website",
+        "non_operational": "Website not working",
         "no_web_builder": "No web builder",
         "uses_web_builder": "Web builder",
         "no_web_builder_ads": "No builder ads",

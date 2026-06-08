@@ -117,6 +117,7 @@
         "copyright_year": "Copyright rok",
         "has_own_website": "Vlastní web",
         "no_own_website": "Externí web",
+        "non_operational": "Web nefunguje",
         "no_web_builder": "Bez web builderu",
         "uses_web_builder": "Web builder",
         "no_web_builder_ads": "Bez reklam builderu",

@@ -60,6 +60,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     aiHasServerErrors?: boolean | null
     aiHasPlaceholderContent?: boolean | null
     aiCopyrightYear?: number | null
+    aiWebsiteNonOperational?: boolean | null
     leadScore?: number | null
     aiNote?: string | null
   }) {
@@ -87,6 +88,7 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       lead.aiHasServerErrors = data.aiHasServerErrors
       lead.aiHasPlaceholderContent = data.aiHasPlaceholderContent
       lead.aiCopyrightYear = data.aiCopyrightYear
+      lead.aiWebsiteNonOperational = data.aiWebsiteNonOperational
       lead.leadScore = data.leadScore
       lead.aiNote = data.aiNote
     }
