@@ -204,9 +204,6 @@
       "title": "Kritické akce"
     },
     "errors" : {
-      "gmail_already_connected": "Tento Gmail je již připojený k jinému účtu.",
-      "different_google_account": "Nelze připojit jiný Google účet, než který je již propojený.",
-      "gmail_general": "Při připojování Gmailu došlo k chybě. Zkuste to prosím znovu.",
       "logout_all": "Nepodařilo se odhlásit všechny relace. Zkuste to prosím znovu.",
       "delete_account": "Nepodařilo se smazat váš účet. Zkuste to prosím znovu."
     },

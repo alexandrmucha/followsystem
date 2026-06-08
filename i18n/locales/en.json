@@ -204,9 +204,6 @@
       "title": "Danger zone"
     },
     "errors" : {
-      "gmail_already_connected": "This Gmail account is already connected to another account.",
-      "different_google_account": "You cannot connect a different Google account than the one already linked.",
-      "gmail_general": "An error occurred while connecting Gmail. Please try again.",
       "logout_all": "Failed to log out all sessions. Please try again.",
       "delete_account": "Failed to delete your account. Please try again."
     },

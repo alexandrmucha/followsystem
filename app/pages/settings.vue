@@ -61,9 +61,7 @@
 
 <script lang="ts" setup>
 const { t, locale, locales, setLocale } = useI18n()
-const route = useRoute()
 const authStore = useAuthStore()
-const alertFlow = useAlertFlow()
 
 useHead({
   title: t('settings.title')
@@ -81,21 +79,4 @@ const handleLocaleChange = async (value: string | number | undefined) => {
   await setLocale(value as 'en' | 'cs')
 }
 
-const errorMap: Record<string, string> = {
-  gmail_already_connected: t('settings.errors.gmail_already_connected'),
-  different_google_account: t('settings.errors.different_google_account'),
-  gmail_general: t('settings.errors.gmail_general'),
-}
-
-onMounted(() => {
-  if (route.query.error) {
-    const key = route.query.error as string | undefined
-    if (!key) return null
-
-    const error = errorMap[key] ?? null
-    if (!error) return null
-
-    alertFlow.error(error)
-  }
-})
 </script>
