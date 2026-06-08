@@ -66,15 +66,15 @@
       </UiFormField>
 
       <!-- AI generate -->
-      <div class="flex flex-col items-end gap-1">
+      <div class="flex flex-col items-end">
         <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" :disabled="generatingAi || emailLimitReached" @click="generateWithAi">
           <LucideSparkles :size="16" />
           {{ generatingAi ? t('search.email.generating_ai') : t('search.email.generate_ai') }}
         </UiBaseButton>
-        <p v-if="usage" class="text-xs text-neutral-400 dark:text-neutral-500">
+        <p v-if="usage" class="text-xs text-neutral-400 dark:text-neutral-500 mt-1">
           {{ t('search.email.usage', { used: usage.emails.used, limit: usage.emails.limit }) }}
         </p>
-        <p v-if="emailLimitReached" class="text-xs text-red-500 dark:text-red-400">
+        <p v-if="emailLimitReached" class="text-xs text-red-500 dark:text-red-400 mt-0.5">
           {{ t('search.email.email_limit_reached') }}
         </p>
       </div>
