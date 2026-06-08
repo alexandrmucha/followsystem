@@ -164,7 +164,8 @@
     "templates": "Templates",
     "history": "History",
     "settings": "Settings",
-    "credits": "Credits"
+    "credits": "Credits",
+    "support": "Help & feedback"
   },
   "history": {
     "title": "Search history",

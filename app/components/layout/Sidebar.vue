@@ -33,20 +33,27 @@
         </LayoutNavigationItem>
       </nav>
 
-      <div v-if="credits" class="mt-auto pt-6">
-        <div class="flex items-center justify-between text-xs text-neutral-500 dark:text-neutral-400 mb-1.5">
-          <span class="flex items-center gap-1.5">
-            <LucideZap :size="13" />
-            {{ $t('nav.credits') }}
-          </span>
-          <span>{{ credits.remaining }} / {{ credits.limit }}</span>
+      <div class="mt-auto pt-6 space-y-4">
+        <div v-if="credits">
+          <div class="flex items-center justify-between text-xs text-neutral-500 dark:text-neutral-400 mb-1.5">
+            <span class="flex items-center gap-1.5">
+              <LucideZap :size="13" />
+              {{ $t('nav.credits') }}
+            </span>
+            <span>{{ credits.remaining }} / {{ credits.limit }}</span>
+          </div>
+          <div class="h-1 w-full rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden">
+            <div
+              class="h-full bg-linear-to-r from-indigo-500 to-purple-600 dark:from-indigo-600 dark:to-purple-700 transition-all duration-500"
+              :style="{ width: Math.round((credits.remaining / credits.limit) * 100) + '%' }"
+            />
+          </div>
         </div>
-        <div class="h-1 w-full rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden">
-          <div
-            class="h-full bg-linear-to-r from-indigo-500 to-purple-600 dark:from-indigo-600 dark:to-purple-700 transition-all duration-500"
-            :style="{ width: Math.round((credits.remaining / credits.limit) * 100) + '%' }"
-          />
-        </div>
+
+        <a href="mailto:support@fulply.com" class="flex items-center gap-1.5 text-xs text-neutral-400 dark:text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors">
+          <LucideLifeBuoy :size="13" />
+          {{ $t('nav.support') }}
+        </a>
       </div>
 
     </div>
