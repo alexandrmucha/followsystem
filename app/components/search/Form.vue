@@ -35,36 +35,40 @@
       </div>
 
       <!-- BUTTON -->
-      <div class="mt-5 flex items-center gap-3">
-        <UiBaseButton
-          type="submit"
-          class="flex items-center gap-2"
-          :disabled="isDisabled"
-        >
-          <UiSpinner v-if="isDisabled && searchResults.sessionStatus !== 'canceling'" />
-          <span>{{ $t('search.form.button') }}</span>
-        </UiBaseButton>
+      <div class="mt-5 flex flex-col gap-2">
+        <div class="flex items-center gap-3">
+          <UiBaseButton
+            type="submit"
+            class="flex items-center gap-2"
+            :disabled="isDisabled"
+          >
+            <UiSpinner v-if="isDisabled && searchResults.sessionStatus !== 'canceling'" />
+            <span>{{ $t('search.form.button') }}</span>
+          </UiBaseButton>
 
-        <UiBaseButton
-          v-if="searchResults.sessionStatus === 'analyzing' || searchResults.sessionStatus === 'canceling'"
-          type="button"
-          variant="secondary"
-          class="flex items-center gap-2"
-          :disabled="searchResults.sessionStatus === 'canceling'"
-          @click="stop"
-        >
-          <UiSpinner v-if="searchResults.sessionStatus === 'canceling'" />
-          <span>{{ $t('search.form.stop_button') }}</span>
-        </UiBaseButton>
+          <UiBaseButton
+            v-if="searchResults.sessionStatus === 'analyzing' || searchResults.sessionStatus === 'canceling'"
+            type="button"
+            variant="secondary"
+            class="flex items-center gap-2"
+            :disabled="searchResults.sessionStatus === 'canceling'"
+            @click="stop"
+          >
+            <UiSpinner v-if="searchResults.sessionStatus === 'canceling'" />
+            <span>{{ $t('search.form.stop_button') }}</span>
+          </UiBaseButton>
 
-        <UiBaseButton
-          v-if="searchResults.sessionStatus === 'canceled'"
-          type="button"
-          variant="secondary"
-          @click="resume"
-        >
-          {{ $t('search.form.resume_button') }}
-        </UiBaseButton>
+          <UiBaseButton
+            v-if="searchResults.sessionStatus === 'canceled'"
+            type="button"
+            variant="secondary"
+            @click="resume"
+          >
+            {{ $t('search.form.resume_button') }}
+          </UiBaseButton>
+        </div>
+
+        <p v-if="searchError" :class="fieldErrorClass">{{ searchError }}</p>
       </div>
 
     </form>
@@ -84,6 +88,7 @@ const searchResults = useSearchResultsStore()
 // errors
 const industryError = ref('')
 const locationError = ref('')
+const searchError = ref('')
 
 // loading (API request)
 const loading = ref(false)
@@ -125,6 +130,7 @@ const search = async () => {
 
   loading.value = true
   alertFlow.clear()
+  searchError.value = ''
 
   try {
     const res = await $api<{
@@ -143,9 +149,13 @@ const search = async () => {
     searchResults.setLeads(res.leads)
     refreshNuxtData('credits-usage')
 
-  } catch (err) {
-    console.error(err)
-    alertFlow.error(t('search.errors.failed'))
+  } catch (err: any) {
+    const message = err?.response?._data?.message
+    if (message === 'insufficient_credits') {
+      searchError.value = t('common.errors.insufficient_credits')
+    } else {
+      alertFlow.error(t('search.errors.failed'))
+    }
 
   } finally {
     loading.value = false
@@ -158,7 +168,6 @@ const stop = async () => {
     await $api(`/search/sessions/${searchResults.sessionId}/stop`, { method: 'POST' })
     searchResults.setSessionStatus('canceling')
   } catch (err) {
-    console.error(err)
     alertFlow.error(t('search.errors.stop_failed'))
   }
 }
@@ -169,7 +178,6 @@ const resume = async () => {
     await $api(`/search/sessions/${searchResults.sessionId}/resume`, { method: 'POST' })
     searchResults.setSessionStatus('analyzing')
   } catch (err) {
-    console.error(err)
     alertFlow.error(t('search.errors.resume_failed'))
   }
 }

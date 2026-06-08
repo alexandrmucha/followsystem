@@ -166,7 +166,7 @@ const generateWithAi = async () => {
   } catch (err: any) {
     const message = err?.response?._data?.message
     if (message === 'insufficient_credits') {
-      generateError.value = t('search.email.error_insufficient_credits')
+      generateError.value = t('common.errors.insufficient_credits')
     } else {
       generateError.value = t('search.email.error_generate')
     }
