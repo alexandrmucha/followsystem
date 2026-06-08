@@ -35,38 +35,40 @@
       </div>
 
       <!-- BUTTON -->
-      <div class="mt-5 flex items-center gap-3">
-        <UiBaseButton
-          type="submit"
-          class="flex items-center gap-2"
-          :disabled="isDisabled || limitReached"
-        >
-          <UiSpinner v-if="isDisabled && searchResults.sessionStatus !== 'canceling'" />
-          <span>{{ $t('search.form.button') }}</span>
-        </UiBaseButton>
+      <div class="mt-5 flex flex-col sm:flex-row sm:items-center gap-3">
+        <div class="flex items-center gap-3">
+          <UiBaseButton
+            type="submit"
+            class="flex items-center gap-2"
+            :disabled="isDisabled || limitReached"
+          >
+            <UiSpinner v-if="isDisabled && searchResults.sessionStatus !== 'canceling'" />
+            <span>{{ $t('search.form.button') }}</span>
+          </UiBaseButton>
 
-        <UiBaseButton
-          v-if="searchResults.sessionStatus === 'analyzing' || searchResults.sessionStatus === 'canceling'"
-          type="button"
-          variant="secondary"
-          class="flex items-center gap-2"
-          :disabled="searchResults.sessionStatus === 'canceling'"
-          @click="stop"
-        >
-          <UiSpinner v-if="searchResults.sessionStatus === 'canceling'" />
-          <span>{{ $t('search.form.stop_button') }}</span>
-        </UiBaseButton>
+          <UiBaseButton
+            v-if="searchResults.sessionStatus === 'analyzing' || searchResults.sessionStatus === 'canceling'"
+            type="button"
+            variant="secondary"
+            class="flex items-center gap-2"
+            :disabled="searchResults.sessionStatus === 'canceling'"
+            @click="stop"
+          >
+            <UiSpinner v-if="searchResults.sessionStatus === 'canceling'" />
+            <span>{{ $t('search.form.stop_button') }}</span>
+          </UiBaseButton>
 
-        <UiBaseButton
-          v-if="searchResults.sessionStatus === 'canceled'"
-          type="button"
-          variant="secondary"
-          @click="resume"
-        >
-          {{ $t('search.form.resume_button') }}
-        </UiBaseButton>
+          <UiBaseButton
+            v-if="searchResults.sessionStatus === 'canceled'"
+            type="button"
+            variant="secondary"
+            @click="resume"
+          >
+            {{ $t('search.form.resume_button') }}
+          </UiBaseButton>
+        </div>
 
-        <div v-if="usage" class="ml-auto text-right">
+        <div v-if="usage" class="sm:ml-auto sm:text-right">
           <p class="text-xs text-neutral-400 dark:text-neutral-500">
             {{ $t('search.form.usage', { used: usage.sessions.used, limit: usage.sessions.limit }) }}
           </p>
