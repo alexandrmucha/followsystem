@@ -49,8 +49,6 @@
       "button": "Najít firmy",
       "stop_button": "Zastavit analýzu",
       "resume_button": "Obnovit analýzu",
-      "usage": "{used} / {limit} vyhledávání tento měsíc",
-      "usage_limit_reached": "Dosáhli jste měsíčního limitu.",
       "errors": {
         "industry_required": "Obor je povinný",
         "location_required": "Lokalita je povinná"
@@ -152,8 +150,6 @@
       "subject_label": "Předmět",
       "body_label": "Text e-mailu",
       "body_hint": "Před odesláním si e-mail pečlivě překontrolujte — ověřte, že obsah odpovídá skutečnému stavu webu.",
-      "usage": "{used} / {limit} AI emailů tento měsíc",
-      "email_limit_reached": "Dosáhli jste měsíčního limitu.",
       "generate_ai": "Generovat s AI",
       "generating_ai": "Generuji...",
       "copy": "Kopírovat",
