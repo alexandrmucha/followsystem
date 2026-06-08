@@ -66,17 +66,11 @@
       </UiFormField>
 
       <!-- AI generate -->
-      <div class="flex flex-col items-end">
-        <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" :disabled="generatingAi || emailLimitReached" @click="generateWithAi">
+      <div class="flex justify-end">
+        <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" :disabled="generatingAi" @click="generateWithAi">
           <LucideSparkles :size="16" />
           {{ generatingAi ? t('search.email.generating_ai') : t('search.email.generate_ai') }}
         </UiBaseButton>
-        <p v-if="usage" class="text-xs text-neutral-400 dark:text-neutral-500 mt-1">
-          {{ t('search.email.usage', { used: usage.emails.used, limit: usage.emails.limit }) }}
-        </p>
-        <p v-if="emailLimitReached" class="text-xs text-red-500 dark:text-red-400 mt-0.5">
-          {{ t('search.email.email_limit_reached') }}
-        </p>
       </div>
 
       <!-- Actions -->
@@ -152,21 +146,10 @@ const mailtoLink = computed(() => {
   return `mailto:${recipient.value}?subject=${encodeURIComponent(subject.value)}&body=${encodeURIComponent(body.value)}`
 })
 
-type UsageData = {
-  sessions: { used: number; limit: number; remaining: number }
-  emails: { used: number; limit: number; remaining: number }
-}
-
-const { data: usage, refresh: refreshUsage } = await useAsyncData('search-usage', () =>
-  $api<UsageData>('/search/usage')
-)
-
-const emailLimitReached = computed(() => usage.value != null && usage.value.emails.remaining === 0)
-
 const generatingAi = ref(false)
 
 const generateWithAi = async () => {
-  if (!props.lead || generatingAi.value || emailLimitReached.value) return
+  if (!props.lead || generatingAi.value) return
   generatingAi.value = true
   try {
     const selectedTemplate = templates.value?.find(t => t.id === selectedTemplateId.value)
@@ -176,7 +159,6 @@ const generateWithAi = async () => {
     })
     subject.value = result.subject
     body.value = result.body
-    refreshUsage()
   } finally {
     generatingAi.value = false
   }

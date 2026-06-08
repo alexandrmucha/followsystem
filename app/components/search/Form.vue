@@ -35,47 +35,36 @@
       </div>
 
       <!-- BUTTON -->
-      <div class="mt-5 flex flex-col sm:flex-row sm:items-center gap-3">
-        <div class="flex items-center gap-3">
-          <UiBaseButton
-            type="submit"
-            class="flex items-center gap-2"
-            :disabled="isDisabled || limitReached"
-          >
-            <UiSpinner v-if="isDisabled && searchResults.sessionStatus !== 'canceling'" />
-            <span>{{ $t('search.form.button') }}</span>
-          </UiBaseButton>
+      <div class="mt-5 flex items-center gap-3">
+        <UiBaseButton
+          type="submit"
+          class="flex items-center gap-2"
+          :disabled="isDisabled"
+        >
+          <UiSpinner v-if="isDisabled && searchResults.sessionStatus !== 'canceling'" />
+          <span>{{ $t('search.form.button') }}</span>
+        </UiBaseButton>
 
-          <UiBaseButton
-            v-if="searchResults.sessionStatus === 'analyzing' || searchResults.sessionStatus === 'canceling'"
-            type="button"
-            variant="secondary"
-            class="flex items-center gap-2"
-            :disabled="searchResults.sessionStatus === 'canceling'"
-            @click="stop"
-          >
-            <UiSpinner v-if="searchResults.sessionStatus === 'canceling'" />
-            <span>{{ $t('search.form.stop_button') }}</span>
-          </UiBaseButton>
+        <UiBaseButton
+          v-if="searchResults.sessionStatus === 'analyzing' || searchResults.sessionStatus === 'canceling'"
+          type="button"
+          variant="secondary"
+          class="flex items-center gap-2"
+          :disabled="searchResults.sessionStatus === 'canceling'"
+          @click="stop"
+        >
+          <UiSpinner v-if="searchResults.sessionStatus === 'canceling'" />
+          <span>{{ $t('search.form.stop_button') }}</span>
+        </UiBaseButton>
 
-          <UiBaseButton
-            v-if="searchResults.sessionStatus === 'canceled'"
-            type="button"
-            variant="secondary"
-            @click="resume"
-          >
-            {{ $t('search.form.resume_button') }}
-          </UiBaseButton>
-        </div>
-
-        <div v-if="usage" class="sm:ml-auto sm:text-right">
-          <p class="text-xs text-neutral-400 dark:text-neutral-500">
-            {{ $t('search.form.usage', { used: usage.sessions.used, limit: usage.sessions.limit }) }}
-          </p>
-          <p v-if="limitReached" class="text-xs text-red-500 dark:text-red-400 mt-0.5">
-            {{ $t('search.form.usage_limit_reached') }}
-          </p>
-        </div>
+        <UiBaseButton
+          v-if="searchResults.sessionStatus === 'canceled'"
+          type="button"
+          variant="secondary"
+          @click="resume"
+        >
+          {{ $t('search.form.resume_button') }}
+        </UiBaseButton>
       </div>
 
     </form>
@@ -99,16 +88,6 @@ const locationError = ref('')
 // loading (API request)
 const loading = ref(false)
 
-type UsageData = {
-  sessions: { used: number; limit: number; remaining: number }
-  emails: { used: number; limit: number; remaining: number }
-}
-
-const { data: usage, refresh: refreshUsage } = await useAsyncData('search-usage', () =>
-  $api<UsageData>('/search/usage')
-)
-
-const limitReached = computed(() => usage.value != null && usage.value.sessions.remaining === 0)
 const isDisabled = computed(() => loading.value || searchResults.sessionStatus === 'analyzing' || searchResults.sessionStatus === 'canceling')
 
 const validate = () => {
@@ -162,7 +141,6 @@ const search = async () => {
     searchResults.setSession(res.id)
     searchResults.setSessionStatus('analyzing')
     searchResults.setLeads(res.leads)
-    refreshUsage()
 
   } catch (err) {
     console.error(err)
