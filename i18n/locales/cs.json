@@ -152,6 +152,8 @@
       "subject_label": "Předmět",
       "body_label": "Text e-mailu",
       "body_hint": "Před odesláním si e-mail pečlivě překontrolujte — ověřte, že obsah odpovídá skutečnému stavu webu.",
+      "usage": "{used} / {limit} AI emailů tento měsíc",
+      "email_limit_reached": "Dosáhli jste měsíčního limitu.",
       "generate_ai": "Generovat s AI",
       "generating_ai": "Generuji...",
       "copy": "Kopírovat",

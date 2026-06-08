@@ -97,8 +97,13 @@ const locationError = ref('')
 // loading (API request)
 const loading = ref(false)
 
+type UsageData = {
+  sessions: { used: number; limit: number; remaining: number }
+  emails: { used: number; limit: number; remaining: number }
+}
+
 const { data: usage, refresh: refreshUsage } = await useAsyncData('search-usage', () =>
-  $api<{ sessions: { used: number; limit: number; remaining: number } }>('/search/usage')
+  $api<UsageData>('/search/usage')
 )
 
 const limitReached = computed(() => usage.value != null && usage.value.sessions.remaining === 0)

@@ -152,6 +152,8 @@
       "subject_label": "Subject",
       "body_label": "Email body",
       "body_hint": "Review the email carefully before sending — make sure the content accurately reflects the actual state of the website.",
+      "usage": "{used} / {limit} AI emails this month",
+      "email_limit_reached": "You have reached your monthly.",
       "generate_ai": "Generate with AI",
       "generating_ai": "Generating...",
       "copy": "Copy",
