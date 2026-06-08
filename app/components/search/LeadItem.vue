@@ -34,7 +34,7 @@
     </div>
 
     <!-- PAGESPEED BADGES -->
-    <div v-if="lead.analysisStatus === 'done' && lead.hasWebsite && !isExternalPlatform && !isNonOperational" class="mt-4 flex flex-wrap gap-2">
+    <div v-if="lead.analysisStatus === 'done' && lead.hasWebsite && !isNonOperational && !isExternalPlatform" class="mt-4 flex flex-wrap gap-2">
       <SearchPageSpeedBadge :label="t('search.results.categories.performance_mobile')" :score="lead.mobileScore" />
       <SearchPageSpeedBadge :label="t('search.results.categories.performance_desktop')" :score="lead.performanceScore" />
       <SearchPageSpeedBadge :label="t('search.results.categories.seo')" :score="lead.seoScore" />
@@ -46,17 +46,17 @@
     <div v-if="lead.analysisStatus === 'done' && lead.hasWebsite" class="mt-3 flex flex-wrap items-center gap-4">
       <div class="flex flex-wrap items-center gap-4">
 
-        <!-- external platform — show only the indicator -->
-        <template v-if="isExternalPlatform">
-          <SearchMetricBadge :value="false" type="boolean" :aria-label="t('search.results.ai.no_own_website')">
-            <template #icon><LucideGlobe :size="13" /></template>
+        <!-- non-operational website — show only the indicator -->
+        <template v-if="isNonOperational">
+          <SearchMetricBadge :value="false" type="boolean" :aria-label="t('search.results.ai.non_operational')">
+            <template #icon><LucideCircleOff :size="13" /></template>
           </SearchMetricBadge>
         </template>
 
-        <!-- non-operational website — show only the indicator -->
-        <template v-else-if="isNonOperational">
-          <SearchMetricBadge :value="false" type="boolean" :aria-label="t('search.results.ai.non_operational')">
-            <template #icon><LucideCircleOff :size="13" /></template>
+        <!-- external platform — show only the indicator -->
+        <template v-else-if="isExternalPlatform">
+          <SearchMetricBadge :value="false" type="boolean" :aria-label="t('search.results.ai.no_own_website')">
+            <template #icon><LucideGlobe :size="13" /></template>
           </SearchMetricBadge>
         </template>
 
