@@ -96,10 +96,10 @@
         "lead_score": "Lead value"
       },
       "lead_score_label": {
-        "excellent": "Excellent",
-        "good": "Good",
-        "average": "Average",
-        "weak": "Weak"
+        "excellent": "Excellent lead",
+        "good": "Good lead",
+        "average": "Average lead",
+        "weak": "Weak lead"
       },
       "ai": {
         "not_responsive": "Not responsive",

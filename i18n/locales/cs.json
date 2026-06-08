@@ -96,10 +96,10 @@
         "lead_score": "Hodnota leadu"
       },
       "lead_score_label": {
-        "excellent": "Výborný",
-        "good": "Dobrý",
-        "average": "Průměrný",
-        "weak": "Slabý"
+        "excellent": "Výborný lead",
+        "good": "Dobrý lead",
+        "average": "Průměrný lead",
+        "weak": "Slabý lead"
       },
       "ai": {
         "not_responsive": "Není responzivní",
