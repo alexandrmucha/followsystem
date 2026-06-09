@@ -8,7 +8,7 @@
     </button>
 
     <!-- Dropdown -->
-    <div v-if="openDropdown" ref="dropdownRef" class="absolute flex flex-col right-6 top-14 w-48 bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 rounded-lg shadow-sm py-1 z-50">
+    <div v-if="openDropdown" ref="dropdownRef" class="absolute flex flex-col right-6 top-14 w-48 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm py-1 z-50">
       <NuxtLink to="/settings" class="flex gap-2 items-center px-3 py-2 text-sm text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors" @click="openDropdown = false">
         <LucideSettings :size="16" />
         <span>{{ $t('nav.settings') }}</span>
