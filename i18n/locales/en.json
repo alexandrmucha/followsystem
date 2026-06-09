@@ -3,12 +3,12 @@
     "close": "Close",
     "error": "Error",
     "cancel": "Cancel",
+    "confirm": "Confirm",
     "or": "or",
     "errors": {
       "security_verification_failed": "Security verification failed. Please try again.",
       "insufficient_credits": "You don't have enough credits."
     },
-    "results": "results",
     "loading": "Loading...",
     "edit": "Edit",
     "delete": "Delete",

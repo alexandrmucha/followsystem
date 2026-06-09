@@ -3,12 +3,12 @@
     "close": "Zavřít",
     "error": "Chyba",
     "cancel": "Zrušit",
+    "confirm": "Potvrdit",
     "or": "nebo",
     "errors": {
       "security_verification_failed": "Bezpečnostní ověření selhalo. Zkuste to prosím znovu.",
       "insufficient_credits": "Nemáte dostatek kreditů."
     },
-    "results": "výsledků",
     "loading": "Načítání...",
     "edit": "Upravit",
     "delete": "Smazat",
