@@ -132,6 +132,7 @@ export function useTemplateParser() {
       ai_has_server_errors: lead.aiHasServerErrors == null ? null : lead.aiHasServerErrors ? 1 : 0,
       ai_has_placeholder_content: lead.aiHasPlaceholderContent == null ? null : lead.aiHasPlaceholderContent ? 1 : 0,
       ai_has_own_website: lead.aiHasOwnWebsite == null ? null : lead.aiHasOwnWebsite ? 1 : 0,
+      ai_website_non_operational: lead.aiWebsiteNonOperational == null ? null : lead.aiWebsiteNonOperational ? 1 : 0,
       has_third_level_domain: lead.hasThirdLevelDomain == null ? null : lead.hasThirdLevelDomain ? 1 : 0,
       ai_uses_web_builder: lead.aiUsesWebBuilder == null ? null : lead.aiUsesWebBuilder ? 1 : 0,
       ai_has_web_builder_ads: lead.aiHasWebBuilderAds == null ? null : lead.aiHasWebBuilderAds ? 1 : 0,
