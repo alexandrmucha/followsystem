@@ -3,11 +3,15 @@
     class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
     @click="$emit('close')"
   >
-    <img
-      :src="src"
-      class="max-w-full max-h-full object-contain rounded-lg shadow-2xl cursor-default"
-      @click.stop
-    />
+    <button
+      type="button"
+      class="absolute top-4 right-4 text-neutral-400 hover:text-neutral-200 transition-colors cursor-pointer"
+      :aria-label="$t('common.close')"
+      @click="$emit('close')"
+    >
+      <LucideX :size="18" />
+    </button>
+    <img :src="src" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl" @click.stop />
   </div>
 </template>
 
