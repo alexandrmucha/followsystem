@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 cursor-zoom-out"
+    class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
     @click="$emit('close')"
   >
     <img
