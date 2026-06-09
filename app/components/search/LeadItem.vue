@@ -197,9 +197,9 @@ const toggleContacted = async () => {
 const leadScoreLabel = computed(() => {
   const p = props.lead.leadScore
   if (p == null) return ''
-  if (p >= 30) return t('search.results.lead_score_label.excellent')
-  if (p >= 20) return t('search.results.lead_score_label.good')
-  if (p >= 10) return t('search.results.lead_score_label.average')
+  if (p >= 35) return t('search.results.lead_score_label.excellent')
+  if (p >= 25) return t('search.results.lead_score_label.good')
+  if (p >= 15) return t('search.results.lead_score_label.average')
   return t('search.results.lead_score_label.weak')
 })
 
