@@ -30,7 +30,7 @@
               @keydown.enter="handleSearch"
             />
             <button
-              class="flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-linear-to-r from-indigo-500 to-purple-600 text-white text-sm font-medium hover:from-indigo-600 hover:to-purple-700 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              class="flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-linear-to-r from-indigo-600 to-purple-700 text-white text-sm font-medium hover:from-indigo-700 hover:to-purple-800 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
               @click="handleSearch"
             >
               {{ $t('search.form.button') }}
