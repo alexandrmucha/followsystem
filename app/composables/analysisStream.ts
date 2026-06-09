@@ -32,6 +32,8 @@ export function useAnalysisStream() {
       aiWebsiteNonOperational?: boolean | null
       leadScore?: number | null
       aiNote?: string | null
+      screenshotMobile?: string | null
+      screenshotDesktop?: string | null
     }) => void,
     onSessionUpdate?: (status: string) => void,
     onDone?: () => void

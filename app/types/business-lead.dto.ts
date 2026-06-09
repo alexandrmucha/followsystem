@@ -36,4 +36,6 @@ export type BusinessLeadDTO = {
   aiWebsiteNonOperational?: boolean | null
   leadScore?: number | null
   aiNote?: string | null
+  screenshotMobile?: string | null
+  screenshotDesktop?: string | null
 }

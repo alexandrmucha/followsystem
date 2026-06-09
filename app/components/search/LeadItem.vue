@@ -126,6 +126,22 @@
       </div>
     </div>
 
+    <!-- SCREENSHOTS -->
+    <div v-if="lead.analysisStatus === 'done' && lead.hasWebsite && (lead.screenshotMobile || lead.screenshotDesktop)" class="mt-4 flex gap-3">
+      <button v-if="lead.screenshotMobile" class="flex flex-col items-center gap-1 group cursor-pointer" @click="lightboxSrc = screenshotUrl(lead.screenshotMobile) ?? null">
+        <div class="w-14 overflow-hidden rounded border border-neutral-200 dark:border-neutral-700 group-hover:border-neutral-400 dark:group-hover:border-neutral-500 transition-colors">
+          <img :src="screenshotUrl(lead.screenshotMobile)" class="w-full h-auto object-cover" loading="lazy" :alt="t('search.results.screenshot_mobile')" />
+        </div>
+        <span class="text-xs text-neutral-400 dark:text-neutral-500">{{ t('search.results.screenshot_mobile') }}</span>
+      </button>
+      <button v-if="lead.screenshotDesktop" class="flex flex-col items-center gap-1 group cursor-pointer" @click="lightboxSrc = screenshotUrl(lead.screenshotDesktop) ?? null">
+        <div class="w-24 overflow-hidden rounded border border-neutral-200 dark:border-neutral-700 group-hover:border-neutral-400 dark:group-hover:border-neutral-500 transition-colors">
+          <img :src="screenshotUrl(lead.screenshotDesktop)" class="w-full h-auto object-cover" loading="lazy" :alt="t('search.results.screenshot_desktop')" />
+        </div>
+        <span class="text-xs text-neutral-400 dark:text-neutral-500">{{ t('search.results.screenshot_desktop') }}</span>
+      </button>
+    </div>
+
     <!-- ACTIONS (analyzed website leads) -->
     <div v-if="lead.analysisStatus === 'done' && lead.hasWebsite" class="mt-4 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
       <button v-if="lead.aiNote" class="order-1 flex items-center gap-1.5 text-xs text-neutral-400 dark:text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors cursor-pointer" @click="noteVisible = !noteVisible">
@@ -163,6 +179,8 @@
 
 
   </div>
+
+  <UiLightBox v-if="lightboxSrc" :src="lightboxSrc" @close="lightboxSrc = null" />
 </template>
 
 <script lang="ts" setup>
@@ -172,9 +190,16 @@ defineEmits<{ 'generate-email': [lead: BusinessLeadDTO] }>()
 const { t } = useI18n()
 const { $api } = useNuxtApp()
 const searchResults = useSearchResultsStore()
+const config = useRuntimeConfig()
+
+function screenshotUrl(path: string | null | undefined): string | undefined {
+  if (!path) return undefined
+  return `${config.public.apiBaseUrl}${path}`
+}
 
 const contactingLeadId = ref<string | null>(null)
 const noteVisible = ref(false)
+const lightboxSrc = ref<string | null>(null)
 const alertFlow = useAlertFlow()
 
 const toggleContacted = async () => {

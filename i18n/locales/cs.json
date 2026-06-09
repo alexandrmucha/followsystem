@@ -123,6 +123,8 @@
         "no_web_builder_ads": "Bez reklam builderu",
         "has_web_builder_ads": "Reklamy builderu"
       },
+      "screenshot_mobile": "Mobil",
+      "screenshot_desktop": "Desktop",
       "generate_email": "Vygenerovat e-mail",
       "export_csv": "Exportovat CSV",
       "mark_contacted": "Označit jako kontaktováno",

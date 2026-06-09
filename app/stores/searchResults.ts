@@ -63,6 +63,8 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
     aiWebsiteNonOperational?: boolean | null
     leadScore?: number | null
     aiNote?: string | null
+    screenshotMobile?: string | null
+    screenshotDesktop?: string | null
   }) {
     const lead = leads.value.find(l => l.id === leadId)
     if (lead) {
@@ -91,6 +93,8 @@ export const useSearchResultsStore = defineStore('searchResults', () => {
       lead.aiWebsiteNonOperational = data.aiWebsiteNonOperational
       lead.leadScore = data.leadScore
       lead.aiNote = data.aiNote
+      lead.screenshotMobile = data.screenshotMobile
+      lead.screenshotDesktop = data.screenshotDesktop
     }
   }
 

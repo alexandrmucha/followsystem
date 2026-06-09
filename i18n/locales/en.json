@@ -123,6 +123,8 @@
         "no_web_builder_ads": "No builder ads",
         "has_web_builder_ads": "Builder ads"
       },
+      "screenshot_mobile": "Mobile",
+      "screenshot_desktop": "Desktop",
       "generate_email": "Generate email",
       "export_csv": "Export CSV",
       "mark_contacted": "Mark as contacted",

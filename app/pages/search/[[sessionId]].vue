@@ -101,6 +101,8 @@ watch(() => searchResults.sessionStatus, (sessionStatus) => {
       aiWebsiteNonOperational: update.aiWebsiteNonOperational,
       leadScore: update.leadScore,
       aiNote: update.aiNote,
+      screenshotMobile: update.screenshotMobile,
+      screenshotDesktop: update.screenshotDesktop,
     })
   }, (sessionStatus) => {
     searchResults.setSessionStatus(sessionStatus)
