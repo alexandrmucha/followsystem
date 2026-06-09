@@ -228,6 +228,24 @@
       "headline_1": "Získejte klienty, kteří",
       "headline_2": "web skutečně potřebují.",
       "subheadline": "Firmy z Google Maps ohodnocené podle potenciálu. Personalizovaný e-mail jedním kliknutím."
+    },
+    "how_it_works": {
+      "title": "Jak to funguje",
+      "subtitle": "Tři kroky od vyhledávání po oslovení.",
+      "steps": {
+        "1": {
+          "title": "Zadáte obor a lokalitu",
+          "description": "Například instalatér Praha a Fulply okamžitě najde relevantní firmy z Google Maps."
+        },
+        "2": {
+          "title": "Prověříme jejich weby",
+          "description": "Provedeme technickou i vizuální analýzu a identifikujeme konverzní problémy. Každý lead ohodnotíme."
+        },
+        "3": {
+          "title": "Odešlete personalizovaný e-mail",
+          "description": "AI napíše oslovovací e-mail přesně na míru konkrétním slabinám webu dané firmy. Vy jen kliknete na odeslat."
+        }
+      }
     }
   },
   "sidebar": {

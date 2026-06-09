@@ -228,6 +228,24 @@
       "headline_1": "Get clients who actually",
       "headline_2": "need a website.",
       "subheadline": "Businesses from Google Maps scored by potential. A personalized email with one click."
+    },
+    "how_it_works": {
+      "title": "How it works",
+      "subtitle": "Three steps from search to outreach.",
+      "steps": {
+        "1": {
+          "title": "You enter your industry and location",
+          "description": "For example plumber London — Fulply instantly finds relevant businesses from Google Maps."
+        },
+        "2": {
+          "title": "We audit their websites",
+          "description": "We run a technical and visual analysis and identify conversion issues. Each lead gets scored."
+        },
+        "3": {
+          "title": "You send a personalized email",
+          "description": "AI writes an outreach email tailored to the specific issues of each business's website. You just hit send."
+        }
+      }
     }
   },
   "sidebar": {

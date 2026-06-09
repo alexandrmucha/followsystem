@@ -4,25 +4,7 @@
     <LandingNavbar />
     <LandingHero />
 
-    <!-- HOW IT WORKS -->
-    <section class="py-20 px-6 bg-neutral-50 dark:bg-neutral-900">
-      <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold mb-3">How it works</h2>
-          <p class="text-neutral-600 dark:text-neutral-400 max-w-lg mx-auto">Three steps from search to outreach.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div v-for="step in steps" :key="step.number" class="flex flex-col items-start">
-            <div class="w-10 h-10 rounded-xl bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm mb-4 shrink-0">
-              {{ step.number }}
-            </div>
-            <h3 class="text-base font-semibold mb-2">{{ step.title }}</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">{{ step.description }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <LandingHowItWorks />
 
     <!-- FEATURES -->
     <section class="py-20 px-6">
@@ -73,23 +55,6 @@
 <script setup lang="ts">
 useHead({ title: 'Fulply — Get clients who actually need a new website' })
 
-const steps = [
-  {
-    number: '1',
-    title: 'Enter your industry and location',
-    description: 'Type something like "plumber London" and Fulply instantly finds relevant businesses from Google Maps.',
-  },
-  {
-    number: '2',
-    title: 'AI analyzes their websites',
-    description: 'Automatically checks performance, SEO, SSL, responsiveness, design and dozens of other parameters. Each lead gets a score.',
-  },
-  {
-    number: '3',
-    title: 'Send a personalized email',
-    description: 'AI writes an outreach email tailored to the specific issues of each business\'s website. You just hit send.',
-  },
-]
 
 const features = [
   {
