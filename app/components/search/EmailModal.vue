@@ -71,7 +71,7 @@
           <LucideSparkles :size="16" />
           {{ generatingAi ? t('search.email.generating_ai') : t('search.email.generate_ai') }}
         </UiBaseButton>
-        <p v-if="generateError" class="text-xs text-red-500 dark:text-red-400 mt-1">{{ generateError }}</p>
+        <p v-if="generateError" :class="[fieldErrorClass, 'text-xs mt-1']">{{ generateError }}</p>
       </div>
 
       <!-- Actions -->
@@ -95,6 +95,7 @@
 
 <script lang="ts" setup>
 import type { BusinessLeadDTO } from '~/types/business-lead.dto'
+import { fieldErrorClass } from '~/utils/ui'
 
 const props = defineProps<{
   lead: BusinessLeadDTO | null

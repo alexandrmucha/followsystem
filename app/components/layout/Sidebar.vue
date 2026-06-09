@@ -5,7 +5,7 @@
     </button>
 
     <div class="p-6 flex flex-col h-full">
-      <UiLogo />
+      <NuxtLink to="/"><UiLogo /></NuxtLink>
 
       <nav class="mt-8 space-y-1">
         <LayoutNavigationItem to="/search">

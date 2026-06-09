@@ -40,9 +40,21 @@ definePageMeta({
 const route = useRoute()
 const alertFlow = useAlertFlow()
 
+const PREFILL_KEY = 'fulply_search_prefill'
+
 onMounted(() => {
   if (route.query.restored === '1') {
     alertFlow.success(t('account_deletion.restored'))
+  }
+
+  const prefill = sessionStorage.getItem(PREFILL_KEY)
+  if (prefill) {
+    try {
+      const { industry, location } = JSON.parse(prefill)
+      if (industry) searchDraft.industry = industry
+      if (location) searchDraft.location = location
+    } catch {}
+    sessionStorage.removeItem(PREFILL_KEY)
   }
 })
 
@@ -62,8 +74,10 @@ if (sessionData.value) {
   searchResults.setSession(sessionData.value.id)
   searchResults.setSessionStatus(sessionData.value.sessionStatus)
   searchResults.setLeads(sessionData.value.leads)
-  searchDraft.industry = sessionData.value.industry
-  searchDraft.location = sessionData.value.location
+  if (!searchDraft.industry && !searchDraft.location) {
+    searchDraft.industry = sessionData.value.industry
+    searchDraft.location = sessionData.value.location
+  }
 }
 
 let closeStream: (() => void) | undefined | void
