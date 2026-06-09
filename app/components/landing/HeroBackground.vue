@@ -1,5 +1,5 @@
 <template>
-  <svg class="hidden sm:block absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1200 650" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <svg class="hidden sm:block absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1200 650" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
     <!-- Left: 3 vertical cables -->
     <path pathLength="1000" d="M 60 750 C 58 500 62 250 60 -50" class="cable-line" />
     <path pathLength="1000" d="M 110 750 C 108 500 112 250 110 -50" class="cable-line" />
