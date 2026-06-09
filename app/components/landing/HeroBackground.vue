@@ -36,24 +36,24 @@
 
 <style scoped>
 .cable-line {
-  stroke: rgb(203 213 225 / 0.5);
-  stroke-width: 1;
+  stroke: oklch(92.2% 0 0);
+  stroke-width: 0.5;
 }
 
-:global(.dark) .cable-line {
-  stroke: rgb(38 38 38 / 0.9);
+.dark .cable-line {
+  stroke: oklch(26.9% 0 0);
 }
 
 .cable-data {
-  stroke: rgb(99 102 241 / 0.7);
-  stroke-width: 1.5;
+  stroke: oklch(58.5% 0.233 277.117 / 0.7);
+  stroke-width: 1;
   stroke-dasharray: 35 965;
   stroke-dashoffset: 1000;
   animation: flowData linear infinite;
 }
 
-:global(.dark) .cable-data {
-  stroke: rgb(129 140 248 / 0.5);
+.dark .cable-data {
+  stroke: oklch(67.3% 0.182 276.935) / 0.5;
 }
 
 @keyframes flowData {
