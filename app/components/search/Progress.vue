@@ -68,7 +68,7 @@ const estimatedTimeText = computed(() => {
   if (searchResults.sessionStatus === 'canceling') return t('search.results.progress.canceling')
 
   const remaining = searchResults.websiteLeadsCount - searchResults.analyzedCount
-  const seconds = remaining * 5
+  const seconds = remaining * 6
   const minutes = Math.ceil(seconds / 60)
 
   return t('search.results.progress.estimating', { minutes })
