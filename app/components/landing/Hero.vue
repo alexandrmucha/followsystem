@@ -4,12 +4,12 @@
 
     <div class="max-w-4xl mx-auto text-center relative">
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
-        Get clients who actually<br/>
-        <span class="bg-linear-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">need a website.</span>
+        {{ $t('landing.hero.headline_1') }}<br/>
+        <span class="bg-linear-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">{{ $t('landing.hero.headline_2') }}</span>
       </h1>
 
       <p class="text-lg sm:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-        Businesses from Google Maps, scored by potential. A personalized email with one click.
+        {{ $t('landing.hero.subheadline') }}
       </p>
 
       <div class="max-w-2xl mx-auto">

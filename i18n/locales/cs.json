@@ -218,6 +218,18 @@
       "logout_all": "Všechny ostatní relace byly ukončeny."
     }
   },
+  "landing": {
+    "navbar": {
+      "sign_in": "Přihlásit se",
+      "get_started": "Začít zdarma",
+      "open_app": "Otevřít aplikaci"
+    },
+    "hero": {
+      "headline_1": "Získejte klienty, kteří",
+      "headline_2": "web skutečně potřebují.",
+      "subheadline": "Firmy z Google Maps, ohodnocené podle potenciálu. Personalizovaný e-mail jedním kliknutím."
+    }
+  },
   "sidebar": {
     "close": "Zavřít navigaci",
     "open": "Otevřít navigaci"
