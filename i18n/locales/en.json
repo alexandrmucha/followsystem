@@ -271,6 +271,25 @@
         "export_csv": "Export to CSV"
       }
     },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "q": "Do I need a credit card for the Trial?",
+        "a": "No. The Trial is completely free — no credit card required. Just sign in and start finding leads."
+      },
+      "q2": {
+        "q": "How does lead scoring work?",
+        "a": "We analyse each business's website — performance, SEO, accessibility, visual design, copywriting, and conversion elements like CTAs. The lead score reflects how much room there is for improvement, which means higher potential for you."
+      },
+      "q3": {
+        "q": "What languages can I generate emails in?",
+        "a": "Any language. The AI generates emails based on your template language or custom instructions — English, Czech, German, and more."
+      },
+      "q4": {
+        "q": "Can I cancel my subscription at any time?",
+        "a": "Yes, no commitment. You can cancel anytime from your account settings — no fees, no questions."
+      }
+    },
     "how_it_works": {
       "title": "How it works",
       "subtitle": "Three steps from search to outreach.",

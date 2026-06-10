@@ -242,6 +242,25 @@
       "mock_lead2_phone": "+420 777 654 321",
       "mock_lead3_name": "Instalatérství Dvořák"
     },
+    "faq": {
+      "title": "Časté dotazy",
+      "q1": {
+        "q": "Potřebuji platební kartu pro Trial?",
+        "a": "Ne. Trial je zcela zdarma — bez platební karty. Stačí se přihlásit a hned začít hledat leady."
+      },
+      "q2": {
+        "q": "Jak funguje hodnocení leadu?",
+        "a": "Analyzujeme web každé firmy — výkon, SEO, přístupnost, vizuální design, copywriting a konverzní prvky jako CTA. Skóre leadu odráží, jak velký prostor ke zlepšení web má — a tedy jak velký potenciál pro vás."
+      },
+      "q3": {
+        "q": "V jakých jazycích lze generovat e-maily?",
+        "a": "V libovolném. AI generuje e-maily podle jazyka šablony nebo vlastních instrukcí — česky, anglicky, německy a dalších."
+      },
+      "q4": {
+        "q": "Mohu zrušit předplatné kdykoli?",
+        "a": "Ano, bez závazků. Předplatné zrušíte kdykoli v nastavení účtu — bez poplatků, bez otázek."
+      }
+    },
     "pricing": {
       "title": "Ceník",
       "subtitle": "Vyzkoušejte zdarma. Upgradujte, až budete připraveni.",
