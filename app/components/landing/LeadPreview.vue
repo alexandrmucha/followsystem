@@ -29,25 +29,29 @@
             <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center gap-3 md:gap-4 w-full min-w-0">
               <div class="min-w-0">
                 <h3 class="truncate font-medium text-sm">Instalatér Novák s.r.o.</h3>
-                <span class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400">
+                <a href="#" class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:underline w-fit" @click.prevent>
                   <LucidePhone :size="13" />
                   +420 602 123 456
-                </span>
+                </a>
+                <a href="#" class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:underline w-fit" @click.prevent>
+                  <LucideMail :size="13" />
+                  novak@instalater-novak.cz
+                </a>
               </div>
-              <div class="flex flex-wrap items-center gap-3 md:justify-end">
+              
+              <div class="flex flex-wrap items-center gap-3 md:justify-end w-full md:w-auto">
                 <span class="flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-300">
                   <LucideStar :size="16" />
                   4.2
                   <span class="text-neutral-400 dark:text-neutral-500">(87)</span>
                 </span>
-                <span class="text-sm text-indigo-600 dark:text-indigo-400 hover:underline cursor-default">Web</span>
+                <span class="text-sm hover:underline cursor-default">Web</span>
                 <!-- lead score -->
                 <SearchPageSpeedBadge :label="$t('search.results.lead_score_label.excellent')" :score="78" :magic="true" />
-                <div class="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 ring-1 ring-emerald-200 dark:ring-emerald-800">
-                  {{ $t('search.results.badge.done') }}
-                </div>
+                <UiBaseBadge variant="emerald">{{ $t('search.results.badge.done') }}</UiBaseBadge>
               </div>
             </div>
+
             <!-- pagespeed badges -->
             <div class="mt-4 flex flex-wrap gap-2">
               <SearchPageSpeedBadge :label="$t('search.results.categories.performance_mobile')" :score="28" />
@@ -56,6 +60,7 @@
               <SearchPageSpeedBadge :label="$t('search.results.categories.accessibility')" :score="47" />
               <SearchPageSpeedBadge :label="$t('search.results.categories.best_practices')" :score="62" />
             </div>
+            
             <!-- metric badges -->
             <div class="mt-3 flex flex-wrap items-center gap-4">
               <SearchMetricBadge :value="4.2" type="lcp" :aria-label="$t('search.results.metrics.lcp')">
@@ -116,15 +121,21 @@
                 <span class="text-xs text-neutral-400 dark:text-neutral-500">{{ $t('search.results.screenshot_desktop') }}</span>
               </div>
             </div>
+            <!-- ai note -->
+            <div class="mt-3 text-sm text-neutral-600 dark:text-neutral-300 bg-neutral-50 dark:bg-neutral-800/50 rounded-lg px-3 py-2">
+              Web je zastaralý a pomalý — chybí responzivní design a výzva k akci. Stránky mají minimální obsah s texty vypadajícími jako vzorové. Vizuální zpracování neodpovídá standardům roku 2024.
+            </div>
             <!-- actions -->
-            <div class="mt-4 flex flex-wrap sm:justify-end gap-3">
-              <button class="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 cursor-default">
-                {{ $t('search.results.mark_contacted') }}
-              </button>
-              <button class="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-lg bg-linear-to-r from-violet-500 to-purple-600 text-white cursor-default">
-                <LucideSparkles :size="13" />
-                {{ $t('search.results.generate_email') }}
-              </button>
+            <div class="mt-4 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
+              <div class="flex flex-wrap items-center gap-3 sm:ml-auto">
+                <UiBaseButton variant="secondary" size="sm" class="flex items-center gap-2">
+                  {{ $t('search.results.mark_contacted') }}
+                </UiBaseButton>
+                <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2">
+                  <LucideSparkles :size="16" />
+                  {{ $t('search.results.generate_email') }}
+                </UiBaseButton>
+              </div>
             </div>
           </div>
 
@@ -144,9 +155,7 @@
                   3.8
                   <span class="text-neutral-400 dark:text-neutral-500">(23)</span>
                 </span>
-                <div class="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400 ring-1 ring-blue-200 dark:ring-blue-800">
-                  {{ $t('search.results.badge.analyzing') }}
-                </div>
+                <UiBaseBadge variant="blue">{{ $t('search.results.badge.analyzing') }}</UiBaseBadge>
               </div>
             </div>
           </div>
@@ -158,9 +167,7 @@
                 <h3 class="truncate font-medium text-sm">Instalatérství Dvořák</h3>
               </div>
               <div class="flex flex-wrap items-center gap-3 md:justify-end">
-                <div class="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 ring-1 ring-neutral-200 dark:ring-neutral-700">
-                  {{ $t('search.results.badge.pending') }}
-                </div>
+                <UiBaseBadge variant="neutral">{{ $t('search.results.badge.pending') }}</UiBaseBadge>
               </div>
             </div>
           </div>
