@@ -282,12 +282,20 @@
         "a": "We analyse each business's website — performance, SEO, accessibility, visual design, copywriting, and conversion elements like CTAs. The lead score reflects how much room there is for improvement, which means higher potential for you."
       },
       "q3": {
-        "q": "What languages can I generate emails in?",
-        "a": "Any language. The AI generates emails based on your template language or custom instructions — English, Czech, German, and more."
+        "q": "What languages and countries does Fulply work in?",
+        "a": "Fulply works anywhere Google Maps has business listings — which is virtually every country. Emails can be generated in any language based on your template or custom AI instructions."
       },
       "q4": {
-        "q": "Can I cancel my subscription at any time?",
-        "a": "Yes, no commitment. You can cancel anytime from your account settings — no fees, no questions."
+        "q": "How long does the analysis take?",
+        "a": "It depends on the number of businesses found. Most analyses are done within 2–3 minutes."
+      },
+      "q5": {
+        "q": "Are the business listings up to date?",
+        "a": "Yes. Every search pulls data directly from Google Maps in real time, so you always get current listings."
+      },
+      "q6": {
+        "q": "How does the AI generate the email?",
+        "a": "The AI has access to all identified website issues, analysis notes, and business information. It doesn't write technically — it translates problems into business language that makes sense to the recipient. You can also customise the tone and style with your own AI instructions."
       }
     },
     "how_it_works": {

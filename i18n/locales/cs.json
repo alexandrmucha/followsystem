@@ -253,12 +253,20 @@
         "a": "Analyzujeme web každé firmy — výkon, SEO, přístupnost, vizuální design, copywriting a konverzní prvky jako CTA. Skóre leadu odráží, jak velký prostor ke zlepšení web má — a tedy jak velký potenciál pro vás."
       },
       "q3": {
-        "q": "V jakých jazycích lze generovat e-maily?",
-        "a": "V libovolném. AI generuje e-maily podle jazyka šablony nebo vlastních instrukcí — česky, anglicky, německy a dalších."
+        "q": "V jakých jazycích a zemích Fulply funguje?",
+        "a": "Fulply funguje kdekoliv, kde má Google Maps záznamy o firmách — tedy prakticky v každé zemi. E-maily lze generovat v libovolném jazyce podle šablony nebo vlastních instrukcí pro AI."
       },
       "q4": {
-        "q": "Mohu zrušit předplatné kdykoli?",
-        "a": "Ano, bez závazků. Předplatné zrušíte kdykoli v nastavení účtu — bez poplatků, bez otázek."
+        "q": "Jak dlouho trvá analýza?",
+        "a": "Záleží na počtu nalezených firem. Většina analýz je hotová do 2–3 minut."
+      },
+      "q5": {
+        "q": "Jsou data o firmách aktuální?",
+        "a": "Ano. Každé vyhledávání stahuje data přímo z Google Maps v reálném čase, takže vždy pracujete s aktuálními výsledky."
+      },
+      "q6": {
+        "q": "Jak AI generuje e-mail?",
+        "a": "AI má přístup ke všem nalezeným problémům webu, poznámkám z analýzy a informacím o firmě. E-mail nepíše technicky — překládá problémy do obchodního jazyka, který oslovenému dává smysl. Celý tón a styl si navíc můžete přizpůsobit vlastními instrukcemi pro AI."
       }
     },
     "pricing": {
