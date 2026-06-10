@@ -168,14 +168,14 @@
             </div>
           </div>
 
-          <!-- lead 3 — pending -->
+          <!-- lead 3 — analyzing -->
           <div class="px-4 sm:px-5 py-4 opacity-40">
             <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center gap-3 md:gap-4 w-full min-w-0">
               <div class="min-w-0">
                 <h3 class="truncate font-medium text-sm">Instalatérství Dvořák</h3>
               </div>
               <div class="flex flex-wrap items-center gap-3 md:justify-end w-full md:w-auto">
-                <UiBaseBadge variant="neutral">{{ $t('search.results.badge.pending') }}</UiBaseBadge>
+                <UiBaseBadge variant="blue">{{ $t('search.results.badge.analyzing') }}</UiBaseBadge>
               </div>
             </div>
           </div>
