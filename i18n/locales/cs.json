@@ -257,8 +257,6 @@
       },
       "pro": {
         "name": "Pro",
-        "price_monthly": "49",
-        "price_annual": "490",
         "period_monthly": "/měsíc",
         "period_annual": "/rok",
         "cta": "Získat Pro",

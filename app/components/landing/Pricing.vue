@@ -57,9 +57,9 @@
           <div>
             <p class="text-sm font-medium text-indigo-500">{{ $t('landing.pricing.pro.name') }}</p>
             <div class="mt-1">
-              <span v-if="annual" class="text-base text-neutral-400 dark:text-neutral-500 line-through">$588</span>
+              <span v-if="annual" class="text-base text-neutral-400 dark:text-neutral-500 line-through">${{ PRICE_MONTHLY * 12 }}</span>
               <div class="flex items-end gap-1">
-                <span class="text-3xl font-bold">${{ annual ? $t('landing.pricing.pro.price_annual') : $t('landing.pricing.pro.price_monthly') }}</span>
+                <span class="text-3xl font-bold">${{ annual ? PRICE_ANNUAL : PRICE_MONTHLY }}</span>
                 <span class="text-neutral-500 dark:text-neutral-400 mb-1">{{ annual ? $t('landing.pricing.pro.period_annual') : $t('landing.pricing.pro.period_monthly') }}</span>
               </div>
             </div>
@@ -91,6 +91,9 @@
 
 <script setup lang="ts">
 const annual = ref(false)
+
+const PRICE_MONTHLY = 49
+const PRICE_ANNUAL = 490
 
 const sharedFeatures = [
   'landing.pricing.features.email_search',
