@@ -12,12 +12,12 @@
         <!-- mock search bar -->
         <div class="px-5 py-3 border-b border-neutral-100 dark:border-neutral-800 flex items-center gap-3">
           <div class="flex-1 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
-            <LucideSearch :size="13" class="text-neutral-400 shrink-0" />
+            <LazyLucideMapPinSearch :size="14" class="text-neutral-400 dark:text-neutral-500 shrink-0" />
             <span class="text-sm text-neutral-500 dark:text-neutral-400">instalatér · Praha</span>
           </div>
           <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs text-neutral-500 dark:text-neutral-400">
             <LucideActivity :size="13" />
-            3 / 12 {{ $t('landing.lead_preview.analyzed') }}
+            1 / 36 {{ $t('landing.lead_preview.analyzed') }}
           </div>
         </div>
 
@@ -42,7 +42,7 @@
                 </span>
                 <span class="text-sm text-indigo-600 dark:text-indigo-400 hover:underline cursor-default">Web</span>
                 <!-- lead score -->
-                <SearchPageSpeedBadge :label="$t('search.results.lead_score_label.good')" :score="34" :magic="true" />
+                <SearchPageSpeedBadge :label="$t('search.results.lead_score_label.excellent')" :score="78" :magic="true" />
                 <div class="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 ring-1 ring-emerald-200 dark:ring-emerald-800">
                   {{ $t('search.results.badge.done') }}
                 </div>
