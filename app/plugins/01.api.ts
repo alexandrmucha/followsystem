@@ -1,8 +1,8 @@
-export default defineNuxtPlugin(() => {
+export default defineNuxtPlugin((nuxtApp) => {
   const config = useRuntimeConfig()
   const csrfStore = useCsrfStore()
   const authStore = useAuthStore()
-  
+
   const baseFetch = $fetch.create({
     baseURL: config.public.apiBaseUrl,
     credentials: 'include',
@@ -22,6 +22,9 @@ export default defineNuxtPlugin(() => {
       if (csrfStore.token) {
         headers.set('x-csrf-token', csrfStore.token)
       }
+
+      // ---------------- LOCALE ----------------
+      headers.set('accept-language', (nuxtApp.$i18n as any).locale.value)
 
       options.headers = headers
     },
