@@ -3,26 +3,8 @@
 
     <LandingNavbar />
     <LandingHero />
-
     <LandingHowItWorks />
-
-    <!-- FEATURES -->
-    <section class="py-20 px-6">
-      <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold mb-3">What Fulply analyzes</h2>
-          <p class="text-neutral-600 dark:text-neutral-400 max-w-lg mx-auto">A comprehensive analysis of every website — so your outreach is accurate and persuasive.</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div v-for="feature in features" :key="feature.title" class="p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors">
-            <component :is="feature.icon" :size="20" class="text-indigo-500 mb-3" />
-            <h3 class="font-semibold text-sm mb-1">{{ feature.title }}</h3>
-            <p class="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">{{ feature.description }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <LandingLeadPreview />
 
     <!-- FINAL CTA -->
     <section class="py-20 px-6 bg-neutral-50 dark:bg-neutral-900">
@@ -54,53 +36,4 @@
 
 <script setup lang="ts">
 useHead({ title: 'Fulply — Get clients who actually need a new website' })
-
-
-const features = [
-  {
-    icon: resolveComponent('LucideZap'),
-    title: 'Website performance',
-    description: 'PageSpeed scores for mobile and desktop according to Google Lighthouse.',
-  },
-  {
-    icon: resolveComponent('LucideSearch'),
-    title: 'SEO analysis',
-    description: 'SEO score, accessibility and best practices for modern websites.',
-  },
-  {
-    icon: resolveComponent('LucideLock'),
-    title: 'Security',
-    description: 'SSL certificate check, server errors and security risks.',
-  },
-  {
-    icon: resolveComponent('LucideSmartphone'),
-    title: 'Mobile experience',
-    description: 'Detection of responsiveness and missing calls-to-action on mobile devices.',
-  },
-  {
-    icon: resolveComponent('LucidePaintbrush'),
-    title: 'AI design score',
-    description: 'AI evaluates the visual design, copywriting and overall impression of the website.',
-  },
-  {
-    icon: resolveComponent('LucideTarget'),
-    title: 'Lead score',
-    description: 'Each business gets an overall potential score so you know who to contact first.',
-  },
-  {
-    icon: resolveComponent('LucideMail'),
-    title: 'Email generation',
-    description: 'AI writes a personalized outreach email based on the specific weaknesses of each website.',
-  },
-  {
-    icon: resolveComponent('LucideDownload'),
-    title: 'CSV export',
-    description: 'Export results including contacts to CSV for use in your CRM or email tool.',
-  },
-  {
-    icon: resolveComponent('LucideHistory'),
-    title: 'Search history',
-    description: 'Overview of all searches from the last 30 days. Marked contacts are saved permanently.',
-  },
-]
 </script>

@@ -229,6 +229,11 @@
       "headline_2": "web skutečně potřebují.",
       "subheadline": "Firmy z Google Maps ohodnocené podle potenciálu. Personalizovaný e-mail jedním kliknutím."
     },
+    "lead_preview": {
+      "title": "Podívejte se, jak to vypadá",
+      "subtitle": "Takto vypadají výsledky vyhledávání — ohodnocené, analyzované, připravené k oslovení.",
+      "analyzed": "analyzováno"
+    },
     "how_it_works": {
       "title": "Jak to funguje",
       "subtitle": "Tři kroky od vyhledávání po oslovení.",
