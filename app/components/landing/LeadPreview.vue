@@ -17,7 +17,7 @@
           </div>
           <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs text-neutral-500 dark:text-neutral-400">
             <LucideActivity :size="13" />
-            1 / 36 {{ $t('landing.lead_preview.analyzed') }}
+            1/36 {{ $t('landing.lead_preview.analyzed') }}
           </div>
         </div>
 
