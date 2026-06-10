@@ -134,7 +134,7 @@
                 {{ noteVisible ? $t('search.results.hide_note') : $t('search.results.show_note') }}
               </button>
 
-              <div v-if="noteVisible" class="order-2 sm:order-3 sm:w-full text-sm text-neutral-600 dark:text-neutral-300 bg-neutral-50 dark:bg-neutral-800/50 rounded-lg px-3 py-2">
+              <div v-if="noteVisible" class="order-2 sm:order-3 sm:w-full text-sm text-neutral-600 dark:text-neutral-300 bg-neutral-50 dark:bg-neutral-800/50 rounded-lg px-3 py-2 leading-relaxed">
                 {{ $t('landing.lead_preview.mock_lead1_ai_note') }}
               </div>
 
