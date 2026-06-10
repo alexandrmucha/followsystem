@@ -93,7 +93,7 @@
               <SearchMetricBadge :value="true" type="boolean" :aria-label="$t('search.results.ai.no_server_errors')">
                 <template #icon><LucideServerCrash :size="13" /></template>
               </SearchMetricBadge>
-              <SearchMetricBadge :value="false" type="boolean" :aria-label="$t('search.results.ai.has_placeholder_content')">
+              <SearchMetricBadge :value="true" type="boolean" :aria-label="$t('search.results.ai.no_placeholder_content')">
                 <template #icon><LucideFileQuestion :size="13" /></template>
               </SearchMetricBadge>
               <SearchMetricBadge :value="2015" type="year" :aria-label="$t('search.results.ai.copyright_year')">
