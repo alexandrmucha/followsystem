@@ -139,8 +139,9 @@
               </div>
 
               <div class="order-3 sm:order-2 flex flex-wrap items-center gap-3 sm:ml-auto">
-                <UiBaseButton variant="secondary" size="sm" class="flex items-center gap-2">
-                  {{ $t('search.results.mark_contacted') }}
+                <UiBaseButton variant="secondary" size="sm" class="flex items-center gap-2" @click="contacted = !contacted">
+                  <LucideCheck v-if="contacted" :size="14" />
+                  {{ contacted ? $t('search.results.contacted') : $t('search.results.mark_contacted') }}
                 </UiBaseButton>
                 <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" @click="navigateTo('/sign-in')">
                   <LucideSparkles :size="16" />
@@ -191,4 +192,5 @@
 
 <script setup lang="ts">
 const noteVisible = ref(true)
+const contacted = ref(false)
 </script>
