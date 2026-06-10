@@ -32,7 +32,7 @@ const route = useRoute()
 
 type Announcement = {
   id: string
-  type: 'success' | 'error' | 'warning' | 'info'
+  type: 'success' | 'error' | 'warning' | 'info' | 'magic'
   message: string
   dismissible: boolean
   scope: 'global' | 'app' | 'auth'
@@ -156,6 +156,7 @@ const styles: Record<string, string> = {
   success: 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300',
   error: 'bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-300',
   warning: 'bg-yellow-50 dark:bg-yellow-950/30 text-yellow-700 dark:text-yellow-300',
-  info: 'bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300'
+  info: 'bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300',
+  magic: 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white'
 }
 </script>
