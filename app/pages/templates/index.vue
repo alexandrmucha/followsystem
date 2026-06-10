@@ -27,7 +27,7 @@
         <UiBaseCard v-for="template in templates" :key="template.id">
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div class="flex items-center gap-2 min-w-0">
-              <p class="font-medium text-sm truncate">{{ template.name }}</p>
+              <p class="font-medium text-sm truncate" :title="template.name">{{ template.name }}</p>
               <UiBaseBadge v-if="template.isDefault" variant="blue">
                 {{ $t('templates.default_badge') }}
               </UiBaseBadge>

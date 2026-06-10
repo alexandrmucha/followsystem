@@ -322,6 +322,12 @@
       }
     }
   },
+  "error": {
+    "title": "Tuto stránku jsme analyzovali.",
+    "subtitle": "Výsledek: neexistuje.",
+    "ai_note": "Stránka neobsahuje žádný obsah. Pravděpodobně nikdy neexistovala. Zvažte přesměrování návštěvníků na funkční URL.",
+    "back_home": "Zpět domů"
+  },
   "sidebar": {
     "close": "Zavřít navigaci",
     "open": "Otevřít navigaci"

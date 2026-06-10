@@ -322,6 +322,12 @@
       }
     }
   },
+  "error": {
+    "title": "We analyzed this page.",
+    "subtitle": "Result: it doesn't exist.",
+    "ai_note": "Page contains no content. It has likely never existed. Consider redirecting visitors to a working URL.",
+    "back_home": "Back home"
+  },
   "sidebar": {
     "open": "Open navigation",
     "close": "Close navigation"

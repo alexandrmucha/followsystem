@@ -21,7 +21,7 @@
       <UiBaseCard v-for="session in sessions" :key="session.id" class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
 
         <div class="flex-1 min-w-0">
-          <p class="font-medium text-sm truncate">{{ session.industry }} · {{ session.location }}</p>
+          <p class="font-medium text-sm truncate" :title="`${session.industry} · ${session.location}`">{{ session.industry }} · {{ session.location }}</p>
           <p class="mt-1 text-xs text-neutral-400 dark:text-neutral-500">{{ formatDate(session.createdAt) }}</p>
         </div>
 
