@@ -5,6 +5,7 @@
     <LandingHero />
     <LandingHowItWorks />
     <LandingLeadPreview />
+    <LandingPricing />
 
     <!-- FINAL CTA -->
     <section class="py-20 px-6 bg-neutral-50 dark:bg-neutral-900">

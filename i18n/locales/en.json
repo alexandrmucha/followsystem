@@ -242,6 +242,32 @@
       "mock_lead2_phone": "+44 7700 900 738",
       "mock_lead3_name": "Parker Plumbing Services"
     },
+    "pricing": {
+      "title": "Simple pricing",
+      "subtitle": "Start free, upgrade when you're ready.",
+      "trial": {
+        "name": "Trial",
+        "price_label": "Free",
+        "cta": "Get started free",
+        "leads": "Up to 200 scored leads",
+        "emails": "Up to 100 personalised emails"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "49",
+        "period": "/month",
+        "cta": "Get Pro",
+        "leads": "Up to 3,500 scored leads",
+        "emails": "Up to 1,750 personalised emails"
+      },
+      "features": {
+        "email_search": "Automatic email search",
+        "templates": "Email templates",
+        "ai_instructions": "Custom AI instructions",
+        "mark_contacted": "Mark contacted leads",
+        "export_csv": "Export to CSV"
+      }
+    },
     "how_it_works": {
       "title": "How it works",
       "subtitle": "Three steps from search to outreach.",

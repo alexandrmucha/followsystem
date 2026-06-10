@@ -242,6 +242,32 @@
       "mock_lead2_phone": "+420 777 654 321",
       "mock_lead3_name": "Instalatérství Dvořák"
     },
+    "pricing": {
+      "title": "Ceník",
+      "subtitle": "Vyzkoušejte zdarma. Upgradujte, až budete připraveni.",
+      "trial": {
+        "name": "Trial",
+        "price_label": "Zdarma",
+        "cta": "Začít zdarma",
+        "leads": "Až 200 ohodnocených leadů",
+        "emails": "Až 100 personalizovaných e-mailů"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "49",
+        "period": "/měsíc",
+        "cta": "Získat Pro",
+        "leads": "Až 3 500 ohodnocených leadů",
+        "emails": "Až 1 750 personalizovaných e-mailů"
+      },
+      "features": {
+        "email_search": "Automatické vyhledávání e-mailů",
+        "templates": "Šablony e-mailů",
+        "ai_instructions": "Vlastní AI instrukce",
+        "mark_contacted": "Označení kontaktovaných leadů",
+        "export_csv": "Export do CSV"
+      }
+    },
     "how_it_works": {
       "title": "Jak to funguje",
       "subtitle": "Tři kroky od vyhledávání po oslovení.",
