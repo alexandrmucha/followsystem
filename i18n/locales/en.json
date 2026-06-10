@@ -235,11 +235,11 @@
       "analyzed": "analyzed",
       "mock_search_query": "plumber · London",
       "mock_lead1_name": "Johnson Plumbing Ltd.",
-      "mock_lead1_phone": "+44 7700 123 456",
+      "mock_lead1_phone": "+44 7700 900 461",
       "mock_lead1_email": "info{'@'}johnson-plumbing.co.uk",
       "mock_lead1_ai_note": "The website is outdated and slow — it lacks responsive design and a call to action. Pages have minimal content with placeholder-looking text. The visual design does not meet 2024 standards.",
       "mock_lead2_name": "London Plumbing — James Wilson",
-      "mock_lead2_phone": "+44 7700 654 321",
+      "mock_lead2_phone": "+44 7700 900 738",
       "mock_lead3_name": "Parker Plumbing Services"
     },
     "how_it_works": {
