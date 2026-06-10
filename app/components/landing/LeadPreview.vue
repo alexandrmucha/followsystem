@@ -29,14 +29,14 @@
             <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center gap-3 md:gap-4 w-full min-w-0">
               <div class="min-w-0">
                 <h3 class="truncate font-medium text-sm">Instalatér Novák s.r.o.</h3>
-                <a href="#" class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:underline w-fit" @click.prevent>
+                <span class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400">
                   <LucidePhone :size="13" />
                   +420 602 123 456
-                </a>
-                <a href="#" class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:underline w-fit" @click.prevent>
+                </span>
+                <span class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400">
                   <LucideMail :size="13" />
                   novak@instalater-novak.cz
-                </a>
+                </span>
               </div>
               
               <div class="flex flex-wrap items-center gap-3 md:justify-end w-full md:w-auto">
@@ -157,7 +157,7 @@
                   +420 777 654 321
                 </span>
               </div>
-              <div class="flex flex-wrap items-center gap-3 md:justify-end">
+              <div class="flex flex-wrap items-center gap-3 md:justify-end w-full md:w-auto">
                 <span class="flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-300">
                   <LucideStar :size="16" />
                   3.8
@@ -174,7 +174,7 @@
               <div class="min-w-0">
                 <h3 class="truncate font-medium text-sm">Instalatérství Dvořák</h3>
               </div>
-              <div class="flex flex-wrap items-center gap-3 md:justify-end">
+              <div class="flex flex-wrap items-center gap-3 md:justify-end w-full md:w-auto">
                 <UiBaseBadge variant="neutral">{{ $t('search.results.badge.pending') }}</UiBaseBadge>
               </div>
             </div>
