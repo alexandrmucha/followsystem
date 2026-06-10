@@ -7,8 +7,11 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-        <div v-for="step in steps" :key="step.number" class="flex flex-col items-start">
-          <div class="w-10 h-10 rounded-xl bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm mb-4 shrink-0">
+        <div v-for="(step, index) in steps" :key="step.number" class="relative flex flex-col items-start">
+          <!-- connector line -->
+          <div v-if="index < steps.length - 1" class="hidden md:block absolute top-5 left-10 right-0 h-px bg-linear-to-r from-indigo-300 to-indigo-100 dark:from-indigo-500/50 dark:to-indigo-800/20" />
+
+          <div class="w-10 h-10 rounded-xl bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm mb-4 shrink-0 relative z-10">
             {{ step.number }}
           </div>
           <h3 class="text-base font-semibold mb-2">{{ step.title }}</h3>
