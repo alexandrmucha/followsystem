@@ -124,13 +124,18 @@
               </div>
             </div>
 
-            <!-- ai note -->
-            <div class="mt-3 text-sm text-neutral-600 dark:text-neutral-300 bg-neutral-50 dark:bg-neutral-800/50 rounded-lg px-3 py-2">
-              Web je zastaralý a pomalý — chybí responzivní design a výzva k akci. Stránky mají minimální obsah s texty vypadajícími jako vzorové. Vizuální zpracování neodpovídá standardům roku 2024.
-            </div>
             <!-- actions -->
             <div class="mt-4 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
-              <div class="flex flex-wrap items-center gap-3 sm:ml-auto">
+              <button class="order-1 flex items-center gap-1.5 text-xs text-neutral-400 dark:text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors cursor-pointer" @click="noteVisible = !noteVisible">
+                <LucideFileText :size="13" />
+                {{ noteVisible ? $t('search.results.hide_note') : $t('search.results.show_note') }}
+              </button>
+
+              <div v-if="noteVisible" class="order-2 sm:order-3 sm:w-full text-sm text-neutral-600 dark:text-neutral-300 bg-neutral-50 dark:bg-neutral-800/50 rounded-lg px-3 py-2">
+                Web je zastaralý a pomalý — chybí responzivní design a výzva k akci. Stránky mají minimální obsah s texty vypadajícími jako vzorové. Vizuální zpracování neodpovídá standardům roku 2024.
+              </div>
+
+              <div class="order-3 sm:order-2 flex flex-wrap items-center gap-3 sm:ml-auto">
                 <UiBaseButton variant="secondary" size="sm" class="flex items-center gap-2">
                   {{ $t('search.results.mark_contacted') }}
                 </UiBaseButton>
@@ -182,4 +187,5 @@
 </template>
 
 <script setup lang="ts">
+const noteVisible = ref(true)
 </script>
