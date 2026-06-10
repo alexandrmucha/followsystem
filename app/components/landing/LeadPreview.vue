@@ -160,8 +160,8 @@
               <div class="flex flex-wrap items-center gap-3 md:justify-end w-full md:w-auto">
                 <span class="flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-300">
                   <LucideStar :size="16" />
-                  3.8
-                  <span class="text-neutral-400 dark:text-neutral-500">(23)</span>
+                  4.4
+                  <span class="text-neutral-400 dark:text-neutral-500">(31)</span>
                 </span>
                 <UiBaseBadge variant="blue">{{ $t('search.results.badge.analyzing') }}</UiBaseBadge>
               </div>
