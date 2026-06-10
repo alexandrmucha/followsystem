@@ -10,12 +10,12 @@
       <div class="rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 overflow-hidden shadow-sm">
 
         <!-- mock search bar -->
-        <div class="px-5 py-3 border-b border-neutral-100 dark:border-neutral-800 flex items-center gap-3">
+        <div class="px-4 sm:px-5 py-3 border-b border-neutral-100 dark:border-neutral-800 flex items-center gap-3">
           <div class="flex-1 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
             <LazyLucideMapPinSearch :size="14" class="text-neutral-400 dark:text-neutral-500 shrink-0" />
             <span class="text-sm text-neutral-500 dark:text-neutral-400">instalatér · Praha</span>
           </div>
-          <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs text-neutral-500 dark:text-neutral-400">
+          <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs text-neutral-500 dark:text-neutral-400">
             <LucideActivity :size="13" />
             1 / 36 {{ $t('landing.lead_preview.analyzed') }}
           </div>
@@ -25,7 +25,7 @@
         <div class="divide-y divide-neutral-100 dark:divide-neutral-800">
 
           <!-- lead 1 — done, high score -->
-          <div class="px-5 py-4">
+          <div class="px-4 sm:px-5 py-4">
             <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center gap-3 md:gap-4 w-full min-w-0">
               <div class="min-w-0">
                 <h3 class="truncate font-medium text-sm">Instalatér Novák s.r.o.</h3>
