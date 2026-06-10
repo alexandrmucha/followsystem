@@ -28,7 +28,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
         <!-- Trial -->
-        <div class="rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6 flex flex-col gap-6">
+        <div class="rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-800 p-6 flex flex-col gap-6">
           <div>
             <p class="text-sm font-medium text-neutral-500 dark:text-neutral-400">{{ $t('landing.pricing.trial.name') }}</p>
             <p class="mt-1 text-3xl font-bold">{{ $t('landing.pricing.trial.price_label') }}</p>
@@ -53,7 +53,7 @@
         </div>
 
         <!-- Pro -->
-        <div class="rounded-2xl border border-indigo-500/40 dark:border-indigo-500/30 bg-white dark:bg-neutral-900 p-6 flex flex-col gap-6">
+        <div class="rounded-2xl border border-indigo-500/40 dark:border-indigo-500/30 bg-white dark:bg-neutral-800 p-6 flex flex-col gap-6">
           <div>
             <p class="text-sm font-medium text-indigo-500">{{ $t('landing.pricing.pro.name') }}</p>
             <div class="mt-1">
