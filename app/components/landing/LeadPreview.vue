@@ -13,7 +13,7 @@
         <div class="px-4 sm:px-5 py-3 border-b border-neutral-100 dark:border-neutral-800 flex items-center gap-3">
           <div class="flex-1 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
             <LazyLucideMapPinSearch :size="14" class="text-neutral-400 dark:text-neutral-500 shrink-0" />
-            <span class="text-sm text-neutral-500 dark:text-neutral-400">instalatér · Praha</span>
+            <span class="text-sm text-neutral-500 dark:text-neutral-400">{{ $t('landing.lead_preview.mock_search_query') }}</span>
           </div>
           <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs text-neutral-500 dark:text-neutral-400">
             <LucideActivity :size="13" />
@@ -28,14 +28,14 @@
           <div class="px-4 sm:px-5 py-4">
             <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center gap-3 md:gap-4 w-full min-w-0">
               <div class="min-w-0">
-                <h3 class="truncate font-medium text-sm">Instalatér Novák s.r.o.</h3>
+                <h3 class="truncate font-medium text-sm">{{ $t('landing.lead_preview.mock_lead1_name') }}</h3>
                 <span class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400">
                   <LucidePhone :size="13" />
-                  +420 602 123 456
+                  {{ $t('landing.lead_preview.mock_lead1_phone') }}
                 </span>
                 <span class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400">
                   <LucideMail :size="13" />
-                  novak@instalater-novak.cz
+                  {{ $t('landing.lead_preview.mock_lead1_email') }}
                 </span>
               </div>
               
@@ -132,7 +132,7 @@
               </button>
 
               <div v-if="noteVisible" class="order-2 sm:order-3 sm:w-full text-sm text-neutral-600 dark:text-neutral-300 bg-neutral-50 dark:bg-neutral-800/50 rounded-lg px-3 py-2">
-                Web je zastaralý a pomalý — chybí responzivní design a výzva k akci. Stránky mají minimální obsah s texty vypadajícími jako vzorové. Vizuální zpracování neodpovídá standardům roku 2024.
+                {{ $t('landing.lead_preview.mock_lead1_ai_note') }}
               </div>
 
               <div class="order-3 sm:order-2 flex flex-wrap items-center gap-3 sm:ml-auto">
@@ -151,10 +151,10 @@
           <div class="px-4 sm:px-5 py-4 opacity-70">
             <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center gap-3 md:gap-4 w-full min-w-0">
               <div class="min-w-0">
-                <h3 class="truncate font-medium text-sm">Vodoinstalace Praha — Petr Horáček</h3>
+                <h3 class="truncate font-medium text-sm">{{ $t('landing.lead_preview.mock_lead2_name') }}</h3>
                 <span class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400">
                   <LucidePhone :size="13" />
-                  +420 777 654 321
+                  {{ $t('landing.lead_preview.mock_lead2_phone') }}
                 </span>
               </div>
               <div class="flex flex-wrap items-center gap-3 md:justify-end w-full md:w-auto">
@@ -172,7 +172,7 @@
           <div class="px-4 sm:px-5 py-4 opacity-40">
             <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center gap-3 md:gap-4 w-full min-w-0">
               <div class="min-w-0">
-                <h3 class="truncate font-medium text-sm">Instalatérství Dvořák</h3>
+                <h3 class="truncate font-medium text-sm">{{ $t('landing.lead_preview.mock_lead3_name') }}</h3>
               </div>
               <div class="flex flex-wrap items-center gap-3 md:justify-end w-full md:w-auto">
                 <UiBaseBadge variant="blue">{{ $t('search.results.badge.analyzing') }}</UiBaseBadge>

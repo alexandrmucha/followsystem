@@ -232,7 +232,15 @@
     "lead_preview": {
       "title": "Podívejte se, jak to vypadá",
       "subtitle": "Takto vypadají výsledky vyhledávání — analyzované, ohodnocené, připravené k oslovení.",
-      "analyzed": "analyzováno"
+      "analyzed": "analyzováno",
+      "mock_search_query": "instalatér · Praha",
+      "mock_lead1_name": "Instalatér Novák s.r.o.",
+      "mock_lead1_phone": "+420 602 123 456",
+      "mock_lead1_email": "novak{'@'}instalater-novak.cz",
+      "mock_lead1_ai_note": "Web je zastaralý a pomalý — chybí responzivní design a výzva k akci. Stránky mají minimální obsah s texty vypadajícími jako vzorové. Vizuální zpracování neodpovídá standardům roku 2024.",
+      "mock_lead2_name": "Vodoinstalace Praha — Petr Horáček",
+      "mock_lead2_phone": "+420 777 654 321",
+      "mock_lead3_name": "Instalatérství Dvořák"
     },
     "how_it_works": {
       "title": "Jak to funguje",
