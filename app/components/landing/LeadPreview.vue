@@ -106,14 +106,16 @@
                 <template #icon><LucidePenLine :size="13" /></template>
               </SearchMetricBadge>
             </div>
+
             <!-- screenshots -->
             <div class="mt-4 flex gap-3">
               <div class="flex flex-col items-center gap-1">
-                <div class="w-14 h-20 rounded border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center">
+                <div class="w-14 h-28 rounded border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center">
                   <LucideSmartphone :size="16" class="text-neutral-300 dark:text-neutral-600" />
                 </div>
                 <span class="text-xs text-neutral-400 dark:text-neutral-500">{{ $t('search.results.screenshot_mobile') }}</span>
               </div>
+              
               <div class="flex flex-col items-center gap-1">
                 <div class="w-24 h-16 rounded border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center">
                   <LucideMonitor :size="16" class="text-neutral-300 dark:text-neutral-600" />
@@ -121,6 +123,7 @@
                 <span class="text-xs text-neutral-400 dark:text-neutral-500">{{ $t('search.results.screenshot_desktop') }}</span>
               </div>
             </div>
+
             <!-- ai note -->
             <div class="mt-3 text-sm text-neutral-600 dark:text-neutral-300 bg-neutral-50 dark:bg-neutral-800/50 rounded-lg px-3 py-2">
               Web je zastaralý a pomalý — chybí responzivní design a výzva k akci. Stránky mají minimální obsah s texty vypadajícími jako vzorové. Vizuální zpracování neodpovídá standardům roku 2024.
