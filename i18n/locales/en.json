@@ -17,7 +17,6 @@
   },
   "auth": {
     "common": {
-      "back_home": "Back home",
       "logout": "Log out",
       "email": "Email"
     },

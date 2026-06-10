@@ -17,7 +17,6 @@
   },
   "auth": {
     "common": {
-      "back_home": "Zpět na úvod",
       "logout": "Odhlásit se",
       "email": "E-mail"
     },
