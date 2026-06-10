@@ -94,7 +94,7 @@ definePageMeta({
   layout: 'auth',
   middleware: ['guest']
 })
-useSeoMeta({ robots: 'noindex' })
+useSeoMeta({ robots: 'noindex, nofollow' })
 
 const route = useRoute()
 
