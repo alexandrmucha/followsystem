@@ -102,4 +102,9 @@ definePageMeta({ layout: 'landing' })
 const { locale } = useI18n()
 
 useHead({ title: locale.value === 'cs' ? 'Zásady ochrany soukromí' : 'Privacy Policy' })
+useSeoMeta({
+  description: locale.value === 'cs'
+    ? 'Zásady ochrany soukromí služby Fulply.'
+    : 'Privacy Policy for Fulply.',
+})
 </script>

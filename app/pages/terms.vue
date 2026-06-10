@@ -104,4 +104,9 @@ definePageMeta({ layout: 'landing' })
 const { locale } = useI18n()
 
 useHead({ title: locale.value === 'cs' ? 'Podmínky použití' : 'Terms of Service' })
+useSeoMeta({
+  description: locale.value === 'cs'
+    ? 'Podmínky použití služby Fulply.'
+    : 'Terms of Service for Fulply.',
+})
 </script>
