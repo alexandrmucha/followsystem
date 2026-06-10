@@ -25,8 +25,8 @@
       "button": "Pokračovat",
       "continue_with_google": "Pokračovat s Google",
       "terms_note": "Pokračováním souhlasíte s {terms} a {privacy}.",
-      "terms": "Podmínkami použití",
-      "privacy": "Zásadami ochrany soukromí"
+      "terms": "podmínkami použití",
+      "privacy": "zásadami ochrany soukromí"
     },
     "confirm_email": {
       "title": "Zkontrolujte svůj e-mail",
