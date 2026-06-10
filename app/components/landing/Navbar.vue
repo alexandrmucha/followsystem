@@ -1,5 +1,5 @@
 <template>
-  <nav class="sticky top-0 z-40 border-b border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-sm">
+  <nav class="sticky top-0 z-40 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-sm transition-colors border-b" :class="scrolled ? 'border-neutral-200 dark:border-neutral-800' : 'border-white/80 dark:border-neutral-950/80'">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <NuxtLink to="/"><UiLogo /></NuxtLink>
 
@@ -20,4 +20,12 @@
 
 <script setup lang="ts">
 const authStore = useAuthStore()
+
+const scrolled = ref(false)
+
+onMounted(() => {
+  const onScroll = () => { scrolled.value = window.scrollY > 10 }
+  window.addEventListener('scroll', onScroll, { passive: true })
+  onUnmounted(() => window.removeEventListener('scroll', onScroll))
+})
 </script>
