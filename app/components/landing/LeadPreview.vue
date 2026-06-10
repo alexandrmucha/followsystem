@@ -29,14 +29,14 @@
             <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center gap-3 md:gap-4 w-full min-w-0">
               <div class="min-w-0">
                 <h3 class="truncate font-medium text-sm">{{ $t('landing.lead_preview.mock_lead1_name') }}</h3>
-                <span class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400">
+                <a href="#" class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:underline w-fit" @click.prevent>
                   <LucidePhone :size="13" />
                   {{ $t('landing.lead_preview.mock_lead1_phone') }}
-                </span>
-                <span class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400">
+                </a>
+                <a href="#" class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:underline w-fit" @click.prevent>
                   <LucideMail :size="13" />
                   {{ $t('landing.lead_preview.mock_lead1_email') }}
-                </span>
+                </a>
               </div>
               
               <div class="flex flex-wrap items-center gap-3 md:justify-end w-full md:w-auto">
@@ -45,7 +45,7 @@
                   4.2
                   <span class="text-neutral-400 dark:text-neutral-500">(87)</span>
                 </span>
-                <span class="text-sm hover:underline cursor-default">Web</span>
+                <a href="#" class="text-sm hover:underline" @click.prevent>{{ $t('search.results.website') }}</a>
                 <!-- lead score -->
                 <SearchPageSpeedBadge :label="$t('search.results.lead_score_label.excellent')" :score="78" :magic="true" />
                 <UiBaseBadge variant="emerald">{{ $t('search.results.badge.done') }}</UiBaseBadge>
@@ -152,10 +152,10 @@
             <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center gap-3 md:gap-4 w-full min-w-0">
               <div class="min-w-0">
                 <h3 class="truncate font-medium text-sm">{{ $t('landing.lead_preview.mock_lead2_name') }}</h3>
-                <span class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400">
+                <a href="#" class="mt-1 flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:underline w-fit" @click.prevent>
                   <LucidePhone :size="13" />
                   {{ $t('landing.lead_preview.mock_lead2_phone') }}
-                </span>
+                </a>
               </div>
               <div class="flex flex-wrap items-center gap-3 md:justify-end w-full md:w-auto">
                 <span class="flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-300">
