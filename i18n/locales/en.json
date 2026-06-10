@@ -323,10 +323,12 @@
     }
   },
   "error": {
-    "title": "We analyzed this page.",
-    "subtitle": "Result: it doesn't exist.",
+    "404_title": "We analyzed this page.",
+    "404_subtitle": "Result: it doesn't exist.",
     "ai_note": "Page contains no content. It has likely never existed. Consider redirecting visitors to a working URL.",
-    "back_home": "Back home"
+    "back_home": "Back home",
+    "server_title": "Something went wrong.",
+    "server_subtitle": "An unexpected error occurred. Please try again later."
   },
   "sidebar": {
     "open": "Open navigation",

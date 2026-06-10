@@ -2,8 +2,8 @@
   <div class="min-h-screen flex items-center justify-center bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 px-6 py-12">
     <div class="max-w-sm w-full">
 
-      <!-- mock analysis card -->
-      <UiBaseCard class="mb-8">
+      <!-- mock analysis card — only for 404 -->
+      <UiBaseCard v-if="is404" class="mb-8">
         <div class="flex items-center justify-between gap-3 mb-4 min-w-0">
           <span class="text-xs text-neutral-500 dark:text-neutral-400 truncate" :title="error.url">{{ error.url }}</span>
           <UiBaseBadge variant="red" class="shrink-0">404</UiBaseBadge>
@@ -23,9 +23,9 @@
       </UiBaseCard>
 
       <div class="text-center">
-        <p class="text-6xl font-bold text-indigo-500 mb-4">404</p>
-        <h1 class="text-2xl font-bold mb-2">{{ $t('error.title') }}</h1>
-        <p class="text-neutral-600 dark:text-neutral-400 mb-8">{{ $t('error.subtitle') }}</p>
+        <p class="text-6xl font-bold text-indigo-500 mb-4">{{ error.statusCode }}</p>
+        <h1 class="text-2xl font-bold mb-2">{{ is404 ? $t('error.404_title') : $t('error.server_title') }}</h1>
+        <p class="text-neutral-600 dark:text-neutral-400 mb-8">{{ is404 ? $t('error.404_subtitle') : $t('error.server_subtitle') }}</p>
         <UiBaseButton variant="primary" size="md" @click="clearError({ redirect: '/' })">
           {{ $t('error.back_home') }}
         </UiBaseButton>
@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   error: {
     statusCode: number
     statusMessage?: string
@@ -46,4 +46,5 @@ defineProps<{
 }>()
 
 const noteVisible = ref(true)
+const is404 = computed(() => props.error.statusCode === 404)
 </script>

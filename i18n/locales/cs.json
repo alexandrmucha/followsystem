@@ -323,10 +323,12 @@
     }
   },
   "error": {
-    "title": "Tuto stránku jsme analyzovali.",
-    "subtitle": "Výsledek: neexistuje.",
+    "404_title": "Tuto stránku jsme analyzovali.",
+    "404_subtitle": "Výsledek: neexistuje.",
     "ai_note": "Stránka neobsahuje žádný obsah. Pravděpodobně nikdy neexistovala. Zvažte přesměrování návštěvníků na funkční URL.",
-    "back_home": "Zpět domů"
+    "back_home": "Zpět domů",
+    "server_title": "Něco se pokazilo.",
+    "server_subtitle": "Došlo k neočekávané chybě. Zkuste to prosím znovu."
   },
   "sidebar": {
     "close": "Zavřít navigaci",
