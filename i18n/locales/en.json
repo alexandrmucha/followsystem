@@ -237,7 +237,7 @@
       "mock_lead1_name": "Johnson Plumbing Ltd.",
       "mock_lead1_phone": "+44 7700 900 461",
       "mock_lead1_email": "info{'@'}johnson-plumbing.co.uk",
-      "mock_lead1_ai_note": "The website is outdated and slow — it lacks responsive design and a call to action. Pages have minimal content with placeholder-looking text. The visual design does not meet 2024 standards.",
+      "mock_lead1_ai_note": "Low design score (32/100): extremely outdated visual design with tiled background, mismatched colors, and layout typical of early 2000s — no visual hierarchy, low-quality images. Low copywriting score (44/100): basic list of services with no value proposition or differentiation from competitors. No SSL certificate — browser shows 'Not Secure' warning to all visitors. Website not mobile-responsive — content overflows on small screens. Copyright year 2015 indicates the site has not been updated in over 10 years. No visible call-to-action on mobile or desktop — contact information buried in footer only.",
       "mock_lead2_name": "London Plumbing — James Wilson",
       "mock_lead2_phone": "+44 7700 900 738",
       "mock_lead3_name": "Parker Plumbing Services"

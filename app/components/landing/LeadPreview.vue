@@ -42,31 +42,31 @@
               <div class="flex flex-wrap items-center gap-3 md:justify-end w-full md:w-auto">
                 <span class="flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-300">
                   <LucideStar :size="16" />
-                  4.2
-                  <span class="text-neutral-400 dark:text-neutral-500">(87)</span>
+                  4.8
+                  <span class="text-neutral-400 dark:text-neutral-500">(34)</span>
                 </span>
                 <a href="#" class="text-sm hover:underline" @click.prevent>{{ $t('search.results.website') }}</a>
                 <!-- lead score -->
-                <SearchPageSpeedBadge :label="$t('search.results.lead_score_label.excellent')" :score="78" :magic="true" />
+                <SearchPageSpeedBadge :label="$t('search.results.lead_score_label.excellent')" :score="74" :magic="true" />
                 <UiBaseBadge variant="emerald">{{ $t('search.results.badge.done') }}</UiBaseBadge>
               </div>
             </div>
 
             <!-- pagespeed badges -->
             <div class="mt-4 flex flex-wrap gap-2">
-              <SearchPageSpeedBadge :label="$t('search.results.categories.performance_mobile')" :score="28" />
-              <SearchPageSpeedBadge :label="$t('search.results.categories.performance_desktop')" :score="54" />
-              <SearchPageSpeedBadge :label="$t('search.results.categories.seo')" :score="47" />
-              <SearchPageSpeedBadge :label="$t('search.results.categories.accessibility')" :score="47" />
-              <SearchPageSpeedBadge :label="$t('search.results.categories.best_practices')" :score="62" />
+              <SearchPageSpeedBadge :label="$t('search.results.categories.performance_mobile')" :score="93" />
+              <SearchPageSpeedBadge :label="$t('search.results.categories.performance_desktop')" :score="97" />
+              <SearchPageSpeedBadge :label="$t('search.results.categories.seo')" :score="52" />
+              <SearchPageSpeedBadge :label="$t('search.results.categories.accessibility')" :score="68" />
+              <SearchPageSpeedBadge :label="$t('search.results.categories.best_practices')" :score="67" />
             </div>
             
             <!-- metric badges -->
             <div class="mt-3 flex flex-wrap items-center gap-4">
-              <SearchMetricBadge :value="4.2" type="lcp" :aria-label="$t('search.results.metrics.lcp')">
+              <SearchMetricBadge :value="2.1" type="lcp" :aria-label="$t('search.results.metrics.lcp')">
                 <template #icon><LucideClock :size="13" /></template>
               </SearchMetricBadge>
-              <SearchMetricBadge :value="1.1" type="size" :aria-label="$t('search.results.metrics.size')">
+              <SearchMetricBadge :value="0.4" type="size" :aria-label="$t('search.results.metrics.size')">
                 <template #icon><LucideHardDrive :size="13" /></template>
               </SearchMetricBadge>
               <SearchMetricBadge :value="false" type="boolean" :aria-label="$t('search.results.ssl.no')">
@@ -87,22 +87,25 @@
               <SearchMetricBadge :value="true" type="boolean" :aria-label="$t('search.results.ai.no_web_builder')">
                 <template #icon><LucideBlocks :size="13" /></template>
               </SearchMetricBadge>
+              <SearchMetricBadge :value="true" type="boolean" :aria-label="$t('search.results.ai.no_web_builder_ads')">
+                <template #icon><LucideMegaphone :size="13" /></template>
+              </SearchMetricBadge>
               <SearchMetricBadge :value="true" type="boolean" :aria-label="$t('search.results.ai.no_server_errors')">
                 <template #icon><LucideServerCrash :size="13" /></template>
               </SearchMetricBadge>
               <SearchMetricBadge :value="false" type="boolean" :aria-label="$t('search.results.ai.has_placeholder_content')">
                 <template #icon><LucideFileQuestion :size="13" /></template>
               </SearchMetricBadge>
-              <SearchMetricBadge :value="2013" type="year" :aria-label="$t('search.results.ai.copyright_year')">
+              <SearchMetricBadge :value="2015" type="year" :aria-label="$t('search.results.ai.copyright_year')">
                 <template #icon><LucideCopyright :size="13" /></template>
               </SearchMetricBadge>
               <SearchMetricBadge :value="'missing'" type="cta">
                 <template #icon><LucideMousePointer :size="13" /></template>
               </SearchMetricBadge>
-              <SearchMetricBadge :value="41" type="score" :aria-label="$t('search.results.ai.design')">
+              <SearchMetricBadge :value="32" type="score" :aria-label="$t('search.results.ai.design')">
                 <template #icon><LucidePaintbrush :size="13" /></template>
               </SearchMetricBadge>
-              <SearchMetricBadge :value="28" type="score" :aria-label="$t('search.results.ai.copywriting')">
+              <SearchMetricBadge :value="44" type="score" :aria-label="$t('search.results.ai.copywriting')">
                 <template #icon><LucidePenLine :size="13" /></template>
               </SearchMetricBadge>
             </div>

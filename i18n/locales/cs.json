@@ -237,7 +237,7 @@
       "mock_lead1_name": "Instalatér Novák s.r.o.",
       "mock_lead1_phone": "+420 602 123 456",
       "mock_lead1_email": "novak{'@'}instalater-novak.cz",
-      "mock_lead1_ai_note": "Web je zastaralý a pomalý — chybí responzivní design a výzva k akci. Stránky mají minimální obsah s texty vypadajícími jako vzorové. Vizuální zpracování neodpovídá standardům roku 2024.",
+      "mock_lead1_ai_note": "Nízké skóre designu (32/100): extrémně zastaralý vizuální design s dlaždicovým pozadím, nesourodými barvami a rozložením typickým pro začátek 2000. let — žádná vizuální hierarchie, nekvalitní obrázky. Nízké skóre copywritingu (44/100): základní seznam služeb bez hodnotové propozice nebo diferenciace od konkurence. Chybí SSL certifikát — prohlížeč zobrazuje upozornění 'Nezabezpečeno' všem návštěvníkům. Web není responzivní — obsah přesahuje na malých obrazovkách. Copyright rok 2015 — stránky nebyly aktualizovány přes 10 let. Žádná viditelná výzva k akci na mobilu ani desktopu — kontakt skryt pouze v patičce.",
       "mock_lead2_name": "Vodoinstalace Praha — Petr Horáček",
       "mock_lead2_phone": "+420 777 654 321",
       "mock_lead3_name": "Instalatérství Dvořák"
