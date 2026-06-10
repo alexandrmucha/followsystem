@@ -63,6 +63,18 @@
         {{ errorMsg }}
       </p>
 
+      <!-- Terms note -->
+      <p class="text-xs text-center text-neutral-400 dark:text-neutral-500 mt-4">
+        <i18n-t keypath="auth.sign_in.terms_note">
+          <template #terms>
+            <NuxtLink to="/terms" class="underline hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors">{{ $t('auth.sign_in.terms') }}</NuxtLink>
+          </template>
+          <template #privacy>
+            <NuxtLink to="/privacy" class="underline hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors">{{ $t('auth.sign_in.privacy') }}</NuxtLink>
+          </template>
+        </i18n-t>
+      </p>
+
     </form>
   </UiAuthCard>
 </template>

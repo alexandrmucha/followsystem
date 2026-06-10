@@ -23,7 +23,10 @@
     "sign_in": {
       "title": "Přihlášení",
       "button": "Pokračovat",
-      "continue_with_google": "Pokračovat s Google"
+      "continue_with_google": "Pokračovat s Google",
+      "terms_note": "Pokračováním souhlasíte s {terms} a {privacy}.",
+      "terms": "Podmínkami použití",
+      "privacy": "Zásadami ochrany soukromí"
     },
     "confirm_email": {
       "title": "Zkontrolujte svůj e-mail",
@@ -240,6 +243,10 @@
       "mock_lead2_name": "Vodoinstalace Praha — Petr Horáček",
       "mock_lead2_phone": "+420 777 654 321",
       "mock_lead3_name": "Instalatérství Dvořák"
+    },
+    "footer": {
+      "terms": "Podmínky použití",
+      "privacy": "Zásady ochrany soukromí"
     },
     "cta": {
       "title": "Začněte získávat klienty ještě dnes.",

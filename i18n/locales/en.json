@@ -23,7 +23,10 @@
     "sign_in": {
       "title": "Sign in",
       "button": "Continue",
-      "continue_with_google": "Continue with Google"
+      "continue_with_google": "Continue with Google",
+      "terms_note": "By continuing, you agree to our {terms} and {privacy}.",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy"
     },
     "confirm_email": {
       "title": "Check your email",
@@ -277,6 +280,10 @@
         "mark_contacted": "Mark contacted leads",
         "export_csv": "Export to CSV"
       }
+    },
+    "footer": {
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy"
     },
     "cta": {
       "title": "Start getting clients today.",
