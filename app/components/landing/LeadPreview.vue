@@ -148,7 +148,7 @@
           </div>
 
           <!-- lead 2 — analyzing -->
-          <div class="px-5 py-4 opacity-70">
+          <div class="px-4 sm:px-5 py-4 opacity-70">
             <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center gap-3 md:gap-4 w-full min-w-0">
               <div class="min-w-0">
                 <h3 class="truncate font-medium text-sm">Vodoinstalace Praha — Petr Horáček</h3>
@@ -169,7 +169,7 @@
           </div>
 
           <!-- lead 3 — pending -->
-          <div class="px-5 py-4 opacity-40">
+          <div class="px-4 sm:px-5 py-4 opacity-40">
             <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center gap-3 md:gap-4 w-full min-w-0">
               <div class="min-w-0">
                 <h3 class="truncate font-medium text-sm">Instalatérství Dvořák</h3>
