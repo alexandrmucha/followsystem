@@ -221,6 +221,7 @@
     }
   },
   "landing": {
+    "page_title": "Fulply — Get clients who actually need a new website",
     "navbar": {
       "sign_in": "Sign in",
       "get_started": "Get started free",
@@ -295,10 +296,6 @@
       "q1": {
         "q": "Do I need a credit card for the Trial?",
         "a": "No. The Trial is completely free — no credit card required. Just sign in and start finding leads."
-      },
-      "q2": {
-        "q": "How does lead scoring work?",
-        "a": "We analyse each business's website — performance, SEO, accessibility, visual design, copywriting, and conversion elements like CTAs. The lead score reflects how much room there is for improvement, which means higher potential for you."
       },
       "q3": {
         "q": "What languages and countries does Fulply work in?",

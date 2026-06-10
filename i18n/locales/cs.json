@@ -221,6 +221,7 @@
     }
   },
   "landing": {
+    "page_title": "Fulply — Získejte klienty, kteří skutečně potřebují nový web",
     "navbar": {
       "sign_in": "Přihlásit se",
       "get_started": "Začít zdarma",
@@ -258,10 +259,6 @@
       "q1": {
         "q": "Potřebuji platební kartu pro Trial?",
         "a": "Ne. Trial je zcela zdarma — bez platební karty. Stačí se přihlásit a hned začít hledat leady."
-      },
-      "q2": {
-        "q": "Jak funguje hodnocení leadu?",
-        "a": "Analyzujeme web každé firmy — výkon, SEO, přístupnost, vizuální design, copywriting a konverzní prvky jako CTA. Skóre leadu odráží, jak velký prostor ke zlepšení web má — a tedy jak velký potenciál pro vás."
       },
       "q3": {
         "q": "V jakých jazycích a zemích Fulply funguje?",

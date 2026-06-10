@@ -9,5 +9,7 @@
 
 <script setup lang="ts">
 definePageMeta({ layout: 'landing' })
-useHead({ title: 'Fulply — Get clients who actually need a new website' })
+
+const { t } = useI18n()
+useHead({ title: t('landing.page_title') })
 </script>
