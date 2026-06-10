@@ -271,6 +271,11 @@
         "export_csv": "Export to CSV"
       }
     },
+    "cta": {
+      "title": "Start getting clients today.",
+      "subtitle": "No credit card. Just sign in.",
+      "button": "Try for free"
+    },
     "faq": {
       "title": "FAQ",
       "q1": {

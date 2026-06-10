@@ -242,6 +242,11 @@
       "mock_lead2_phone": "+420 777 654 321",
       "mock_lead3_name": "Instalatérství Dvořák"
     },
+    "cta": {
+      "title": "Začněte získávat klienty ještě dnes.",
+      "subtitle": "Bez platební karty. Stačí se přihlásit.",
+      "button": "Vyzkoušet zdarma"
+    },
     "faq": {
       "title": "Časté dotazy",
       "q1": {
