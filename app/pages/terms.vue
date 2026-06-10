@@ -103,5 +103,5 @@ definePageMeta({ layout: 'landing' })
 
 const { locale } = useI18n()
 
-useHead({ title: locale.value === 'cs' ? 'Podmínky použití — Fulply' : 'Terms of Service — Fulply' })
+useHead({ title: locale.value === 'cs' ? 'Podmínky použití' : 'Terms of Service' })
 </script>
