@@ -1,6 +1,6 @@
 <template>
   <section class="py-20 px-6">
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-3xl mx-auto">
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold mb-3">{{ $t('landing.lead_preview.title') }}</h2>
         <p class="text-neutral-600 dark:text-neutral-400 max-w-lg mx-auto">{{ $t('landing.lead_preview.subtitle') }}</p>
