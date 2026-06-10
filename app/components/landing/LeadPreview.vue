@@ -139,7 +139,7 @@
                 <UiBaseButton variant="secondary" size="sm" class="flex items-center gap-2">
                   {{ $t('search.results.mark_contacted') }}
                 </UiBaseButton>
-                <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2">
+                <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" @click="navigateTo('/sign-in')">
                   <LucideSparkles :size="16" />
                   {{ $t('search.results.generate_email') }}
                 </UiBaseButton>
