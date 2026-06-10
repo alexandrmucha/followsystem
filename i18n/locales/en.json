@@ -245,6 +245,9 @@
     "pricing": {
       "title": "Simple pricing",
       "subtitle": "Start free, upgrade when you're ready.",
+      "monthly": "Monthly",
+      "annual": "Annual",
+      "annual_save": "2 months free",
       "trial": {
         "name": "Trial",
         "price_label": "Free",
@@ -254,8 +257,10 @@
       },
       "pro": {
         "name": "Pro",
-        "price": "49",
-        "period": "/month",
+        "price_monthly": "49",
+        "price_annual": "499",
+        "period_monthly": "/month",
+        "period_annual": "/year",
         "cta": "Get Pro",
         "leads": "Up to 3,500 scored leads",
         "emails": "Up to 1,750 personalised emails"

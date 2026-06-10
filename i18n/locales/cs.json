@@ -245,6 +245,9 @@
     "pricing": {
       "title": "Ceník",
       "subtitle": "Vyzkoušejte zdarma. Upgradujte, až budete připraveni.",
+      "monthly": "Měsíčně",
+      "annual": "Ročně",
+      "annual_save": "2 měsíce zdarma",
       "trial": {
         "name": "Trial",
         "price_label": "Zdarma",
@@ -254,8 +257,10 @@
       },
       "pro": {
         "name": "Pro",
-        "price": "49",
-        "period": "/měsíc",
+        "price_monthly": "49",
+        "price_annual": "499",
+        "period_monthly": "/měsíc",
+        "period_annual": "/rok",
         "cta": "Získat Pro",
         "leads": "Až 3 500 ohodnocených leadů",
         "emails": "Až 1 750 personalizovaných e-mailů"
