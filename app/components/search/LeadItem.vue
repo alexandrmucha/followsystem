@@ -44,7 +44,6 @@
 
     <!-- METRICS -->
     <div v-if="lead.analysisStatus === 'done' && lead.hasWebsite" class="mt-3 flex flex-wrap items-center gap-4">
-      <div class="flex flex-wrap items-center gap-4">
 
         <!-- non-operational website — show only the indicator -->
         <template v-if="isNonOperational">
@@ -123,7 +122,6 @@
           <template #icon><LucidePenLine :size="13" /></template>
         </SearchMetricBadge>
         </template>
-      </div>
     </div>
 
     <!-- SCREENSHOTS -->
