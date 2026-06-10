@@ -7,5 +7,7 @@
       <LayoutAlerts />
       <slot />
     </div>
+
+    <LandingFooter />
   </div>
 </template>
