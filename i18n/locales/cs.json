@@ -276,23 +276,31 @@
     "pricing": {
       "title": "Ceník",
       "subtitle": "Vyzkoušejte zdarma. Upgradujte, až budete připraveni.",
+      "popular_badge": "Nejoblíbenější",
       "monthly": "Měsíčně",
       "annual": "Ročně",
       "annual_save": "2 měsíce zdarma",
-      "trial": {
-        "name": "Trial",
-        "price_label": "Zdarma",
-        "cta": "Začít zdarma",
-        "leads": "Až 200 ohodnocených leadů",
-        "emails": "Až 100 personalizovaných e-mailů"
+      "period": "/měsíc",
+      "period_annual": "/rok",
+      "trial_note": "Ještě nejste připraveni? ",
+      "trial_cta": "Začněte s 200 leady zdarma — bez platební karty.",
+      "starter": {
+        "name": "Starter",
+        "leads": "Až 1 000 ohodnocených leadů",
+        "emails": "Až 500 personalizovaných e-mailů",
+        "cta": "Získat Starter"
       },
       "pro": {
         "name": "Pro",
-        "period_monthly": "/měsíc",
-        "period_annual": "/rok",
-        "cta": "Získat Pro",
         "leads": "Až 3 500 ohodnocených leadů",
-        "emails": "Až 1 750 personalizovaných e-mailů"
+        "emails": "Až 1 750 personalizovaných e-mailů",
+        "cta": "Získat Pro"
+      },
+      "agency": {
+        "name": "Agency",
+        "leads": "Až 8 000 ohodnocených leadů",
+        "emails": "Až 4 000 personalizovaných e-mailů",
+        "cta": "Získat Agency"
       },
       "features": {
         "email_search": "Automatické vyhledávání e-mailů",

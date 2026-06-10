@@ -244,23 +244,31 @@
     "pricing": {
       "title": "Simple pricing",
       "subtitle": "Start free, upgrade when you're ready.",
+      "popular_badge": "Most popular",
       "monthly": "Monthly",
       "annual": "Annual",
       "annual_save": "2 months free",
-      "trial": {
-        "name": "Trial",
-        "price_label": "Free",
-        "cta": "Get started free",
-        "leads": "Up to 200 scored leads",
-        "emails": "Up to 100 personalised emails"
+      "period": "/month",
+      "period_annual": "/year",
+      "trial_note": "Not ready yet? ",
+      "trial_cta": "Start with 200 free leads — no credit card required.",
+      "starter": {
+        "name": "Starter",
+        "leads": "Up to 1,000 scored leads",
+        "emails": "Up to 500 personalised emails",
+        "cta": "Get Starter"
       },
       "pro": {
         "name": "Pro",
-        "period_monthly": "/month",
-        "period_annual": "/year",
-        "cta": "Get Pro",
         "leads": "Up to 3,500 scored leads",
-        "emails": "Up to 1,750 personalised emails"
+        "emails": "Up to 1,750 personalised emails",
+        "cta": "Get Pro"
+      },
+      "agency": {
+        "name": "Agency",
+        "leads": "Up to 8,000 scored leads",
+        "emails": "Up to 4,000 personalised emails",
+        "cta": "Get Agency"
       },
       "features": {
         "email_search": "Automatic email search",
