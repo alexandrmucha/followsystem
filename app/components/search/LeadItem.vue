@@ -84,7 +84,7 @@
           <template #icon><LucideLink :size="13" /></template>
         </SearchMetricBadge>
 
-        <span v-if="ctaState != null || lead.aiHasOwnWebsite != null || lead.aiUsesWebBuilder != null || lead.aiHasWebBuilderAds != null || lead.aiDesignScore != null || lead.aiCopywritingScore != null" class="w-px h-3 bg-neutral-200 dark:bg-neutral-700 self-center" />
+        <span v-if="ctaState != null || lead.aiHasOwnWebsite != null || lead.aiUsesWebBuilder != null || lead.aiHasWebBuilderAds != null || lead.aiHasServerErrors != null || lead.aiHasPlaceholderContent != null || lead.aiCopyrightYear != null || lead.aiDesignScore != null || lead.aiCopywritingScore != null" class="w-px h-3 bg-neutral-200 dark:bg-neutral-700 self-center" />
 
         <SearchMetricBadge v-if="lead.aiHasOwnWebsite != null" :value="lead.aiHasOwnWebsite" type="boolean" :aria-label="lead.aiHasOwnWebsite ? $t('search.results.ai.has_own_website') : $t('search.results.ai.no_own_website')">
           <template #icon><LucideGlobe :size="13" /></template>
