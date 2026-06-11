@@ -58,6 +58,7 @@
           <UiBaseTextarea
             v-model="customPrompt"
             :label="$t('templates.edit.custom_prompt_label')"
+            :placeholder="$t('templates.edit.custom_prompt_placeholder')"
             :rows="4"
             :maxlength="1000"
           />
