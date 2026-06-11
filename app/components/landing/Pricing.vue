@@ -72,7 +72,10 @@
             :variant="plan.popular ? 'magic' : plan.id === 'agency' ? 'primary' : 'secondary'"
             size="md"
             class="w-full"
-            :class="plan.popular ? 'flex items-center justify-center gap-2' : ''"
+            :class="[
+              plan.popular ? 'flex items-center justify-center gap-2' : '',
+              plan.id === 'agency' ? 'dark:bg-neutral-700! dark:hover:bg-neutral-600!' : ''
+            ]"
             @click="navigateTo('/sign-in')"
           >
             <LucideSparkles v-if="plan.popular" :size="16" />
