@@ -23,7 +23,7 @@
 
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">4. Předplatné a platby</h2>
-          <p>Placené plány jsou k dispozici v měsíčním nebo ročním cyklu. Roční předplatné je nevratné po uplynutí 14 dní od zakoupení. Předplatné lze kdykoliv zrušit — přístup ke službě trvá do konce aktuálního zaplaceného období.</p>
+          <p>Placené plány jsou k dispozici v měsíčním nebo ročním cyklu. Předplatné lze kdykoliv zrušit — přístup ke službě trvá do konce aktuálního zaplaceného období.</p>
         </section>
 
         <section>
@@ -70,7 +70,7 @@
 
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">4. Subscriptions and Payments</h2>
-          <p>Paid plans are billed monthly or annually. Annual plans are non-refundable after 14 days from purchase. You may cancel at any time — access continues until the end of the current billing period.</p>
+          <p>Paid plans are billed monthly or annually. You may cancel at any time — access continues until the end of the current billing period.</p>
         </section>
 
         <section>
