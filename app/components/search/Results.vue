@@ -2,7 +2,7 @@
   <div v-if="searchResults.searched && !searchResults.sortedLeads.length" class="mt-8">
     <UiBaseCard>
       <p class="text-sm text-neutral-500 dark:text-neutral-400 text-center">
-        {{ t('search.results.empty') }}
+        {{ $t('search.results.empty') }}
       </p>
     </UiBaseCard>
   </div>
@@ -45,7 +45,6 @@
 <script lang="ts" setup>
 import type { BusinessLeadDTO } from '~/types/business-lead.dto'
 
-const { t } = useI18n()
 const searchResults = useSearchResultsStore()
 
 const selectedLead = ref<BusinessLeadDTO | null>(null)

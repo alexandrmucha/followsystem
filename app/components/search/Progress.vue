@@ -2,7 +2,7 @@
   <UiBaseCard>
     <div class="flex items-center justify-between mb-2">
       <p class="text-sm text-neutral-600 dark:text-neutral-300">
-        {{ t('search.results.progress.label', { done: searchResults.analyzedCount, total: searchResults.websiteLeadsCount }) }}
+        {{ $t('search.results.progress.label', { done: searchResults.analyzedCount, total: searchResults.websiteLeadsCount }) }}
       </p>
       <p class="text-xs text-neutral-500 dark:text-neutral-400">
         {{ searchResults.progressPercent }}%
@@ -21,13 +21,13 @@
     </p>
 
     <p v-if="searchResults.sessionStatus === 'analyzing'" class="mt-1 text-xs text-neutral-400 dark:text-neutral-500">
-      {{ t('search.results.progress.sort_hint') }}
+      {{ $t('search.results.progress.sort_hint') }}
     </p>
 
     <div v-if="searchResults.sessionStatus === 'done' || searchResults.sessionStatus === 'canceled'" class="mt-3 flex justify-end">
       <UiBaseButton variant="secondary" size="sm" class="flex items-center gap-2" :disabled="exporting" @click="exportCsv">
         <LucideDownload :size="16" />
-        {{ t('search.results.export_csv') }}
+        {{ $t('search.results.export_csv') }}
       </UiBaseButton>
     </div>
   </UiBaseCard>

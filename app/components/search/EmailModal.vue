@@ -1,6 +1,6 @@
 <template>
   <UiBaseModal
-    :title="t('search.email.title')"
+    :title="$t('search.email.title')"
     :description="lead?.name"
     size="xl"
     :closeOnEsc="true"
@@ -11,17 +11,17 @@
 
       <!-- Template selector -->
       <UiFormField>
-        <UiBaseSelect v-model="selectedTemplateId" :label="t('search.email.template_label')" :disabled="generatingAi">
+        <UiBaseSelect v-model="selectedTemplateId" :label="$t('search.email.template_label')" :disabled="generatingAi">
           <option v-for="template in templates" :key="template.id" :value="template.id">
             {{ template.name }}
           </option>
         </UiBaseSelect>
 
         <p class="text-xs text-neutral-400 dark:text-neutral-500">
-          {{ t('search.email.template_hint_before') }}
+          {{ $t('search.email.template_hint_before') }}
           <NuxtLink to="/templates" class="underline hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors">
-            {{ t('search.email.template_hint_link') }}
-          </NuxtLink>{{ t('search.email.template_hint_after') }}
+            {{ $t('search.email.template_hint_link') }}
+          </NuxtLink>{{ $t('search.email.template_hint_after') }}
         </p>
       </UiFormField>
 
@@ -29,16 +29,16 @@
       <UiFormField>
         <UiBaseInput
           v-model="recipient"
-          :label="t('search.email.recipient_label')"
+          :label="$t('search.email.recipient_label')"
           placeholder="info@example.com"
           :disabled="generatingAi"
         />
 
         <p v-if="lead?.website" class="text-xs text-neutral-400 dark:text-neutral-500">
-          {{ lead?.email ? t('search.email.recipient_hint_verify_before') : t('search.email.recipient_hint_before') }}
+          {{ lead?.email ? $t('search.email.recipient_hint_verify_before') : $t('search.email.recipient_hint_before') }}
           <a :href="lead.website" target="_blank" class="underline hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors">
-            {{ t('search.email.recipient_hint_link') }}
-          </a>{{ t('search.email.recipient_hint_after') }}
+            {{ $t('search.email.recipient_hint_link') }}
+          </a>{{ $t('search.email.recipient_hint_after') }}
         </p>
       </UiFormField>
 
@@ -46,7 +46,7 @@
       <UiFormField>
         <UiBaseInput
           v-model="subject"
-          :label="t('search.email.subject_label')"
+          :label="$t('search.email.subject_label')"
           :disabled="generatingAi"
         />
       </UiFormField>
@@ -55,13 +55,13 @@
       <UiFormField>
         <UiBaseTextarea
           v-model="body"
-          :label="t('search.email.body_label')"
+          :label="$t('search.email.body_label')"
           :rows="12"
           :disabled="generatingAi"
         />
 
         <p class="text-xs text-neutral-400 dark:text-neutral-500">
-          {{ t('search.email.body_hint') }}
+          {{ $t('search.email.body_hint') }}
         </p>
       </UiFormField>
 
@@ -69,7 +69,7 @@
       <div class="flex flex-col items-end">
         <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" :disabled="generatingAi" @click="generateWithAi">
           <LucideSparkles :size="16" />
-          {{ generatingAi ? t('search.email.generating_ai') : t('search.email.generate_ai') }}
+          {{ generatingAi ? $t('search.email.generating_ai') : $t('search.email.generate_ai') }}
         </UiBaseButton>
         <p v-if="generateError" :class="[fieldErrorClass, 'text-xs mt-1']">{{ generateError }}</p>
       </div>
@@ -78,13 +78,13 @@
       <div class="flex flex-col sm:flex-row sm:justify-end gap-3 pt-2">
         <UiBaseButton variant="secondary" size="sm" class="flex items-center justify-center gap-2" @click="copy">
           <LucideCopy :size="16" />
-          {{ copied ? t('search.email.copied') : t('search.email.copy') }}
+          {{ copied ? $t('search.email.copied') : $t('search.email.copy') }}
         </UiBaseButton>
 
         <a :href="mailtoLink" target="_blank" class="block sm:inline-block">
           <UiBaseButton variant="primary" size="sm" class="flex items-center justify-center gap-2 w-full">
             <LucideMail :size="16" />
-            {{ t('search.email.open') }}
+            {{ $t('search.email.open') }}
           </UiBaseButton>
         </a>
       </div>

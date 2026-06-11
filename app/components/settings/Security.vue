@@ -2,7 +2,7 @@
   <SettingsSection :title="$t('settings.security.title')">
     <SettingsRow>
       <template #label>
-        {{ t('settings.security.active_sessions') }}
+        {{ $t('settings.security.active_sessions') }}
       </template>
 
       <template #value>
