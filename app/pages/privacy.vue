@@ -10,6 +10,7 @@
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">1. Jaká data sbíráme</h2>
           <ul class="space-y-2 list-disc list-inside marker:text-neutral-400">
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">E-mailová adresa</span> — pro přihlášení a zasílání transakčních e-mailů.</li>
+            <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Jméno a profilový obrázek</span> — při přihlášení přes Google, pro personalizaci rozhraní.</li>
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Vyhledávací dotazy</span> — odvětví a lokace, které zadáváte při hledání firem.</li>
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Výsledky analýz</span> — skóre webů a AI poznámky uložené k vašemu účtu.</li>
           </ul>
@@ -55,6 +56,7 @@
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">1. Data We Collect</h2>
           <ul class="space-y-2 list-disc list-inside marker:text-neutral-400">
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Email address</span> — used for authentication and transactional emails.</li>
+            <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Name and profile picture</span> — collected when signing in with Google, used to personalise the interface.</li>
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Search queries</span> — the industry and location you search for.</li>
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Analysis results</span> — website scores and AI-generated notes stored against your account.</li>
           </ul>
