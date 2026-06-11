@@ -246,7 +246,7 @@
       "mock_lead2_phone": "+44 7700 900 738",
       "mock_lead3_name": "Parker Plumbing Services",
       "mock_email_subject": "A note about your website",
-      "mock_email_body": "Hi,\n\nI looked at your website and noticed a few things that are likely costing you customers.\n\nThe site doesn't have an SSL certificate — browsers flag it as insecure, which puts customers off before they read anything. It's also not optimised for mobile, and most people searching for a plumber today do it on their phone — if the page doesn't display properly, they'll call someone else. The design hasn't been updated since 2015 and there's no clear way to request a quote — no button, no form.\n\nI'd like to show you what a new site could look like. Let me know if you're interested.\n\n[Your name]",
+      "mock_email_body": "Hi Mr. Johnson,\n\nI looked at your website and noticed a few things that are likely costing you customers.\n\nThe site doesn't have an SSL certificate — browsers flag it as insecure, which puts customers off before they read anything. It's also not optimised for mobile, and most people searching for a plumber today do it on their phone — if the page doesn't display properly, they'll call someone else. The design hasn't been updated since 2015 and there's no clear way to request a quote — no button, no form.\n\nI'd like to show you what a new site could look like. Let me know if you're interested.\n\n[Your name]",
       "mock_email_modal_title": "Generated email",
       "sign_in_to_send": "I want emails like this"
     },
