@@ -62,7 +62,7 @@
             </div>
             
             <!-- metric badges -->
-            <div class="mt-3 flex flex-wrap items-center gap-4">
+            <div class="mt-4 flex flex-wrap items-center gap-4">
               <SearchMetricBadge :value="2.1" type="lcp" :aria-label="$t('search.results.metrics.lcp')">
                 <template #icon><LucideClock :size="13" /></template>
               </SearchMetricBadge>
@@ -99,7 +99,7 @@
               <SearchMetricBadge :value="2015" type="year" :aria-label="$t('search.results.ai.copyright_year')">
                 <template #icon><LucideCopyright :size="13" /></template>
               </SearchMetricBadge>
-              <SearchMetricBadge :value="'missing'" type="cta">
+              <SearchMetricBadge :value="'missing'" type="cta" :aria-label="$t('search.results.ai.cta')">
                 <template #icon><LucideMousePointer :size="13" /></template>
               </SearchMetricBadge>
               <SearchMetricBadge :value="32" type="score" :aria-label="$t('search.results.ai.design')">
@@ -140,7 +140,7 @@
 
               <div class="order-3 sm:order-2 flex flex-wrap items-center gap-3 sm:ml-auto">
                 <UiBaseButton variant="secondary" size="sm" class="flex items-center gap-2" @click="contacted = !contacted">
-                  <LucideCheck v-if="contacted" :size="14" />
+                  <LucideCheck v-if="contacted" :size="16" />
                   {{ contacted ? $t('search.results.contacted') : $t('search.results.mark_contacted') }}
                 </UiBaseButton>
                 <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" @click="emailVisible = !emailVisible">

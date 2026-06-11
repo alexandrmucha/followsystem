@@ -108,6 +108,7 @@
         "is_responsive": "Responsive",
         "design": "Design",
         "copywriting": "Copywriting",
+        "cta": "CTA",
         "cta_ok": "CTA OK",
         "cta_missing": "No CTA",
         "cta_missing_mobile": "No CTA (mobile)",

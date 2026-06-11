@@ -43,7 +43,7 @@
     </div>
 
     <!-- METRICS -->
-    <div v-if="lead.analysisStatus === 'done' && lead.hasWebsite" class="mt-3 flex flex-wrap items-center gap-4">
+    <div v-if="lead.analysisStatus === 'done' && lead.hasWebsite" class="mt-4 flex flex-wrap items-center gap-4">
 
         <!-- non-operational website — show only the indicator -->
         <template v-if="isNonOperational">
@@ -110,7 +110,7 @@
           <template #icon><LucideCopyright :size="13" /></template>
         </SearchMetricBadge>
 
-        <SearchMetricBadge v-if="ctaState != null" :value="ctaState" type="cta">
+        <SearchMetricBadge v-if="ctaState != null" :value="ctaState" type="cta" :aria-label="$t('search.results.ai.cta')">
           <template #icon><LucideMousePointer :size="13" /></template>
         </SearchMetricBadge>
 
