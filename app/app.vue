@@ -14,6 +14,9 @@ useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} - Fulply` : 'Fulply'
   },
+  link: [
+    { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+  ],
   meta: [
     { name: 'theme-color', content: '#615fff' },
   ],
