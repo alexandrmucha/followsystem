@@ -61,11 +61,11 @@
 
         <template v-else>
 
-        <SearchMetricBadge :value="lead.largestContentfulPaint" type="lcp" :aria-label="$t('search.results.metrics.lcp')">
+        <SearchMetricBadge v-if="lead.largestContentfulPaint != null" :value="lead.largestContentfulPaint" type="lcp" :aria-label="$t('search.results.metrics.lcp')">
           <template #icon><LucideClock :size="13" /></template>
         </SearchMetricBadge>
 
-        <SearchMetricBadge :value="lead.totalByteWeight" type="size" :aria-label="$t('search.results.metrics.size')">
+        <SearchMetricBadge v-if="lead.totalByteWeight != null" :value="lead.totalByteWeight" type="size" :aria-label="$t('search.results.metrics.size')">
           <template #icon><LucideHardDrive :size="13" /></template>
         </SearchMetricBadge>
 
