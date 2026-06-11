@@ -11,7 +11,7 @@
       <UiBaseButton variant="secondary" size="sm" @click="$emit('cancel')">
         {{ $t('common.cancel') }}
       </UiBaseButton>
-      <UiBaseButton variant="danger" size="sm" @click="$emit('confirm')">
+      <UiBaseButton variant="danger" size="sm" :disabled="loading" @click="$emit('confirm')">
         {{ confirmLabel ?? $t('common.confirm') }}
       </UiBaseButton>
     </div>
@@ -23,6 +23,7 @@ defineProps<{
   title: string
   description?: string
   confirmLabel?: string
+  loading?: boolean
 }>()
 
 defineEmits<{

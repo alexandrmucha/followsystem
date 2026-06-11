@@ -66,6 +66,7 @@
       :title="$t('templates.delete_confirm_title')"
       :description="$t('templates.delete_confirm_description')"
       :confirm-label="$t('common.delete')"
+      :loading="deleting"
       @confirm="confirmDelete"
       @cancel="deleteId = null"
     />
@@ -95,6 +96,7 @@ const { data: templates, refresh, error } = await useAsyncData('templates', () =
 
 const creating = ref(false)
 const deleteId = ref<string | null>(null)
+const deleting = ref(false)
 const restoringDefaults = ref(false)
 const settingDefaultId = ref<string | null>(null)
 
@@ -118,6 +120,7 @@ const deleteTemplate = (id: string) => {
 
 const confirmDelete = async () => {
   if (!deleteId.value) return
+  deleting.value = true
   alertFlow.clear()
 
   try {
@@ -126,6 +129,7 @@ const confirmDelete = async () => {
   } catch {
     alertFlow.error(t('templates.errors.delete'))
   } finally {
+    deleting.value = false
     deleteId.value = null
   }
 }
