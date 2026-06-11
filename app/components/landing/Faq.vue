@@ -35,8 +35,7 @@ function toggle(key: string) {
 }
 
 const items = [
-  { q: 'landing.faq.q1.q', a: 'landing.faq.q1.a' },
-{ q: 'landing.faq.q3.q', a: 'landing.faq.q3.a' },
+  { q: 'landing.faq.q3.q', a: 'landing.faq.q3.a' },
   { q: 'landing.faq.q4.q', a: 'landing.faq.q4.a' },
   { q: 'landing.faq.q5.q', a: 'landing.faq.q5.a' },
   { q: 'landing.faq.q6.q', a: 'landing.faq.q6.a' },

@@ -257,10 +257,6 @@
     },
     "faq": {
       "title": "Časté dotazy",
-      "q1": {
-        "q": "Potřebuji platební kartu pro Trial?",
-        "a": "Ne. Trial je zcela zdarma — bez platební karty. Stačí se přihlásit a hned začít hledat leady."
-      },
       "q3": {
         "q": "V jakých jazycích a zemích Fulply funguje?",
         "a": "Fulply funguje kdekoliv, kde má Google Maps záznamy o firmách — tedy prakticky v každé zemi. E-maily lze generovat v libovolném jazyce podle šablony nebo vlastních instrukcí pro AI."

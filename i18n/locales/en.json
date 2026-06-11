@@ -294,10 +294,6 @@
     },
     "faq": {
       "title": "FAQ",
-      "q1": {
-        "q": "Do I need a credit card for the Trial?",
-        "a": "No. The Trial is completely free — no credit card required. Just sign in and start finding leads."
-      },
       "q3": {
         "q": "What languages and countries does Fulply work in?",
         "a": "Fulply works anywhere Google Maps has business listings — which is virtually every country. Emails can be generated in any language based on your template or custom AI instructions."
