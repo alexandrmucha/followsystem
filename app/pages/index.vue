@@ -19,10 +19,10 @@ useSeoMeta({
   ogTitle: t('landing.page_title'),
   ogDescription: t('landing.meta_description'),
   ogType: 'website',
-  ogImage: `${siteUrl}/img/og_image.png`,
+  ogImage: `${siteUrl}/og_image.png`,
   twitterCard: 'summary_large_image',
   twitterTitle: t('landing.page_title'),
   twitterDescription: t('landing.meta_description'),
-  twitterImage: `${siteUrl}/img/og_image.png`,
+  twitterImage: `${siteUrl}/og_image.png`,
 })
 </script>
