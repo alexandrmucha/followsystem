@@ -251,34 +251,6 @@
       "mock_email_modal_title": "Vygenerovaný e-mail",
       "sign_in_to_send": "Chci taky takový e-mail"
     },
-    "footer": {
-      "terms": "Podmínky použití",
-      "privacy": "Zásady ochrany soukromí"
-    },
-    "cta": {
-      "title": "Začněte získávat klienty ještě dnes.",
-      "subtitle": "Bez platební karty. Stačí se přihlásit.",
-      "button": "Vyzkoušet zdarma"
-    },
-    "faq": {
-      "title": "Časté dotazy",
-      "q3": {
-        "q": "V jakých jazycích a zemích Fulply funguje?",
-        "a": "Fulply funguje kdekoliv, kde má Google Maps záznamy o firmách — tedy prakticky v každé zemi. E-maily lze generovat v libovolném jazyce podle šablony nebo vlastních instrukcí pro AI."
-      },
-      "q4": {
-        "q": "Jak dlouho trvá analýza?",
-        "a": "Záleží na počtu nalezených firem. Pro představu — analýza 50 webů trvá přibližně 5 minut."
-      },
-      "q5": {
-        "q": "Jsou data o firmách aktuální?",
-        "a": "Ano. Každé vyhledávání stahuje data přímo z Google Maps v reálném čase, takže vždy pracujete s aktuálními výsledky."
-      },
-      "q6": {
-        "q": "Jak AI generuje e-mail?",
-        "a": "AI má přístup ke všem nalezeným problémům webu, poznámkám z analýzy a informacím o firmě. E-mail nepíše technicky — překládá problémy do obchodního jazyka, který oslovenému dává smysl. Celý tón a styl si navíc můžete přizpůsobit vlastními instrukcemi pro AI."
-      }
-    },
     "pricing": {
       "title": "Ceník",
       "subtitle": "Vyzkoušejte zdarma. Upgradujte, až budete připraveni.",
@@ -314,6 +286,34 @@
         "ai_instructions": "Vlastní AI instrukce",
         "mark_contacted": "Označení kontaktovaných leadů",
         "export_csv": "Export do CSV"
+      }
+    },
+    "footer": {
+      "terms": "Podmínky použití",
+      "privacy": "Zásady ochrany soukromí"
+    },
+    "cta": {
+      "title": "Začněte získávat klienty ještě dnes.",
+      "subtitle": "Bez platební karty. Stačí se přihlásit.",
+      "button": "Vyzkoušet zdarma"
+    },
+    "faq": {
+      "title": "Časté dotazy",
+      "q3": {
+        "q": "V jakých jazycích a zemích Fulply funguje?",
+        "a": "Fulply funguje kdekoliv, kde má Google Maps záznamy o firmách — tedy prakticky v každé zemi. E-maily lze generovat v libovolném jazyce podle šablony nebo vlastních instrukcí pro AI."
+      },
+      "q4": {
+        "q": "Jak dlouho trvá analýza?",
+        "a": "Záleží na počtu nalezených firem. Pro představu — analýza 50 webů trvá přibližně 5 minut."
+      },
+      "q5": {
+        "q": "Jsou data o firmách aktuální?",
+        "a": "Ano. Každé vyhledávání stahuje data přímo z Google Maps v reálném čase, takže vždy pracujete s aktuálními výsledky."
+      },
+      "q6": {
+        "q": "Jak AI generuje e-mail?",
+        "a": "AI má přístup ke všem nalezeným problémům webu, poznámkám z analýzy a informacím o firmě. E-mail nepíše technicky — překládá problémy do obchodního jazyka, který oslovenému dává smysl. Celý tón a styl si navíc můžete přizpůsobit vlastními instrukcemi pro AI."
       }
     },
     "how_it_works": {
