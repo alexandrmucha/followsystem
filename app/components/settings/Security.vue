@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts" setup>
-import { dangerLinkClass } from '~/utils/ui'
+import { dangerLinkClass, disabledDangerLinkClass } from '~/utils/ui'
 
 const { t } = useI18n()
 const { $api } = useNuxtApp()
