@@ -18,7 +18,7 @@
 
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">3. Přijatelné použití</h2>
-          <p>Zavazujete se používat Fulply v souladu s platnými právními předpisy, zejména se zákonem o ochraně osobních údajů (GDPR) a předpisy o nevyžádané komunikaci (CAN-SPAM, ePrivacy). Nesmíte prostřednictvím služby rozesílat nevyžádanou hromadnou poštu ani službu využívat k protiprávním účelům.</p>
+          <p>Zavazujete se používat Fulply v souladu s platnými právními předpisy, zejména se zákonem o ochraně osobních údajů (GDPR) a předpisy o nevyžádané komunikaci (CAN-SPAM, ePrivacy). Nesmíte službu využívat k přípravě ani rozesílání nevyžádané hromadné pošty ani k jiným protiprávním účelům.</p>
         </section>
 
         <section>
@@ -28,7 +28,7 @@
 
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">5. Bezplatné vyzkoušení</h2>
-          <p>Nové účty obdrží bezplatnou kvótu leadů a generování e-mailů bez nutnosti zadávat platební kartu. Fulply si vyhrazuje právo podmínky bezplatného vyzkoušení kdykoliv změnit.</p>
+          <p>Nové účty obdrží bezplatnou kvótu leadů a generování e-mailů bez nutnosti zadávat platební kartu. Fulply si vyhrazuje právo podmínky bezplatného vyzkoušení kdykoliv změnit. Je zakázáno zakládat více účtů za účelem opakovaného získávání bezplatných kreditů.</p>
         </section>
 
         <section>
@@ -65,7 +65,7 @@
 
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">3. Acceptable Use</h2>
-          <p>You agree to use Fulply in compliance with applicable law, including data protection regulations (GDPR) and anti-spam legislation (CAN-SPAM, ePrivacy). You must not send unsolicited bulk emails or use the service for any unlawful purpose.</p>
+          <p>You agree to use Fulply in compliance with applicable law, including data protection regulations (GDPR) and anti-spam legislation (CAN-SPAM, ePrivacy). You must not use the service to prepare or send unsolicited bulk emails, or for any other unlawful purpose.</p>
         </section>
 
         <section>
@@ -75,7 +75,7 @@
 
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">5. Free Trial</h2>
-          <p>New accounts receive a free allocation of leads and email generations with no credit card required. Fulply reserves the right to change the terms of the free trial at any time.</p>
+          <p>New accounts receive a free allocation of leads and email generations with no credit card required. Fulply reserves the right to change the terms of the free trial at any time. Creating multiple accounts to repeatedly obtain free trial credits is prohibited.</p>
         </section>
 
         <section>
