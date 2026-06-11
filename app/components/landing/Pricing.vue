@@ -81,10 +81,15 @@
         </div>
       </div>
 
+      <!-- quota note -->
+      <p class="mt-8 text-center text-xs text-neutral-400 dark:text-neutral-500">
+        {{ $t('landing.pricing.quota_note') }}
+      </p>
+
       <!-- trial note -->
-      <p class="mt-8 text-center text-sm text-neutral-500 dark:text-neutral-400">
+      <p class="mt-3 text-center text-sm text-neutral-500 dark:text-neutral-400">
         {{ $t('landing.pricing.trial_note') }}
-        <NuxtLink to="/sign-in" class="underline hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors">{{ $t('landing.pricing.trial_cta') }}</NuxtLink>
+        <NuxtLink to="/sign-in" class="text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 underline transition-colors">{{ $t('landing.pricing.trial_cta') }}</NuxtLink>
       </p>
 
     </div>
