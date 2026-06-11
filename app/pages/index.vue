@@ -19,6 +19,7 @@ useSeoMeta({
   ogTitle: t('landing.page_title'),
   ogDescription: t('landing.meta_description'),
   ogType: 'website',
+  ogUrl: siteUrl,
   ogImage: `${siteUrl}/og_image.png`,
   twitterCard: 'summary_large_image',
   twitterTitle: t('landing.page_title'),
