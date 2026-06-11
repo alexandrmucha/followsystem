@@ -77,6 +77,7 @@
 
 <script lang="ts" setup>
 import type { BusinessLeadDTO } from '~/types/business-lead.dto'
+import { fieldErrorClass } from '~/utils/ui'
 
 const { t } = useI18n()
 const { $api } = useNuxtApp()
