@@ -2,7 +2,13 @@
   <div>
     <!-- User button -->
     <button ref="buttonRef" @click="openDropdown = !openDropdown" type="button" class="flex gap-2 items-center text-sm text-neutral-500 dark:text-neutral-400 cursor-pointer hover:text-neutral-700 dark:hover:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors px-3 py-2 rounded-lg">
-      <LucideUser :size="24" />
+      <img
+        v-if="authStore.user?.avatar"
+        :src="authStore.user.avatar"
+        class="w-7 h-7 rounded-full object-cover"
+        referrerpolicy="no-referrer"
+      />
+      <LucideUser v-else :size="22" />
 
       <span class="hidden sm:inline">{{ authStore.user?.email }}</span>
     </button>
