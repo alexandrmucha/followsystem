@@ -141,7 +141,7 @@
     </div>
 
     <!-- ACTIONS (analyzed website leads) -->
-    <div v-if="lead.analysisStatus === 'done' && lead.hasWebsite" class="mt-4 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
+    <div v-if="lead.hasWebsite && lead.analysisStatus != null" class="mt-4 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
       <button v-if="lead.aiNote" class="order-1 flex items-center gap-1.5 text-xs text-neutral-400 dark:text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors cursor-pointer" @click="noteVisible = !noteVisible">
         <LucideFileText :size="13" />
         {{ noteVisible ? $t('search.results.hide_note') : $t('search.results.show_note') }}
@@ -156,7 +156,7 @@
           <LucideCheck v-if="lead.contactedAt" :size="16" />
           {{ lead.contactedAt ? $t('search.results.contacted') : $t('search.results.mark_contacted') }}
         </UiBaseButton>
-        <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" @click="$emit('generate-email', lead)">
+        <UiBaseButton v-if="lead.analysisStatus === 'done'" variant="magic" size="sm" class="flex items-center gap-2" @click="$emit('generate-email', lead)">
           <LucideSparkles :size="16" />
           {{ $t('search.results.generate_email') }}
         </UiBaseButton>
