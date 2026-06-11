@@ -143,13 +143,36 @@
                   <LucideCheck v-if="contacted" :size="14" />
                   {{ contacted ? $t('search.results.contacted') : $t('search.results.mark_contacted') }}
                 </UiBaseButton>
-                <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" @click="navigateTo('/sign-in')">
+                <UiBaseButton variant="magic" size="sm" class="flex items-center gap-2" @click="emailVisible = !emailVisible">
                   <LucideSparkles :size="16" />
                   {{ $t('search.results.generate_email') }}
                 </UiBaseButton>
               </div>
             </div>
+
           </div>
+
+          <!-- email modal -->
+          <UiBaseModal
+            v-if="emailVisible"
+            :title="$t('landing.lead_preview.mock_email_modal_title')"
+            size="lg"
+            :close-on-esc="true"
+            :close-on-overlay="true"
+            @close="emailVisible = false"
+          >
+            <div class="text-sm">
+              <div class="flex items-baseline gap-2 mb-4 pb-4 border-b border-neutral-100 dark:border-neutral-800">
+                <span class="text-neutral-400 dark:text-neutral-500 shrink-0">{{ $t('search.email.subject_label') }}:</span>
+                <span class="font-medium text-neutral-900 dark:text-neutral-100">{{ $t('landing.lead_preview.mock_email_subject') }}</span>
+              </div>
+              <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed whitespace-pre-line mb-6">{{ $t('landing.lead_preview.mock_email_body') }}</p>
+              <UiBaseButton variant="magic" size="md" class="w-full flex items-center justify-center gap-2" @click="navigateTo('/sign-in')">
+                <LucideSparkles :size="16" />
+                {{ $t('landing.lead_preview.sign_in_to_send') }}
+              </UiBaseButton>
+            </div>
+          </UiBaseModal>
 
           <!-- lead 2 — analyzing -->
           <div class="px-4 sm:px-5 py-4 opacity-70">
@@ -193,4 +216,5 @@
 <script setup lang="ts">
 const noteVisible = ref(true)
 const contacted = ref(false)
+const emailVisible = ref(false)
 </script>
