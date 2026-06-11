@@ -164,7 +164,7 @@
     </div>
 
     <!-- ACTIONS (no website leads) -->
-    <div v-if="!lead.hasWebsite" class="mt-3 flex flex-wrap sm:justify-end gap-3">
+    <div v-if="!lead.hasWebsite" class="mt-4 flex flex-wrap sm:justify-end gap-3">
       <UiBaseButton variant="secondary" size="sm" class="flex items-center gap-2" :disabled="contactingLeadId === lead.id" @click="toggleContacted">
         <LucideCheck v-if="lead.contactedAt" :size="16" />
         {{ lead.contactedAt ? $t('search.results.contacted') : $t('search.results.mark_contacted') }}
