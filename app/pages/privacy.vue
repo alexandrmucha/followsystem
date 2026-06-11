@@ -12,7 +12,6 @@
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">E-mailová adresa</span> — pro přihlášení a zasílání transakčních e-mailů.</li>
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Vyhledávací dotazy</span> — odvětví a lokace, které zadáváte při hledání firem.</li>
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Výsledky analýz</span> — skóre webů a AI poznámky uložené k vašemu účtu.</li>
-            <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Data o používání</span> — anonymní analytika (zobrazené stránky, použité funkce) pro zlepšování služby.</li>
           </ul>
         </section>
 
@@ -58,7 +57,6 @@
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Email address</span> — used for authentication and transactional emails.</li>
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Search queries</span> — the industry and location you search for.</li>
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Analysis results</span> — website scores and AI-generated notes stored against your account.</li>
-            <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Usage data</span> — anonymous analytics (page views, feature usage) for improving the service.</li>
           </ul>
         </section>
 
