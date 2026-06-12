@@ -267,19 +267,19 @@
       "free": {
         "name": "Free",
         "leads": "Up to 150 scored leads",
-        "emails": "Up to 75 personalised emails",
+        "emails": "Up to 75 AI email drafts",
         "cta": "Start free"
       },
       "pro": {
         "name": "Pro",
         "leads": "Up to 2,000 scored leads",
-        "emails": "Up to 1,000 personalised emails",
+        "emails": "Up to 1,000 AI email drafts",
         "cta": "Get Pro"
       },
       "agency": {
         "name": "Agency",
         "leads": "Up to 5,000 scored leads",
-        "emails": "Up to 2,500 personalised emails",
+        "emails": "Up to 2,500 AI email drafts",
         "cta": "Get Agency"
       },
       "features": {

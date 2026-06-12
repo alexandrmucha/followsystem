@@ -267,19 +267,19 @@
       "free": {
         "name": "Free",
         "leads": "Až 150 ohodnocených leadů",
-        "emails": "Až 75 personalizovaných e-mailů",
+        "emails": "Až 75 AI návrhů e-mailů",
         "cta": "Začít zdarma"
       },
       "pro": {
         "name": "Pro",
         "leads": "Až 2 000 ohodnocených leadů",
-        "emails": "Až 1 000 personalizovaných e-mailů",
+        "emails": "Až 1 000 AI návrhů e-mailů",
         "cta": "Získat Pro"
       },
       "agency": {
         "name": "Agency",
         "leads": "Až 5 000 ohodnocených leadů",
-        "emails": "Až 2 500 personalizovaných e-mailů",
+        "emails": "Až 2 500 AI návrhů e-mailů",
         "cta": "Získat Agency"
       },
       "features": {
