@@ -24,25 +24,31 @@
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">4. Předplatné a platby</h2>
           <p>Placené plány jsou k dispozici v měsíčním nebo ročním cyklu. Předplatné lze kdykoliv zrušit — přístup ke službě trvá do konce aktuálního zaplaceného období.</p>
+          <p class="mt-3">Zpracování objednávek zajišťuje náš online prodejce Paddle.com. Paddle.com je autorizovaným prodejcem (Merchant of Record) pro všechny naše objednávky. Paddle zajišťuje veškeré dotazy zákaznické podpory týkající se plateb a vyřizuje vrácení zboží.</p>
         </section>
 
         <section>
-          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">5. Bezplatné vyzkoušení</h2>
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">5. Vrácení plateb</h2>
+          <p>Vzhledem k povaze digitální služby neposkytujeme vrácení peněz za již spotřebované kredity. V případě technických problémů nebo jiných závažných důvodů nás kontaktujte na <a href="mailto:support@fulply.com" class="underline hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">support@fulply.com</a> — každý případ posoudíme individuálně.</p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">6. Bezplatné vyzkoušení</h2>
           <p>Nové účty obdrží bezplatnou kvótu leadů a generování návrhů e-mailů bez nutnosti zadávat platební kartu. Fulply si vyhrazuje právo podmínky bezplatného vyzkoušení kdykoliv změnit. Je zakázáno zakládat více účtů za účelem opakovaného získávání bezplatných kreditů.</p>
         </section>
 
         <section>
-          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">6. Omezení odpovědnosti</h2>
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">7. Omezení odpovědnosti</h2>
           <p>Služba Fulply je poskytována „tak, jak je". Nezaručujeme, že její používání povede k získání nových klientů nebo k jiným obchodním výsledkům. Neneseme odpovědnost za nepřímé, náhodné ani následné škody vzniklé v souvislosti s používáním služby.</p>
         </section>
 
         <section>
-          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">7. Změny podmínek</h2>
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">8. Změny podmínek</h2>
           <p>Tyto podmínky můžeme kdykoliv aktualizovat. O podstatných změnách vás budeme informovat e-mailem nebo prostřednictvím upozornění ve službě. Pokračováním v používání služby po zveřejnění změn vyjadřujete souhlas s aktualizovanými podmínkami.</p>
         </section>
 
         <section>
-          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">8. Kontakt</h2>
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">9. Kontakt</h2>
           <p>V případě dotazů nás kontaktujte na <a href="mailto:support@fulply.com" class="underline hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">support@fulply.com</a>.</p>
         </section>
       </div>
@@ -71,25 +77,31 @@
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">4. Subscriptions and Payments</h2>
           <p>Paid plans are billed monthly or annually. You may cancel at any time — access continues until the end of the current billing period.</p>
+          <p class="mt-3">Our order process is conducted by our online reseller Paddle.com. Paddle.com is the Merchant of Record for all our orders. Paddle provides all customer service inquiries and handles returns.</p>
         </section>
 
         <section>
-          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">5. Free Trial</h2>
-          <p>New accounts receive a free allocation of leads and email generations with no credit card required. Fulply reserves the right to change the terms of the free trial at any time. Creating multiple accounts to repeatedly obtain free trial credits is prohibited.</p>
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">5. Refunds</h2>
+          <p>Due to the nature of the digital service, we do not provide refunds for credits that have already been used. If you experience technical issues or have other concerns, please contact us at <a href="mailto:support@fulply.com" class="underline hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">support@fulply.com</a> — we will review each case individually.</p>
         </section>
 
         <section>
-          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">6. Disclaimers</h2>
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">6. Free Trial</h2>
+          <p>New accounts receive a free allocation of leads and email draft generations with no credit card required. Fulply reserves the right to change the terms of the free trial at any time. Creating multiple accounts to repeatedly obtain free trial credits is prohibited.</p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">7. Disclaimers</h2>
           <p>The Fulply service is provided "as is." We make no guarantees that using the service will result in new clients or any particular business outcome. We are not liable for indirect, incidental, or consequential damages arising from your use of the service.</p>
         </section>
 
         <section>
-          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">7. Changes to These Terms</h2>
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">8. Changes to These Terms</h2>
           <p>We may update these Terms at any time. We will notify you of material changes by email or via an in-app notice. Continued use of the service after changes are posted constitutes acceptance of the updated Terms.</p>
         </section>
 
         <section>
-          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">8. Contact</h2>
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">9. Contact</h2>
           <p>If you have any questions, contact us at <a href="mailto:support@fulply.com" class="underline hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">support@fulply.com</a>.</p>
         </section>
       </div>
