@@ -144,7 +144,7 @@
       "resume_failed": "Nepodařilo se obnovit analýzu. Zkuste to prosím znovu."
     },
     "email": {
-      "title": "Vygenerovat e-mail",
+      "title": "Vygenerovat návrh e-mailu",
       "template_label": "Šablona",
       "template_hint_before": "Šablony si můžete upravit na stránce",
       "template_hint_link": "šablony",

@@ -144,7 +144,7 @@
       "resume_failed": "Failed to resume analysis. Please try again."
     },
     "email": {
-      "title": "Generate email",
+      "title": "Generate email draft",
       "template_label": "Template",
       "template_hint_before": "You can customize them on the",
       "template_hint_link": "templates",
@@ -351,7 +351,7 @@
   "account_deletion": {
     "title": "Account deletion",
     "warning": "Your account will be deleted and moved to a recovery period of 30 days. During this time, you can restore it. After 30 days, it will be permanently deleted.",
-    "type_delete": "Type „{delete}\"",
+    "type_delete": "Type \"{delete}\"",
     "delete": "DELETE",
     "delete_account": "Delete account",
     "success": "Your account has been deleted. You can restore it by signing in within 30 days.",
@@ -366,7 +366,7 @@
     "delete_confirm_description": "Are you sure you want to delete this template? This action cannot be undone.",
     "default_badge": "Default",
     "set_default": "Set as default",
-    "unset_default": "Remove as default",
+    "unset_default": "Remove default",
     "restore_defaults": "Restore default templates",
     "restored": "Default templates have been restored.",
     "errors": {
