@@ -13,7 +13,6 @@
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Jméno a profilový obrázek</span> — při přihlášení přes Google, pro personalizaci rozhraní.</li>
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Vyhledávací dotazy</span> — odvětví a lokace, které zadáváte při hledání firem.</li>
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Výsledky analýz</span> — skóre webů a AI poznámky uložené k vašemu účtu.</li>
-            
           </ul>
         </section>
 
@@ -28,6 +27,8 @@
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Google Maps API</span> — pro načítání veřejných záznamů o firmách.</li>
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Google OAuth</span> — volitelná metoda přihlášení.</li>
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Cloudflare Turnstile</span> — ochrana přihlašovacího formuláře před boty.</li>
+            <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Paddle.com</span> — zpracování plateb jako Merchant of Record.</li>
+            <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Anthropic API</span> — generování návrhů e-mailů a analýza webových stránek.</li>
           </ul>
         </section>
 
@@ -74,6 +75,8 @@
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Google Maps API</span> — to retrieve public business listings.</li>
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Google OAuth</span> — optional sign-in method.</li>
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Cloudflare Turnstile</span> — bot protection on the sign-in form.</li>
+            <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Paddle.com</span> — payment processing as Merchant of Record.</li>
+            <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Anthropic API</span> — email draft generation and website analysis.</li>
           </ul>
         </section>
 
