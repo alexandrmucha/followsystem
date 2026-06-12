@@ -8,7 +8,7 @@
         class="w-7 h-7 rounded-full object-cover"
         referrerpolicy="no-referrer"
       />
-      <LucideUser v-else :size="22" />
+      <LucideUser v-else :size="20" />
 
       <span class="hidden sm:inline">{{ authStore.user?.email }}</span>
     </button>

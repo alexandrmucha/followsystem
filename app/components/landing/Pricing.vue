@@ -53,7 +53,7 @@
           <!-- highlights -->
           <ul class="flex flex-col gap-2 text-sm text-neutral-700 dark:text-neutral-300">
             <li v-for="key in plan.highlightKeys" :key="key" class="flex items-start gap-2">
-              <LucideCheck :size="15" class="text-emerald-500 mt-0.5 shrink-0" />
+              <LucideCheck :size="16" class="text-emerald-500 mt-0.5 shrink-0" />
               {{ $t(key) }}
             </li>
           </ul>
@@ -63,7 +63,7 @@
           <!-- shared features -->
           <ul class="flex-1 flex flex-col gap-2 text-sm text-neutral-700 dark:text-neutral-300">
             <li v-for="key in sharedFeatures" :key="key" class="flex items-start gap-2">
-              <LucideCheck :size="15" class="text-emerald-500 mt-0.5 shrink-0" />
+              <LucideCheck :size="16" class="text-emerald-500 mt-0.5 shrink-0" />
               {{ $t(key) }}
             </li>
           </ul>
