@@ -8,7 +8,7 @@
       <div class="space-y-10 text-neutral-700 dark:text-neutral-300 leading-relaxed">
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">1. Popis služby</h2>
-          <p>Fulply je SaaS nástroj určený web designérům a agenturám. Umožňuje vyhledávat firmy z Google Maps, analyzovat jejich webové stránky a generovat personalizované e-maily pro oslovení potenciálních klientů.</p>
+          <p>Fulply je SaaS nástroj určený web designérům a agenturám. Umožňuje vyhledávat firmy z Google Maps, analyzovat jejich webové stránky a generovat personalizované návrhy e-mailů pro oslovení potenciálních klientů.</p>
         </section>
 
         <section>
@@ -18,7 +18,7 @@
 
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">3. Přijatelné použití</h2>
-          <p>Zavazujete se používat Fulply v souladu s platnými právními předpisy, zejména se zákonem o ochraně osobních údajů (GDPR) a předpisy o nevyžádané komunikaci (CAN-SPAM, ePrivacy). Nesmíte službu využívat k přípravě ani rozesílání nevyžádané hromadné pošty ani k jiným protiprávním účelům.</p>
+          <p>Zavazujete se používat Fulply v souladu s platnými právními předpisy, zejména s nařízením o ochraně osobních údajů (GDPR), zákonem č. 480/2004 Sb., o některých službách informační společnosti a předpisy o nevyžádané komunikaci (ePrivacy, CAN-SPAM). Nesmíte službu využívat k přípravě hromadné pošty (spamu) ani k jiným protiprávním účelům.</p>
         </section>
 
         <section>
@@ -28,7 +28,7 @@
 
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">5. Bezplatné vyzkoušení</h2>
-          <p>Nové účty obdrží bezplatnou kvótu leadů a generování e-mailů bez nutnosti zadávat platební kartu. Fulply si vyhrazuje právo podmínky bezplatného vyzkoušení kdykoliv změnit. Je zakázáno zakládat více účtů za účelem opakovaného získávání bezplatných kreditů.</p>
+          <p>Nové účty obdrží bezplatnou kvótu leadů a generování návrhů e-mailů bez nutnosti zadávat platební kartu. Fulply si vyhrazuje právo podmínky bezplatného vyzkoušení kdykoliv změnit. Je zakázáno zakládat více účtů za účelem opakovaného získávání bezplatných kreditů.</p>
         </section>
 
         <section>
@@ -55,7 +55,7 @@
       <div class="space-y-10 text-neutral-700 dark:text-neutral-300 leading-relaxed">
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">1. Service Description</h2>
-          <p>Fulply is a SaaS tool for web designers and agencies. It lets you find businesses from Google Maps, analyse their websites, and generate personalised outreach emails.</p>
+          <p>Fulply is a SaaS tool for web designers and agencies. It lets you find businesses from Google Maps, analyse their websites, and generate personalised outreach email drafts.</p>
         </section>
 
         <section>
@@ -65,7 +65,7 @@
 
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">3. Acceptable Use</h2>
-          <p>You agree to use Fulply in compliance with applicable law, including data protection regulations (GDPR) and anti-spam legislation (CAN-SPAM, ePrivacy). You must not use the service to prepare or send unsolicited bulk emails, or for any other unlawful purpose.</p>
+          <p>You agree to use Fulply in compliance with applicable law, including data protection regulations (GDPR) and anti-spam legislation (CAN-SPAM, ePrivacy). You must not use the service to prepare unsolicited bulk emails or for any other unlawful purpose.</p>
         </section>
 
         <section>
