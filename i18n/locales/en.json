@@ -157,6 +157,8 @@
       "subject_label": "Subject",
       "body_label": "Email body",
       "body_hint": "Review the email carefully before sending — make sure the content accurately reflects the actual state of the website.",
+      "no_template": "No template",
+      "no_template_hint": "Enter your own text or use AI to generate the email from scratch.",
       "generate_ai": "Generate with AI",
       "error_generate": "Generation failed. Please try again.",
       "generating_ai": "Generating...",
@@ -289,6 +291,7 @@
       }
     },
     "footer": {
+      "guide": "Cold Email Guide",
       "terms": "Terms of Service",
       "privacy": "Privacy Policy"
     },

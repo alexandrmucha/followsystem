@@ -157,6 +157,8 @@
       "subject_label": "Předmět",
       "body_label": "Text e-mailu",
       "body_hint": "Před odesláním si e-mail pečlivě překontrolujte — ověřte, že obsah odpovídá skutečnému stavu webu.",
+      "no_template": "Bez šablony",
+      "no_template_hint": "Napište vlastní text nebo použijte AI k vygenerování e-mailu od základu.",
       "generate_ai": "Generovat s AI",
       "error_generate": "Generování se nezdařilo. Zkuste to prosím znovu.",
       "generating_ai": "Generuji...",
@@ -289,6 +291,7 @@
       }
     },
     "footer": {
+      "guide": "Průvodce cold e-mailem",
       "terms": "Podmínky použití",
       "privacy": "Zásady ochrany soukromí"
     },

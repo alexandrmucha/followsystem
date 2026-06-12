@@ -12,16 +12,22 @@
       <!-- Template selector -->
       <UiFormField>
         <UiBaseSelect v-model="selectedTemplateId" :label="$t('search.email.template_label')" :disabled="generatingAi">
+          <option value="">{{ $t('search.email.no_template') }}</option>
           <option v-for="template in templates" :key="template.id" :value="template.id">
             {{ template.name }}
           </option>
         </UiBaseSelect>
 
         <p class="text-xs text-neutral-400 dark:text-neutral-500">
-          {{ $t('search.email.template_hint_before') }}
-          <NuxtLink to="/templates" class="underline hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors">
-            {{ $t('search.email.template_hint_link') }}
-          </NuxtLink>{{ $t('search.email.template_hint_after') }}
+          <template v-if="selectedTemplateId">
+            {{ $t('search.email.template_hint_before') }}
+            <NuxtLink to="/templates" class="underline hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors">
+              {{ $t('search.email.template_hint_link') }}
+            </NuxtLink>{{ $t('search.email.template_hint_after') }}
+          </template>
+          <template v-else>
+            {{ $t('search.email.no_template_hint') }}
+          </template>
         </p>
       </UiFormField>
 
@@ -126,13 +132,18 @@ const applyTemplate = (templateId: string, lead: BusinessLeadDTO) => {
 
 watch(templates, (templates) => {
   if (templates?.length && !selectedTemplateId.value) {
-    const defaultTemplate = templates.find(t => t.isDefault) ?? templates[0]
+    const defaultTemplate = templates.find(t => t.isDefault)
     if (defaultTemplate) selectedTemplateId.value = defaultTemplate.id
   }
 }, { immediate: true })
 
 watch(selectedTemplateId, (id) => {
-  if (!id || !props.lead) return
+  if (!id) {
+    subject.value = ''
+    body.value = ''
+    return
+  }
+  if (!props.lead) return
   applyTemplate(id, props.lead)
 })
 
