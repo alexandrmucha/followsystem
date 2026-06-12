@@ -95,7 +95,7 @@
       },
       "sort": {
         "label": "Seřadit výsledky podle:",
-        "lead_score": "Hodnota leadu"
+        "lead_score": "Hodnocení firmy"
       },
       "lead_score_label": {
         "excellent": "Výborný lead",
@@ -225,7 +225,7 @@
   },
   "landing": {
     "page_title": "Fulply — Získejte klienty, kteří skutečně potřebují nový web",
-    "meta_description": "Najděte firmy z Google Maps, které potřebují nový web. Ohodnoťte leady a generujte personalizované e-maily pomocí AI.",
+    "meta_description": "Najděte firmy z Google Maps, které potřebují nový web. Ohodnoťte je a generujte personalizované e-maily pomocí AI.",
     "navbar": {
       "sign_in": "Přihlásit se",
       "get_started": "Začít zdarma",
@@ -286,7 +286,7 @@
         "email_search": "Vyhledávání kontaktních e-mailů",
         "templates": "Šablony e-mailů",
         "ai_instructions": "Vlastní AI instrukce",
-        "mark_contacted": "Označení kontaktovaných leadů",
+        "mark_contacted": "Označení kontaktovaných firem",
         "export_csv": "Export do CSV"
       }
     },
@@ -328,7 +328,7 @@
         },
         "2": {
           "title": "Prověříme jejich weby",
-          "description": "Provedeme technickou i vizuální analýzu a identifikujeme konverzní problémy. Každý lead ohodnotíme."
+          "description": "Provedeme technickou i vizuální analýzu a identifikujeme konverzní problémy. Každou firmu ohodnotíme."
         },
         "3": {
           "title": "Personalizovaný návrh e-mailu",

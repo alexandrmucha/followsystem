@@ -95,7 +95,7 @@
       },
       "sort": {
         "label": "Sort results by:",
-        "lead_score": "Lead value"
+        "lead_score": "Business score"
       },
       "lead_score_label": {
         "excellent": "Excellent lead",
@@ -225,7 +225,7 @@
   },
   "landing": {
     "page_title": "Fulply — Get clients who actually need a new website",
-    "meta_description": "Find businesses from Google Maps that need a website redesign. Score leads and generate personalised outreach emails with AI.",
+    "meta_description": "Find businesses from Google Maps that need a website redesign. Score them and generate personalised outreach emails with AI.",
     "navbar": {
       "sign_in": "Sign in",
       "get_started": "Get started free",
@@ -286,7 +286,7 @@
         "email_search": "Contact email lookup",
         "templates": "Email templates",
         "ai_instructions": "Custom AI instructions",
-        "mark_contacted": "Mark contacted leads",
+        "mark_contacted": "Mark contacted businesses",
         "export_csv": "Export to CSV"
       }
     },
@@ -328,7 +328,7 @@
         },
         "2": {
           "title": "We audit their websites",
-          "description": "We run a technical and visual analysis and identify conversion issues. Each lead gets scored."
+          "description": "We run a technical and visual analysis and identify conversion issues. Each business gets scored."
         },
         "3": {
           "title": "Personalized email drafts",
