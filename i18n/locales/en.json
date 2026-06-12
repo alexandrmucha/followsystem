@@ -283,7 +283,7 @@
         "cta": "Get Agency"
       },
       "features": {
-        "email_search": "Automatic email search",
+        "email_search": "Contact email lookup",
         "templates": "Email templates",
         "ai_instructions": "Custom AI instructions",
         "mark_contacted": "Mark contacted leads",

@@ -283,7 +283,7 @@
         "cta": "Získat Agency"
       },
       "features": {
-        "email_search": "Automatické vyhledávání e-mailů",
+        "email_search": "Vyhledávání kontaktních e-mailů",
         "templates": "Šablony e-mailů",
         "ai_instructions": "Vlastní AI instrukce",
         "mark_contacted": "Označení kontaktovaných leadů",
