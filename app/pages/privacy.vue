@@ -13,6 +13,7 @@
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Jméno a profilový obrázek</span> — při přihlášení přes Google, pro personalizaci rozhraní.</li>
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Vyhledávací dotazy</span> — odvětví a lokace, které zadáváte při hledání firem.</li>
             <li><span class="font-medium text-neutral-900 dark:text-neutral-100">Výsledky analýz</span> — skóre webů a AI poznámky uložené k vašemu účtu.</li>
+            
           </ul>
         </section>
 

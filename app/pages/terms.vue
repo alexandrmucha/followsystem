@@ -104,7 +104,7 @@
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">9. Contact</h2>
           <p>If you have any questions, contact us at <a href="mailto:support@fulply.com" class="underline hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">support@fulply.com</a>.</p>
-          <p>Operated by: Alexandr Mucha, IČO: 24365475</p>
+          <p>Operated by: Alexandr Mucha, Czech Republic</p>
         </section>
       </div>
     </template>
