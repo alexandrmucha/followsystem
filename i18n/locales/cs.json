@@ -128,7 +128,7 @@
       },
       "screenshot_mobile": "Mobil",
       "screenshot_desktop": "Desktop",
-      "generate_email": "Vygenerovat e-mail",
+      "generate_email": "Vygenerovat návrh e-mailu",
       "export_csv": "Exportovat CSV",
       "mark_contacted": "Označit jako kontaktováno",
       "contacted": "Kontaktováno",
@@ -314,7 +314,7 @@
         "a": "Ano. Každé vyhledávání stahuje data přímo z Google Maps v reálném čase, takže vždy pracujete s aktuálními výsledky."
       },
       "q6": {
-        "q": "Jak AI generuje e-mail?",
+        "q": "Jak AI generuje návrh e-mailu?",
         "a": "AI má přístup k nalezeným problémům webu, poznámkám z analýzy a informacím o firmě. E-mail nepíše technicky — překládá problémy do obchodního jazyka, který oslovenému dává smysl. Celý tón a styl si navíc můžete přizpůsobit vlastními instrukcemi pro AI."
       }
     },

@@ -128,7 +128,7 @@
       },
       "screenshot_mobile": "Mobile",
       "screenshot_desktop": "Desktop",
-      "generate_email": "Generate email",
+      "generate_email": "Generate email draft",
       "export_csv": "Export CSV",
       "mark_contacted": "Mark as contacted",
       "contacted": "Contacted",
@@ -314,7 +314,7 @@
         "a": "Yes. Every search fetches data directly from Google Maps in real time, so you always get current listings."
       },
       "q6": {
-        "q": "How does the AI generate the email?",
+        "q": "How does the AI generate the email draft?",
         "a": "The AI has access to identified website issues, analysis notes, and business information. It doesn't write technically — it translates problems into business language that makes sense to the recipient. You can also customise the tone and style with your own AI instructions."
       }
     },
