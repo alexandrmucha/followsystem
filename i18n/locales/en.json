@@ -311,7 +311,7 @@
       },
       "q5": {
         "q": "Are the business listings up to date?",
-        "a": "Yes. Every search pulls data directly from Google Maps in real time, so you always get current listings."
+        "a": "Yes. Every search fetches data directly from Google Maps in real time, so you always get current listings."
       },
       "q6": {
         "q": "How does the AI generate the email?",
