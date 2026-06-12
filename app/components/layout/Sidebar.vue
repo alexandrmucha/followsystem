@@ -40,7 +40,7 @@
               <LucideZap :size="13" />
               {{ $t('nav.credits') }}
             </span>
-            <span>{{ Math.round((credits.remaining / credits.limit) * 100) }}%</span>
+            <span>{{ credits.remaining }} / {{ credits.limit }}</span>
           </div>
           <div class="h-1 w-full rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden">
             <div

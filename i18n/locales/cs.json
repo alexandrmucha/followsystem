@@ -7,7 +7,7 @@
     "or": "nebo",
     "errors": {
       "security_verification_failed": "Bezpečnostní ověření selhalo. Zkuste to prosím znovu.",
-      "insufficient_credits": "Dosáhli jste limitu svého plánu."
+      "insufficient_credits": "Nemáte dostatek kreditů."
     },
     "loading": "Načítání...",
     "edit": "Upravit",
@@ -172,7 +172,7 @@
     "templates": "Šablony",
     "history": "Historie",
     "settings": "Nastavení",
-    "credits": "Využití",
+    "credits": "Kredity",
     "support": "Pomoc a zpětná vazba"
   },
   "history": {

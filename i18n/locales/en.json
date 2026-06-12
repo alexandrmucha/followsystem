@@ -7,7 +7,7 @@
     "or": "or",
     "errors": {
       "security_verification_failed": "Security verification failed. Please try again.",
-      "insufficient_credits": "You've reached your plan limit."
+      "insufficient_credits": "You don't have enough credits."
     },
     "loading": "Loading...",
     "edit": "Edit",
@@ -172,7 +172,7 @@
     "templates": "Templates",
     "history": "History",
     "settings": "Settings",
-    "credits": "Usage",
+    "credits": "Credits",
     "support": "Help & feedback"
   },
   "history": {
