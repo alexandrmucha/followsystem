@@ -34,7 +34,7 @@
 
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">6. Bezplatné vyzkoušení</h2>
-          <p>Nové účty obdrží bezplatnou kvótu leadů a generování návrhů e-mailů bez nutnosti zadávat platební kartu. Fulply si vyhrazuje právo podmínky bezplatného vyzkoušení kdykoliv změnit. Je zakázáno zakládat více účtů za účelem opakovaného získávání bezplatných kreditů.</p>
+          <p>Nové účty obdrží bezplatnou kvótu analýz firem a generování návrhů e-mailů bez nutnosti zadávat platební kartu. Fulply si vyhrazuje právo podmínky bezplatného vyzkoušení kdykoliv změnit. Je zakázáno zakládat více účtů za účelem opakovaného získávání bezplatných kreditů.</p>
         </section>
 
         <section>
@@ -88,7 +88,7 @@
 
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">6. Free Trial</h2>
-          <p>New accounts receive a free allocation of leads and email draft generations with no credit card required. Fulply reserves the right to change the terms of the free trial at any time. Creating multiple accounts to repeatedly obtain free trial credits is prohibited.</p>
+          <p>New accounts receive a free allocation of business analyses and email draft generations with no credit card required. Fulply reserves the right to change the terms of the free trial at any time. Creating multiple accounts to repeatedly obtain free trial credits is prohibited.</p>
         </section>
 
         <section>
