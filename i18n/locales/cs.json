@@ -264,22 +264,22 @@
       "period_annual": "/rok",
       "trial_note": "Nejste si jisti? ",
       "trial_cta": "Začněte s 200 leady zdarma — bez platební karty.",
-      "starter": {
-        "name": "Starter",
-        "leads": "Až 1 000 ohodnocených leadů",
-        "emails": "Až 500 personalizovaných e-mailů",
-        "cta": "Získat Starter"
+      "free": {
+        "name": "Free",
+        "leads": "Až 150 ohodnocených leadů",
+        "emails": "Až 75 personalizovaných e-mailů",
+        "cta": "Začít zdarma"
       },
       "pro": {
         "name": "Pro",
-        "leads": "Až 3 500 ohodnocených leadů",
-        "emails": "Až 1 750 personalizovaných e-mailů",
+        "leads": "Až 2 000 ohodnocených leadů",
+        "emails": "Až 1 000 personalizovaných e-mailů",
         "cta": "Získat Pro"
       },
       "agency": {
         "name": "Agency",
-        "leads": "Až 8 000 ohodnocených leadů",
-        "emails": "Až 4 000 personalizovaných e-mailů",
+        "leads": "Až 5 000 ohodnocených leadů",
+        "emails": "Až 2 500 personalizovaných e-mailů",
         "cta": "Získat Agency"
       },
       "features": {

@@ -264,22 +264,22 @@
       "period_annual": "/year",
       "trial_note": "Not sure yet? ",
       "trial_cta": "Start with 200 free leads — no credit card required.",
-      "starter": {
-        "name": "Starter",
-        "leads": "Up to 1,000 scored leads",
-        "emails": "Up to 500 personalised emails",
-        "cta": "Get Starter"
+      "free": {
+        "name": "Free",
+        "leads": "Up to 150 scored leads",
+        "emails": "Up to 75 personalised emails",
+        "cta": "Start free"
       },
       "pro": {
         "name": "Pro",
-        "leads": "Up to 3,500 scored leads",
-        "emails": "Up to 1,750 personalised emails",
+        "leads": "Up to 2,000 scored leads",
+        "emails": "Up to 1,000 personalised emails",
         "cta": "Get Pro"
       },
       "agency": {
         "name": "Agency",
-        "leads": "Up to 8,000 scored leads",
-        "emails": "Up to 4,000 personalised emails",
+        "leads": "Up to 5,000 scored leads",
+        "emails": "Up to 2,500 personalised emails",
         "cta": "Get Agency"
       },
       "features": {

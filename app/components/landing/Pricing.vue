@@ -42,20 +42,23 @@
               </span>
             </div>
             <div>
-              <span v-if="annual" class="text-sm text-neutral-400 dark:text-neutral-500 line-through">${{ plan.price * 12 }}</span>
+              <span v-if="annual && priceOf(plan) > 0" class="text-sm text-neutral-400 dark:text-neutral-500 line-through">{{ fmt(priceOf(plan) * 12) }}</span>
               <div class="flex items-end gap-1">
-                <span class="text-3xl font-bold">${{ annual ? plan.price * 10 : plan.price }}</span>
-                <span class="text-neutral-500 dark:text-neutral-400 mb-1">{{ annual ? $t('landing.pricing.period_annual') : $t('landing.pricing.period') }}</span>
+                <span class="text-3xl font-bold">{{ priceOf(plan) === 0 ? fmtFree : fmt(annual ? priceOf(plan) * 10 : priceOf(plan)) }}</span>
+                <span v-if="priceOf(plan) > 0" class="text-neutral-500 dark:text-neutral-400 mb-1">{{ annual ? $t('landing.pricing.period_annual') : $t('landing.pricing.period') }}</span>
               </div>
             </div>
           </div>
 
           <!-- highlights -->
           <ul class="flex flex-col gap-2 text-sm text-neutral-700 dark:text-neutral-300">
-            <li v-for="key in plan.highlightKeys" :key="key" class="flex items-start gap-2">
-              <LucideCheck :size="16" class="text-emerald-500 mt-0.5 shrink-0" />
-              {{ $t(key) }}
-            </li>
+            <template v-for="(key, i) in plan.highlightKeys" :key="key">
+              <li v-if="i > 0" class="text-xs text-neutral-400 dark:text-neutral-500 pl-6">{{ $t('common.or') }}</li>
+              <li class="flex items-start gap-2">
+                <LucideCheck :size="16" class="text-emerald-500 mt-0.5 shrink-0" />
+                {{ $t(key) }}
+              </li>
+            </template>
           </ul>
 
           <div class="border-t border-neutral-100 dark:border-neutral-700" />
@@ -95,20 +98,26 @@
 </template>
 
 <script setup lang="ts">
+const { locale } = useI18n()
 const annual = ref(false)
+
+const isCs = computed(() => locale.value === 'cs')
+const fmtFree = computed(() => isCs.value ? 'Zdarma' : 'Free')
 
 const plans = [
   {
-    id: 'starter',
-    price: 39,
+    id: 'free',
+    priceCzk: 0,
+    priceUsd: 0,
     popular: false,
-    nameKey: 'landing.pricing.starter.name',
-    highlightKeys: ['landing.pricing.starter.leads', 'landing.pricing.starter.emails'],
-    ctaKey: 'landing.pricing.starter.cta',
+    nameKey: 'landing.pricing.free.name',
+    highlightKeys: ['landing.pricing.free.leads', 'landing.pricing.free.emails'],
+    ctaKey: 'landing.pricing.free.cta',
   },
   {
     id: 'pro',
-    price: 79,
+    priceCzk: 990,
+    priceUsd: 49,
     popular: true,
     nameKey: 'landing.pricing.pro.name',
     highlightKeys: ['landing.pricing.pro.leads', 'landing.pricing.pro.emails'],
@@ -116,13 +125,17 @@ const plans = [
   },
   {
     id: 'agency',
-    price: 149,
+    priceCzk: 1990,
+    priceUsd: 99,
     popular: false,
     nameKey: 'landing.pricing.agency.name',
     highlightKeys: ['landing.pricing.agency.leads', 'landing.pricing.agency.emails'],
     ctaKey: 'landing.pricing.agency.cta',
   },
 ]
+
+const priceOf = (plan: typeof plans[number]) => isCs.value ? plan.priceCzk : plan.priceUsd
+const fmt = (n: number) => isCs.value ? `${n.toLocaleString('cs-CZ')} Kč` : `$${n}`
 
 const sharedFeatures = [
   'landing.pricing.features.email_search',
