@@ -249,7 +249,7 @@
       "mock_lead2_phone": "+44 7700 900 738",
       "mock_lead3_name": "Parker Plumbing Services",
       "mock_email_subject": "a note about your website",
-      "mock_email_body": "Hi Mr. Johnson,\n\nI came across your website johnson-plumbing.co.uk and noticed one thing that's probably costing you customers.\n\nMost people search for a plumber on their phone these days — and your site doesn't display well on mobile. A customer who sees a broken page won't call you; they'll call the next plumber in the results.\n\nI'd be happy to show you what your site could look like after a fix. Want me to send a free preview?",
+      "mock_email_body": "Hi,\n\nI came across your website johnson-plumbing.co.uk and noticed one thing that's probably costing you customers.\n\nMost people search for a plumber on their phone these days — and your site doesn't display well on mobile. A customer who sees a broken page won't call you; they'll call the next plumber in the results.\n\nI'd be happy to show you what your site could look like after a fix. Want me to send a free preview?",
       "mock_email_modal_title": "Generated email",
       "sign_in_to_send": "I want emails like this"
     },

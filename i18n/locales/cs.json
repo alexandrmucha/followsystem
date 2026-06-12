@@ -249,7 +249,7 @@
       "mock_lead2_phone": "+420 777 654 321",
       "mock_lead3_name": "Instalatérství Dvořák",
       "mock_email_subject": "poznámka k Vašemu webu",
-      "mock_email_body": "Dobrý den, pane Nováku,\n\nnarazil jsem na Váš web instalater-novak.cz a všiml si jedné věci, kvůli které pravděpodobně přicházíte o zákazníky.\n\nVětšina lidí dnes hledá instalatéra na mobilu — a Váš web se na telefonu špatně zobrazuje. Zákazník, kterému se stránka rozsype, nezavolá Vám, ale konkurenci o pár výsledků níž.\n\nRád bych Vám zdarma ukázal, jak by Váš web vypadal opravený. Mám poslat krátkou ukázku?",
+      "mock_email_body": "Dobrý den,\n\nnarazil jsem na Váš web instalater-novak.cz a všiml si jedné věci, kvůli které pravděpodobně přicházíte o zákazníky.\n\nVětšina lidí dnes hledá instalatéra na mobilu — a Váš web se na telefonu špatně zobrazuje. Zákazník, kterému se stránka rozsype, nezavolá Vám, ale konkurenci o pár výsledků níž.\n\nRád bych Vám zdarma ukázal, jak by Váš web vypadal opravený. Mám poslat krátkou ukázku?",
       "mock_email_modal_title": "Vygenerovaný e-mail",
       "sign_in_to_send": "Chci taky takový e-mail"
     },
