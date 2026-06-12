@@ -266,19 +266,19 @@
       "trial_cta": "Začněte zdarma — bez platební karty.",
       "free": {
         "name": "Free",
-        "leads": "Až 150 ohodnocených leadů",
+        "leads": "Až 150 ohodnocených firem",
         "emails": "Až 75 AI návrhů e-mailů",
         "cta": "Začít zdarma"
       },
       "pro": {
         "name": "Pro",
-        "leads": "Až 2 000 ohodnocených leadů",
+        "leads": "Až 2 000 ohodnocených firem",
         "emails": "Až 1 000 AI návrhů e-mailů",
         "cta": "Získat Pro"
       },
       "agency": {
         "name": "Agency",
-        "leads": "Až 5 000 ohodnocených leadů",
+        "leads": "Až 5 000 ohodnocených firem",
         "emails": "Až 2 500 AI návrhů e-mailů",
         "cta": "Získat Agency"
       },
