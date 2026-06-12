@@ -324,7 +324,7 @@
       "steps": {
         "1": {
           "title": "You enter your industry and location",
-          "description": "For example plumber London — Fulply instantly finds relevant businesses from Google Maps."
+          "description": "For example, plumber London — Fulply instantly finds relevant businesses from Google Maps."
         },
         "2": {
           "title": "We audit their websites",
@@ -360,7 +360,7 @@
   },
   "templates": {
     "title": "Email templates",
-    "description": "Customize your templates for outreaching businesses.",
+    "description": "Customize your templates for reaching out to businesses.",
     "create": "Create template",
     "empty": "You have no templates yet.",
     "delete_confirm_title": "Delete template",
