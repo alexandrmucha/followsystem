@@ -368,6 +368,7 @@
     "delete_confirm_description": "Opravdu chcete smazat tuto šablonu? Tato akce je nevratná.",
     "default_badge": "Výchozí",
     "set_default": "Nastavit jako výchozí",
+    "unset_default": "Zrušit jako výchozí",
     "restore_defaults": "Obnovit výchozí šablony",
     "restored": "Výchozí šablony byly obnoveny.",
     "errors": {
@@ -375,7 +376,8 @@
       "delete": "Nepodařilo se smazat šablonu. Zkuste to prosím znovu.",
       "load": "Nepodařilo se načíst šablony. Zkuste to prosím znovu.",
       "restore": "Nepodařilo se obnovit šablony. Zkuste to prosím znovu.",
-      "set_default": "Nepodařilo se nastavit výchozí šablonu. Zkuste to prosím znovu."
+      "set_default": "Nepodařilo se nastavit výchozí šablonu. Zkuste to prosím znovu.",
+      "unset_default": "Nepodařilo se zrušit výchozí šablonu. Zkuste to prosím znovu."
     },
     "edit": {
       "back": "Zpět na šablony",

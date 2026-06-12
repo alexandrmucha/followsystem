@@ -33,7 +33,11 @@
               </UiBaseBadge>
             </div>
             <div class="flex flex-wrap items-center gap-2 justify-end sm:justify-start">
-              <UiBaseButton v-if="!template.isDefault" variant="secondary" size="sm" :disabled="settingDefaultId === template.id" @click="setDefault(template.id)">
+              <UiBaseButton v-if="template.isDefault" variant="secondary" size="sm" :disabled="settingDefaultId === template.id" @click="unsetDefault(template.id)">
+                <LucideStarOff :size="14" class="sm:hidden" />
+                <span class="hidden sm:inline">{{ $t('templates.unset_default') }}</span>
+              </UiBaseButton>
+              <UiBaseButton v-else variant="secondary" size="sm" :disabled="settingDefaultId === template.id" @click="setDefault(template.id)">
                 <LucideStar :size="14" class="sm:hidden" />
                 <span class="hidden sm:inline">{{ $t('templates.set_default') }}</span>
               </UiBaseButton>
@@ -142,6 +146,19 @@ const setDefault = async (id: string) => {
     await refresh()
   } catch {
     alertFlow.error(t('templates.errors.set_default'))
+  } finally {
+    settingDefaultId.value = null
+  }
+}
+
+const unsetDefault = async (id: string) => {
+  settingDefaultId.value = id
+  alertFlow.clear()
+  try {
+    await $api(`/templates/${id}`, { method: 'PATCH', body: { isDefault: false } })
+    await refresh()
+  } catch {
+    alertFlow.error(t('templates.errors.unset_default'))
   } finally {
     settingDefaultId.value = null
   }
