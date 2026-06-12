@@ -346,8 +346,8 @@
     "server_subtitle": "Došlo k neočekávané chybě. Zkuste to prosím znovu."
   },
   "sidebar": {
-    "close": "Zavřít navigaci",
-    "open": "Otevřít navigaci"
+    "open": "Otevřít navigaci",
+    "close": "Zavřít navigaci"
   },
   "account_deletion": {
     "title": "Smazání účtu",
