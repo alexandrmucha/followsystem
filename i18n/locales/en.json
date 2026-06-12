@@ -303,7 +303,7 @@
       "title": "FAQ",
       "q3": {
         "q": "What languages and countries does Fulply work in?",
-        "a": "Fulply works anywhere Google Maps has business listings — which is virtually every country. Emails can be generated in any language based on your template or custom AI instructions."
+        "a": "Fulply works anywhere Google Maps has business listings — which is virtually every country. Emails can be generated in any language based on the website's language or your custom AI instructions."
       },
       "q4": {
         "q": "How long does the analysis take?",
