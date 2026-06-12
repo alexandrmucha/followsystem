@@ -331,8 +331,8 @@
           "description": "We run a technical and visual analysis and identify conversion issues. Each lead gets scored."
         },
         "3": {
-          "title": "You send a personalized email",
-          "description": "AI writes an outreach email tailored to the specific issues of each business's website. You just hit send."
+          "title": "Personalized email drafts",
+          "description": "AI writes an outreach text tailored specifically to the weaknesses of the business's website. The concept automatically transfers to your email client for you to review and send."
         }
       }
     }
