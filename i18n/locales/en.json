@@ -238,7 +238,7 @@
     },
     "lead_preview": {
       "title": "See it in action",
-      "subtitle": "This is what your search results look like — analyzed, scored, ready to contact.",
+      "subtitle": "This is what search results look like — analyzed, scored, ready to contact.",
       "analyzed": "analyzed",
       "mock_search_query": "plumber · London",
       "mock_lead1_name": "Johnson Plumbing Ltd.",
@@ -323,7 +323,7 @@
       "subtitle": "Three steps from search to outreach.",
       "steps": {
         "1": {
-          "title": "You enter your industry and location",
+          "title": "You enter an industry and location",
           "description": "For example, plumber London — Fulply instantly finds relevant businesses from Google Maps."
         },
         "2": {
