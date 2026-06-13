@@ -74,7 +74,19 @@ if (sessionData.value) {
   searchResults.setSession(sessionData.value.id)
   searchResults.setSessionStatus(sessionData.value.sessionStatus)
   searchResults.setLeads(sessionData.value.leads)
-  if (sessionParam || (!searchDraft.industry && !searchDraft.location)) {
+  if (sessionParam) {
+    const prevIndustry = searchDraft.industry
+    const prevLocation = searchDraft.location
+    const historySessionId = sessionData.value.id
+    searchDraft.industry = sessionData.value.industry
+    searchDraft.location = sessionData.value.location
+    onUnmounted(() => {
+      if (searchResults.sessionId === historySessionId) {
+        searchDraft.industry = prevIndustry
+        searchDraft.location = prevLocation
+      }
+    })
+  } else if (!searchDraft.industry && !searchDraft.location) {
     searchDraft.industry = sessionData.value.industry
     searchDraft.location = sessionData.value.location
   }
