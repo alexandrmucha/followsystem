@@ -74,7 +74,7 @@ if (sessionData.value) {
   searchResults.setSession(sessionData.value.id)
   searchResults.setSessionStatus(sessionData.value.sessionStatus)
   searchResults.setLeads(sessionData.value.leads)
-  if (!searchDraft.industry && !searchDraft.location) {
+  if (sessionParam || (!searchDraft.industry && !searchDraft.location)) {
     searchDraft.industry = sessionData.value.industry
     searchDraft.location = sessionData.value.location
   }
