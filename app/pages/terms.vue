@@ -24,7 +24,6 @@
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">4. Předplatné a platby</h2>
           <p>Placené plány jsou k dispozici v měsíčním nebo ročním cyklu. Předplatné lze kdykoliv zrušit — přístup ke službě trvá do konce aktuálního zaplaceného období.</p>
-          <p class="mt-3">Zpracování objednávek zajišťuje náš online prodejce Paddle.com. Paddle.com je autorizovaným prodejcem (Merchant of Record) pro všechny naše objednávky. Paddle zajišťuje veškeré dotazy zákaznické podpory týkající se plateb a vyřizuje vrácení zboží.</p>
         </section>
 
         <section>
@@ -78,7 +77,6 @@
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">4. Subscriptions and Payments</h2>
           <p>Paid plans are billed monthly or annually. You may cancel at any time — access continues until the end of the current billing period.</p>
-          <p class="mt-3">Our order process is conducted by our online reseller Paddle.com. Paddle.com is the Merchant of Record for all our orders. Paddle provides all customer service inquiries and handles returns.</p>
         </section>
 
         <section>
