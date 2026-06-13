@@ -47,6 +47,7 @@
                 <span class="text-3xl font-bold">{{ priceOf(plan) === 0 ? fmtFree : fmt(annual ? priceOf(plan) * 10 : priceOf(plan)) }}</span>
                 <span v-if="priceOf(plan) > 0" class="text-neutral-500 dark:text-neutral-400 mb-1">{{ annual ? $t('landing.pricing.period_annual') : $t('landing.pricing.period') }}</span>
               </div>
+              <span v-if="isCs && plan.priceCzk > 0" class="text-xs text-neutral-400 dark:text-neutral-500">(~{{ (annual ? plan.priceCzk * 10 : plan.priceCzk).toLocaleString('cs-CZ') }} Kč)</span>
             </div>
           </div>
 
@@ -137,8 +138,8 @@ const plans = [
   },
 ]
 
-const priceOf = (plan: typeof plans[number]) => isCs.value ? plan.priceCzk : plan.priceUsd
-const fmt = (n: number) => isCs.value ? `${n.toLocaleString('cs-CZ')} Kč` : `$${n}`
+const priceOf = (plan: typeof plans[number]) => plan.priceUsd
+const fmt = (n: number) => `$${n}`
 
 const sharedFeatures = [
   'landing.pricing.features.email_search',
