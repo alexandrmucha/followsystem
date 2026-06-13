@@ -315,7 +315,7 @@
       },
       "q6": {
         "q": "How does the AI generate the email draft?",
-        "a": "The AI has access to identified website issues, analysis notes, and business information. It doesn't write technically — it translates problems into business language that makes sense to the recipient. You can also customise the tone and style with your own AI instructions."
+        "a": "The AI has access to the most important website issue and business information. It doesn't write technically — it translates the problem into business language that makes sense to the recipient. You can also customise the tone and style with your own AI instructions."
       }
     },
     "how_it_works": {
