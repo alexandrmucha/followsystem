@@ -39,6 +39,7 @@
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">7. Omezení odpovědnosti</h2>
           <p>Služba Fulply je poskytována „tak, jak je". Nezaručujeme, že její používání povede k získání nových klientů nebo k jiným obchodním výsledkům. Neneseme odpovědnost za nepřímé, náhodné ani následné škody vzniklé v souvislosti s používáním služby.</p>
+          <p class="mt-3">Výsledky analýzy webových stránek a vygenerované návrhy e-mailů jsou orientační a nemusí vždy přesně odrážet skutečný stav webu. Doporučujeme je před použitím ověřit.</p>
         </section>
 
         <section>
@@ -92,6 +93,7 @@
         <section>
           <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">7. Disclaimers</h2>
           <p>The Fulply service is provided "as is." We make no guarantees that using the service will result in new clients or any particular business outcome. We are not liable for indirect, incidental, or consequential damages arising from your use of the service.</p>
+          <p class="mt-3">Website analysis results and generated email drafts are indicative and may not always accurately reflect the actual state of the website. We recommend verifying them before use.</p>
         </section>
 
         <section>
