@@ -87,8 +87,11 @@
         </div>
       </div>
 
+      <!-- shared limits note -->
+      <p class="mt-8 text-center text-sm text-neutral-500 dark:text-neutral-400">{{ $t('landing.pricing.shared_limits') }}</p>
+
       <!-- trial note -->
-      <p class="mt-8 text-center text-sm text-neutral-500 dark:text-neutral-400">
+      <p class="mt-3 text-center text-sm text-neutral-500 dark:text-neutral-400">
         {{ $t('landing.pricing.trial_note') }}
         <NuxtLink to="/sign-in" class="text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 underline transition-colors">{{ $t('landing.pricing.trial_cta') }}</NuxtLink>
       </p>
