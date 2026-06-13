@@ -385,7 +385,7 @@
       "subject_label": "Předmět",
       "body_label": "Text šablony",
       "custom_prompt_label": "Vlastní instrukce pro AI",
-      "custom_prompt_placeholder": "např. Piš formálně. Vždy zmiň SSL jako první. Zakončuj konkrétní otázkou.",
+      "custom_prompt_placeholder": "např. Piš formálně. Nabídni bezplatnou ukázku webu. Zmiň, že pracuješ rychle.",
       "placeholders_hint": "Dostupné proměnné",
       "boolean_hint": "Booleovské proměnné (v podmínkách: 0 = ne, 1 = ano)",
       "conditions_hint": "Příklad podmínky",
